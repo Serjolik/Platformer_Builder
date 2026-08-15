@@ -1,6 +1,15 @@
 @echo off
-chcp 65001 >nul
+setlocal EnableExtensions
 cd /d "%~dp0"
 title Blockout Map Constructor
-start "" cmd /c "timeout /t 3 /nobreak >nul & start "" http://localhost:3000"
-npm.cmd run dev
+
+powershell.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File "%~dp0start-constructor.ps1"
+set "LAUNCH_EXIT=%ERRORLEVEL%"
+
+echo.
+echo Launcher finished with exit code %LAUNCH_EXIT%.
+echo Diagnostic log: "%~dp0constructor-launch.log"
+echo Send this log file to the developer if the problem continues.
+echo.
+pause
+exit /b %LAUNCH_EXIT%
