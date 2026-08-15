@@ -12,9 +12,10 @@ type PathMode = "line" | "rail";
 type EnemyType = "normal" | "heavy";
 type NpcRole = "npc" | "merchant";
 type TrackOrientation = "horizontal" | "vertical";
-type PlacedItem = Point & { id: string; kind: PrimitiveKind; label: string; color: string; w: number; h: number; trackPosition?: number; trackOrientation?: TrackOrientation; keyName?: string; polygonPoints?: Point[]; sideTypes?: SideType[]; platformMode?: PlatformMode; hazardDirection?: HazardDirection; enemyType?: EnemyType; npcRole?: NpcRole };
-type PathItem = { id: string; kind: "line" | "arrow"; from: Point; to: Point; control?: Point; color: string; pathMode?: PathMode };
-type MapDocument = { version: 1; name: string; grid: number; items: PlacedItem[]; paths: PathItem[] };
+type MapLayer = { id: string; name: string; visible: boolean; locked: boolean };
+type PlacedItem = Point & { id: string; kind: PrimitiveKind; label: string; color: string; w: number; h: number; layerId?: string; trackPosition?: number; trackOrientation?: TrackOrientation; keyName?: string; polygonPoints?: Point[]; sideTypes?: SideType[]; platformMode?: PlatformMode; hazardDirection?: HazardDirection; enemyType?: EnemyType; npcRole?: NpcRole };
+type PathItem = { id: string; kind: "line" | "arrow"; from: Point; to: Point; control?: Point; color: string; pathMode?: PathMode; layerId?: string };
+type MapDocument = { version: 1; name: string; grid: number; items: PlacedItem[]; paths: PathItem[]; layers: MapLayer[]; inactiveLayerOpacity: number };
 type ResizeDirection = "n" | "e" | "s" | "w";
 type Gesture = {
   mode: "pan" | "item" | "path" | "resize" | "marquee" | "track-position" | "path-move" | "path-handle" | "polygon-vertex";
@@ -34,6 +35,12 @@ type ClipboardPayload = { items: PlacedItem[]; paths: PathItem[]; anchor: Point 
 
 const CELL = 32;
 const STORAGE_KEY = "blockout-map-v1";
+const BACKGROUND_LAYER_ID = "layer-background";
+const GAMEPLAY_LAYER_ID = "layer-gameplay";
+const defaultLayers = (): MapLayer[] => [
+  { id: BACKGROUND_LAYER_ID, name: "Фон", visible: true, locked: false },
+  { id: GAMEPLAY_LAYER_ID, name: "Геймплей", visible: true, locked: false },
+];
 const palette: { title: string; items: Array<{ kind: PrimitiveKind; label: string; icon: string; color: string; w: number; h: number; enemyType?: EnemyType; npcRole?: NpcRole }> }[] = [
   { title: "ПРОТИВНИКИ", items: [
     { kind: "enemy", label: "Обычный враг", icon: "◆", color: "#ff655d", w: 1, h: 1, enemyType: "normal" },
@@ -66,8 +73,21 @@ const palette: { title: string; items: Array<{ kind: PrimitiveKind; label: strin
   ]},
 ];
 
-const emptyDocument = (): MapDocument => ({ version: 1, name: "Новая локация", grid: CELL, items: [], paths: [] });
+const emptyDocument = (): MapDocument => ({ version: 1, name: "Новая локация", grid: CELL, items: [], paths: [], layers: defaultLayers(), inactiveLayerOpacity: .32 });
 const id = () => `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 7)}`;
+const normalizeDocument = (document: Partial<MapDocument>): MapDocument => {
+  const layers = Array.isArray(document.layers) && document.layers.length ? document.layers : defaultLayers();
+  const fallbackLayerId = layers.some(layer => layer.id === GAMEPLAY_LAYER_ID) ? GAMEPLAY_LAYER_ID : layers[layers.length - 1].id;
+  return {
+    version: 1,
+    name: document.name ?? "Новая локация",
+    grid: CELL,
+    layers,
+    inactiveLayerOpacity: typeof document.inactiveLayerOpacity === "number" ? Math.min(1, Math.max(.05, document.inactiveLayerOpacity)) : .32,
+    items: Array.isArray(document.items) ? document.items.map(item => ({ ...item, layerId: item.layerId ?? fallbackLayerId })) : [],
+    paths: Array.isArray(document.paths) ? document.paths.map(path => ({ ...path, layerId: path.layerId ?? fallbackLayerId })) : [],
+  };
+};
 const snap = (value: number) => Math.round(value / CELL) * CELL;
 const pathControl = (path: PathItem): Point => path.control ?? { x: (path.from.x + path.to.x) / 2, y: (path.from.y + path.to.y) / 2 };
 const pathData = (path: PathItem) => {
@@ -147,6 +167,7 @@ const itemColor = (item: PlacedItem, items: PlacedItem[] = []) => {
 
 export default function MapEditor() {
   const [doc, setDoc] = useState<MapDocument>(emptyDocument);
+  const [activeLayerId, setActiveLayerId] = useState(GAMEPLAY_LAYER_ID);
   const [tool, setTool] = useState<Tool>("select");
   const [collapsedGroups, setCollapsedGroups] = useState<string[]>([]);
   const [pan, setPan] = useState<Point>({ x: 480, y: 300 });
@@ -168,12 +189,19 @@ export default function MapEditor() {
   useEffect(() => { docRef.current = doc; }, [doc]);
 
   useEffect(() => {
+    if (!doc.layers.some(layer => layer.id === activeLayerId && layer.visible && !layer.locked)) {
+      setActiveLayerId(doc.layers.find(layer => layer.visible && !layer.locked)?.id ?? doc.layers[0]?.id ?? GAMEPLAY_LAYER_ID);
+    }
+  }, [activeLayerId, doc.layers]);
+
+  useEffect(() => {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (raw) {
       try {
-        const restored = JSON.parse(raw) as MapDocument;
+        const restored = normalizeDocument(JSON.parse(raw) as Partial<MapDocument>);
         docRef.current = restored;
         setDoc(restored);
+        setActiveLayerId(restored.layers.find(layer => layer.id === GAMEPLAY_LAYER_ID && layer.visible && !layer.locked)?.id ?? restored.layers.find(layer => layer.visible && !layer.locked)?.id ?? restored.layers[0].id);
       } catch { /* Keep a clean document. */ }
     }
   }, []);
@@ -269,9 +297,9 @@ export default function MapEditor() {
       x: snap(cursorWorldRef.current.x - clipboard.anchor.x),
       y: snap(cursorWorldRef.current.y - clipboard.anchor.y),
     };
-    const items = clipboard.items.map(item => ({ ...structuredClone(item), id: id(), x: item.x + delta.x, y: item.y + delta.y }));
+    const items = clipboard.items.map(item => ({ ...structuredClone(item), id: id(), layerId: activeLayerId, x: item.x + delta.x, y: item.y + delta.y }));
     const paths = clipboard.paths.map(path => ({
-      ...structuredClone(path), id: id(),
+      ...structuredClone(path), id: id(), layerId: activeLayerId,
       from: { x: path.from.x + delta.x, y: path.from.y + delta.y },
       to: { x: path.to.x + delta.x, y: path.to.y + delta.y },
       control: path.control ? { x: path.control.x + delta.x, y: path.control.y + delta.y } : undefined,
@@ -279,7 +307,7 @@ export default function MapEditor() {
     commit(current => ({ ...current, items: [...current.items, ...items], paths: [...current.paths, ...paths] }));
     setSelected([...items.map(item => item.id), ...paths.map(path => path.id)]);
     setSelectedSide(null);
-  }, [commit]);
+  }, [activeLayerId, commit]);
 
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
@@ -328,7 +356,7 @@ export default function MapEditor() {
     if ((tool === "line" || tool === "arrow") && event.button === 0) {
       const world = screenToWorld(event.clientX, event.clientY);
       const point = { x: snap(world.x), y: snap(world.y) };
-      const path: PathItem = { id: id(), kind: tool, from: point, to: point, color: tool === "arrow" ? "#f2b84b" : "#c8d1dc" };
+      const path: PathItem = { id: id(), kind: tool, from: point, to: point, color: tool === "arrow" ? "#f2b84b" : "#c8d1dc", layerId: activeLayerId };
       gesture.current = { mode: "path", start: point, origin: point };
       setDraftPath(path);
       event.currentTarget.setPointerCapture(event.pointerId);
@@ -460,8 +488,9 @@ export default function MapEditor() {
       const right = Math.max(marquee.from.x, marquee.to.x);
       const top = Math.min(marquee.from.y, marquee.to.y);
       const bottom = Math.max(marquee.from.y, marquee.to.y);
-      const itemHits = docRef.current.items.filter(item => item.x < right && item.x + item.w * CELL > left && item.y < bottom && item.y + item.h * CELL > top).map(item => item.id);
-      const pathHits = docRef.current.paths.filter(path => pathTouchesRect(path, left, right, top, bottom)).map(path => path.id);
+      const selectableLayers = new Set(docRef.current.layers.filter(layer => layer.visible && !layer.locked).map(layer => layer.id));
+      const itemHits = docRef.current.items.filter(item => selectableLayers.has(item.layerId ?? GAMEPLAY_LAYER_ID) && item.x < right && item.x + item.w * CELL > left && item.y < bottom && item.y + item.h * CELL > top).map(item => item.id);
+      const pathHits = docRef.current.paths.filter(path => selectableLayers.has(path.layerId ?? GAMEPLAY_LAYER_ID) && pathTouchesRect(path, left, right, top, bottom)).map(path => path.id);
       const hits = [...itemHits, ...pathHits];
       setSelected(currentSelection => marquee.additive ? Array.from(new Set([...currentSelection, ...hits])) : hits);
     }
@@ -472,6 +501,8 @@ export default function MapEditor() {
 
   const startItemDrag = (event: ReactPointerEvent, item: PlacedItem) => {
     if (tool !== "select" || event.button !== 0) return;
+    if (docRef.current.layers.find(layer => layer.id === (item.layerId ?? GAMEPLAY_LAYER_ID))?.locked) return;
+    setActiveLayerId(item.layerId ?? GAMEPLAY_LAYER_ID);
     event.stopPropagation();
     setSelectedSide(null);
     const activeIds = event.shiftKey
@@ -513,6 +544,8 @@ export default function MapEditor() {
 
   const startPathMove = (event: ReactPointerEvent, path: PathItem) => {
     if (tool !== "select" || event.button !== 0) return;
+    if (docRef.current.layers.find(layer => layer.id === (path.layerId ?? GAMEPLAY_LAYER_ID))?.locked) return;
+    setActiveLayerId(path.layerId ?? GAMEPLAY_LAYER_ID);
     event.preventDefault();
     event.stopPropagation();
     setSelectedSide(null);
@@ -569,7 +602,7 @@ export default function MapEditor() {
     const template = JSON.parse(raw) as (typeof palette)[number]["items"][number];
     const world = screenToWorld(event.clientX, event.clientY);
     const item: PlacedItem = {
-      id: id(), kind: template.kind, label: template.label, color: template.color, w: template.w, h: template.h,
+      id: id(), kind: template.kind, label: template.label, color: template.color, w: template.w, h: template.h, layerId: activeLayerId,
       x: snap(world.x - template.w * CELL / 2), y: snap(world.y - template.h * CELL / 2),
       ...(template.kind === "moving" ? { trackPosition: .5, trackOrientation: "horizontal" as TrackOrientation } : {}),
       ...(template.kind === "platform" ? { platformMode: "normal" as PlatformMode } : {}),
@@ -602,9 +635,11 @@ export default function MapEditor() {
     const reader = new FileReader();
     reader.onload = () => {
       try {
-        const parsed = JSON.parse(String(reader.result)) as MapDocument;
+        const parsed = JSON.parse(String(reader.result)) as Partial<MapDocument>;
         if (!Array.isArray(parsed.items) || !Array.isArray(parsed.paths)) throw new Error();
-        commit({ ...parsed, version: 1, grid: CELL });
+        const normalized = normalizeDocument(parsed);
+        commit(normalized);
+        setActiveLayerId(normalized.layers.find(layer => layer.id === GAMEPLAY_LAYER_ID && layer.visible && !layer.locked)?.id ?? normalized.layers.find(layer => layer.visible && !layer.locked)?.id ?? normalized.layers[0].id);
         setSelected([]);
       } catch { window.alert("Не удалось прочитать файл карты."); }
     };
@@ -613,11 +648,75 @@ export default function MapEditor() {
 
   const selectedItem = useMemo(() => selected.length === 1 ? doc.items.find(item => item.id === selected[0]) : undefined, [doc.items, selected]);
   const selectedPath = useMemo(() => selected.length === 1 ? doc.paths.find(path => path.id === selected[0]) : undefined, [doc.paths, selected]);
+  const layerIndex = useMemo(() => new Map(doc.layers.map((layer, index) => [layer.id, index])), [doc.layers]);
+  const visibleLayerIds = useMemo(() => new Set(doc.layers.filter(layer => layer.visible).map(layer => layer.id)), [doc.layers]);
+  const visibleItems = useMemo(() => doc.items
+    .filter(item => visibleLayerIds.has(item.layerId ?? GAMEPLAY_LAYER_ID))
+    .sort((a, b) => (layerIndex.get(a.layerId ?? GAMEPLAY_LAYER_ID) ?? 0) - (layerIndex.get(b.layerId ?? GAMEPLAY_LAYER_ID) ?? 0)), [doc.items, layerIndex, visibleLayerIds]);
   const locationKeyNames = useMemo(() => Array.from(new Set(doc.items.filter(item => item.kind === "key").map(item => item.keyName ?? "Key_A"))), [doc.items]);
   const linkedKey = useMemo(() => selectedItem?.kind === "door" && selectedItem.keyName
     ? doc.items.find(item => item.kind === "key" && (item.keyName ?? "Key_A") === selectedItem.keyName)
     : undefined, [doc.items, selectedItem]);
-  const allPaths = draftPath ? [...doc.paths, draftPath] : doc.paths;
+  const allPaths = (draftPath ? [...doc.paths, draftPath] : doc.paths)
+    .filter(path => visibleLayerIds.has(path.layerId ?? GAMEPLAY_LAYER_ID))
+    .sort((a, b) => (layerIndex.get(a.layerId ?? GAMEPLAY_LAYER_ID) ?? 0) - (layerIndex.get(b.layerId ?? GAMEPLAY_LAYER_ID) ?? 0));
+
+  const addLayer = () => {
+    const layer: MapLayer = { id: id(), name: `Слой ${doc.layers.length + 1}`, visible: true, locked: false };
+    commit(current => ({ ...current, layers: [...current.layers, layer] }));
+    setActiveLayerId(layer.id);
+  };
+
+  const updateLayer = (layerId: string, changes: Partial<MapLayer>) => {
+    commit(current => ({ ...current, layers: current.layers.map(layer => layer.id === layerId ? { ...layer, ...changes } : layer) }));
+    if (changes.visible === false || changes.locked === true) {
+      const affectedIds = new Set([
+        ...doc.items.filter(item => (item.layerId ?? GAMEPLAY_LAYER_ID) === layerId).map(item => item.id),
+        ...doc.paths.filter(path => (path.layerId ?? GAMEPLAY_LAYER_ID) === layerId).map(path => path.id),
+      ]);
+      setSelected(current => current.filter(selectedId => !affectedIds.has(selectedId)));
+      setSelectedSide(null);
+    }
+  };
+
+  const renameLayer = (layerId: string, name: string) => {
+    const next = { ...docRef.current, layers: docRef.current.layers.map(layer => layer.id === layerId ? { ...layer, name } : layer) };
+    docRef.current = next;
+    setDoc(next);
+    setSaved(false);
+  };
+
+  const moveLayer = (layerId: string, delta: number) => commit(current => {
+    const index = current.layers.findIndex(layer => layer.id === layerId);
+    const target = index + delta;
+    if (index < 0 || target < 0 || target >= current.layers.length) return current;
+    const layers = [...current.layers];
+    [layers[index], layers[target]] = [layers[target], layers[index]];
+    return { ...current, layers };
+  });
+
+  const removeLayer = (layerId: string) => {
+    if (doc.layers.length <= 1) return;
+    const fallback = doc.layers.find(layer => layer.id !== layerId)!;
+    commit(current => ({
+      ...current,
+      layers: current.layers.filter(layer => layer.id !== layerId),
+      items: current.items.map(item => (item.layerId ?? GAMEPLAY_LAYER_ID) === layerId ? { ...item, layerId: fallback.id } : item),
+      paths: current.paths.map(path => (path.layerId ?? GAMEPLAY_LAYER_ID) === layerId ? { ...path, layerId: fallback.id } : path),
+    }));
+    setActiveLayerId(fallback.id);
+    setSelected([]);
+    setSelectedSide(null);
+  };
+
+  const moveSelectionToLayer = (layerId: string) => {
+    const selectedIds = new Set(selected);
+    commit(current => ({
+      ...current,
+      items: current.items.map(item => selectedIds.has(item.id) ? { ...item, layerId } : item),
+      paths: current.paths.map(path => selectedIds.has(path.id) ? { ...path, layerId } : path),
+    }));
+  };
 
   const setSelectedPolygonSideType = (type: SideType) => {
     if (!selectedItem || (selectedItem.kind !== "liquid" && selectedItem.kind !== "room") || !selectedSide || selectedSide.itemId !== selectedItem.id) return;
@@ -647,7 +746,7 @@ export default function MapEditor() {
   };
 
   return (
-    <main className="app-shell" onContextMenu={event => event.preventDefault()}>
+    <main className="app-shell" style={{ "--inactive-layer-opacity": doc.inactiveLayerOpacity ?? .32 } as React.CSSProperties} onContextMenu={event => event.preventDefault()}>
       <header className="topbar">
         <div className="brand"><span className="brand-mark">B</span><span>BLOCKOUT</span><span className="version">LOCAL</span></div>
         <input className="map-name" value={doc.name} aria-label="Название локации" onChange={event => { setDoc({ ...doc, name: event.target.value }); setSaved(false); }} />
@@ -690,6 +789,7 @@ export default function MapEditor() {
           <button className={tool === "arrow" ? "active" : ""} onClick={() => setTool("arrow")}><span>➜</span> Стрелка <kbd>3</kbd></button>
           <i />
           <button className="danger-tool" disabled={!selected.length} onClick={removeSelected}>Удалить{selected.length > 1 ? ` (${selected.length})` : ""}</button>
+          <span className="active-layer-chip">Слой: {doc.layers.find(layer => layer.id === activeLayerId)?.name ?? "—"}</span>
         </div>
         <div
           ref={viewportRef}
@@ -706,7 +806,9 @@ export default function MapEditor() {
           <div className="world" style={{ transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})` }}>
             <svg className="path-layer" aria-hidden="true">
               <defs><marker id="arrowhead" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="context-stroke" /></marker></defs>
-              {allPaths.map(path => <g key={path.id} className={selected.includes(path.id) ? "selected-path" : ""}>
+              {allPaths.map(path => {
+                const pathLayer = doc.layers.find(layer => layer.id === (path.layerId ?? GAMEPLAY_LAYER_ID));
+                return <g key={path.id} className={`${selected.includes(path.id) ? "selected-path" : ""} ${pathLayer?.locked ? "locked-layer-object" : ""} ${path.id !== draftPath?.id && (path.layerId ?? GAMEPLAY_LAYER_ID) !== activeLayerId ? "inactive-layer-object" : ""}`}>
                 {path.pathMode === "rail" && <path className="rail-bed" d={pathData(path)} stroke={path.color} />}
                 <path className={`map-path ${path.pathMode === "rail" ? "rail-center" : ""}`} d={pathData(path)} stroke={path.pathMode === "rail" ? "#121820" : path.color} markerEnd={path.kind === "arrow" && path.pathMode !== "rail" ? "url(#arrowhead)" : undefined} />
                 {path.pathMode === "rail" && railArrows(path).map((arrow, index) => <path
@@ -714,7 +816,7 @@ export default function MapEditor() {
                   transform={`translate(${arrow.x} ${arrow.y}) rotate(${arrow.angle})`} fill="#f5f8fa"
                 />)}
                 <path className="path-hit" d={pathData(path)} onPointerDown={event => startPathMove(event, path)} />
-              </g>)}
+              </g>;})}
               {selectedPath && <>
                 <path className="control-guide" d={`M ${selectedPath.from.x} ${selectedPath.from.y} L ${pathControl(selectedPath).x} ${pathControl(selectedPath).y} L ${selectedPath.to.x} ${selectedPath.to.y}`} />
                 <circle className="path-node endpoint-node" cx={selectedPath.from.x} cy={selectedPath.from.y} r="6" onPointerDown={event => startPathHandle(event, selectedPath, "from")} />
@@ -730,10 +832,12 @@ export default function MapEditor() {
                 stroke={itemColor(selectedItem, doc.items)}
               />}
             </svg>
-            {doc.items.map(item => <div
+            {visibleItems.map(item => {
+              const itemLayer = doc.layers.find(layer => layer.id === (item.layerId ?? GAMEPLAY_LAYER_ID));
+              return <div
               key={item.id}
-              className={`map-item kind-${item.kind} ${item.kind === "platform" ? `platform-${item.platformMode ?? "normal"}` : ""} ${item.kind === "moving" ? `moving-${item.trackOrientation ?? "horizontal"}` : ""} ${selected.includes(item.id) ? "selected" : ""}`}
-              style={{ left: item.x, top: item.y, width: item.w * CELL, height: item.h * CELL, "--item-color": itemColor(item, doc.items), "--cells": item.w } as React.CSSProperties}
+              className={`map-item kind-${item.kind} ${item.kind === "platform" ? `platform-${item.platformMode ?? "normal"}` : ""} ${item.kind === "moving" ? `moving-${item.trackOrientation ?? "horizontal"}` : ""} ${itemLayer?.locked ? "locked-layer-object" : ""} ${(item.layerId ?? GAMEPLAY_LAYER_ID) !== activeLayerId ? "inactive-layer-object" : ""} ${selected.includes(item.id) ? "selected" : ""}`}
+              style={{ left: item.x, top: item.y, width: item.w * CELL, height: item.h * CELL, zIndex: selected.includes(item.id) ? 1000 : 10 + (layerIndex.get(item.layerId ?? GAMEPLAY_LAYER_ID) ?? 0) * 10, "--item-color": itemColor(item, doc.items), "--cells": item.w } as React.CSSProperties}
               onPointerDown={event => startItemDrag(event, item)}
             >
               {item.kind === "room" ? <svg className="room-shape" viewBox={`0 0 ${item.w * CELL} ${item.h * CELL}`} preserveAspectRatio="none">
@@ -773,7 +877,7 @@ export default function MapEditor() {
                     ? <span className="enemy-shield"><span className="enemy-diamond" /></span>
                     : <span className="enemy-diamond" />}
                 </span>)}
-              </div> : item.kind === "player" || item.kind === "npc" ? <div className={`character-placeholder ${item.kind === "player" ? "character-player" : `character-${item.npcRole ?? "npc"}`}`}>
+              </div> : item.kind === "player" || item.kind === "npc" ? <div className={`character-placeholder ${item.kind === "player" ? "character-player" : `character-${item.npcRole ?? "npc"}`} ${item.w <= 1 && item.h <= 1 ? "character-compact" : ""}`}>
                 <span className="character-caption">{item.kind === "player" ? "ИГРОК" : item.npcRole === "merchant" ? "ТОРГОВЕЦ" : "NPC"}</span>
                 <span className="character-head" />
                 <span className="character-body" />
@@ -815,7 +919,7 @@ export default function MapEditor() {
                 <small>CHECKPOINT</small>
               </div> : item.kind === "comment" ? <div className="comment-zone">
                 <span>{item.label || "Комментарий зоны"}</span>
-              </div> : item.kind === "boss" ? <div className="boss-figure">
+              </div> : item.kind === "boss" ? <div className={`boss-figure ${item.w < 2 || item.h < 2 ? "boss-compact" : ""}`}>
                 <span className="boss-name">{item.label || "ИМЯ БОССА"}</span>
                 <span className="boss-head" />
                 <span className="boss-arm boss-arm-left" /><span className="boss-arm boss-arm-right" />
@@ -856,7 +960,7 @@ export default function MapEditor() {
                   <button className="resize-handle resize-w" aria-label="Добавить лиану слева" title="Добавить лиану слева" onPointerDown={event => startResize(event, item, "w")} />
                 </>}
               </>}
-            </div>)}
+            </div>;})}
           </div>
           {marquee && <div className="selection-marquee" style={{
             left: Math.min(marquee.from.x, marquee.to.x) * zoom + pan.x,
@@ -875,6 +979,9 @@ export default function MapEditor() {
         {selected.length > 1 ? <div className="inspector-empty multi-selection"><span>{selected.length}</span><b>Объектов выбрано</b><small>Перетащите любой выбранный объект, чтобы сдвинуть всю группу. Нажмите Delete, чтобы удалить её.</small></div> : selectedItem ? <div className="inspector-body">
           <span className="selection-badge" style={{ color: itemColor(selectedItem, doc.items) }}>● ВЫБРАН ОБЪЕКТ</span>
           <label>{selectedItem.kind === "boss" ? "Имя босса" : "Название"}<input value={selectedItem.label} onChange={event => setDoc(value => ({ ...value, items: value.items.map(item => item.id === selectedItem.id ? { ...item, label: event.target.value } : item) }))} /></label>
+          <label>Слой<select value={selectedItem.layerId ?? GAMEPLAY_LAYER_ID} onChange={event => moveSelectionToLayer(event.target.value)}>
+            {doc.layers.filter(layer => layer.visible && !layer.locked).map(layer => <option value={layer.id} key={layer.id}>{layer.name}</option>)}
+          </select></label>
           {selectedItem.kind === "platform" && <label>Режим платформы<select value={selectedItem.platformMode ?? "normal"} onChange={event => updateItemLive(selectedItem.id, { platformMode: event.target.value as PlatformMode })}>
             <option value="normal">Обычная</option>
             <option value="crumble">Осыпающаяся при наступании</option>
@@ -948,6 +1055,9 @@ export default function MapEditor() {
           <button className="wide danger-tool" onClick={removeSelected}>Удалить объект</button>
         </div> : selectedPath ? <div className="inspector-body path-inspector">
           <span className="selection-badge" style={{ color: selectedPath.color }}>● {selectedPath.kind === "arrow" ? "ВЫБРАНА СТРЕЛКА" : "ВЫБРАНА ЛИНИЯ"}</span>
+          <label>Слой<select value={selectedPath.layerId ?? GAMEPLAY_LAYER_ID} onChange={event => moveSelectionToLayer(event.target.value)}>
+            {doc.layers.filter(layer => layer.visible && !layer.locked).map(layer => <option value={layer.id} key={layer.id}>{layer.name}</option>)}
+          </select></label>
           <label>Режим линии<select value={selectedPath.pathMode ?? "line"} onChange={event => updatePathLive(selectedPath.id, path => ({ ...path, pathMode: event.target.value as PathMode }))}>
             <option value="line">Обычная линия</option>
             <option value="rail">Рельсы / дорога</option>
@@ -958,6 +1068,30 @@ export default function MapEditor() {
           <div className="path-help"><i className="endpoint-dot" /><span><b>Концы</b><small>Тяните белые точки</small></span></div>
           <button className="wide danger-tool" onClick={removeSelected}>Удалить линию</button>
         </div> : <div className="inspector-empty"><span>◇</span><b>Ничего не выбрано</b><small>Выберите объект, линию или стрелку на карте, чтобы изменить его свойства.</small></div>}
+        <section className="layers-panel">
+          <div className="layers-heading"><span>СЛОИ</span><button onClick={addLayer} title="Добавить слой">＋</button></div>
+          <label className="layer-opacity-control"><span>Неактивные слои</span><input type="range" min="5" max="80" step="1" value={Math.round((doc.inactiveLayerOpacity ?? .32) * 100)} onChange={event => {
+            const next = { ...docRef.current, inactiveLayerOpacity: Number(event.target.value) / 100 };
+            docRef.current = next;
+            setDoc(next);
+            setSaved(false);
+          }} /><b>{Math.round((doc.inactiveLayerOpacity ?? .32) * 100)}%</b></label>
+          <div className="layers-list">
+            {[...doc.layers].reverse().map(layer => {
+              const originalIndex = doc.layers.findIndex(candidate => candidate.id === layer.id);
+              const objectsCount = doc.items.filter(item => (item.layerId ?? GAMEPLAY_LAYER_ID) === layer.id).length + doc.paths.filter(path => (path.layerId ?? GAMEPLAY_LAYER_ID) === layer.id).length;
+              return <div className={`layer-row ${activeLayerId === layer.id ? "active" : ""} ${layer.locked ? "is-locked" : ""}`} key={layer.id} onClick={() => layer.visible && !layer.locked && setActiveLayerId(layer.id)}>
+                <button className="layer-icon-button" title={layer.visible ? "Скрыть слой" : "Показать слой"} onClick={event => { event.stopPropagation(); updateLayer(layer.id, { visible: !layer.visible }); }}>{layer.visible ? "●" : "○"}</button>
+                <input value={layer.name} aria-label="Название слоя" onClick={event => event.stopPropagation()} onChange={event => renameLayer(layer.id, event.target.value)} />
+                <small>{objectsCount}</small>
+                <button className="layer-icon-button" title={layer.locked ? "Разблокировать" : "Заблокировать"} onClick={event => { event.stopPropagation(); updateLayer(layer.id, { locked: !layer.locked }); }}>{layer.locked ? "◆" : "◇"}</button>
+                <button className="layer-icon-button" disabled={originalIndex === doc.layers.length - 1} title="Поднять слой" onClick={event => { event.stopPropagation(); moveLayer(layer.id, 1); }}>↑</button>
+                <button className="layer-icon-button" disabled={originalIndex === 0} title="Опустить слой" onClick={event => { event.stopPropagation(); moveLayer(layer.id, -1); }}>↓</button>
+                <button className="layer-icon-button layer-delete" disabled={doc.layers.length <= 1} title="Удалить слой без удаления объектов" onClick={event => { event.stopPropagation(); removeLayer(layer.id); }}>×</button>
+              </div>;
+            })}
+          </div>
+        </section>
         <div className="map-stats"><span><b>{doc.items.length}</b> объектов</span><span><b>{doc.paths.length}</b> линий</span></div>
       </aside>
     </main>
