@@ -143,7 +143,8 @@ kbd { font-family: inherit; font-size: 8px; opacity: .55; border: 1px solid curr
 .room-side { fill: none; stroke: var(--item-color); stroke-width: 5; stroke-linecap: round; vector-effect: non-scaling-stroke; pointer-events: none; }
 .room-side-door { stroke-dasharray: 34 32 34; }
 .room-side-opening { stroke-dasharray: 10 80 10; opacity: .65; }
-.room-side-hit { fill: none; stroke: transparent; stroke-width: 18; vector-effect: non-scaling-stroke; pointer-events: stroke; cursor: pointer; }
+.room-side-hit { fill: none; stroke: transparent; stroke-width: 18; vector-effect: non-scaling-stroke; pointer-events: stroke; cursor: grab; }
+.room-side-hit:active { cursor: grabbing; }
 .room-side-selected .room-side { stroke: #fff; stroke-width: 7; filter: drop-shadow(0 0 5px var(--item-color)); }
 .room-side-label { fill: #d9e2ea; stroke: #11151a; stroke-width: 3px; paint-order: stroke; text-anchor: middle; dominant-baseline: central; font-size: 8px; font-weight: 900; letter-spacing: .08em; pointer-events: none; }
 .room-side-label-opening { fill: #92b5c5; }

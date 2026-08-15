@@ -18,7 +18,7 @@ type PathItem = { id: string; kind: "line" | "arrow"; from: Point; to: Point; co
 type MapDocument = { version: 1; name: string; grid: number; items: PlacedItem[]; paths: PathItem[]; layers: MapLayer[]; inactiveLayerOpacity: number };
 type ResizeDirection = "n" | "e" | "s" | "w";
 type Gesture = {
-  mode: "pan" | "item" | "path" | "resize" | "marquee" | "track-position" | "path-move" | "path-handle" | "polygon-vertex";
+  mode: "pan" | "item" | "path" | "resize" | "marquee" | "track-position" | "path-move" | "path-handle" | "polygon-vertex" | "room-side-extrude";
   start: Point;
   origin: Point;
   itemId?: string;
@@ -28,6 +28,7 @@ type Gesture = {
   pathSnapshots?: PathItem[];
   pathHandle?: "from" | "to" | "control";
   vertexIndex?: number;
+  sideIndex?: number;
   direction?: ResizeDirection;
 };
 type Marquee = { from: Point; to: Point; additive: boolean };
@@ -454,6 +455,56 @@ export default function MapEditor() {
         polygonPoints: normalized,
       });
     }
+    if (current.mode === "room-side-extrude" && current.itemSnapshot && current.sideIndex !== undefined) {
+      const world = screenToWorld(event.clientX, event.clientY);
+      const original = current.itemSnapshot;
+      const originalPoints = polygonPoints(original).map(point => ({ ...point }));
+      const sideIndex = current.sideIndex;
+      const from = originalPoints[sideIndex];
+      const to = originalPoints[(sideIndex + 1) % originalPoints.length];
+      const pointerDelta = { x: world.x - current.start.x, y: world.y - current.start.y };
+      const step = CELL / 2;
+      const offset = {
+        x: Math.round(pointerDelta.x / step) * step,
+        y: Math.round(pointerDelta.y / step) * step,
+      };
+
+      if (offset.x === 0 && offset.y === 0) {
+        updateItemLive(original.id, {
+          x: original.x, y: original.y, w: original.w, h: original.h,
+          polygonPoints: originalPoints,
+          sideTypes: original.sideTypes,
+        });
+        setSelectedSide({ itemId: original.id, index: sideIndex });
+      } else {
+        const movedFrom = {
+          x: from.x + offset.x,
+          y: from.y + offset.y,
+        };
+        const movedTo = {
+          x: to.x + offset.x,
+          y: to.y + offset.y,
+        };
+        const points = originalPoints.map(point => ({ ...point }));
+        points.splice(sideIndex + 1, 0, movedFrom, movedTo);
+        const originalTypes = Array.from({ length: originalPoints.length }, (_, index) => original.sideTypes?.[index] ?? "straight") as SideType[];
+        const extrudedType = originalTypes[sideIndex] ?? "straight";
+        originalTypes.splice(sideIndex, 1, "straight", extrudedType, "straight");
+        const minX = Math.min(...points.map(point => point.x));
+        const minY = Math.min(...points.map(point => point.y));
+        const maxX = Math.max(...points.map(point => point.x));
+        const maxY = Math.max(...points.map(point => point.y));
+        updateItemLive(original.id, {
+          x: original.x + minX,
+          y: original.y + minY,
+          w: Math.max(1, Math.ceil((maxX - minX) / CELL)),
+          h: Math.max(1, Math.ceil((maxY - minY) / CELL)),
+          polygonPoints: points.map(point => ({ x: point.x - minX, y: point.y - minY })),
+          sideTypes: originalTypes,
+        });
+        setSelectedSide({ itemId: original.id, index: sideIndex + 1 });
+      }
+    }
     if (current.mode === "resize" && current.itemId && current.itemSnapshot && current.direction) {
       const world = screenToWorld(event.clientX, event.clientY);
       const original = current.itemSnapshot;
@@ -580,6 +631,27 @@ export default function MapEditor() {
     event.stopPropagation();
     setSelected([item.id]);
     setSelectedSide({ itemId: item.id, index });
+  };
+
+  const startRoomSideExtrude = (event: ReactPointerEvent, item: PlacedItem, sideIndex: number) => {
+    if (tool !== "select" || event.button !== 0) return;
+    event.preventDefault();
+    event.stopPropagation();
+    setActiveLayerId(item.layerId ?? GAMEPLAY_LAYER_ID);
+    setSelected([item.id]);
+    setSelectedSide({ itemId: item.id, index: sideIndex });
+    const world = screenToWorld(event.clientX, event.clientY);
+    gesture.current = {
+      mode: "room-side-extrude",
+      start: world,
+      origin: { x: item.x, y: item.y },
+      itemId: item.id,
+      itemSnapshot: { ...item, polygonPoints: polygonPoints(item).map(point => ({ ...point })), sideTypes: item.sideTypes ? [...item.sideTypes] : undefined },
+      sideIndex,
+    };
+    viewportRef.current?.setPointerCapture(event.pointerId);
+    setHistory(history => [...history.slice(-39), docRef.current]);
+    setFuture([]);
   };
 
   const startPolygonVertex = (event: ReactPointerEvent, item: PlacedItem, vertexIndex: number) => {
@@ -848,7 +920,7 @@ export default function MapEditor() {
                   const isSelectedSide = selectedSide?.itemId === item.id && selectedSide.index === index;
                   return <g key={`room-side-${index}`} className={isSelectedSide ? "room-side-selected" : ""}>
                     <path className={`room-side room-side-${sideType}`} pathLength="100" d={sidePathData(point, next, "straight")} />
-                    <path className="room-side-hit" d={sidePathData(point, next, "straight")} onPointerDown={event => selectPolygonSide(event, item, index)} />
+                    <path className="room-side-hit" d={sidePathData(point, next, "straight")} onPointerDown={event => startRoomSideExtrude(event, item, index)} />
                     {(sideType === "door" || sideType === "opening") && <text className={`room-side-label room-side-label-${sideType}`} x={(point.x + next.x) / 2} y={(point.y + next.y) / 2}>{sideType === "door" ? "ДВЕРЬ" : "ПРОХОД"}</text>}
                   </g>;
                 })}
@@ -1026,7 +1098,7 @@ export default function MapEditor() {
             </> : <div className="side-not-selected">Выберите одну из сторон многоугольника</div>}
           </div>}
           {selectedItem.kind === "room" && <div className="room-inspector">
-            <div className="room-help"><b>Границы комнаты</b><small>Тяните белые вершины, чтобы менять форму. Нажмите на сторону и назначьте ей стену, дверь или свободный проход.</small></div>
+            <div className="room-help"><b>Границы комнаты</b><small>Тяните белые вершины, чтобы менять форму. Саму сторону можно вытягивать в любом направлении — у основания останутся две новые точки.</small></div>
             {selectedSide?.itemId === selectedItem.id ? <>
               <span className="side-caption">СТОРОНА {selectedSide.index + 1}</span>
               <div className="side-type-buttons room-side-buttons">
