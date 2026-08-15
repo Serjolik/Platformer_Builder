@@ -149,6 +149,7 @@ kbd { font-family: inherit; font-size: 8px; opacity: .55; border: 1px solid curr
 .room-side-label { fill: #d9e2ea; stroke: #11151a; stroke-width: 3px; paint-order: stroke; text-anchor: middle; dominant-baseline: central; font-size: 8px; font-weight: 900; letter-spacing: .08em; pointer-events: none; }
 .room-side-label-opening { fill: #92b5c5; }
 .room-vertex { fill: #e8edf2; stroke: #11151a; stroke-width: 2; vector-effect: non-scaling-stroke; pointer-events: all; cursor: move; }
+.room-vertex-selected { fill: var(--accent); stroke: #fff3cf; stroke-width: 3; filter: drop-shadow(0 0 5px var(--accent)); }
 .kind-room .item-size { bottom: -13px; right: 0; }
 .kind-ladder, .kind-vine { border: 0; background: transparent; box-shadow: none; }
 .kind-ladder::before, .kind-vine::before { display: none; }
@@ -279,6 +280,10 @@ kbd { font-family: inherit; font-size: 8px; opacity: .55; border: 1px solid curr
 .room-help b { color: #c6d4df; font-size: 10px; }
 .room-help small { color: #71808d; font-size: 8px; line-height: 1.45; }
 .room-side-buttons { grid-template-columns: repeat(3, 1fr); }
+.selected-vertex-tools { display: grid; gap: 7px; padding: 9px; border: 1px solid #5b4b2a; background: #252116; }
+.selected-vertex-tools > span { color: var(--accent); font-size: 8px; font-weight: 800; letter-spacing: .12em; }
+.selected-vertex-tools button { padding: 7px; border: 1px solid #754343; background: #321d1d; color: #e09a9a; font-size: 9px; cursor: pointer; }
+.selected-vertex-tools small { color: #776f61; font-size: 8px; line-height: 1.4; }
 .side-type-buttons button { padding: 7px 5px; border: 1px solid #355364; background: #172832; color: #8da6b4; font-size: 9px; cursor: pointer; }
 .side-type-buttons button.active { border-color: #46aee8; background: #16384b; color: #bce9ff; }
 .side-not-selected { padding: 10px; border: 1px dashed #355364; color: #688392; font-size: 9px; text-align: center; }

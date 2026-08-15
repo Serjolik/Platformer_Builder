@@ -175,6 +175,7 @@ export default function MapEditor() {
   const [zoom, setZoom] = useState(1);
   const [selected, setSelected] = useState<string[]>([]);
   const [selectedSide, setSelectedSide] = useState<{ itemId: string; index: number } | null>(null);
+  const [selectedVertex, setSelectedVertex] = useState<{ itemId: string; index: number } | null>(null);
   const [marquee, setMarquee] = useState<Marquee | null>(null);
   const [draftPath, setDraftPath] = useState<PathItem | null>(null);
   const [history, setHistory] = useState<MapDocument[]>([]);
@@ -252,6 +253,7 @@ export default function MapEditor() {
     setDoc(previous);
     setSelected([]);
     setSelectedSide(null);
+    setSelectedVertex(null);
     setSaved(false);
   }, [history]);
 
@@ -264,6 +266,7 @@ export default function MapEditor() {
     setDoc(next);
     setSelected([]);
     setSelectedSide(null);
+    setSelectedVertex(null);
     setSaved(false);
   }, [future]);
 
@@ -273,7 +276,34 @@ export default function MapEditor() {
     commit(current => ({ ...current, items: current.items.filter(item => !selectedIds.has(item.id)), paths: current.paths.filter(path => !selectedIds.has(path.id)) }));
     setSelected([]);
     setSelectedSide(null);
+    setSelectedVertex(null);
   }, [commit, selected]);
+
+  const removeSelectedVertex = useCallback(() => {
+    if (!selectedVertex) return;
+    const target = docRef.current.items.find(item => item.id === selectedVertex.itemId && item.kind === "room");
+    if (!target) return;
+    const points = polygonPoints(target).map(point => ({ ...point }));
+    if (points.length <= 3 || selectedVertex.index < 0 || selectedVertex.index >= points.length) return;
+    points.splice(selectedVertex.index, 1);
+    const sideTypes = Array.from({ length: points.length + 1 }, (_, index) => target.sideTypes?.[index] ?? "straight") as SideType[];
+    sideTypes.splice(selectedVertex.index, 1);
+    const minX = Math.min(...points.map(point => point.x));
+    const minY = Math.min(...points.map(point => point.y));
+    const maxX = Math.max(...points.map(point => point.x));
+    const maxY = Math.max(...points.map(point => point.y));
+    commit(current => ({ ...current, items: current.items.map(item => item.id === target.id ? {
+      ...item,
+      x: target.x + minX,
+      y: target.y + minY,
+      w: Math.max(1, Math.ceil((maxX - minX) / CELL)),
+      h: Math.max(1, Math.ceil((maxY - minY) / CELL)),
+      polygonPoints: points.map(point => ({ x: point.x - minX, y: point.y - minY })),
+      sideTypes,
+    } : item) }));
+    setSelectedVertex(null);
+    setSelectedSide(null);
+  }, [commit, selectedVertex]);
 
   const copySelected = useCallback(() => {
     if (!selected.length) return;
@@ -308,6 +338,7 @@ export default function MapEditor() {
     commit(current => ({ ...current, items: [...current.items, ...items], paths: [...current.paths, ...paths] }));
     setSelected([...items.map(item => item.id), ...paths.map(path => path.id)]);
     setSelectedSide(null);
+    setSelectedVertex(null);
   }, [activeLayerId, commit]);
 
   useEffect(() => {
@@ -320,15 +351,15 @@ export default function MapEditor() {
       if (command && event.code === "KeyS") { event.preventDefault(); save(); }
       if (command && event.code === "KeyC") { event.preventDefault(); copySelected(); }
       if (command && event.code === "KeyV") { event.preventDefault(); pasteClipboard(); }
-      if (event.key === "Delete" || event.key === "Backspace") { event.preventDefault(); removeSelected(); }
-      if (event.key === "Escape") { setDraftPath(null); setMarquee(null); setSelected([]); setSelectedSide(null); setTool("select"); }
+      if (event.key === "Delete" || event.key === "Backspace") { event.preventDefault(); selectedVertex ? removeSelectedVertex() : removeSelected(); }
+      if (event.key === "Escape") { setDraftPath(null); setMarquee(null); setSelected([]); setSelectedSide(null); setSelectedVertex(null); setTool("select"); }
       if (event.key === "1") setTool("select");
       if (event.key === "2") setTool("line");
       if (event.key === "3") setTool("arrow");
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [copySelected, pasteClipboard, redo, removeSelected, save, undo]);
+  }, [copySelected, pasteClipboard, redo, removeSelected, removeSelectedVertex, save, selectedVertex, undo]);
 
   const screenToWorld = (clientX: number, clientY: number) => {
     const rect = viewportRef.current!.getBoundingClientRect();
@@ -365,7 +396,7 @@ export default function MapEditor() {
     }
     if (tool === "select" && event.button === 0) {
       const world = screenToWorld(event.clientX, event.clientY);
-      if (!event.shiftKey) { setSelected([]); setSelectedSide(null); }
+      if (!event.shiftKey) { setSelected([]); setSelectedSide(null); setSelectedVertex(null); }
       setMarquee({ from: world, to: world, additive: event.shiftKey });
       gesture.current = { mode: "marquee", start: world, origin: world };
       event.currentTarget.setPointerCapture(event.pointerId);
@@ -544,6 +575,7 @@ export default function MapEditor() {
       const pathHits = docRef.current.paths.filter(path => selectableLayers.has(path.layerId ?? GAMEPLAY_LAYER_ID) && pathTouchesRect(path, left, right, top, bottom)).map(path => path.id);
       const hits = [...itemHits, ...pathHits];
       setSelected(currentSelection => marquee.additive ? Array.from(new Set([...currentSelection, ...hits])) : hits);
+      setSelectedVertex(null);
     }
     gesture.current = null;
     setDraftPath(null);
@@ -556,6 +588,7 @@ export default function MapEditor() {
     setActiveLayerId(item.layerId ?? GAMEPLAY_LAYER_ID);
     event.stopPropagation();
     setSelectedSide(null);
+    setSelectedVertex(null);
     const activeIds = event.shiftKey
       ? Array.from(new Set([...selected, item.id]))
       : selected.includes(item.id) ? selected : [item.id];
@@ -600,6 +633,7 @@ export default function MapEditor() {
     event.preventDefault();
     event.stopPropagation();
     setSelectedSide(null);
+    setSelectedVertex(null);
     const activeIds = event.shiftKey
       ? Array.from(new Set([...selected, path.id]))
       : selected.includes(path.id) ? selected : [path.id];
@@ -631,6 +665,7 @@ export default function MapEditor() {
     event.stopPropagation();
     setSelected([item.id]);
     setSelectedSide({ itemId: item.id, index });
+    setSelectedVertex(null);
   };
 
   const startRoomSideExtrude = (event: ReactPointerEvent, item: PlacedItem, sideIndex: number) => {
@@ -640,6 +675,7 @@ export default function MapEditor() {
     setActiveLayerId(item.layerId ?? GAMEPLAY_LAYER_ID);
     setSelected([item.id]);
     setSelectedSide({ itemId: item.id, index: sideIndex });
+    setSelectedVertex(null);
     const world = screenToWorld(event.clientX, event.clientY);
     gesture.current = {
       mode: "room-side-extrude",
@@ -660,6 +696,7 @@ export default function MapEditor() {
     event.stopPropagation();
     setSelected([item.id]);
     setSelectedSide(null);
+    setSelectedVertex(item.kind === "room" ? { itemId: item.id, index: vertexIndex } : null);
     const world = screenToWorld(event.clientX, event.clientY);
     gesture.current = { mode: "polygon-vertex", start: world, origin: { x: item.x, y: item.y }, itemSnapshot: { ...item, polygonPoints: polygonPoints(item).map(point => ({ ...point })) }, vertexIndex };
     viewportRef.current?.setPointerCapture(event.pointerId);
@@ -925,7 +962,7 @@ export default function MapEditor() {
                   </g>;
                 })}
                 {selected.length === 1 && selected[0] === item.id && polygonPoints(item).map((point, index) => <circle
-                  className="room-vertex" key={`room-vertex-${index}`} cx={point.x} cy={point.y} r="6"
+                  className={`room-vertex ${selectedVertex?.itemId === item.id && selectedVertex.index === index ? "room-vertex-selected" : ""}`} key={`room-vertex-${index}`} cx={point.x} cy={point.y} r={selectedVertex?.itemId === item.id && selectedVertex.index === index ? "8" : "6"}
                   onPointerDown={event => startPolygonVertex(event, item, index)}
                 />)}
               </svg> : item.kind === "liquid" ? <svg className="liquid-shape" viewBox={`0 0 ${item.w * CELL} ${item.h * CELL}`} preserveAspectRatio="none">
@@ -1099,7 +1136,11 @@ export default function MapEditor() {
           </div>}
           {selectedItem.kind === "room" && <div className="room-inspector">
             <div className="room-help"><b>Границы комнаты</b><small>Тяните белые вершины, чтобы менять форму. Саму сторону можно вытягивать в любом направлении — у основания останутся две новые точки.</small></div>
-            {selectedSide?.itemId === selectedItem.id ? <>
+            {selectedVertex?.itemId === selectedItem.id ? <div className="selected-vertex-tools">
+              <span>ТОЧКА {selectedVertex.index + 1}</span>
+              <button disabled={polygonPoints(selectedItem).length <= 3} onClick={removeSelectedVertex}>Удалить точку</button>
+              {polygonPoints(selectedItem).length <= 3 && <small>У комнаты должно остаться минимум три точки.</small>}
+            </div> : selectedSide?.itemId === selectedItem.id ? <>
               <span className="side-caption">СТОРОНА {selectedSide.index + 1}</span>
               <div className="side-type-buttons room-side-buttons">
                 <button className={(selectedItem.sideTypes?.[selectedSide.index] ?? "straight") === "straight" ? "active" : ""} onClick={() => setSelectedPolygonSideType("straight")}>Стена</button>
