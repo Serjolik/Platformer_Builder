@@ -3,22 +3,23 @@
 import { DragEvent, PointerEvent as ReactPointerEvent, WheelEvent, useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 type Tool = "select" | "line" | "arrow";
-type PrimitiveKind = "enemy" | "boss" | "player" | "npc" | "platform" | "moving" | "hazard" | "ladder" | "vine" | "room" | "spawn" | "goal" | "note" | "key" | "door" | "secret" | "checkpoint" | "comment" | "liquid";
+type PrimitiveKind = "enemy" | "boss" | "player" | "npc" | "platform" | "moving" | "hazard" | "ladder" | "vine" | "room" | "spawn" | "goal" | "note" | "key" | "door" | "secret" | "checkpoint" | "loot" | "comment" | "liquid";
 type Point = { x: number; y: number };
-type SideType = "straight" | "waves" | "door" | "opening";
+type SideType = "straight" | "waves" | "door" | "opening" | "breakable";
 type PlatformMode = "normal" | "crumble" | "damage";
 type HazardDirection = "up" | "down" | "left" | "right";
 type PathMode = "line" | "rail";
 type EnemyType = "normal" | "heavy";
 type NpcRole = "npc" | "merchant";
 type TrackOrientation = "horizontal" | "vertical";
+type DoorBlockSide = "left" | "right" | "top" | "bottom";
 type MapLayer = { id: string; name: string; visible: boolean; locked: boolean };
-type PlacedItem = Point & { id: string; kind: PrimitiveKind; label: string; color: string; w: number; h: number; layerId?: string; trackPosition?: number; trackOrientation?: TrackOrientation; keyName?: string; polygonPoints?: Point[]; sideTypes?: SideType[]; platformMode?: PlatformMode; hazardDirection?: HazardDirection; enemyType?: EnemyType; npcRole?: NpcRole };
+type PlacedItem = Point & { id: string; kind: PrimitiveKind; label: string; color: string; w: number; h: number; layerId?: string; trackPosition?: number; trackOrientation?: TrackOrientation; keyName?: string; doorBlockSide?: DoorBlockSide; polygonPoints?: Point[]; sideTypes?: SideType[]; platformMode?: PlatformMode; hazardDirection?: HazardDirection; enemyType?: EnemyType; npcRole?: NpcRole };
 type PathItem = { id: string; kind: "line" | "arrow"; from: Point; to: Point; control?: Point; color: string; pathMode?: PathMode; layerId?: string };
 type MapDocument = { version: 1; name: string; grid: number; items: PlacedItem[]; paths: PathItem[]; layers: MapLayer[]; inactiveLayerOpacity: number };
 type ResizeDirection = "n" | "e" | "s" | "w";
 type Gesture = {
-  mode: "pan" | "item" | "path" | "resize" | "marquee" | "track-position" | "path-move" | "path-handle" | "polygon-vertex" | "room-side-extrude";
+  mode: "pan" | "item" | "path" | "resize" | "marquee" | "track-position" | "path-move" | "path-handle" | "polygon-vertex" | "polygon-side-extrude";
   start: Point;
   origin: Point;
   itemId?: string;
@@ -69,6 +70,7 @@ const palette: { title: string; items: Array<{ kind: PrimitiveKind; label: strin
     { kind: "spawn", label: "Точка старта", icon: "●", color: "#74d477", w: 2, h: 2 },
     { kind: "goal", label: "Цель", icon: "⚑", color: "#9a7cff", w: 2, h: 2 },
     { kind: "checkpoint", label: "Скамейка-чекпоинт", icon: "▰", color: "#77c7d8", w: 2, h: 1 },
+    { kind: "loot", label: "Лут", icon: "▣", color: "#f0b94b", w: 1, h: 1 },
     { kind: "key", label: "Ключ", icon: "K", color: "#62a8ff", w: 1, h: 1 },
     { kind: "door", label: "Дверь", icon: "▥", color: "#8b949e", w: 1, h: 3 },
     { kind: "secret", label: "Секретная стенка", icon: "┆", color: "#8b949e", w: 4, h: 2 },
@@ -322,7 +324,7 @@ export default function MapEditor() {
 
   const removeSelectedVertex = useCallback(() => {
     if (!selectedVertex) return;
-    const target = docRef.current.items.find(item => item.id === selectedVertex.itemId && item.kind === "room");
+    const target = docRef.current.items.find(item => item.id === selectedVertex.itemId && (item.kind === "room" || item.kind === "liquid"));
     if (!target) return;
     const points = polygonPoints(target).map(point => ({ ...point }));
     if (points.length <= 3 || selectedVertex.index < 0 || selectedVertex.index >= points.length) return;
@@ -528,7 +530,7 @@ export default function MapEditor() {
         polygonPoints: normalized,
       });
     }
-    if (current.mode === "room-side-extrude" && current.itemSnapshot && current.sideIndex !== undefined) {
+    if (current.mode === "polygon-side-extrude" && current.itemSnapshot && current.sideIndex !== undefined) {
       const world = screenToWorld(event.clientX, event.clientY);
       const original = current.itemSnapshot;
       const originalPoints = polygonPoints(original).map(point => ({ ...point }));
@@ -754,16 +756,7 @@ export default function MapEditor() {
     setFuture([]);
   };
 
-  const selectPolygonSide = (event: ReactPointerEvent, item: PlacedItem, index: number) => {
-    if (tool !== "select" || event.button !== 0) return;
-    event.preventDefault();
-    event.stopPropagation();
-    setSelected([item.id]);
-    setSelectedSide({ itemId: item.id, index });
-    setSelectedVertex(null);
-  };
-
-  const startRoomSideExtrude = (event: ReactPointerEvent, item: PlacedItem, sideIndex: number) => {
+  const startPolygonSideExtrude = (event: ReactPointerEvent, item: PlacedItem, sideIndex: number) => {
     if (tool !== "select" || event.button !== 0) return;
     event.preventDefault();
     event.stopPropagation();
@@ -773,7 +766,7 @@ export default function MapEditor() {
     setSelectedVertex(null);
     const world = screenToWorld(event.clientX, event.clientY);
     gesture.current = {
-      mode: "room-side-extrude",
+      mode: "polygon-side-extrude",
       start: world,
       origin: { x: item.x, y: item.y },
       itemId: item.id,
@@ -791,7 +784,7 @@ export default function MapEditor() {
     event.stopPropagation();
     setSelected([item.id]);
     setSelectedSide(null);
-    setSelectedVertex(item.kind === "room" ? { itemId: item.id, index: vertexIndex } : null);
+    setSelectedVertex({ itemId: item.id, index: vertexIndex });
     const world = screenToWorld(event.clientX, event.clientY);
     gesture.current = { mode: "polygon-vertex", start: world, origin: { x: item.x, y: item.y }, itemSnapshot: { ...item, polygonPoints: polygonPoints(item).map(point => ({ ...point })) }, vertexIndex };
     viewportRef.current?.setPointerCapture(event.pointerId);
@@ -1052,8 +1045,8 @@ export default function MapEditor() {
                   const isSelectedSide = selectedSide?.itemId === item.id && selectedSide.index === index;
                   return <g key={`room-side-${index}`} className={isSelectedSide ? "room-side-selected" : ""}>
                     <path className={`room-side room-side-${sideType}`} pathLength="100" d={sidePathData(point, next, "straight")} />
-                    <path className="room-side-hit" d={sidePathData(point, next, "straight")} onPointerDown={event => startRoomSideExtrude(event, item, index)} />
-                    {(sideType === "door" || sideType === "opening") && <text className={`room-side-label room-side-label-${sideType}`} x={(point.x + next.x) / 2} y={(point.y + next.y) / 2}>{sideType === "door" ? "ДВЕРЬ" : "ПРОХОД"}</text>}
+                    <path className="room-side-hit" d={sidePathData(point, next, "straight")} onPointerDown={event => startPolygonSideExtrude(event, item, index)} />
+                    {(sideType === "door" || sideType === "opening" || sideType === "breakable") && <text className={`room-side-label room-side-label-${sideType}`} x={(point.x + next.x) / 2} y={(point.y + next.y) / 2}>{sideType === "door" ? "ДВЕРЬ" : sideType === "opening" ? "ПРОХОД" : "ЛОМАЕМАЯ"}</text>}
                   </g>;
                 })}
                 {selected.length === 1 && selected[0] === item.id && polygonPoints(item).map((point, index) => <circle
@@ -1068,11 +1061,11 @@ export default function MapEditor() {
                   const isSelectedSide = selectedSide?.itemId === item.id && selectedSide.index === index;
                   return <g key={`side-${index}`} className={isSelectedSide ? "liquid-side-selected" : ""}>
                     <path className={`liquid-side liquid-side-${sideType}`} d={sidePathData(point, next, sideType)} />
-                    <path className="liquid-side-hit" d={sidePathData(point, next, sideType)} onPointerDown={event => selectPolygonSide(event, item, index)} />
+                    <path className="liquid-side-hit" d={sidePathData(point, next, sideType)} onPointerDown={event => startPolygonSideExtrude(event, item, index)} />
                   </g>;
                 })}
                 {selected.length === 1 && selected[0] === item.id && polygonPoints(item).map((point, index) => <circle
-                  className="liquid-vertex" key={`vertex-${index}`} cx={point.x} cy={point.y} r="6"
+                  className={`liquid-vertex ${selectedVertex?.itemId === item.id && selectedVertex.index === index ? "liquid-vertex-selected" : ""}`} key={`vertex-${index}`} cx={point.x} cy={point.y} r={selectedVertex?.itemId === item.id && selectedVertex.index === index ? "8" : "6"}
                   onPointerDown={event => startPolygonVertex(event, item, index)}
                 />)}
               </svg> : item.kind === "enemy" ? <div className={`enemy-grid enemy-${item.enemyType ?? (item.color.toLowerCase() === "#d84c60" ? "heavy" : "normal")}`}>
@@ -1116,11 +1109,14 @@ export default function MapEditor() {
                 <span className="key-head">K</span><span className="key-name">{item.keyName ?? "Key_A"}</span>
               </div> : item.kind === "door" ? <div className="key-door">
                 <span className="door-bars" /><span className="key-name">{item.keyName || "ОБЫЧНАЯ"}</span>
+                {item.doorBlockSide && <span className={`door-block door-block-${item.doorBlockSide}`} aria-label={`Заблокирована: ${item.doorBlockSide}`} />}
               </div> : item.kind === "secret" ? <div className="secret-zone">
                 <span>СЕКРЕТНАЯ ЗОНА</span><small>скрытый проход</small>
               </div> : item.kind === "checkpoint" ? <div className="checkpoint-bench">
                 <span className="bench-back" /><span className="bench-seat" /><span className="bench-leg bench-leg-left" /><span className="bench-leg bench-leg-right" />
                 <small>CHECKPOINT</small>
+              </div> : item.kind === "loot" ? <div className="loot-marker">
+                <span className="loot-lid" /><span className="loot-body"><i /></span><small>{item.label || "ЛУТ"}</small>
               </div> : item.kind === "comment" ? <div className="comment-zone">
                 <span>{item.label || "Комментарий зоны"}</span>
               </div> : item.kind === "boss" ? <div className={`boss-figure ${item.w < 2 || item.h < 2 ? "boss-compact" : ""}`}>
@@ -1213,14 +1209,25 @@ export default function MapEditor() {
               {selectedItem.keyName && !locationKeyNames.includes(selectedItem.keyName) && <option value={selectedItem.keyName} disabled>{selectedItem.keyName} — ключ не найден</option>}
               {locationKeyNames.map(keyName => <option value={keyName} key={keyName}>{keyName}</option>)}
             </select></label>
+            <label>Заблокированная сторона<select value={selectedItem.doorBlockSide ?? ""} onChange={event => updateItemLive(selectedItem.id, { doorBlockSide: (event.target.value || undefined) as DoorBlockSide | undefined })}>
+              <option value="">Нет — проход с обеих сторон</option>
+              <option value="left">Слева</option>
+              <option value="right">Справа</option>
+              <option value="top">Сверху</option>
+              <option value="bottom">Снизу</option>
+            </select></label>
             <div className={`key-link-summary ${linkedKey ? "is-linked" : "is-unlinked"}`} style={{ color: itemColor(selectedItem, doc.items) }}><i />
               <span><b>{linkedKey ? selectedItem.keyName : "Обычная дверь"}</b><small>{linkedKey ? "Связана с ключом на карте" : locationKeyNames.length ? "Выберите ключ из списка" : "Сначала добавьте ключ на карту"}</small></span>
             </div>
           </>}
           {selectedItem.kind === "liquid" && <div className="liquid-inspector">
             <label className="color-field">Цвет жидкости<input type="color" value={selectedItem.color} onChange={event => updateItemLive(selectedItem.id, { color: event.target.value })} /></label>
-            <div className="liquid-help"><b>Редактирование формы</b><small>Тяните белые вершины. Нажмите на грань, чтобы изменить только её.</small></div>
-            {selectedSide?.itemId === selectedItem.id ? <>
+            <div className="liquid-help"><b>Редактирование формы</b><small>Тяните вершины или целую сторону в любом направлении. Выбранную точку можно удалить.</small></div>
+            {selectedVertex?.itemId === selectedItem.id ? <div className="selected-vertex-tools">
+              <span>ТОЧКА {selectedVertex.index + 1}</span>
+              <button disabled={polygonPoints(selectedItem).length <= 3} onClick={removeSelectedVertex}>Удалить точку</button>
+              {polygonPoints(selectedItem).length <= 3 && <small>У жидкости должно остаться минимум три точки.</small>}
+            </div> : selectedSide?.itemId === selectedItem.id ? <>
               <span className="side-caption">СТОРОНА {selectedSide.index + 1}</span>
               <div className="side-type-buttons">
                 <button className={(selectedItem.sideTypes?.[selectedSide.index] ?? "straight") === "straight" ? "active" : ""} onClick={() => setSelectedPolygonSideType("straight")}>Прямая</button>
@@ -1241,6 +1248,7 @@ export default function MapEditor() {
                 <button className={(selectedItem.sideTypes?.[selectedSide.index] ?? "straight") === "straight" ? "active" : ""} onClick={() => setSelectedPolygonSideType("straight")}>Стена</button>
                 <button className={selectedItem.sideTypes?.[selectedSide.index] === "door" ? "active" : ""} onClick={() => setSelectedPolygonSideType("door")}>Дверь</button>
                 <button className={selectedItem.sideTypes?.[selectedSide.index] === "opening" ? "active" : ""} onClick={() => setSelectedPolygonSideType("opening")}>Проход</button>
+                <button className={selectedItem.sideTypes?.[selectedSide.index] === "breakable" ? "active" : ""} onClick={() => setSelectedPolygonSideType("breakable")}>Ломаемая</button>
               </div>
               <button className="wide" onClick={addPointToSelectedSide}>＋ Добавить точку на сторону</button>
             </> : <div className="side-not-selected">Выберите одну из сторон комнаты</div>}

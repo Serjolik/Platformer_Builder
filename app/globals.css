@@ -135,6 +135,7 @@ kbd { font-family: inherit; font-size: 8px; opacity: .55; border: 1px solid curr
 .liquid-side-hit { fill: none; stroke: transparent; stroke-width: 16; vector-effect: non-scaling-stroke; pointer-events: stroke; cursor: pointer; }
 .liquid-side-selected .liquid-side { stroke: #fff; stroke-width: 5; filter: drop-shadow(0 0 5px var(--item-color)); }
 .liquid-vertex { fill: #e8edf2; stroke: #11151a; stroke-width: 2; vector-effect: non-scaling-stroke; pointer-events: all; cursor: move; }
+.liquid-vertex-selected { fill: var(--accent); stroke: #fff3cf; stroke-width: 3; filter: drop-shadow(0 0 5px var(--accent)); }
 .kind-liquid .item-size { bottom: -13px; right: 0; }
 .kind-room { z-index: 1; border: 0; background: transparent; box-shadow: none; }
 .kind-room::before { display: none; }
@@ -143,11 +144,13 @@ kbd { font-family: inherit; font-size: 8px; opacity: .55; border: 1px solid curr
 .room-side { fill: none; stroke: var(--item-color); stroke-width: 5; stroke-linecap: round; vector-effect: non-scaling-stroke; pointer-events: none; }
 .room-side-door { stroke-dasharray: 34 32 34; }
 .room-side-opening { stroke-dasharray: 10 80 10; opacity: .65; }
+.room-side-breakable { stroke: #f2c94c; stroke-dasharray: 13 5 3 5; }
 .room-side-hit { fill: none; stroke: transparent; stroke-width: 18; vector-effect: non-scaling-stroke; pointer-events: stroke; cursor: grab; }
 .room-side-hit:active { cursor: grabbing; }
 .room-side-selected .room-side { stroke: #fff; stroke-width: 7; filter: drop-shadow(0 0 5px var(--item-color)); }
 .room-side-label { fill: #d9e2ea; stroke: #11151a; stroke-width: 3px; paint-order: stroke; text-anchor: middle; dominant-baseline: central; font-size: 8px; font-weight: 900; letter-spacing: .08em; pointer-events: none; }
 .room-side-label-opening { fill: #92b5c5; }
+.room-side-label-breakable { fill: #f2c94c; }
 .room-vertex { fill: #e8edf2; stroke: #11151a; stroke-width: 2; vector-effect: non-scaling-stroke; pointer-events: all; cursor: move; }
 .room-vertex-selected { fill: var(--accent); stroke: #fff3cf; stroke-width: 3; filter: drop-shadow(0 0 5px var(--accent)); }
 .kind-room .item-size { bottom: -13px; right: 0; }
@@ -195,6 +198,20 @@ kbd { font-family: inherit; font-size: 8px; opacity: .55; border: 1px solid curr
 .key-door { position: absolute; inset: 4px; border: 1px solid color-mix(in srgb, var(--item-color) 80%, #fff); pointer-events: none; }
 .door-bars { position: absolute; inset: 4px; background: repeating-linear-gradient(90deg, color-mix(in srgb, var(--item-color) 65%, transparent) 0 2px, transparent 2px 7px); }
 .kind-door .key-name { top: 50%; transform: translate(-50%, -50%) rotate(-90deg); background: #11151af2; }
+.door-block { position: absolute; z-index: 4; background: #ef6254; box-shadow: 0 0 6px #ef6254aa; }
+.door-block::after { content: "×"; position: absolute; display: grid; place-items: center; width: 13px; height: 13px; border: 1px solid #ffb0a8; border-radius: 50%; background: #4a1c1a; color: #ffd6d1; font-size: 11px; font-weight: 900; line-height: 1; }
+.door-block-left, .door-block-right { top: -1px; bottom: -1px; width: 4px; }
+.door-block-left { left: -8px; }
+.door-block-right { right: -8px; }
+.door-block-left::after, .door-block-right::after { top: 50%; transform: translateY(-50%); }
+.door-block-left::after { right: 2px; }
+.door-block-right::after { left: 2px; }
+.door-block-top, .door-block-bottom { left: -1px; right: -1px; height: 4px; }
+.door-block-top { top: -8px; }
+.door-block-bottom { bottom: -8px; }
+.door-block-top::after, .door-block-bottom::after { left: 50%; transform: translateX(-50%); }
+.door-block-top::after { bottom: 2px; }
+.door-block-bottom::after { top: 2px; }
 .kind-secret { border: 2px dashed #929ba5; background: repeating-linear-gradient(135deg, #7c858e26 0 8px, #343a412b 8px 16px); color: #b2bac2; }
 .kind-secret::before { inset: 5px; border: 1px dashed #737d87; }
 .secret-zone { position: absolute; inset: 0; display: grid; place-content: center; gap: 3px; text-align: center; pointer-events: none; }
@@ -210,6 +227,14 @@ kbd { font-family: inherit; font-size: 8px; opacity: .55; border: 1px solid curr
 .bench-leg-right { right: 12px; }
 .checkpoint-bench small { position: absolute; left: 50%; bottom: -12px; transform: translateX(-50%); color: var(--item-color); font: 7px monospace; letter-spacing: .08em; }
 .kind-checkpoint .item-size { display: none; }
+.kind-loot { border: 0; background: transparent; box-shadow: none; }
+.kind-loot::before { display: none; }
+.loot-marker { position: absolute; inset: 0; pointer-events: none; filter: drop-shadow(0 3px 4px #000a); }
+.loot-lid { position: absolute; left: 4px; right: 4px; top: 6px; height: 8px; border: 2px solid var(--item-color); border-radius: 5px 5px 1px 1px; background: color-mix(in srgb, var(--item-color) 48%, #3b2a16); }
+.loot-body { position: absolute; left: 4px; right: 4px; top: 14px; height: 13px; border: 2px solid var(--item-color); border-radius: 1px 1px 4px 4px; background: color-mix(in srgb, var(--item-color) 28%, #17130e); }
+.loot-body i { position: absolute; left: 50%; top: -2px; width: 6px; height: 8px; border: 1px solid #fff1bd; border-radius: 1px; background: var(--item-color); transform: translateX(-50%); }
+.loot-marker small { position: absolute; left: 50%; bottom: calc(100% + 5px); transform: translateX(-50%); color: var(--item-color); font-size: 8px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; }
+.kind-loot .item-size { display: none; }
 .kind-boss { border: 0; background: transparent; box-shadow: none; }
 .kind-boss::before { display: none; }
 .boss-figure { position: absolute; inset: 0; pointer-events: none; filter: drop-shadow(0 4px 5px #0008); }
@@ -279,7 +304,7 @@ kbd { font-family: inherit; font-size: 8px; opacity: .55; border: 1px solid curr
 .room-help { display: grid; gap: 4px; margin-bottom: 12px; }
 .room-help b { color: #c6d4df; font-size: 10px; }
 .room-help small { color: #71808d; font-size: 8px; line-height: 1.45; }
-.room-side-buttons { grid-template-columns: repeat(3, 1fr); }
+.room-side-buttons { grid-template-columns: repeat(2, 1fr); }
 .selected-vertex-tools { display: grid; gap: 7px; padding: 9px; border: 1px solid #5b4b2a; background: #252116; }
 .selected-vertex-tools > span { color: var(--accent); font-size: 8px; font-weight: 800; letter-spacing: .12em; }
 .selected-vertex-tools button { padding: 7px; border: 1px solid #754343; background: #321d1d; color: #e09a9a; font-size: 9px; cursor: pointer; }
