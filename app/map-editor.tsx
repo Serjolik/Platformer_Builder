@@ -30,6 +30,9 @@ type Gesture = {
   vertexIndex?: number;
   sideIndex?: number;
   direction?: ResizeDirection;
+  didMove?: boolean;
+  cycleOnClick?: boolean;
+  clickPoint?: Point;
 };
 type Marquee = { from: Point; to: Point; additive: boolean };
 type ClipboardPayload = { items: PlacedItem[]; paths: PathItem[]; anchor: Point };
@@ -106,6 +109,27 @@ const pathTouchesRect = (path: PathItem, left: number, right: number, top: numbe
       y: inverse * inverse * path.from.y + 2 * inverse * t * control.y + t * t * path.to.y,
     };
     if (point.x >= left - padding && point.x <= right + padding && point.y >= top - padding && point.y <= bottom + padding) return true;
+  }
+  return false;
+};
+const pathTouchesPoint = (path: PathItem, point: Point, tolerance: number) => {
+  const control = pathControl(path);
+  let previous = path.from;
+  for (let index = 1; index <= 64; index += 1) {
+    const t = index / 64;
+    const inverse = 1 - t;
+    const current = {
+      x: inverse * inverse * path.from.x + 2 * inverse * t * control.x + t * t * path.to.x,
+      y: inverse * inverse * path.from.y + 2 * inverse * t * control.y + t * t * path.to.y,
+    };
+    const segment = { x: current.x - previous.x, y: current.y - previous.y };
+    const segmentLengthSquared = segment.x * segment.x + segment.y * segment.y;
+    const projection = segmentLengthSquared === 0 ? 0 : Math.min(1, Math.max(0,
+      ((point.x - previous.x) * segment.x + (point.y - previous.y) * segment.y) / segmentLengthSquared,
+    ));
+    const closest = { x: previous.x + segment.x * projection, y: previous.y + segment.y * projection };
+    if (Math.hypot(point.x - closest.x, point.y - closest.y) <= tolerance) return true;
+    previous = current;
   }
   return false;
 };
@@ -436,6 +460,7 @@ export default function MapEditor() {
     if (current.mode === "item" && (current.itemSnapshots || current.pathSnapshots)) {
       const world = screenToWorld(event.clientX, event.clientY);
       const delta = { x: snap(world.x - current.start.x), y: snap(world.y - current.start.y) };
+      if (Math.hypot(world.x - current.start.x, world.y - current.start.y) * zoom > 4) current.didMove = true;
       const snapshots = new Map((current.itemSnapshots ?? []).map(item => [item.id, item]));
       const pathSnapshots = new Map((current.pathSnapshots ?? []).map(path => [path.id, path]));
       const value = docRef.current;
@@ -579,6 +604,35 @@ export default function MapEditor() {
     }
   };
 
+  const selectableEntitiesAtPoint = (point: Point) => {
+    const currentDocument = docRef.current;
+    const items = currentDocument.items
+      .map((candidate, index) => ({ candidate, index }))
+      .filter(({ candidate }) => {
+        const layer = currentDocument.layers.find(entry => entry.id === (candidate.layerId ?? GAMEPLAY_LAYER_ID));
+        return layer?.visible && !layer.locked && itemContainsPoint(candidate, point);
+      })
+      .sort((a, b) => {
+        const aLayer = currentDocument.layers.findIndex(layer => layer.id === (a.candidate.layerId ?? GAMEPLAY_LAYER_ID));
+        const bLayer = currentDocument.layers.findIndex(layer => layer.id === (b.candidate.layerId ?? GAMEPLAY_LAYER_ID));
+        return bLayer - aLayer || b.index - a.index;
+      })
+      .map(({ candidate }) => candidate);
+    const paths = currentDocument.paths
+      .map((candidate, index) => ({ candidate, index }))
+      .filter(({ candidate }) => {
+        const layer = currentDocument.layers.find(entry => entry.id === (candidate.layerId ?? GAMEPLAY_LAYER_ID));
+        return layer?.visible && !layer.locked && pathTouchesPoint(candidate, point, 10 / zoom);
+      })
+      .sort((a, b) => {
+        const aLayer = currentDocument.layers.findIndex(layer => layer.id === (a.candidate.layerId ?? GAMEPLAY_LAYER_ID));
+        const bLayer = currentDocument.layers.findIndex(layer => layer.id === (b.candidate.layerId ?? GAMEPLAY_LAYER_ID));
+        return bLayer - aLayer || b.index - a.index;
+      })
+      .map(({ candidate }) => candidate);
+    return [...items, ...paths];
+  };
+
   const onPointerUp = () => {
     const current = gesture.current;
     if (current?.mode === "path" && draftPath && (draftPath.from.x !== draftPath.to.x || draftPath.from.y !== draftPath.to.y)) commit(value => ({ ...value, paths: [...value.paths, draftPath] }));
@@ -594,6 +648,15 @@ export default function MapEditor() {
       setSelected(currentSelection => marquee.additive ? Array.from(new Set([...currentSelection, ...hits])) : hits);
       setSelectedVertex(null);
     }
+    if (current?.mode === "item" && current.cycleOnClick && !current.didMove && current.clickPoint && current.itemId) {
+      const candidates = selectableEntitiesAtPoint(current.clickPoint);
+      const currentIndex = candidates.findIndex(candidate => candidate.id === current.itemId);
+      if (currentIndex >= 0 && candidates.length > 1) {
+        const nextItem = candidates[(currentIndex + 1) % candidates.length];
+        setSelected([nextItem.id]);
+        setActiveLayerId(nextItem.layerId ?? GAMEPLAY_LAYER_ID);
+      }
+    }
     gesture.current = null;
     setDraftPath(null);
     setMarquee(null);
@@ -606,32 +669,23 @@ export default function MapEditor() {
     setSelectedSide(null);
     setSelectedVertex(null);
     const world = screenToWorld(event.clientX, event.clientY);
-    let dragItem = item;
+    let dragEntity: PlacedItem | PathItem = item;
     if (!event.shiftKey && selected.length === 1) {
-      const currentDocument = docRef.current;
-      const indexedItems = currentDocument.items.map((candidate, index) => ({ candidate, index }));
-      const candidates = indexedItems
-        .filter(({ candidate }) => {
-          const layer = currentDocument.layers.find(entry => entry.id === (candidate.layerId ?? GAMEPLAY_LAYER_ID));
-          return layer?.visible && !layer.locked && itemContainsPoint(candidate, world);
-        })
-        .sort((a, b) => {
-          const aLayer = currentDocument.layers.findIndex(layer => layer.id === (a.candidate.layerId ?? GAMEPLAY_LAYER_ID));
-          const bLayer = currentDocument.layers.findIndex(layer => layer.id === (b.candidate.layerId ?? GAMEPLAY_LAYER_ID));
-          return bLayer - aLayer || b.index - a.index;
-        })
-        .map(({ candidate }) => candidate);
-      const currentIndex = candidates.findIndex(candidate => candidate.id === selected[0]);
-      if (currentIndex >= 0 && candidates.length > 1) dragItem = candidates[(currentIndex + 1) % candidates.length];
+      const selectedItemAtPoint = docRef.current.items.find(candidate => candidate.id === selected[0] && itemContainsPoint(candidate, world));
+      const selectedPathAtPoint = docRef.current.paths.find(candidate => candidate.id === selected[0] && pathTouchesPoint(candidate, world, 10 / zoom));
+      if (selectedItemAtPoint) dragEntity = selectedItemAtPoint;
+      else if (selectedPathAtPoint) dragEntity = selectedPathAtPoint;
     }
-    setActiveLayerId(dragItem.layerId ?? GAMEPLAY_LAYER_ID);
+    const cycleOnClick = !event.shiftKey && selected.length === 1 && selected[0] === dragEntity.id;
+    setActiveLayerId(dragEntity.layerId ?? GAMEPLAY_LAYER_ID);
     const activeIds = event.shiftKey
-      ? Array.from(new Set([...selected, dragItem.id]))
-      : selected.length > 1 && selected.includes(item.id) ? selected : [dragItem.id];
+      ? Array.from(new Set([...selected, dragEntity.id]))
+      : selected.length > 1 && selected.includes(item.id) ? selected : [dragEntity.id];
     setSelected(activeIds);
     const itemSnapshots = docRef.current.items.filter(candidate => activeIds.includes(candidate.id)).map(candidate => ({ ...candidate }));
     const pathSnapshots = docRef.current.paths.filter(candidate => activeIds.includes(candidate.id)).map(candidate => ({ ...candidate, from: { ...candidate.from }, to: { ...candidate.to }, control: candidate.control ? { ...candidate.control } : undefined }));
-    gesture.current = { mode: "item", itemId: dragItem.id, start: world, origin: { x: dragItem.x, y: dragItem.y }, itemSnapshots, pathSnapshots };
+    const origin = "from" in dragEntity ? dragEntity.from : { x: dragEntity.x, y: dragEntity.y };
+    gesture.current = { mode: "item", itemId: dragEntity.id, start: world, origin, itemSnapshots, pathSnapshots, cycleOnClick, clickPoint: world };
     viewportRef.current?.setPointerCapture(event.pointerId);
     setHistory(h => [...h.slice(-39), docRef.current]);
     setFuture([]);
@@ -664,19 +718,25 @@ export default function MapEditor() {
   const startPathMove = (event: ReactPointerEvent, path: PathItem) => {
     if (tool !== "select" || event.button !== 0) return;
     if (docRef.current.layers.find(layer => layer.id === (path.layerId ?? GAMEPLAY_LAYER_ID))?.locked) return;
-    setActiveLayerId(path.layerId ?? GAMEPLAY_LAYER_ID);
     event.preventDefault();
     event.stopPropagation();
     setSelectedSide(null);
     setSelectedVertex(null);
-    const activeIds = event.shiftKey
-      ? Array.from(new Set([...selected, path.id]))
-      : selected.includes(path.id) ? selected : [path.id];
-    setSelected(activeIds);
     const world = screenToWorld(event.clientX, event.clientY);
+    let dragPath = path;
+    if (!event.shiftKey && selected.length === 1) {
+      const selectedPathAtPoint = docRef.current.paths.find(candidate => candidate.id === selected[0] && pathTouchesPoint(candidate, world, 10 / zoom));
+      if (selectedPathAtPoint) dragPath = selectedPathAtPoint;
+    }
+    const cycleOnClick = !event.shiftKey && selected.length === 1 && selected[0] === dragPath.id;
+    setActiveLayerId(dragPath.layerId ?? GAMEPLAY_LAYER_ID);
+    const activeIds = event.shiftKey
+      ? Array.from(new Set([...selected, dragPath.id]))
+      : selected.includes(dragPath.id) ? selected : [dragPath.id];
+    setSelected(activeIds);
     const itemSnapshots = docRef.current.items.filter(candidate => activeIds.includes(candidate.id)).map(candidate => ({ ...candidate }));
     const pathSnapshots = docRef.current.paths.filter(candidate => activeIds.includes(candidate.id)).map(candidate => ({ ...candidate, from: { ...candidate.from }, to: { ...candidate.to }, control: candidate.control ? { ...candidate.control } : undefined }));
-    gesture.current = { mode: "item", start: world, origin: path.from, itemSnapshots, pathSnapshots };
+    gesture.current = { mode: "item", itemId: dragPath.id, start: world, origin: dragPath.from, itemSnapshots, pathSnapshots, cycleOnClick, clickPoint: world };
     viewportRef.current?.setPointerCapture(event.pointerId);
     setHistory(h => [...h.slice(-39), docRef.current]);
     setFuture([]);
