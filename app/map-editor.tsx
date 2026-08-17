@@ -131,6 +131,23 @@ const railArrows = (path: PathItem) => {
 const polygonPoints = (item: PlacedItem): Point[] => item.polygonPoints ?? [
   { x: 0, y: 0 }, { x: item.w * CELL, y: 0 }, { x: item.w * CELL, y: item.h * CELL }, { x: 0, y: item.h * CELL },
 ];
+const pointInPolygon = (point: Point, points: Point[]) => {
+  let inside = false;
+  for (let current = 0, previous = points.length - 1; current < points.length; previous = current++) {
+    const a = points[current];
+    const b = points[previous];
+    const crosses = (a.y > point.y) !== (b.y > point.y)
+      && point.x < (b.x - a.x) * (point.y - a.y) / ((b.y - a.y) || Number.EPSILON) + a.x;
+    if (crosses) inside = !inside;
+  }
+  return inside;
+};
+const itemContainsPoint = (item: PlacedItem, point: Point) => {
+  if (item.kind === "room" || item.kind === "liquid") {
+    return pointInPolygon({ x: point.x - item.x, y: point.y - item.y }, polygonPoints(item));
+  }
+  return point.x >= item.x && point.x <= item.x + item.w * CELL && point.y >= item.y && point.y <= item.y + item.h * CELL;
+};
 const sidePathData = (from: Point, to: Point, type: SideType) => {
   if (type === "straight") return `M ${from.x} ${from.y} L ${to.x} ${to.y}`;
   const dx = to.x - from.x;
@@ -585,18 +602,36 @@ export default function MapEditor() {
   const startItemDrag = (event: ReactPointerEvent, item: PlacedItem) => {
     if (tool !== "select" || event.button !== 0) return;
     if (docRef.current.layers.find(layer => layer.id === (item.layerId ?? GAMEPLAY_LAYER_ID))?.locked) return;
-    setActiveLayerId(item.layerId ?? GAMEPLAY_LAYER_ID);
     event.stopPropagation();
     setSelectedSide(null);
     setSelectedVertex(null);
-    const activeIds = event.shiftKey
-      ? Array.from(new Set([...selected, item.id]))
-      : selected.includes(item.id) ? selected : [item.id];
-    setSelected(activeIds);
     const world = screenToWorld(event.clientX, event.clientY);
+    let dragItem = item;
+    if (!event.shiftKey && selected.length === 1) {
+      const currentDocument = docRef.current;
+      const indexedItems = currentDocument.items.map((candidate, index) => ({ candidate, index }));
+      const candidates = indexedItems
+        .filter(({ candidate }) => {
+          const layer = currentDocument.layers.find(entry => entry.id === (candidate.layerId ?? GAMEPLAY_LAYER_ID));
+          return layer?.visible && !layer.locked && itemContainsPoint(candidate, world);
+        })
+        .sort((a, b) => {
+          const aLayer = currentDocument.layers.findIndex(layer => layer.id === (a.candidate.layerId ?? GAMEPLAY_LAYER_ID));
+          const bLayer = currentDocument.layers.findIndex(layer => layer.id === (b.candidate.layerId ?? GAMEPLAY_LAYER_ID));
+          return bLayer - aLayer || b.index - a.index;
+        })
+        .map(({ candidate }) => candidate);
+      const currentIndex = candidates.findIndex(candidate => candidate.id === selected[0]);
+      if (currentIndex >= 0 && candidates.length > 1) dragItem = candidates[(currentIndex + 1) % candidates.length];
+    }
+    setActiveLayerId(dragItem.layerId ?? GAMEPLAY_LAYER_ID);
+    const activeIds = event.shiftKey
+      ? Array.from(new Set([...selected, dragItem.id]))
+      : selected.length > 1 && selected.includes(item.id) ? selected : [dragItem.id];
+    setSelected(activeIds);
     const itemSnapshots = docRef.current.items.filter(candidate => activeIds.includes(candidate.id)).map(candidate => ({ ...candidate }));
     const pathSnapshots = docRef.current.paths.filter(candidate => activeIds.includes(candidate.id)).map(candidate => ({ ...candidate, from: { ...candidate.from }, to: { ...candidate.to }, control: candidate.control ? { ...candidate.control } : undefined }));
-    gesture.current = { mode: "item", itemId: item.id, start: world, origin: { x: item.x, y: item.y }, itemSnapshots, pathSnapshots };
+    gesture.current = { mode: "item", itemId: dragItem.id, start: world, origin: { x: dragItem.x, y: dragItem.y }, itemSnapshots, pathSnapshots };
     viewportRef.current?.setPointerCapture(event.pointerId);
     setHistory(h => [...h.slice(-39), docRef.current]);
     setFuture([]);
