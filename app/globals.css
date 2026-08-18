@@ -271,6 +271,17 @@ kbd { font-family: inherit; font-size: 8px; opacity: .55; border: 1px solid curr
 .inspector label { display: grid; gap: 6px; color: #697582; font-size: 9px; margin-bottom: 12px; }
 .inspector input, .inspector select { min-width: 0; width: 100%; padding: 8px 9px; border: 1px solid #303844; border-radius: 3px; background: #11151a; color: #dce3ea; font-size: 11px; outline: none; }
 .inspector input:focus, .inspector select:focus { border-color: var(--accent); }
+.attachment-control { margin: 0 0 14px; padding: 10px; border: 1px solid #303844; border-radius: 3px; background: #11151a; }
+.attachment-control.is-attached { border-color: #705d32; background: #211e15; box-shadow: inset 3px 0 var(--accent); }
+.attachment-control > label:last-child { margin: 11px 0 0; }
+.attachment-toggle { display: flex !important; grid-template-columns: none !important; align-items: flex-start; gap: 9px !important; margin: 0 !important; cursor: pointer; }
+.attachment-toggle input { width: 15px !important; height: 15px; flex: 0 0 15px; margin: 1px 0 0; accent-color: var(--accent); }
+.attachment-toggle span { min-width: 0; }
+.attachment-toggle b, .attachment-toggle small { display: block; }
+.attachment-toggle b { color: #cbd3dc; font-size: 10px; }
+.attachment-toggle small { margin-top: 4px; color: #687481; font-size: 8px; line-height: 1.4; }
+.attachment-control.is-attached .attachment-toggle b { color: var(--accent); }
+.attachment-status { margin-top: 9px; padding-top: 8px; border-top: 1px solid #4a4128; color: var(--accent); font-size: 8px; }
 .inspector .color-field { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .inspector .color-field input[type="color"] { width: 54px; height: 30px; flex: 0 0 54px; padding: 2px; cursor: pointer; }
 .track-position-field { position: relative; padding-bottom: 14px; }

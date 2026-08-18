@@ -14,7 +14,7 @@ type NpcRole = "npc" | "merchant";
 type TrackOrientation = "horizontal" | "vertical";
 type DoorBlockSide = "left" | "right" | "top" | "bottom";
 type MapLayer = { id: string; name: string; visible: boolean; locked: boolean };
-type PlacedItem = Point & { id: string; kind: PrimitiveKind; label: string; color: string; w: number; h: number; layerId?: string; trackPosition?: number; trackOrientation?: TrackOrientation; keyName?: string; doorBlockSide?: DoorBlockSide; polygonPoints?: Point[]; sideTypes?: SideType[]; platformMode?: PlatformMode; hazardDirection?: HazardDirection; enemyType?: EnemyType; npcRole?: NpcRole };
+type PlacedItem = Point & { id: string; kind: PrimitiveKind; label: string; color: string; w: number; h: number; layerId?: string; attachedRoomId?: string; trackPosition?: number; trackOrientation?: TrackOrientation; keyName?: string; doorBlockSide?: DoorBlockSide; polygonPoints?: Point[]; sideTypes?: SideType[]; platformMode?: PlatformMode; hazardDirection?: HazardDirection; enemyType?: EnemyType; npcRole?: NpcRole };
 type PathItem = { id: string; kind: "line" | "arrow"; from: Point; to: Point; control?: Point; color: string; pathMode?: PathMode; layerId?: string };
 type MapDocument = { version: 1; name: string; grid: number; items: PlacedItem[]; paths: PathItem[]; layers: MapLayer[]; inactiveLayerOpacity: number };
 type ResizeDirection = "n" | "e" | "s" | "w";
@@ -84,13 +84,19 @@ const id = () => `${Date.now().toString(36)}-${Math.random().toString(36).slice(
 const normalizeDocument = (document: Partial<MapDocument>): MapDocument => {
   const layers = Array.isArray(document.layers) && document.layers.length ? document.layers : defaultLayers();
   const fallbackLayerId = layers.some(layer => layer.id === GAMEPLAY_LAYER_ID) ? GAMEPLAY_LAYER_ID : layers[layers.length - 1].id;
+  const sourceItems = Array.isArray(document.items) ? document.items : [];
+  const roomIds = new Set(sourceItems.filter(item => item.kind === "room").map(item => item.id));
   return {
     version: 1,
     name: document.name ?? "Новая локация",
     grid: CELL,
     layers,
     inactiveLayerOpacity: typeof document.inactiveLayerOpacity === "number" ? Math.min(1, Math.max(.05, document.inactiveLayerOpacity)) : .32,
-    items: Array.isArray(document.items) ? document.items.map(item => ({ ...item, layerId: item.layerId ?? fallbackLayerId })) : [],
+    items: sourceItems.map(item => ({
+      ...item,
+      layerId: item.layerId ?? fallbackLayerId,
+      attachedRoomId: item.kind !== "room" && item.attachedRoomId && roomIds.has(item.attachedRoomId) ? item.attachedRoomId : undefined,
+    })),
     paths: Array.isArray(document.paths) ? document.paths.map(path => ({ ...path, layerId: path.layerId ?? fallbackLayerId })) : [],
   };
 };
@@ -173,6 +179,12 @@ const itemContainsPoint = (item: PlacedItem, point: Point) => {
     return pointInPolygon({ x: point.x - item.x, y: point.y - item.y }, polygonPoints(item));
   }
   return point.x >= item.x && point.x <= item.x + item.w * CELL && point.y >= item.y && point.y <= item.y + item.h * CELL;
+};
+const roomContainingItem = (items: PlacedItem[], item: PlacedItem, preferredRoomId?: string) => {
+  const center = { x: item.x + item.w * CELL / 2, y: item.y + item.h * CELL / 2 };
+  const rooms = items.filter(candidate => candidate.kind === "room" && candidate.id !== item.id);
+  return rooms.find(room => room.id === preferredRoomId && itemContainsPoint(room, center))
+    ?? rooms.find(room => itemContainsPoint(room, center));
 };
 const sidePathData = (from: Point, to: Point, type: SideType) => {
   if (type === "straight") return `M ${from.x} ${from.y} L ${to.x} ${to.y}`;
@@ -316,7 +328,13 @@ export default function MapEditor() {
   const removeSelected = useCallback(() => {
     if (!selected.length) return;
     const selectedIds = new Set(selected);
-    commit(current => ({ ...current, items: current.items.filter(item => !selectedIds.has(item.id)), paths: current.paths.filter(path => !selectedIds.has(path.id)) }));
+    commit(current => ({
+      ...current,
+      items: current.items
+        .filter(item => !selectedIds.has(item.id))
+        .map(item => item.attachedRoomId && selectedIds.has(item.attachedRoomId) ? { ...item, attachedRoomId: undefined } : item),
+      paths: current.paths.filter(path => !selectedIds.has(path.id)),
+    }));
     setSelected([]);
     setSelectedSide(null);
     setSelectedVertex(null);
@@ -371,7 +389,15 @@ export default function MapEditor() {
       x: snap(cursorWorldRef.current.x - clipboard.anchor.x),
       y: snap(cursorWorldRef.current.y - clipboard.anchor.y),
     };
-    const items = clipboard.items.map(item => ({ ...structuredClone(item), id: id(), layerId: activeLayerId, x: item.x + delta.x, y: item.y + delta.y }));
+    const pastedItemIds = new Map(clipboard.items.map(item => [item.id, id()]));
+    const items = clipboard.items.map(item => ({
+      ...structuredClone(item),
+      id: pastedItemIds.get(item.id)!,
+      layerId: activeLayerId,
+      x: item.x + delta.x,
+      y: item.y + delta.y,
+      attachedRoomId: item.attachedRoomId ? (pastedItemIds.get(item.attachedRoomId) ?? item.attachedRoomId) : undefined,
+    }));
     const paths = clipboard.paths.map(path => ({
       ...structuredClone(path), id: id(), layerId: activeLayerId,
       from: { x: path.from.x + delta.x, y: path.from.y + delta.y },
@@ -466,10 +492,17 @@ export default function MapEditor() {
       const snapshots = new Map((current.itemSnapshots ?? []).map(item => [item.id, item]));
       const pathSnapshots = new Map((current.pathSnapshots ?? []).map(path => [path.id, path]));
       const value = docRef.current;
-      const next = { ...value, items: value.items.map(item => {
+      const movedItems = value.items.map(item => {
         const original = snapshots.get(item.id);
         return original ? { ...item, x: original.x + delta.x, y: original.y + delta.y } : item;
-      }), paths: value.paths.map(path => {
+      });
+      const nextItems = movedItems.map(item => {
+        const original = snapshots.get(item.id);
+        if (!original?.attachedRoomId || item.kind === "room") return item;
+        const room = roomContainingItem(movedItems, item, original.attachedRoomId);
+        return { ...item, attachedRoomId: room?.id };
+      });
+      const next = { ...value, items: nextItems, paths: value.paths.map(path => {
         const original = pathSnapshots.get(path.id);
         return original ? {
           ...path,
@@ -684,7 +717,11 @@ export default function MapEditor() {
       ? Array.from(new Set([...selected, dragEntity.id]))
       : selected.length > 1 && selected.includes(item.id) ? selected : [dragEntity.id];
     setSelected(activeIds);
-    const itemSnapshots = docRef.current.items.filter(candidate => activeIds.includes(candidate.id)).map(candidate => ({ ...candidate }));
+    const movingIds = new Set(activeIds);
+    docRef.current.items.forEach(candidate => {
+      if (candidate.attachedRoomId && movingIds.has(candidate.attachedRoomId)) movingIds.add(candidate.id);
+    });
+    const itemSnapshots = docRef.current.items.filter(candidate => movingIds.has(candidate.id)).map(candidate => ({ ...candidate }));
     const pathSnapshots = docRef.current.paths.filter(candidate => activeIds.includes(candidate.id)).map(candidate => ({ ...candidate, from: { ...candidate.from }, to: { ...candidate.to }, control: candidate.control ? { ...candidate.control } : undefined }));
     const origin = "from" in dragEntity ? dragEntity.from : { x: dragEntity.x, y: dragEntity.y };
     gesture.current = { mode: "item", itemId: dragEntity.id, start: world, origin, itemSnapshots, pathSnapshots, cycleOnClick, clickPoint: world };
@@ -854,6 +891,7 @@ export default function MapEditor() {
   const linkedKey = useMemo(() => selectedItem?.kind === "door" && selectedItem.keyName
     ? doc.items.find(item => item.kind === "key" && (item.keyName ?? "Key_A") === selectedItem.keyName)
     : undefined, [doc.items, selectedItem]);
+  const rooms = useMemo(() => doc.items.filter(item => item.kind === "room"), [doc.items]);
   const allPaths = (draftPath ? [...doc.paths, draftPath] : doc.paths)
     .filter(path => visibleLayerIds.has(path.layerId ?? GAMEPLAY_LAYER_ID))
     .sort((a, b) => (layerIndex.get(a.layerId ?? GAMEPLAY_LAYER_ID) ?? 0) - (layerIndex.get(b.layerId ?? GAMEPLAY_LAYER_ID) ?? 0));
@@ -862,6 +900,30 @@ export default function MapEditor() {
     const layer: MapLayer = { id: id(), name: `Слой ${doc.layers.length + 1}`, visible: true, locked: false };
     commit(current => ({ ...current, layers: [...current.layers, layer] }));
     setActiveLayerId(layer.id);
+  };
+
+  const setItemAttachment = (itemId: string, roomId?: string) => {
+    commit(current => ({ ...current, items: current.items.map(item => item.id === itemId ? { ...item, attachedRoomId: roomId } : item) }));
+  };
+
+  const setItemCoordinate = (itemId: string, axis: "x" | "y", value: number) => {
+    const target = docRef.current.items.find(item => item.id === itemId);
+    if (!target) return;
+    const delta = value - target[axis];
+    const attachedIds = target.kind === "room"
+      ? new Set(docRef.current.items.filter(item => item.attachedRoomId === target.id).map(item => item.id))
+      : new Set<string>();
+    commit(current => {
+      const movedItems = current.items.map(item => {
+        if (item.id === itemId) return { ...item, [axis]: value };
+        if (attachedIds.has(item.id)) return { ...item, [axis]: item[axis] + delta };
+        return item;
+      });
+      const movedTarget = movedItems.find(item => item.id === itemId);
+      if (!movedTarget?.attachedRoomId) return { ...current, items: movedItems };
+      const room = roomContainingItem(movedItems, movedTarget, movedTarget.attachedRoomId);
+      return { ...current, items: movedItems.map(item => item.id === itemId ? { ...item, attachedRoomId: room?.id } : item) };
+    });
   };
 
   const updateLayer = (layerId: string, changes: Partial<MapLayer>) => {
@@ -1182,6 +1244,22 @@ export default function MapEditor() {
           <label>Слой<select value={selectedItem.layerId ?? GAMEPLAY_LAYER_ID} onChange={event => moveSelectionToLayer(event.target.value)}>
             {doc.layers.filter(layer => layer.visible && !layer.locked).map(layer => <option value={layer.id} key={layer.id}>{layer.name}</option>)}
           </select></label>
+          {selectedItem.kind !== "room" && <div className={`attachment-control ${selectedItem.attachedRoomId ? "is-attached" : ""}`}>
+            <label className="attachment-toggle">
+              <input
+                type="checkbox"
+                aria-label="Следовать за комнатой"
+                checked={Boolean(selectedItem.attachedRoomId)}
+                disabled={!rooms.length}
+                onChange={event => {
+                  if (!event.target.checked) setItemAttachment(selectedItem.id, undefined);
+                  else setItemAttachment(selectedItem.id, roomContainingItem(doc.items, selectedItem)?.id);
+                }}
+              />
+              <span><b>Следовать за комнатой</b><small>{rooms.length ? "Комната определяется автоматически по положению элемента" : "Сначала добавьте на карту форму комнаты"}</small></span>
+            </label>
+            {selectedItem.attachedRoomId && <div className="attachment-status">● Комната определена автоматически</div>}
+          </div>}
           {selectedItem.kind === "platform" && <label>Режим платформы<select value={selectedItem.platformMode ?? "normal"} onChange={event => updateItemLive(selectedItem.id, { platformMode: event.target.value as PlatformMode })}>
             <option value="normal">Обычная</option>
             <option value="crumble">Осыпающаяся при наступании</option>
@@ -1266,7 +1344,7 @@ export default function MapEditor() {
               <span>{Math.round((selectedItem.trackPosition ?? .5) * 100)}%</span>
             </label>
           </>}
-          <div className="field-row"><label>X, клетки<input type="number" value={selectedItem.x / CELL} onChange={event => setDoc(value => ({ ...value, items: value.items.map(item => item.id === selectedItem.id ? { ...item, x: Number(event.target.value) * CELL } : item) }))} /></label><label>Y, клетки<input type="number" value={selectedItem.y / CELL} onChange={event => setDoc(value => ({ ...value, items: value.items.map(item => item.id === selectedItem.id ? { ...item, y: Number(event.target.value) * CELL } : item) }))} /></label></div>
+          <div className="field-row"><label>X, клетки<input type="number" value={selectedItem.x / CELL} onChange={event => setItemCoordinate(selectedItem.id, "x", Number(event.target.value) * CELL)} /></label><label>Y, клетки<input type="number" value={selectedItem.y / CELL} onChange={event => setItemCoordinate(selectedItem.id, "y", Number(event.target.value) * CELL)} /></label></div>
           {selectedItem.kind !== "liquid" && selectedItem.kind !== "room" && <div className="field-row"><label>Ширина<input type="number" min="1" value={selectedItem.w} onChange={event => setDoc(value => ({ ...value, items: value.items.map(item => item.id === selectedItem.id ? { ...item, w: Math.max(1, Number(event.target.value)) } : item) }))} /></label><label>Высота<input type="number" min="1" value={selectedItem.h} onChange={event => setDoc(value => ({ ...value, items: value.items.map(item => item.id === selectedItem.id ? { ...item, h: Math.max(1, Number(event.target.value)) } : item) }))} /></label></div>}
           <button className="wide danger-tool" onClick={removeSelected}>Удалить объект</button>
         </div> : selectedPath ? <div className="inspector-body path-inspector">
