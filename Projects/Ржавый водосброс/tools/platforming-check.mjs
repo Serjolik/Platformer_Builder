@@ -1,4 +1,4 @@
-/** Read-only authoring audit. The trajectory probe is provisional, not ProjectA gameplay physics. */
+/** Read-only authoring audit. The trajectory probe is provisional, not engine gameplay physics. */
 import { readFile } from "node:fs/promises";
 import { pathToFileURL } from "node:url";
 import { validateDocument, getItemPolygonPixels } from "../../Затихший узел/tools/model-tools.mjs";

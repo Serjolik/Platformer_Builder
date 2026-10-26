@@ -28,7 +28,7 @@ const doc = {version:2,name:'Затихший узел · блокинг v1',gri
 const specs = [
   {key:'hub',name:'01 · Перрон тишины',region:0,pos:[0,0],graph:[0,0],w:48,h:20,type:'Save',
     poly:[[0,4],[8,4],[8,0],[33,0],[33,4],[48,4],[48,20],[0,20]],
-    description:'Спокойный хаб и ориентир. Слева место появления Q и первая скамья, в центре смотритель депо, справа основной выход в галерею. Верхний балкон ведёт к отдельному возвратному пути. Никаких врагов у старта. Основной пол непрерывен; на балкон ведёт лестница. Размеры — исходная гипотеза, не проверенные метрики движения.',
+    description:'Спокойный хаб и ориентир. Слева место появления персонажа и первая скамья, в центре смотритель депо, справа основной выход в галерею. Верхний балкон ведёт к отдельному возвратному пути. Никаких врагов у старта. Основной пол непрерывен; на балкон ведёт лестница. Размеры — исходная гипотеза, не проверенные метрики движения.',
     ports:[['out-main','R',15,18,'exit','В галерею'],['in-loop','R',7,10,'entrance','Верхний возврат']]},
   {key:'gallery',name:'02 · Галерея конвейеров',region:0,pos:[60,0],graph:[420,0],w:76,h:24,type:'Combat',
     poly:[[0,5],[24,5],[24,0],[52,0],[52,5],[76,5],[76,24],[0,24]],
@@ -114,8 +114,8 @@ function route(s,points,color=colors.main){
 {
  const s=specs[0];floor(s,0,18,48,2,'Ровный перрон');floor(s,30,10,18,1,'Балкон возврата');ladder(s,28,9,18);
  checkpoint(s,11,18,'Скамья · стартовый хаб');makeItem(s,'npc',20,16,1,2,'Смотритель депо',{npcRole:'npc'});
- const marker=makeItem(s,'transition',4,16,2,2,'Пробуждение Q',{transition:{endpointId:uid('endpoint-start'),kind:'entrance'},color:'#80ceb0'});
- rooms.get('hub').entrances.unshift({id:marker.transition.endpointId,name:'Пробуждение Q',...arrival});
+ const marker=makeItem(s,'transition',4,16,2,2,'Начало игры',{transition:{endpointId:uid('endpoint-start'),kind:'entrance'},color:'#80ceb0'});
+ rooms.get('hub').entrances.unshift({id:marker.transition.endpointId,name:'Начало игры',...arrival});
  doc.world.start={roomId:rooms.get('hub').id,entranceId:marker.transition.endpointId};
  note(s,10,2,23,'ПЕРРОН ТИШИНЫ\nОтдых · ориентир · возвращение','#91c9b8');
  note(s,31,5,15,'Верхняя петля\nвозвращение из галереи',colors.loop);

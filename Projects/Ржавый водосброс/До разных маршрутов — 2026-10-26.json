@@ -944,7 +944,7 @@
       "y": 1088,
       "w": 2,
       "h": 2,
-      "label": "Вход Q",
+      "label": "Вход игрока",
       "color": "#8dc5a6",
       "layerId": "actor",
       "attachedRoomId": "31945281-12bd-5942-a405-2f0ad069dc6d",
@@ -5141,7 +5141,7 @@
         "entrances": [
           {
             "id": "b54f888e-24f9-5fee-ae23-e4dd979e43e3",
-            "name": "Вход Q",
+            "name": "Вход игрока",
             "preservePlayerDepth": true,
             "overrideFacing": false,
             "faceRight": true,

@@ -211,7 +211,7 @@
       "roomId": "b2620eac-f65e-56d0-aa50-c1c2d62b43b5",
       "roomName": "01 · Грузовой двор",
       "endpointId": "b54f888e-24f9-5fee-ae23-e4dd979e43e3",
-      "endpointName": "Вход Q",
+      "endpointName": "Вход игрока",
       "kind": "entrance",
       "markerId": "ee35a4d2-9bfc-5e36-a025-0070205e4e25",
       "anchor": {

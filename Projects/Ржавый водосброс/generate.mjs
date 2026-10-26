@@ -58,8 +58,8 @@ const helpers={solid,ow,spike,note,loot,enemy,bench,secret,moving,item,col};
 [buildIntake,buildReservoir,buildShaft,buildRift].forEach((build,i)=>build(specs[i],helpers));
 {
  const s=specs[0];
- const start=item(s,'start-marker','transition',13,28,2,2,'Вход Q',{transition:{endpointId:id('start-port'),kind:'entrance'},color:'#8dc5a6'});
- rooms.get(s.key).entrances.push({id:start.transition.endpointId,name:'Вход Q',...arrival});
+ const start=item(s,'start-marker','transition',13,28,2,2,'Вход игрока',{transition:{endpointId:id('start-port'),kind:'entrance'},color:'#8dc5a6'});
+ rooms.get(s.key).entrances.push({id:start.transition.endpointId,name:'Вход игрока',...arrival});
  doc.world.start={roomId:rooms.get(s.key).id,entranceId:start.transition.endpointId};
 }
 // FILTER: optional full-height loop, a visible reward and a second breakable niche.

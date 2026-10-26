@@ -82,8 +82,8 @@ function route(s,key,points,color=col.main){for(let i=1;i<points.length;i++)doc.
  // Recover from the first pit without using a ladder or an assumed wall jump.
  ow(s,'recover-first',10,38,4);ow(s,'recover-middle',21,37,3);ow(s,'recover-last',46,37,4);
  bench(s,'bench',3,36);enemy(s,'watcher',55,10);loot(s,'upper-loot',38,7,'Награда за верхний прыжок');
- const start=item(s,'start-marker','transition',1,34,2,2,'Вход Q',{transition:{endpointId:id('start-port'),kind:'entrance'},color:'#8dc5a6'});
- rooms.get(s.key).entrances.push({id:start.transition.endpointId,name:'Вход Q',...arrival});doc.world.start={roomId:rooms.get(s.key).id,entranceId:start.transition.endpointId};
+ const start=item(s,'start-marker','transition',1,34,2,2,'Вход игрока',{transition:{endpointId:id('start-port'),kind:'entrance'},color:'#8dc5a6'});
+ rooms.get(s.key).entrances.push({id:start.transition.endpointId,name:'Вход игрока',...arrival});doc.world.start={roomId:rooms.get(s.key).id,entranceId:start.transition.endpointId};
  note(s,'title',17,1,34,'01  ПЕРЕГРУЗОЧНЫЙ ЗАЛ');note(s,'first-beat',2,27,20,'I  Прыжки → первый риск');note(s,'second-beat',4,23,35,'II  Возврат над пройденным');note(s,'third-beat',20,11,30,'III  Шипы + OneWay');
  route(s,'low',[[8,32],[21,31],[37,31],[48,30]]);route(s,'right',[[56,29],[56,24],[47,19]]);route(s,'mid',[[43,17],[35,17],[23,17],[16,17]]);route(s,'left',[[5,20],[6,14],[15,7]]);route(s,'high',[[20,5],[29,5],[44,5],[59,5]]);
 }
