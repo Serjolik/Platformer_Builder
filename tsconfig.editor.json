@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  "include": [
+    "next-env.d.ts",
+    "app/page.tsx",
+    "app/layout.tsx",
+    "app/map-editor.tsx",
+    "app/map-document.ts",
+    "app/world-model.ts",
+    "app/world-editor.tsx",
+    "app/world-inspector.tsx"
+  ],
+  "exclude": ["node_modules"]
+}

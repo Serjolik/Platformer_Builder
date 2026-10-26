@@ -1,0 +1,4551 @@
+{
+  "version": 2,
+  "name": "Ржавый водосброс · один регион",
+  "grid": 32,
+  "layers": [
+    {
+      "id": "shell",
+      "name": "01 · Контуры",
+      "visible": true,
+      "locked": false
+    },
+    {
+      "id": "solid",
+      "name": "02 · Массивы и опоры",
+      "visible": true,
+      "locked": false
+    },
+    {
+      "id": "play",
+      "name": "03 · Платформинг и опасности",
+      "visible": true,
+      "locked": false
+    },
+    {
+      "id": "actor",
+      "name": "04 · Встречи и награды",
+      "visible": true,
+      "locked": false
+    },
+    {
+      "id": "design",
+      "name": "05 · Маршруты и пояснения",
+      "visible": true,
+      "locked": false
+    }
+  ],
+  "inactiveLayerOpacity": 0.8,
+  "items": [
+    {
+      "id": "31945281-12bd-5942-a405-2f0ad069dc6d",
+      "kind": "room",
+      "label": "01 · Грузовой двор",
+      "color": "#91a7ac",
+      "x": 0,
+      "y": 0,
+      "w": 80,
+      "h": 38,
+      "polygonPoints": [
+        {
+          "x": 0,
+          "y": 448
+        },
+        {
+          "x": 320,
+          "y": 448
+        },
+        {
+          "x": 320,
+          "y": 192
+        },
+        {
+          "x": 800,
+          "y": 192
+        },
+        {
+          "x": 800,
+          "y": 0
+        },
+        {
+          "x": 1792,
+          "y": 0
+        },
+        {
+          "x": 1792,
+          "y": 192
+        },
+        {
+          "x": 2560,
+          "y": 192
+        },
+        {
+          "x": 2560,
+          "y": 832
+        },
+        {
+          "x": 2560,
+          "y": 960
+        },
+        {
+          "x": 2560,
+          "y": 1216
+        },
+        {
+          "x": 0,
+          "y": 1216
+        }
+      ],
+      "sideTypes": [
+        "straight",
+        "straight",
+        "straight",
+        "straight",
+        "straight",
+        "straight",
+        "straight",
+        "straight",
+        "opening",
+        "straight",
+        "straight",
+        "straight"
+      ],
+      "sideTransitions": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "endpointId": "9f74c49e-27a4-50d9-a5b0-fc6f7994762a",
+          "kind": "exit"
+        },
+        null,
+        null,
+        null
+      ],
+      "layerId": "shell",
+      "blocking": {
+        "roomId": "b2620eac-f65e-56d0-aa50-c1c2d62b43b5",
+        "mode": "outline"
+      }
+    },
+    {
+      "id": "af8ceae1-fc0a-56a3-aebb-589c28d3629b",
+      "kind": "room",
+      "label": "02 · Резервуар паромов",
+      "color": "#91a7ac",
+      "x": 3008,
+      "y": 0,
+      "w": 78,
+      "h": 50,
+      "polygonPoints": [
+        {
+          "x": 0,
+          "y": 512
+        },
+        {
+          "x": 448,
+          "y": 512
+        },
+        {
+          "x": 448,
+          "y": 0
+        },
+        {
+          "x": 1984,
+          "y": 0
+        },
+        {
+          "x": 1984,
+          "y": 512
+        },
+        {
+          "x": 2496,
+          "y": 512
+        },
+        {
+          "x": 2496,
+          "y": 768
+        },
+        {
+          "x": 2496,
+          "y": 896
+        },
+        {
+          "x": 2496,
+          "y": 1600
+        },
+        {
+          "x": 0,
+          "y": 1600
+        },
+        {
+          "x": 0,
+          "y": 1376
+        },
+        {
+          "x": 0,
+          "y": 1248
+        },
+        {
+          "x": 0,
+          "y": 896
+        },
+        {
+          "x": 0,
+          "y": 768
+        }
+      ],
+      "sideTypes": [
+        "straight",
+        "straight",
+        "straight",
+        "straight",
+        "straight",
+        "straight",
+        "opening",
+        "straight",
+        "straight",
+        "straight",
+        "opening",
+        "straight",
+        "opening",
+        "straight"
+      ],
+      "sideTransitions": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "endpointId": "39633656-6c1d-5de3-a795-47558577e2ea",
+          "kind": "exit"
+        },
+        null,
+        null,
+        null,
+        {
+          "endpointId": "905db2e0-9e29-5a35-acaa-3e5a708dc6e9",
+          "kind": "exit"
+        },
+        null,
+        {
+          "endpointId": "ee6ed99b-22b8-56db-aa0d-fb2d35515918",
+          "kind": "entrance"
+        },
+        null
+      ],
+      "layerId": "shell",
+      "blocking": {
+        "roomId": "337aed96-ca8b-5206-a9e2-e752603b01d4",
+        "mode": "outline"
+      }
+    },
+    {
+      "id": "ddd25ce6-2c48-586b-a49f-dccba439c949",
+      "kind": "room",
+      "label": "03 · Подъёмник сердечника",
+      "color": "#91a7ac",
+      "x": 6016,
+      "y": 0,
+      "w": 48,
+      "h": 74,
+      "polygonPoints": [
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 1536,
+          "y": 0
+        },
+        {
+          "x": 1536,
+          "y": 192
+        },
+        {
+          "x": 1536,
+          "y": 320
+        },
+        {
+          "x": 1536,
+          "y": 2368
+        },
+        {
+          "x": 0,
+          "y": 2368
+        },
+        {
+          "x": 0,
+          "y": 2112
+        },
+        {
+          "x": 0,
+          "y": 1984
+        }
+      ],
+      "sideTypes": [
+        "straight",
+        "straight",
+        "opening",
+        "straight",
+        "straight",
+        "straight",
+        "opening",
+        "straight"
+      ],
+      "sideTransitions": [
+        null,
+        null,
+        {
+          "endpointId": "94d02461-0317-5f03-a8ba-b539aa86121d",
+          "kind": "exit"
+        },
+        null,
+        null,
+        null,
+        {
+          "endpointId": "2b7d0de5-2847-526c-a4a5-e124e45f9b43",
+          "kind": "entrance"
+        },
+        null
+      ],
+      "layerId": "shell",
+      "blocking": {
+        "roomId": "86084915-5b65-5ae9-abe0-92093ee8a46a",
+        "mode": "outline"
+      }
+    },
+    {
+      "id": "be8be719-ed68-5340-adaf-def92ae2eefa",
+      "kind": "room",
+      "label": "04 · Разлом двух путей",
+      "color": "#91a7ac",
+      "x": 6016,
+      "y": 2880,
+      "w": 84,
+      "h": 58,
+      "polygonPoints": [
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 1088,
+          "y": 0
+        },
+        {
+          "x": 1280,
+          "y": 192
+        },
+        {
+          "x": 2688,
+          "y": 192
+        },
+        {
+          "x": 2688,
+          "y": 1856
+        },
+        {
+          "x": 0,
+          "y": 1856
+        },
+        {
+          "x": 0,
+          "y": 320
+        },
+        {
+          "x": 0,
+          "y": 192
+        }
+      ],
+      "sideTypes": [
+        "straight",
+        "straight",
+        "straight",
+        "straight",
+        "straight",
+        "straight",
+        "opening",
+        "straight"
+      ],
+      "sideTransitions": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "endpointId": "93731b98-d2e8-5b49-a86c-bd5f40e9d352",
+          "kind": "entrance"
+        },
+        null
+      ],
+      "layerId": "shell",
+      "blocking": {
+        "roomId": "ca431e14-bbf4-578f-a10b-330f62843341",
+        "mode": "outline"
+      }
+    },
+    {
+      "id": "617d3cb9-38c0-5c08-afd7-fc9f59eb075c",
+      "kind": "room",
+      "label": "05 · Слепой фильтр",
+      "color": "#91a7ac",
+      "x": 4032,
+      "y": 2112,
+      "w": 40,
+      "h": 32,
+      "polygonPoints": [
+        {
+          "x": 0,
+          "y": 128
+        },
+        {
+          "x": 256,
+          "y": 128
+        },
+        {
+          "x": 384,
+          "y": 0
+        },
+        {
+          "x": 1024,
+          "y": 0
+        },
+        {
+          "x": 1152,
+          "y": 128
+        },
+        {
+          "x": 1280,
+          "y": 128
+        },
+        {
+          "x": 1280,
+          "y": 704
+        },
+        {
+          "x": 1280,
+          "y": 832
+        },
+        {
+          "x": 1280,
+          "y": 1024
+        },
+        {
+          "x": 0,
+          "y": 1024
+        }
+      ],
+      "sideTypes": [
+        "straight",
+        "straight",
+        "straight",
+        "straight",
+        "straight",
+        "straight",
+        "opening",
+        "straight",
+        "straight",
+        "straight"
+      ],
+      "sideTransitions": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "endpointId": "7c5929b5-09e1-5084-a94c-c9bd16f95012",
+          "kind": "entrance"
+        },
+        null,
+        null,
+        null
+      ],
+      "layerId": "shell",
+      "blocking": {
+        "roomId": "1b691717-1d6a-5428-a9d8-bb405a1f4440",
+        "mode": "outline"
+      }
+    },
+    {
+      "id": "993d6bcf-a07f-5748-aae3-55c8b200fae6",
+      "kind": "platform",
+      "x": 0,
+      "y": 1184,
+      "w": 80,
+      "h": 1,
+      "label": "Основание двора",
+      "color": "#648d89",
+      "layerId": "solid",
+      "attachedRoomId": "31945281-12bd-5942-a405-2f0ad069dc6d",
+      "blocking": {
+        "roomId": "b2620eac-f65e-56d0-aa50-c1c2d62b43b5",
+        "mode": "solid"
+      },
+      "platformMode": "normal"
+    },
+    {
+      "id": "3b7dc9f2-4cb6-5f9f-a539-3eb86deacee8",
+      "kind": "platform",
+      "x": 0,
+      "y": 960,
+      "w": 24,
+      "h": 7,
+      "label": "Входной двор",
+      "color": "#648d89",
+      "layerId": "solid",
+      "attachedRoomId": "31945281-12bd-5942-a405-2f0ad069dc6d",
+      "blocking": {
+        "roomId": "b2620eac-f65e-56d0-aa50-c1c2d62b43b5",
+        "mode": "solid"
+      },
+      "platformMode": "normal"
+    },
+    {
+      "id": "e5fe64fb-3dcc-50c5-a350-a140fb2a3c2e",
+      "kind": "platform",
+      "x": 960,
+      "y": 960,
+      "w": 22,
+      "h": 7,
+      "label": "Нижний боевой проход",
+      "color": "#648d89",
+      "layerId": "solid",
+      "attachedRoomId": "31945281-12bd-5942-a405-2f0ad069dc6d",
+      "blocking": {
+        "roomId": "b2620eac-f65e-56d0-aa50-c1c2d62b43b5",
+        "mode": "solid"
+      },
+      "platformMode": "normal"
+    },
+    {
+      "id": "def423b4-3204-5180-aa14-7e345ddddfe4",
+      "kind": "platform",
+      "x": 1856,
+      "y": 960,
+      "w": 22,
+      "h": 7,
+      "label": "Выходной двор",
+      "color": "#648d89",
+      "layerId": "solid",
+      "attachedRoomId": "31945281-12bd-5942-a405-2f0ad069dc6d",
+      "blocking": {
+        "roomId": "b2620eac-f65e-56d0-aa50-c1c2d62b43b5",
+        "mode": "solid"
+      },
+      "platformMode": "normal"
+    },
+    {
+      "id": "b428adba-2584-5bfb-a526-d2c6a92c65b7",
+      "kind": "platform",
+      "x": 1024,
+      "y": 416,
+      "w": 20,
+      "h": 6,
+      "label": "Грузовая машина · обход сверху или снизу",
+      "color": "#648d89",
+      "layerId": "solid",
+      "attachedRoomId": "31945281-12bd-5942-a405-2f0ad069dc6d",
+      "blocking": {
+        "roomId": "b2620eac-f65e-56d0-aa50-c1c2d62b43b5",
+        "mode": "solid"
+      },
+      "platformMode": "normal"
+    },
+    {
+      "id": "28f79da1-6c54-5a03-a436-24703f8ae957",
+      "kind": "hazard",
+      "x": 768,
+      "y": 1152,
+      "w": 6,
+      "h": 1,
+      "label": "Шипы",
+      "color": "#ec866c",
+      "layerId": "play",
+      "attachedRoomId": "31945281-12bd-5942-a405-2f0ad069dc6d",
+      "blocking": {
+        "roomId": "b2620eac-f65e-56d0-aa50-c1c2d62b43b5",
+        "mode": "blueprint"
+      },
+      "hazardDirection": "up"
+    },
+    {
+      "id": "58e10678-b08d-5f26-a5e6-072bec92267e",
+      "kind": "hazard",
+      "x": 1664,
+      "y": 1152,
+      "w": 6,
+      "h": 1,
+      "label": "Шипы",
+      "color": "#ec866c",
+      "layerId": "play",
+      "attachedRoomId": "31945281-12bd-5942-a405-2f0ad069dc6d",
+      "blocking": {
+        "roomId": "b2620eac-f65e-56d0-aa50-c1c2d62b43b5",
+        "mode": "blueprint"
+      },
+      "hazardDirection": "up"
+    },
+    {
+      "id": "3bef0e69-955c-51dc-ac5d-db0fcda3c40a",
+      "kind": "platform",
+      "x": 800,
+      "y": 992,
+      "w": 4,
+      "h": 0.5,
+      "label": "OneWay",
+      "color": "#7db8ee",
+      "layerId": "play",
+      "attachedRoomId": "31945281-12bd-5942-a405-2f0ad069dc6d",
+      "blocking": {
+        "roomId": "b2620eac-f65e-56d0-aa50-c1c2d62b43b5",
+        "mode": "blueprint"
+      },
+      "platformMode": "oneway"
+    },
+    {
+      "id": "55b93330-d002-53af-af52-97add0501d71",
+      "kind": "platform",
+      "x": 1696,
+      "y": 992,
+      "w": 4,
+      "h": 0.5,
+      "label": "OneWay",
+      "color": "#7db8ee",
+      "layerId": "play",
+      "attachedRoomId": "31945281-12bd-5942-a405-2f0ad069dc6d",
+      "blocking": {
+        "roomId": "b2620eac-f65e-56d0-aa50-c1c2d62b43b5",
+        "mode": "blueprint"
+      },
+      "platformMode": "oneway"
+    },
+    {
+      "id": "e4407ff7-c08c-5f50-a6cb-10e8492d91a0",
+      "kind": "platform",
+      "x": 448,
+      "y": 864,
+      "w": 6,
+      "h": 0.5,
+      "label": "OneWay",
+      "color": "#7db8ee",
+      "layerId": "play",
+      "attachedRoomId": "31945281-12bd-5942-a405-2f0ad069dc6d",
+      "blocking": {
+        "roomId": "b2620eac-f65e-56d0-aa50-c1c2d62b43b5",
+        "mode": "blueprint"
+      },
+      "platformMode": "oneway"
+    },
+    {
+      "id": "f3325cd9-a752-519f-ab34-3e7ca2d2ba8e",
+      "kind": "platform",
+      "x": 576,
+      "y": 768,
+      "w": 6,
+      "h": 0.5,
+      "label": "OneWay",
+      "color": "#7db8ee",
+      "layerId": "play",
+      "attachedRoomId": "31945281-12bd-5942-a405-2f0ad069dc6d",
+      "blocking": {
+        "roomId": "b2620eac-f65e-56d0-aa50-c1c2d62b43b5",
+        "mode": "blueprint"
+      },
+      "platformMode": "oneway"
+    },
+    {
+      "id": "33f3d39d-1e3a-5d14-aa25-a9a99ccceed1",
+      "kind": "platform",
+      "x": 704,
+      "y": 672,
+      "w": 6,
+      "h": 0.5,
+      "label": "OneWay",
+      "color": "#7db8ee",
+      "layerId": "play",
+      "attachedRoomId": "31945281-12bd-5942-a405-2f0ad069dc6d",
+      "blocking": {
+        "roomId": "b2620eac-f65e-56d0-aa50-c1c2d62b43b5",
+        "mode": "blueprint"
+      },
+      "platformMode": "oneway"
+    },
+    {
+      "id": "2a63a5c1-f7c9-5361-aa19-c089af1159c0",
+      "kind": "platform",
+      "x": 832,
+      "y": 576,
+      "w": 5,
+      "h": 0.5,
+      "label": "OneWay",
+      "color": "#7db8ee",
+      "layerId": "play",
+      "attachedRoomId": "31945281-12bd-5942-a405-2f0ad069dc6d",
+      "blocking": {
+        "roomId": "b2620eac-f65e-56d0-aa50-c1c2d62b43b5",
+        "mode": "blueprint"
+      },
+      "platformMode": "oneway"
+    },
+    {
+      "id": "0006b2ba-da3b-5351-a6f6-edee8cb3d089",
+      "kind": "platform",
+      "x": 832,
+      "y": 480,
+      "w": 5,
+      "h": 0.5,
+      "label": "OneWay",
+      "color": "#7db8ee",
+      "layerId": "play",
+      "attachedRoomId": "31945281-12bd-5942-a405-2f0ad069dc6d",
+      "blocking": {
+        "roomId": "b2620eac-f65e-56d0-aa50-c1c2d62b43b5",
+        "mode": "blueprint"
+      },
+      "platformMode": "oneway"
+    },
+    {
+      "id": "ccea1b1a-bc3d-560a-ad44-23b8086faaeb",
+      "kind": "platform",
+      "x": 1696,
+      "y": 480,
+      "w": 5,
+      "h": 0.5,
+      "label": "OneWay",
+      "color": "#7db8ee",
+      "layerId": "play",
+      "attachedRoomId": "31945281-12bd-5942-a405-2f0ad069dc6d",
+      "blocking": {
+        "roomId": "b2620eac-f65e-56d0-aa50-c1c2d62b43b5",
+        "mode": "blueprint"
+      },
+      "platformMode": "oneway"
+    },
+    {
+      "id": "2713edc8-7aaa-5e57-af32-2251302e77df",
+      "kind": "platform",
+      "x": 1824,
+      "y": 576,
+      "w": 6,
+      "h": 0.5,
+      "label": "OneWay",
+      "color": "#7db8ee",
+      "layerId": "play",
+      "attachedRoomId": "31945281-12bd-5942-a405-2f0ad069dc6d",
+      "blocking": {
+        "roomId": "b2620eac-f65e-56d0-aa50-c1c2d62b43b5",
+        "mode": "blueprint"
+      },
+      "platformMode": "oneway"
+    },
+    {
+      "id": "eec1f932-be3a-576e-ae44-0c5628c1e247",
+      "kind": "platform",
+      "x": 2016,
+      "y": 672,
+      "w": 6,
+      "h": 0.5,
+      "label": "OneWay",
+      "color": "#7db8ee",
+      "layerId": "play",
+      "attachedRoomId": "31945281-12bd-5942-a405-2f0ad069dc6d",
+      "blocking": {
+        "roomId": "b2620eac-f65e-56d0-aa50-c1c2d62b43b5",
+        "mode": "blueprint"
+      },
+      "platformMode": "oneway"
+    },
+    {
+      "id": "cad64c6f-6cce-5d10-a8e3-1712e824257c",
+      "kind": "platform",
+      "x": 2176,
+      "y": 768,
+      "w": 6,
+      "h": 0.5,
+      "label": "OneWay",
+      "color": "#7db8ee",
+      "layerId": "play",
+      "attachedRoomId": "31945281-12bd-5942-a405-2f0ad069dc6d",
+      "blocking": {
+        "roomId": "b2620eac-f65e-56d0-aa50-c1c2d62b43b5",
+        "mode": "blueprint"
+      },
+      "platformMode": "oneway"
+    },
+    {
+      "id": "d2047142-3ce7-59fa-a334-b346cc5e6e85",
+      "kind": "platform",
+      "x": 2272,
+      "y": 864,
+      "w": 5,
+      "h": 0.5,
+      "label": "OneWay",
+      "color": "#7db8ee",
+      "layerId": "play",
+      "attachedRoomId": "31945281-12bd-5942-a405-2f0ad069dc6d",
+      "blocking": {
+        "roomId": "b2620eac-f65e-56d0-aa50-c1c2d62b43b5",
+        "mode": "blueprint"
+      },
+      "platformMode": "oneway"
+    },
+    {
+      "id": "5dc81361-32cd-5a0b-a2ce-bbe7703a8d65",
+      "kind": "enemy",
+      "x": 1152,
+      "y": 928,
+      "w": 1,
+      "h": 1,
+      "label": "Дозорный",
+      "color": "#de7884",
+      "layerId": "actor",
+      "attachedRoomId": "31945281-12bd-5942-a405-2f0ad069dc6d",
+      "blocking": {
+        "roomId": "b2620eac-f65e-56d0-aa50-c1c2d62b43b5",
+        "mode": "blueprint"
+      },
+      "enemyType": "normal"
+    },
+    {
+      "id": "3d1f9361-c1da-588c-a551-8df6a79edebe",
+      "kind": "enemy",
+      "x": 1408,
+      "y": 928,
+      "w": 1,
+      "h": 1,
+      "label": "Страж",
+      "color": "#de7884",
+      "layerId": "actor",
+      "attachedRoomId": "31945281-12bd-5942-a405-2f0ad069dc6d",
+      "blocking": {
+        "roomId": "b2620eac-f65e-56d0-aa50-c1c2d62b43b5",
+        "mode": "blueprint"
+      },
+      "enemyType": "heavy"
+    },
+    {
+      "id": "d6d66938-416c-5a46-a248-8c8295b6fd84",
+      "kind": "enemy",
+      "x": 1312,
+      "y": 384,
+      "w": 1,
+      "h": 1,
+      "label": "Дозорный",
+      "color": "#de7884",
+      "layerId": "actor",
+      "attachedRoomId": "31945281-12bd-5942-a405-2f0ad069dc6d",
+      "blocking": {
+        "roomId": "b2620eac-f65e-56d0-aa50-c1c2d62b43b5",
+        "mode": "blueprint"
+      },
+      "enemyType": "normal"
+    },
+    {
+      "id": "af1f9c1d-a4ba-512f-a445-d5532ca70104",
+      "kind": "enemy",
+      "x": 2208,
+      "y": 928,
+      "w": 1,
+      "h": 1,
+      "label": "Дозорный",
+      "color": "#de7884",
+      "layerId": "actor",
+      "attachedRoomId": "31945281-12bd-5942-a405-2f0ad069dc6d",
+      "blocking": {
+        "roomId": "b2620eac-f65e-56d0-aa50-c1c2d62b43b5",
+        "mode": "blueprint"
+      },
+      "enemyType": "normal"
+    },
+    {
+      "id": "a720134c-7563-53ca-a094-d61a0ed7af40",
+      "kind": "loot",
+      "x": 1536,
+      "y": 384,
+      "w": 1,
+      "h": 1,
+      "label": "Сундук на крыше машины",
+      "color": "#ba8edb",
+      "layerId": "actor",
+      "attachedRoomId": "31945281-12bd-5942-a405-2f0ad069dc6d",
+      "blocking": {
+        "roomId": "b2620eac-f65e-56d0-aa50-c1c2d62b43b5",
+        "mode": "blueprint"
+      }
+    },
+    {
+      "id": "897d0f6b-8815-5974-a66a-764c963016f8",
+      "kind": "checkpoint",
+      "x": 512,
+      "y": 928,
+      "w": 3,
+      "h": 1,
+      "label": "Тихий пост",
+      "color": "#8dc5a6",
+      "layerId": "actor",
+      "attachedRoomId": "31945281-12bd-5942-a405-2f0ad069dc6d",
+      "blocking": {
+        "roomId": "b2620eac-f65e-56d0-aa50-c1c2d62b43b5",
+        "mode": "blueprint"
+      }
+    },
+    {
+      "id": "ca704075-7302-51c3-aa84-9a190dace914",
+      "kind": "platform",
+      "x": 320,
+      "y": 192,
+      "w": 2,
+      "h": 20,
+      "label": "Стена грузового склада",
+      "color": "#648d89",
+      "layerId": "solid",
+      "attachedRoomId": "31945281-12bd-5942-a405-2f0ad069dc6d",
+      "blocking": {
+        "roomId": "b2620eac-f65e-56d0-aa50-c1c2d62b43b5",
+        "mode": "solid"
+      },
+      "platformMode": "normal"
+    },
+    {
+      "id": "fa5a34cc-da7e-522a-ac74-3d962d404bad",
+      "kind": "secret",
+      "x": 320,
+      "y": 832,
+      "w": 2,
+      "h": 4,
+      "label": "Треснувшая перегородка",
+      "color": "#ba8edb",
+      "layerId": "play",
+      "attachedRoomId": "31945281-12bd-5942-a405-2f0ad069dc6d",
+      "blocking": {
+        "roomId": "b2620eac-f65e-56d0-aa50-c1c2d62b43b5",
+        "mode": "blueprint"
+      }
+    },
+    {
+      "id": "65e80bb7-87a6-5229-a476-9db79360b792",
+      "kind": "loot",
+      "x": 128,
+      "y": 928,
+      "w": 1,
+      "h": 1,
+      "label": "Сундук в старом складе",
+      "color": "#ba8edb",
+      "layerId": "actor",
+      "attachedRoomId": "31945281-12bd-5942-a405-2f0ad069dc6d",
+      "blocking": {
+        "roomId": "b2620eac-f65e-56d0-aa50-c1c2d62b43b5",
+        "mode": "blueprint"
+      }
+    },
+    {
+      "id": "2b39af82-7c33-5c26-ac0e-5c8e70345abc",
+      "kind": "note",
+      "x": 928,
+      "y": 64,
+      "w": 24,
+      "h": 2,
+      "label": "01  ГРУЗОВОЙ ДВОР",
+      "color": "#b2b5c0",
+      "layerId": "design",
+      "attachedRoomId": "31945281-12bd-5942-a405-2f0ad069dc6d",
+      "blocking": {
+        "roomId": "b2620eac-f65e-56d0-aa50-c1c2d62b43b5",
+        "mode": "none"
+      },
+      "noteFontSize": 22
+    },
+    {
+      "id": "79cfb0f2-5fc8-556a-a0cf-437d2ac6907c",
+      "kind": "note",
+      "x": 1056,
+      "y": 480,
+      "w": 18,
+      "h": 2,
+      "label": "Бой снизу / обход по крыше",
+      "color": "#b2b5c0",
+      "layerId": "design",
+      "attachedRoomId": "31945281-12bd-5942-a405-2f0ad069dc6d",
+      "blocking": {
+        "roomId": "b2620eac-f65e-56d0-aa50-c1c2d62b43b5",
+        "mode": "none"
+      },
+      "noteFontSize": 22
+    },
+    {
+      "id": "93fe045d-c80c-5b5a-a70e-b40142c44a47",
+      "kind": "platform",
+      "x": 3008,
+      "y": 1536,
+      "w": 78,
+      "h": 2,
+      "label": "Дно резервуара",
+      "color": "#648d89",
+      "layerId": "solid",
+      "attachedRoomId": "af8ceae1-fc0a-56a3-aebb-589c28d3629b",
+      "blocking": {
+        "roomId": "337aed96-ca8b-5206-a9e2-e752603b01d4",
+        "mode": "solid"
+      },
+      "platformMode": "normal"
+    },
+    {
+      "id": "1f3144d8-d9ed-5ed5-a835-2515810514d4",
+      "kind": "platform",
+      "x": 3008,
+      "y": 896,
+      "w": 10,
+      "h": 3,
+      "label": "Причал",
+      "color": "#648d89",
+      "layerId": "solid",
+      "attachedRoomId": "af8ceae1-fc0a-56a3-aebb-589c28d3629b",
+      "blocking": {
+        "roomId": "337aed96-ca8b-5206-a9e2-e752603b01d4",
+        "mode": "solid"
+      },
+      "platformMode": "normal"
+    },
+    {
+      "id": "23c6697f-4a19-5154-afdb-0b0a6ae5acd5",
+      "kind": "platform",
+      "x": 3392,
+      "y": 896,
+      "w": 2,
+      "h": 3,
+      "label": "Кромка причала",
+      "color": "#648d89",
+      "layerId": "solid",
+      "attachedRoomId": "af8ceae1-fc0a-56a3-aebb-589c28d3629b",
+      "blocking": {
+        "roomId": "337aed96-ca8b-5206-a9e2-e752603b01d4",
+        "mode": "solid"
+      },
+      "platformMode": "normal"
+    },
+    {
+      "id": "0c43ba77-68f2-5913-aafe-53a3a991052c",
+      "kind": "platform",
+      "x": 3968,
+      "y": 896,
+      "w": 14,
+      "h": 20,
+      "label": "Сервисный остров",
+      "color": "#648d89",
+      "layerId": "solid",
+      "attachedRoomId": "af8ceae1-fc0a-56a3-aebb-589c28d3629b",
+      "blocking": {
+        "roomId": "337aed96-ca8b-5206-a9e2-e752603b01d4",
+        "mode": "solid"
+      },
+      "platformMode": "normal"
+    },
+    {
+      "id": "217d79fb-2476-58f8-a15e-1fed45e6c9d5",
+      "kind": "platform",
+      "x": 5056,
+      "y": 896,
+      "w": 14,
+      "h": 20,
+      "label": "Дальний причал",
+      "color": "#648d89",
+      "layerId": "solid",
+      "attachedRoomId": "af8ceae1-fc0a-56a3-aebb-589c28d3629b",
+      "blocking": {
+        "roomId": "337aed96-ca8b-5206-a9e2-e752603b01d4",
+        "mode": "solid"
+      },
+      "platformMode": "normal"
+    },
+    {
+      "id": "221fd526-a2aa-5c53-a588-c1ddad318efc",
+      "kind": "hazard",
+      "x": 3456,
+      "y": 1504,
+      "w": 16,
+      "h": 1,
+      "label": "Шипы",
+      "color": "#ec866c",
+      "layerId": "play",
+      "attachedRoomId": "af8ceae1-fc0a-56a3-aebb-589c28d3629b",
+      "blocking": {
+        "roomId": "337aed96-ca8b-5206-a9e2-e752603b01d4",
+        "mode": "blueprint"
+      },
+      "hazardDirection": "up"
+    },
+    {
+      "id": "aebdf8ac-6664-5170-a5fa-21b95b3d857c",
+      "kind": "hazard",
+      "x": 4416,
+      "y": 1504,
+      "w": 20,
+      "h": 1,
+      "label": "Шипы",
+      "color": "#ec866c",
+      "layerId": "play",
+      "attachedRoomId": "af8ceae1-fc0a-56a3-aebb-589c28d3629b",
+      "blocking": {
+        "roomId": "337aed96-ca8b-5206-a9e2-e752603b01d4",
+        "mode": "blueprint"
+      },
+      "hazardDirection": "up"
+    },
+    {
+      "id": "66a6b404-3905-52fe-aeef-8bf33fbcdac8",
+      "kind": "moving",
+      "x": 3552,
+      "y": 880,
+      "w": 10,
+      "h": 1,
+      "label": "Паром I",
+      "color": "#f2b84b",
+      "layerId": "play",
+      "attachedRoomId": "af8ceae1-fc0a-56a3-aebb-589c28d3629b",
+      "blocking": {
+        "roomId": "337aed96-ca8b-5206-a9e2-e752603b01d4",
+        "mode": "blueprint"
+      },
+      "trackOrientation": "horizontal",
+      "trackPosition": 0.5,
+      "movingPlatformWidth": 4,
+      "movingPlatformHeight": 0.5
+    },
+    {
+      "id": "b86cb98d-329b-57a3-a523-bd2d2dea3fa7",
+      "kind": "moving",
+      "x": 4512,
+      "y": 880,
+      "w": 14,
+      "h": 1,
+      "label": "Паром II",
+      "color": "#f2b84b",
+      "layerId": "play",
+      "attachedRoomId": "af8ceae1-fc0a-56a3-aebb-589c28d3629b",
+      "blocking": {
+        "roomId": "337aed96-ca8b-5206-a9e2-e752603b01d4",
+        "mode": "blueprint"
+      },
+      "trackOrientation": "horizontal",
+      "trackPosition": 0.5,
+      "movingPlatformWidth": 4,
+      "movingPlatformHeight": 0.5
+    },
+    {
+      "id": "5e9c599f-ab67-5ece-a643-82366abfdae4",
+      "kind": "checkpoint",
+      "x": 3104,
+      "y": 864,
+      "w": 3,
+      "h": 1,
+      "label": "Тихий пост",
+      "color": "#8dc5a6",
+      "layerId": "actor",
+      "attachedRoomId": "af8ceae1-fc0a-56a3-aebb-589c28d3629b",
+      "blocking": {
+        "roomId": "337aed96-ca8b-5206-a9e2-e752603b01d4",
+        "mode": "blueprint"
+      }
+    },
+    {
+      "id": "3ba235f6-297d-5723-aaef-2f8c2ae83dec",
+      "kind": "enemy",
+      "x": 4192,
+      "y": 864,
+      "w": 1,
+      "h": 1,
+      "label": "Дозорный",
+      "color": "#de7884",
+      "layerId": "actor",
+      "attachedRoomId": "af8ceae1-fc0a-56a3-aebb-589c28d3629b",
+      "blocking": {
+        "roomId": "337aed96-ca8b-5206-a9e2-e752603b01d4",
+        "mode": "blueprint"
+      },
+      "enemyType": "normal"
+    },
+    {
+      "id": "23a65a53-1804-5514-a08e-12b43840cbc8",
+      "kind": "enemy",
+      "x": 5280,
+      "y": 864,
+      "w": 1,
+      "h": 1,
+      "label": "Страж",
+      "color": "#de7884",
+      "layerId": "actor",
+      "attachedRoomId": "af8ceae1-fc0a-56a3-aebb-589c28d3629b",
+      "blocking": {
+        "roomId": "337aed96-ca8b-5206-a9e2-e752603b01d4",
+        "mode": "blueprint"
+      },
+      "enemyType": "heavy"
+    },
+    {
+      "id": "e9678738-3d54-5d93-aa76-fa2b6c09a27d",
+      "kind": "loot",
+      "x": 5408,
+      "y": 864,
+      "w": 1,
+      "h": 1,
+      "label": "Сундук на дальнем причале",
+      "color": "#ba8edb",
+      "layerId": "actor",
+      "attachedRoomId": "af8ceae1-fc0a-56a3-aebb-589c28d3629b",
+      "blocking": {
+        "roomId": "337aed96-ca8b-5206-a9e2-e752603b01d4",
+        "mode": "blueprint"
+      }
+    },
+    {
+      "id": "78bdee06-42ff-54e8-a84f-d926802463d3",
+      "kind": "platform",
+      "x": 3328,
+      "y": 800,
+      "w": 4,
+      "h": 0.5,
+      "label": "OneWay",
+      "color": "#7db8ee",
+      "layerId": "play",
+      "attachedRoomId": "af8ceae1-fc0a-56a3-aebb-589c28d3629b",
+      "blocking": {
+        "roomId": "337aed96-ca8b-5206-a9e2-e752603b01d4",
+        "mode": "blueprint"
+      },
+      "platformMode": "oneway"
+    },
+    {
+      "id": "a6e4c864-b20b-5f9e-a402-6efcedc8267d",
+      "kind": "platform",
+      "x": 3456,
+      "y": 704,
+      "w": 4,
+      "h": 0.5,
+      "label": "OneWay",
+      "color": "#7db8ee",
+      "layerId": "play",
+      "attachedRoomId": "af8ceae1-fc0a-56a3-aebb-589c28d3629b",
+      "blocking": {
+        "roomId": "337aed96-ca8b-5206-a9e2-e752603b01d4",
+        "mode": "blueprint"
+      },
+      "platformMode": "oneway"
+    },
+    {
+      "id": "22d194da-1893-502e-aa07-d8575ba546df",
+      "kind": "platform",
+      "x": 3648,
+      "y": 608,
+      "w": 4,
+      "h": 0.5,
+      "label": "OneWay",
+      "color": "#7db8ee",
+      "layerId": "play",
+      "attachedRoomId": "af8ceae1-fc0a-56a3-aebb-589c28d3629b",
+      "blocking": {
+        "roomId": "337aed96-ca8b-5206-a9e2-e752603b01d4",
+        "mode": "blueprint"
+      },
+      "platformMode": "oneway"
+    },
+    {
+      "id": "cad49fb0-f92f-5f2e-a409-db952340a77f",
+      "kind": "platform",
+      "x": 3840,
+      "y": 512,
+      "w": 4,
+      "h": 0.5,
+      "label": "OneWay",
+      "color": "#7db8ee",
+      "layerId": "play",
+      "attachedRoomId": "af8ceae1-fc0a-56a3-aebb-589c28d3629b",
+      "blocking": {
+        "roomId": "337aed96-ca8b-5206-a9e2-e752603b01d4",
+        "mode": "blueprint"
+      },
+      "platformMode": "oneway"
+    },
+    {
+      "id": "68d3362e-70d2-50f3-a3cf-cb7d74a438d1",
+      "kind": "platform",
+      "x": 4032,
+      "y": 480,
+      "w": 11,
+      "h": 2,
+      "label": "Верхний сервисный мост",
+      "color": "#648d89",
+      "layerId": "solid",
+      "attachedRoomId": "af8ceae1-fc0a-56a3-aebb-589c28d3629b",
+      "blocking": {
+        "roomId": "337aed96-ca8b-5206-a9e2-e752603b01d4",
+        "mode": "solid"
+      },
+      "platformMode": "normal"
+    },
+    {
+      "id": "eeae2cb6-c2f3-5283-a34a-b051d4b91859",
+      "kind": "enemy",
+      "x": 4224,
+      "y": 448,
+      "w": 1,
+      "h": 1,
+      "label": "Дозорный",
+      "color": "#de7884",
+      "layerId": "actor",
+      "attachedRoomId": "af8ceae1-fc0a-56a3-aebb-589c28d3629b",
+      "blocking": {
+        "roomId": "337aed96-ca8b-5206-a9e2-e752603b01d4",
+        "mode": "blueprint"
+      },
+      "enemyType": "normal"
+    },
+    {
+      "id": "1643d750-141f-5930-a57b-3479223bb86a",
+      "kind": "platform",
+      "x": 4384,
+      "y": 0,
+      "w": 2,
+      "h": 11,
+      "label": "Перегородка до потолка",
+      "color": "#648d89",
+      "layerId": "solid",
+      "attachedRoomId": "af8ceae1-fc0a-56a3-aebb-589c28d3629b",
+      "blocking": {
+        "roomId": "337aed96-ca8b-5206-a9e2-e752603b01d4",
+        "mode": "solid"
+      },
+      "platformMode": "normal"
+    },
+    {
+      "id": "6963331a-3247-5e97-a54c-81fd25f30c60",
+      "kind": "platform",
+      "x": 4800,
+      "y": 0,
+      "w": 1,
+      "h": 15,
+      "label": "Задняя стенка тайника",
+      "color": "#648d89",
+      "layerId": "solid",
+      "attachedRoomId": "af8ceae1-fc0a-56a3-aebb-589c28d3629b",
+      "blocking": {
+        "roomId": "337aed96-ca8b-5206-a9e2-e752603b01d4",
+        "mode": "solid"
+      },
+      "platformMode": "normal"
+    },
+    {
+      "id": "198a90ff-d40f-5b44-a8d1-2458e51f2bb6",
+      "kind": "secret",
+      "x": 4384,
+      "y": 352,
+      "w": 2,
+      "h": 4,
+      "label": "Треснувшая перегородка",
+      "color": "#ba8edb",
+      "layerId": "play",
+      "attachedRoomId": "af8ceae1-fc0a-56a3-aebb-589c28d3629b",
+      "blocking": {
+        "roomId": "337aed96-ca8b-5206-a9e2-e752603b01d4",
+        "mode": "blueprint"
+      }
+    },
+    {
+      "id": "508adeac-e9b1-5553-a098-71840da9e550",
+      "kind": "platform",
+      "x": 4384,
+      "y": 480,
+      "w": 14,
+      "h": 3,
+      "label": "Пол закрытого тайника",
+      "color": "#648d89",
+      "layerId": "solid",
+      "attachedRoomId": "af8ceae1-fc0a-56a3-aebb-589c28d3629b",
+      "blocking": {
+        "roomId": "337aed96-ca8b-5206-a9e2-e752603b01d4",
+        "mode": "solid"
+      },
+      "platformMode": "normal"
+    },
+    {
+      "id": "d59cfa17-c45e-5711-a3e8-733e360d56ca",
+      "kind": "loot",
+      "x": 4672,
+      "y": 448,
+      "w": 1,
+      "h": 1,
+      "label": "Сундук за сервисной стеной",
+      "color": "#ba8edb",
+      "layerId": "actor",
+      "attachedRoomId": "af8ceae1-fc0a-56a3-aebb-589c28d3629b",
+      "blocking": {
+        "roomId": "337aed96-ca8b-5206-a9e2-e752603b01d4",
+        "mode": "blueprint"
+      }
+    },
+    {
+      "id": "c3fdf15e-ffc6-5c23-adf4-1d6a334051d8",
+      "kind": "platform",
+      "x": 3008,
+      "y": 1376,
+      "w": 10,
+      "h": 5,
+      "label": "Подпричальный карман",
+      "color": "#648d89",
+      "layerId": "solid",
+      "attachedRoomId": "af8ceae1-fc0a-56a3-aebb-589c28d3629b",
+      "blocking": {
+        "roomId": "337aed96-ca8b-5206-a9e2-e752603b01d4",
+        "mode": "solid"
+      },
+      "platformMode": "normal"
+    },
+    {
+      "id": "8822ea8f-aa2a-5ee8-af6e-073ca3fc702e",
+      "kind": "ladder",
+      "x": 3328,
+      "y": 896,
+      "w": 2,
+      "h": 20,
+      "label": "Сервисная лестница",
+      "color": "#75c4bb",
+      "layerId": "play",
+      "attachedRoomId": "af8ceae1-fc0a-56a3-aebb-589c28d3629b",
+      "blocking": {
+        "roomId": "337aed96-ca8b-5206-a9e2-e752603b01d4",
+        "mode": "blueprint"
+      }
+    },
+    {
+      "id": "ec2676ab-396b-58d1-a1c6-4ccf0e7a93fa",
+      "kind": "secret",
+      "x": 3008,
+      "y": 1248,
+      "w": 1,
+      "h": 4,
+      "label": "Треснувшая перегородка",
+      "color": "#ba8edb",
+      "layerId": "play",
+      "attachedRoomId": "af8ceae1-fc0a-56a3-aebb-589c28d3629b",
+      "blocking": {
+        "roomId": "337aed96-ca8b-5206-a9e2-e752603b01d4",
+        "mode": "blueprint"
+      }
+    },
+    {
+      "id": "b2cdf6e2-742a-51ab-a507-6cf9e23e3fee",
+      "kind": "loot",
+      "x": 3200,
+      "y": 1344,
+      "w": 1,
+      "h": 1,
+      "label": "Сундук под причалом",
+      "color": "#ba8edb",
+      "layerId": "actor",
+      "attachedRoomId": "af8ceae1-fc0a-56a3-aebb-589c28d3629b",
+      "blocking": {
+        "roomId": "337aed96-ca8b-5206-a9e2-e752603b01d4",
+        "mode": "blueprint"
+      }
+    },
+    {
+      "id": "ede5e4cd-b547-5cdf-a265-ec61ec8ab7cd",
+      "kind": "note",
+      "x": 3552,
+      "y": 160,
+      "w": 23,
+      "h": 2,
+      "label": "02  РЕЗЕРВУАР ПАРОМОВ",
+      "color": "#b2b5c0",
+      "layerId": "design",
+      "attachedRoomId": "af8ceae1-fc0a-56a3-aebb-589c28d3629b",
+      "blocking": {
+        "roomId": "337aed96-ca8b-5206-a9e2-e752603b01d4",
+        "mode": "none"
+      },
+      "noteFontSize": 22
+    },
+    {
+      "id": "3a68987e-d27a-5282-a64d-0b639a1f4e34",
+      "kind": "note",
+      "x": 4000,
+      "y": 1088,
+      "w": 12,
+      "h": 2,
+      "label": "Остров: бой и ожидание",
+      "color": "#b2b5c0",
+      "layerId": "design",
+      "attachedRoomId": "af8ceae1-fc0a-56a3-aebb-589c28d3629b",
+      "blocking": {
+        "roomId": "337aed96-ca8b-5206-a9e2-e752603b01d4",
+        "mode": "none"
+      },
+      "noteFontSize": 22
+    },
+    {
+      "id": "acd13608-6d56-560b-ae9b-535af4b97568",
+      "kind": "platform",
+      "x": 6016,
+      "y": 2336,
+      "w": 48,
+      "h": 1,
+      "label": "Дно подъёмника · безопасная страховка",
+      "color": "#648d89",
+      "layerId": "solid",
+      "attachedRoomId": "ddd25ce6-2c48-586b-a49f-dccba439c949",
+      "blocking": {
+        "roomId": "86084915-5b65-5ae9-abe0-92093ee8a46a",
+        "mode": "solid"
+      },
+      "platformMode": "normal"
+    },
+    {
+      "id": "9870b840-b655-5ded-ae0a-22e0b55cad82",
+      "kind": "platform",
+      "x": 6016,
+      "y": 2112,
+      "w": 21,
+      "h": 7,
+      "label": "Вход и площадка ожидания",
+      "color": "#648d89",
+      "layerId": "solid",
+      "attachedRoomId": "ddd25ce6-2c48-586b-a49f-dccba439c949",
+      "blocking": {
+        "roomId": "86084915-5b65-5ae9-abe0-92093ee8a46a",
+        "mode": "solid"
+      },
+      "platformMode": "normal"
+    },
+    {
+      "id": "e3e23ccd-6bb0-5679-a7d2-55f3211dc8f5",
+      "kind": "platform",
+      "x": 6880,
+      "y": 2112,
+      "w": 21,
+      "h": 7,
+      "label": "Нижняя сервисная площадка",
+      "color": "#648d89",
+      "layerId": "solid",
+      "attachedRoomId": "ddd25ce6-2c48-586b-a49f-dccba439c949",
+      "blocking": {
+        "roomId": "86084915-5b65-5ae9-abe0-92093ee8a46a",
+        "mode": "solid"
+      },
+      "platformMode": "normal"
+    },
+    {
+      "id": "1e94436d-fc7c-56a1-a0b7-9a90e97b23f1",
+      "kind": "moving",
+      "x": 6720,
+      "y": 328,
+      "w": 4,
+      "h": 60,
+      "label": "Подъёмник сердечника · туда и обратно",
+      "color": "#f2b84b",
+      "layerId": "play",
+      "attachedRoomId": "ddd25ce6-2c48-586b-a49f-dccba439c949",
+      "blocking": {
+        "roomId": "86084915-5b65-5ae9-abe0-92093ee8a46a",
+        "mode": "blueprint"
+      },
+      "trackOrientation": "vertical",
+      "trackPosition": 0.5,
+      "movingPlatformWidth": 4,
+      "movingPlatformHeight": 0.5
+    },
+    {
+      "id": "d7546060-4913-52bc-a10c-af478e3c23c1",
+      "kind": "platform",
+      "x": 6880,
+      "y": 320,
+      "w": 21,
+      "h": 3,
+      "label": "Верхняя остановка · выход справа",
+      "color": "#648d89",
+      "layerId": "solid",
+      "attachedRoomId": "ddd25ce6-2c48-586b-a49f-dccba439c949",
+      "blocking": {
+        "roomId": "86084915-5b65-5ae9-abe0-92093ee8a46a",
+        "mode": "solid"
+      },
+      "platformMode": "normal"
+    },
+    {
+      "id": "430a9507-0308-5d18-a6d5-87c966fcc4e6",
+      "kind": "platform",
+      "x": 6624,
+      "y": 0,
+      "w": 10,
+      "h": 5,
+      "label": "Кожух привода над ходом подъёмника",
+      "color": "#648d89",
+      "layerId": "solid",
+      "attachedRoomId": "ddd25ce6-2c48-586b-a49f-dccba439c949",
+      "blocking": {
+        "roomId": "86084915-5b65-5ae9-abe0-92093ee8a46a",
+        "mode": "solid"
+      },
+      "platformMode": "normal"
+    },
+    {
+      "id": "a029ce45-bb2a-5994-afcd-bb7e487134d1",
+      "kind": "platform",
+      "x": 6880,
+      "y": 1600,
+      "w": 7,
+      "h": 3,
+      "label": "Правый карман · ожидание подъёмника",
+      "color": "#648d89",
+      "layerId": "solid",
+      "attachedRoomId": "ddd25ce6-2c48-586b-a49f-dccba439c949",
+      "blocking": {
+        "roomId": "86084915-5b65-5ae9-abe0-92093ee8a46a",
+        "mode": "solid"
+      },
+      "platformMode": "normal"
+    },
+    {
+      "id": "84ffa255-7bc3-5bf2-a547-5a3ded4ff7bc",
+      "kind": "platform",
+      "x": 7232,
+      "y": 1536,
+      "w": 10,
+      "h": 4,
+      "label": "Мастерская стража",
+      "color": "#648d89",
+      "layerId": "solid",
+      "attachedRoomId": "ddd25ce6-2c48-586b-a49f-dccba439c949",
+      "blocking": {
+        "roomId": "86084915-5b65-5ae9-abe0-92093ee8a46a",
+        "mode": "solid"
+      },
+      "platformMode": "normal"
+    },
+    {
+      "id": "b56d24fd-0761-5437-ac9e-770324e09eba",
+      "kind": "platform",
+      "x": 7104,
+      "y": 1664,
+      "w": 4,
+      "h": 0.5,
+      "label": "OneWay",
+      "color": "#7db8ee",
+      "layerId": "play",
+      "attachedRoomId": "ddd25ce6-2c48-586b-a49f-dccba439c949",
+      "blocking": {
+        "roomId": "86084915-5b65-5ae9-abe0-92093ee8a46a",
+        "mode": "blueprint"
+      },
+      "platformMode": "oneway"
+    },
+    {
+      "id": "2045e055-9252-5beb-a769-d9b61b7ff81a",
+      "kind": "enemy",
+      "x": 7360,
+      "y": 1504,
+      "w": 1,
+      "h": 1,
+      "label": "Дозорный",
+      "color": "#de7884",
+      "layerId": "actor",
+      "attachedRoomId": "ddd25ce6-2c48-586b-a49f-dccba439c949",
+      "blocking": {
+        "roomId": "86084915-5b65-5ae9-abe0-92093ee8a46a",
+        "mode": "blueprint"
+      },
+      "enemyType": "normal"
+    },
+    {
+      "id": "11e00fdd-a094-5f24-a148-b35046908b11",
+      "kind": "loot",
+      "x": 7456,
+      "y": 1504,
+      "w": 1,
+      "h": 1,
+      "label": "Припасы в мастерской",
+      "color": "#ba8edb",
+      "layerId": "actor",
+      "attachedRoomId": "ddd25ce6-2c48-586b-a49f-dccba439c949",
+      "blocking": {
+        "roomId": "86084915-5b65-5ae9-abe0-92093ee8a46a",
+        "mode": "blueprint"
+      }
+    },
+    {
+      "id": "3d469833-586a-5743-a507-58c0bfdaa88e",
+      "kind": "hazard",
+      "x": 7520,
+      "y": 1376,
+      "w": 1,
+      "h": 4,
+      "label": "Шипы",
+      "color": "#ec866c",
+      "layerId": "play",
+      "attachedRoomId": "ddd25ce6-2c48-586b-a49f-dccba439c949",
+      "blocking": {
+        "roomId": "86084915-5b65-5ae9-abe0-92093ee8a46a",
+        "mode": "blueprint"
+      },
+      "hazardDirection": "left"
+    },
+    {
+      "id": "1063a30a-c445-5e70-a42e-80ad2139893a",
+      "kind": "platform",
+      "x": 6016,
+      "y": 1152,
+      "w": 21,
+      "h": 3,
+      "label": "Средняя остановка · тихий пост",
+      "color": "#648d89",
+      "layerId": "solid",
+      "attachedRoomId": "ddd25ce6-2c48-586b-a49f-dccba439c949",
+      "blocking": {
+        "roomId": "86084915-5b65-5ae9-abe0-92093ee8a46a",
+        "mode": "solid"
+      },
+      "platformMode": "normal"
+    },
+    {
+      "id": "d4cfcb90-aca1-5963-a3c1-9350d0612690",
+      "kind": "checkpoint",
+      "x": 6496,
+      "y": 1120,
+      "w": 3,
+      "h": 1,
+      "label": "Тихий пост",
+      "color": "#8dc5a6",
+      "layerId": "actor",
+      "attachedRoomId": "ddd25ce6-2c48-586b-a49f-dccba439c949",
+      "blocking": {
+        "roomId": "86084915-5b65-5ae9-abe0-92093ee8a46a",
+        "mode": "blueprint"
+      }
+    },
+    {
+      "id": "1ddf99d0-c955-5aef-ac9b-2fcb74b40779",
+      "kind": "platform",
+      "x": 6016,
+      "y": 864,
+      "w": 11,
+      "h": 3,
+      "label": "Крыша скрытого отсека",
+      "color": "#648d89",
+      "layerId": "solid",
+      "attachedRoomId": "ddd25ce6-2c48-586b-a49f-dccba439c949",
+      "blocking": {
+        "roomId": "86084915-5b65-5ae9-abe0-92093ee8a46a",
+        "mode": "solid"
+      },
+      "platformMode": "normal"
+    },
+    {
+      "id": "2d9c0f3a-d2a8-514f-a407-75cb41b19306",
+      "kind": "secret",
+      "x": 6336,
+      "y": 960,
+      "w": 1,
+      "h": 6,
+      "label": "Треснувшая перегородка",
+      "color": "#ba8edb",
+      "layerId": "play",
+      "attachedRoomId": "ddd25ce6-2c48-586b-a49f-dccba439c949",
+      "blocking": {
+        "roomId": "86084915-5b65-5ae9-abe0-92093ee8a46a",
+        "mode": "blueprint"
+      }
+    },
+    {
+      "id": "444a7692-5685-57ce-a536-1755a52f929d",
+      "kind": "loot",
+      "x": 6144,
+      "y": 1120,
+      "w": 1,
+      "h": 1,
+      "label": "Сундук · запасной сердечник",
+      "color": "#ba8edb",
+      "layerId": "actor",
+      "attachedRoomId": "ddd25ce6-2c48-586b-a49f-dccba439c949",
+      "blocking": {
+        "roomId": "86084915-5b65-5ae9-abe0-92093ee8a46a",
+        "mode": "blueprint"
+      }
+    },
+    {
+      "id": "4f44a28e-ae32-5725-a3f8-099edc2bb7a1",
+      "kind": "platform",
+      "x": 6016,
+      "y": 704,
+      "w": 18,
+      "h": 2,
+      "label": "Галерея настройщика",
+      "color": "#648d89",
+      "layerId": "solid",
+      "attachedRoomId": "ddd25ce6-2c48-586b-a49f-dccba439c949",
+      "blocking": {
+        "roomId": "86084915-5b65-5ae9-abe0-92093ee8a46a",
+        "mode": "solid"
+      },
+      "platformMode": "normal"
+    },
+    {
+      "id": "4405835c-fc3d-549a-a5bd-24f4fe3ebea4",
+      "kind": "platform",
+      "x": 6592,
+      "y": 768,
+      "w": 3,
+      "h": 0.5,
+      "label": "OneWay",
+      "color": "#7db8ee",
+      "layerId": "play",
+      "attachedRoomId": "ddd25ce6-2c48-586b-a49f-dccba439c949",
+      "blocking": {
+        "roomId": "86084915-5b65-5ae9-abe0-92093ee8a46a",
+        "mode": "blueprint"
+      },
+      "platformMode": "oneway"
+    },
+    {
+      "id": "d54c014f-4644-5a00-ab51-900a61084356",
+      "kind": "enemy",
+      "x": 6272,
+      "y": 672,
+      "w": 1,
+      "h": 1,
+      "label": "Дозорный",
+      "color": "#de7884",
+      "layerId": "actor",
+      "attachedRoomId": "ddd25ce6-2c48-586b-a49f-dccba439c949",
+      "blocking": {
+        "roomId": "86084915-5b65-5ae9-abe0-92093ee8a46a",
+        "mode": "blueprint"
+      },
+      "enemyType": "normal"
+    },
+    {
+      "id": "3b59178b-d62f-5703-ad41-42fc0504fd14",
+      "kind": "loot",
+      "x": 6112,
+      "y": 672,
+      "w": 1,
+      "h": 1,
+      "label": "Награда за верхний карман",
+      "color": "#ba8edb",
+      "layerId": "actor",
+      "attachedRoomId": "ddd25ce6-2c48-586b-a49f-dccba439c949",
+      "blocking": {
+        "roomId": "86084915-5b65-5ae9-abe0-92093ee8a46a",
+        "mode": "blueprint"
+      }
+    },
+    {
+      "id": "e76a7287-bd65-5ba5-a22e-08c14d6f1f21",
+      "kind": "hazard",
+      "x": 6016,
+      "y": 544,
+      "w": 1,
+      "h": 4,
+      "label": "Шипы",
+      "color": "#ec866c",
+      "layerId": "play",
+      "attachedRoomId": "ddd25ce6-2c48-586b-a49f-dccba439c949",
+      "blocking": {
+        "roomId": "86084915-5b65-5ae9-abe0-92093ee8a46a",
+        "mode": "blueprint"
+      },
+      "hazardDirection": "right"
+    },
+    {
+      "id": "540549de-554b-560e-a4cc-2640f1c24ec2",
+      "kind": "note",
+      "x": 6048,
+      "y": 128,
+      "w": 17,
+      "h": 3,
+      "label": "03  ПОДЪЁМНИК\nСЕРДЕЧНИКА",
+      "color": "#b2b5c0",
+      "layerId": "design",
+      "attachedRoomId": "ddd25ce6-2c48-586b-a49f-dccba439c949",
+      "blocking": {
+        "roomId": "86084915-5b65-5ae9-abe0-92093ee8a46a",
+        "mode": "none"
+      },
+      "noteFontSize": 22
+    },
+    {
+      "id": "ac6d41d2-ff5b-5446-a5be-1af31273a96c",
+      "kind": "note",
+      "x": 6912,
+      "y": 1856,
+      "w": 18,
+      "h": 3,
+      "label": "Главный путь — подъёмник\nНа площадке можно дождаться возврата",
+      "color": "#b2b5c0",
+      "layerId": "design",
+      "attachedRoomId": "ddd25ce6-2c48-586b-a49f-dccba439c949",
+      "blocking": {
+        "roomId": "86084915-5b65-5ae9-abe0-92093ee8a46a",
+        "mode": "none"
+      },
+      "noteFontSize": 22
+    },
+    {
+      "id": "f0240830-860d-5726-a332-e32d5883eacb",
+      "kind": "note",
+      "x": 6048,
+      "y": 1312,
+      "w": 18,
+      "h": 3,
+      "label": "Тихий пост и тайник\nБоковая ветка возвращается к подъёмнику",
+      "color": "#b2b5c0",
+      "layerId": "design",
+      "attachedRoomId": "ddd25ce6-2c48-586b-a49f-dccba439c949",
+      "blocking": {
+        "roomId": "86084915-5b65-5ae9-abe0-92093ee8a46a",
+        "mode": "none"
+      },
+      "noteFontSize": 22
+    },
+    {
+      "id": "9fd77fba-582e-51c6-a44d-80f9639b482b",
+      "kind": "note",
+      "x": 6944,
+      "y": 1280,
+      "w": 17,
+      "h": 3,
+      "label": "Необязательная мастерская\nПрыжок → страж → припасы",
+      "color": "#b2b5c0",
+      "layerId": "design",
+      "attachedRoomId": "ddd25ce6-2c48-586b-a49f-dccba439c949",
+      "blocking": {
+        "roomId": "86084915-5b65-5ae9-abe0-92093ee8a46a",
+        "mode": "none"
+      },
+      "noteFontSize": 22
+    },
+    {
+      "id": "acc73597-9c92-59fe-af86-3462524bba91",
+      "kind": "note",
+      "x": 6048,
+      "y": 384,
+      "w": 17,
+      "h": 3,
+      "label": "Верхний карман\nСтраж и награда",
+      "color": "#b2b5c0",
+      "layerId": "design",
+      "attachedRoomId": "ddd25ce6-2c48-586b-a49f-dccba439c949",
+      "blocking": {
+        "roomId": "86084915-5b65-5ae9-abe0-92093ee8a46a",
+        "mode": "none"
+      },
+      "noteFontSize": 22
+    },
+    {
+      "id": "55c1b128-236f-5447-a4db-86ed5411bda8",
+      "kind": "platform",
+      "x": 6016,
+      "y": 4608,
+      "w": 84,
+      "h": 4,
+      "label": "Основание разлома и нижний зал",
+      "color": "#648d89",
+      "layerId": "solid",
+      "attachedRoomId": "be8be719-ed68-5340-adaf-def92ae2eefa",
+      "blocking": {
+        "roomId": "ca431e14-bbf4-578f-a10b-330f62843341",
+        "mode": "solid"
+      },
+      "platformMode": "normal"
+    },
+    {
+      "id": "7528c0b5-0cee-55ec-ac27-032551c7dd4a",
+      "kind": "hazard",
+      "x": 6016,
+      "y": 4576,
+      "w": 49,
+      "h": 1,
+      "label": "Шипы",
+      "color": "#ec866c",
+      "layerId": "play",
+      "attachedRoomId": "be8be719-ed68-5340-adaf-def92ae2eefa",
+      "blocking": {
+        "roomId": "ca431e14-bbf4-578f-a10b-330f62843341",
+        "mode": "blueprint"
+      },
+      "hazardDirection": "up"
+    },
+    {
+      "id": "0efe0759-5a16-556b-a9b7-8a74382a44f6",
+      "kind": "platform",
+      "x": 6016,
+      "y": 3200,
+      "w": 17,
+      "h": 2,
+      "label": "Вход и обзор разлома",
+      "color": "#648d89",
+      "layerId": "solid",
+      "attachedRoomId": "be8be719-ed68-5340-adaf-def92ae2eefa",
+      "blocking": {
+        "roomId": "ca431e14-bbf4-578f-a10b-330f62843341",
+        "mode": "solid"
+      },
+      "platformMode": "normal"
+    },
+    {
+      "id": "62de480e-d560-50b9-a759-522e4d4866ee",
+      "kind": "platform",
+      "x": 6656,
+      "y": 3232,
+      "w": 4,
+      "h": 0.5,
+      "label": "OneWay",
+      "color": "#7db8ee",
+      "layerId": "play",
+      "attachedRoomId": "be8be719-ed68-5340-adaf-def92ae2eefa",
+      "blocking": {
+        "roomId": "ca431e14-bbf4-578f-a10b-330f62843341",
+        "mode": "blueprint"
+      },
+      "platformMode": "oneway"
+    },
+    {
+      "id": "5f7e8d32-c8c7-5218-a35b-6f4151fdec50",
+      "kind": "platform",
+      "x": 6880,
+      "y": 3296,
+      "w": 13,
+      "h": 3,
+      "label": "Развилка двух спусков",
+      "color": "#648d89",
+      "layerId": "solid",
+      "attachedRoomId": "be8be719-ed68-5340-adaf-def92ae2eefa",
+      "blocking": {
+        "roomId": "ca431e14-bbf4-578f-a10b-330f62843341",
+        "mode": "solid"
+      },
+      "platformMode": "normal"
+    },
+    {
+      "id": "97dee1bd-8f7e-5272-ab5e-0e53b4f2d468",
+      "kind": "platform",
+      "x": 7424,
+      "y": 3488,
+      "w": 14,
+      "h": 2,
+      "label": "Внешний балкон · первый дозор",
+      "color": "#648d89",
+      "layerId": "solid",
+      "attachedRoomId": "be8be719-ed68-5340-adaf-def92ae2eefa",
+      "blocking": {
+        "roomId": "ca431e14-bbf4-578f-a10b-330f62843341",
+        "mode": "solid"
+      },
+      "platformMode": "normal"
+    },
+    {
+      "id": "b355368e-3643-5143-a94e-a6a50412e26e",
+      "kind": "platform",
+      "x": 7936,
+      "y": 3744,
+      "w": 14,
+      "h": 2,
+      "label": "Внешний балкон · передышка",
+      "color": "#648d89",
+      "layerId": "solid",
+      "attachedRoomId": "be8be719-ed68-5340-adaf-def92ae2eefa",
+      "blocking": {
+        "roomId": "ca431e14-bbf4-578f-a10b-330f62843341",
+        "mode": "solid"
+      },
+      "platformMode": "normal"
+    },
+    {
+      "id": "09315ce8-1074-52a7-a0d2-cba64db3bdbc",
+      "kind": "platform",
+      "x": 7776,
+      "y": 4000,
+      "w": 16,
+      "h": 2,
+      "label": "Внешний балкон · боковой тайник",
+      "color": "#648d89",
+      "layerId": "solid",
+      "attachedRoomId": "be8be719-ed68-5340-adaf-def92ae2eefa",
+      "blocking": {
+        "roomId": "ca431e14-bbf4-578f-a10b-330f62843341",
+        "mode": "solid"
+      },
+      "platformMode": "normal"
+    },
+    {
+      "id": "da8f48de-e07b-5f8b-aa78-0674a2968aff",
+      "kind": "platform",
+      "x": 7616,
+      "y": 4256,
+      "w": 16,
+      "h": 2,
+      "label": "Схождение двух маршрутов",
+      "color": "#648d89",
+      "layerId": "solid",
+      "attachedRoomId": "be8be719-ed68-5340-adaf-def92ae2eefa",
+      "blocking": {
+        "roomId": "ca431e14-bbf4-578f-a10b-330f62843341",
+        "mode": "solid"
+      },
+      "platformMode": "normal"
+    },
+    {
+      "id": "03518caf-9cfe-5368-ad50-303073739e3a",
+      "kind": "platform",
+      "x": 7584,
+      "y": 4480,
+      "w": 10,
+      "h": 0.5,
+      "label": "OneWay",
+      "color": "#7db8ee",
+      "layerId": "play",
+      "attachedRoomId": "be8be719-ed68-5340-adaf-def92ae2eefa",
+      "blocking": {
+        "roomId": "ca431e14-bbf4-578f-a10b-330f62843341",
+        "mode": "blueprint"
+      },
+      "platformMode": "oneway"
+    },
+    {
+      "id": "b7312b54-5792-5900-a3e7-d054ec9d3237",
+      "kind": "enemy",
+      "x": 7744,
+      "y": 3456,
+      "w": 1,
+      "h": 1,
+      "label": "Дозорный",
+      "color": "#de7884",
+      "layerId": "actor",
+      "attachedRoomId": "be8be719-ed68-5340-adaf-def92ae2eefa",
+      "blocking": {
+        "roomId": "ca431e14-bbf4-578f-a10b-330f62843341",
+        "mode": "blueprint"
+      },
+      "enemyType": "normal"
+    },
+    {
+      "id": "9e480650-98b6-5a5c-a400-9c6e3979c963",
+      "kind": "checkpoint",
+      "x": 8064,
+      "y": 3712,
+      "w": 3,
+      "h": 1,
+      "label": "Тихий пост",
+      "color": "#8dc5a6",
+      "layerId": "actor",
+      "attachedRoomId": "be8be719-ed68-5340-adaf-def92ae2eefa",
+      "blocking": {
+        "roomId": "ca431e14-bbf4-578f-a10b-330f62843341",
+        "mode": "blueprint"
+      }
+    },
+    {
+      "id": "2eb5e510-bcec-5125-aba9-cb00c2cdd85a",
+      "kind": "loot",
+      "x": 8224,
+      "y": 3968,
+      "w": 1,
+      "h": 1,
+      "label": "Находка на внешнем балконе",
+      "color": "#ba8edb",
+      "layerId": "actor",
+      "attachedRoomId": "be8be719-ed68-5340-adaf-def92ae2eefa",
+      "blocking": {
+        "roomId": "ca431e14-bbf4-578f-a10b-330f62843341",
+        "mode": "blueprint"
+      }
+    },
+    {
+      "id": "fff097e6-9a30-57f7-a460-e39a84b42e13",
+      "kind": "platform",
+      "x": 6816,
+      "y": 3456,
+      "w": 2,
+      "h": 11,
+      "label": "Левый край разлома",
+      "color": "#648d89",
+      "layerId": "solid",
+      "attachedRoomId": "be8be719-ed68-5340-adaf-def92ae2eefa",
+      "blocking": {
+        "roomId": "ca431e14-bbf4-578f-a10b-330f62843341",
+        "mode": "solid"
+      },
+      "platformMode": "normal"
+    },
+    {
+      "id": "4c6daf9b-fc74-5bee-acf1-b41346a4c6ff",
+      "kind": "platform",
+      "x": 7488,
+      "y": 3552,
+      "w": 3,
+      "h": 12,
+      "label": "Правый край разлома",
+      "color": "#648d89",
+      "layerId": "solid",
+      "attachedRoomId": "be8be719-ed68-5340-adaf-def92ae2eefa",
+      "blocking": {
+        "roomId": "ca431e14-bbf4-578f-a10b-330f62843341",
+        "mode": "solid"
+      },
+      "platformMode": "normal"
+    },
+    {
+      "id": "965e24cc-9a41-56c8-af94-5fb638ea6cd3",
+      "kind": "hazard",
+      "x": 6880,
+      "y": 3488,
+      "w": 1,
+      "h": 7,
+      "label": "Шипы",
+      "color": "#ec866c",
+      "layerId": "play",
+      "attachedRoomId": "be8be719-ed68-5340-adaf-def92ae2eefa",
+      "blocking": {
+        "roomId": "ca431e14-bbf4-578f-a10b-330f62843341",
+        "mode": "blueprint"
+      },
+      "hazardDirection": "right"
+    },
+    {
+      "id": "3084458a-c6ee-58aa-a8e6-b8e99df336c3",
+      "kind": "hazard",
+      "x": 7456,
+      "y": 3584,
+      "w": 1,
+      "h": 7,
+      "label": "Шипы",
+      "color": "#ec866c",
+      "layerId": "play",
+      "attachedRoomId": "be8be719-ed68-5340-adaf-def92ae2eefa",
+      "blocking": {
+        "roomId": "ca431e14-bbf4-578f-a10b-330f62843341",
+        "mode": "blueprint"
+      },
+      "hazardDirection": "left"
+    },
+    {
+      "id": "b4a7379b-9031-5d09-a1a4-2a2adf38ccce",
+      "kind": "platform",
+      "x": 7104,
+      "y": 3520,
+      "w": 4,
+      "h": 0.5,
+      "label": "OneWay",
+      "color": "#7db8ee",
+      "layerId": "play",
+      "attachedRoomId": "be8be719-ed68-5340-adaf-def92ae2eefa",
+      "blocking": {
+        "roomId": "ca431e14-bbf4-578f-a10b-330f62843341",
+        "mode": "blueprint"
+      },
+      "platformMode": "oneway"
+    },
+    {
+      "id": "e1e0d6ff-da03-5190-a1f5-045536a7ea3e",
+      "kind": "platform",
+      "x": 6976,
+      "y": 3712,
+      "w": 4,
+      "h": 0.5,
+      "label": "OneWay",
+      "color": "#7db8ee",
+      "layerId": "play",
+      "attachedRoomId": "be8be719-ed68-5340-adaf-def92ae2eefa",
+      "blocking": {
+        "roomId": "ca431e14-bbf4-578f-a10b-330f62843341",
+        "mode": "blueprint"
+      },
+      "platformMode": "oneway"
+    },
+    {
+      "id": "cff4f456-a88a-557f-af2b-c1c71fa1feff",
+      "kind": "platform",
+      "x": 6880,
+      "y": 3904,
+      "w": 6,
+      "h": 3,
+      "label": "Камень под внутренним маршрутом",
+      "color": "#648d89",
+      "layerId": "solid",
+      "attachedRoomId": "be8be719-ed68-5340-adaf-def92ae2eefa",
+      "blocking": {
+        "roomId": "ca431e14-bbf4-578f-a10b-330f62843341",
+        "mode": "solid"
+      },
+      "platformMode": "normal"
+    },
+    {
+      "id": "70ffbd26-2d67-5d70-ad22-4710472f2ca3",
+      "kind": "hazard",
+      "x": 6880,
+      "y": 3872,
+      "w": 6,
+      "h": 1,
+      "label": "Шипы",
+      "color": "#ec866c",
+      "layerId": "play",
+      "attachedRoomId": "be8be719-ed68-5340-adaf-def92ae2eefa",
+      "blocking": {
+        "roomId": "ca431e14-bbf4-578f-a10b-330f62843341",
+        "mode": "blueprint"
+      },
+      "hazardDirection": "up"
+    },
+    {
+      "id": "77e957e2-21f0-5ab5-a9ef-49fea8422093",
+      "kind": "platform",
+      "x": 7200,
+      "y": 3904,
+      "w": 5,
+      "h": 0.5,
+      "label": "OneWay",
+      "color": "#7db8ee",
+      "layerId": "play",
+      "attachedRoomId": "be8be719-ed68-5340-adaf-def92ae2eefa",
+      "blocking": {
+        "roomId": "ca431e14-bbf4-578f-a10b-330f62843341",
+        "mode": "blueprint"
+      },
+      "platformMode": "oneway"
+    },
+    {
+      "id": "92bc01bf-2c88-52fc-a94b-324187408bb3",
+      "kind": "platform",
+      "x": 7040,
+      "y": 4160,
+      "w": 10,
+      "h": 2,
+      "label": "Площадка награды в разломе",
+      "color": "#648d89",
+      "layerId": "solid",
+      "attachedRoomId": "be8be719-ed68-5340-adaf-def92ae2eefa",
+      "blocking": {
+        "roomId": "ca431e14-bbf4-578f-a10b-330f62843341",
+        "mode": "solid"
+      },
+      "platformMode": "normal"
+    },
+    {
+      "id": "780ec4ed-63dc-5b62-a5b9-572bc5b62e0a",
+      "kind": "loot",
+      "x": 7168,
+      "y": 4128,
+      "w": 1,
+      "h": 1,
+      "label": "Сундук разлома · награда за риск",
+      "color": "#ba8edb",
+      "layerId": "actor",
+      "attachedRoomId": "be8be719-ed68-5340-adaf-def92ae2eefa",
+      "blocking": {
+        "roomId": "ca431e14-bbf4-578f-a10b-330f62843341",
+        "mode": "blueprint"
+      }
+    },
+    {
+      "id": "c0cc129f-0a96-5c50-a18f-c46af1a19121",
+      "kind": "platform",
+      "x": 7456,
+      "y": 4320,
+      "w": 5,
+      "h": 0.5,
+      "label": "OneWay",
+      "color": "#7db8ee",
+      "layerId": "play",
+      "attachedRoomId": "be8be719-ed68-5340-adaf-def92ae2eefa",
+      "blocking": {
+        "roomId": "ca431e14-bbf4-578f-a10b-330f62843341",
+        "mode": "blueprint"
+      },
+      "platformMode": "oneway"
+    },
+    {
+      "id": "c2205b5c-7d6c-54d9-a2ba-906cab326b73",
+      "kind": "platform",
+      "x": 8448,
+      "y": 3072,
+      "w": 8,
+      "h": 26,
+      "label": "Массив над запечатанной нишей",
+      "color": "#648d89",
+      "layerId": "solid",
+      "attachedRoomId": "be8be719-ed68-5340-adaf-def92ae2eefa",
+      "blocking": {
+        "roomId": "ca431e14-bbf4-578f-a10b-330f62843341",
+        "mode": "solid"
+      },
+      "platformMode": "normal"
+    },
+    {
+      "id": "50b9e707-3759-5744-aa51-e6ac4f0fa03a",
+      "kind": "platform",
+      "x": 8416,
+      "y": 4096,
+      "w": 9,
+      "h": 2,
+      "label": "Основание тайника",
+      "color": "#648d89",
+      "layerId": "solid",
+      "attachedRoomId": "be8be719-ed68-5340-adaf-def92ae2eefa",
+      "blocking": {
+        "roomId": "ca431e14-bbf4-578f-a10b-330f62843341",
+        "mode": "solid"
+      },
+      "platformMode": "normal"
+    },
+    {
+      "id": "41668b25-1e11-551f-a63c-3f3adff8a8a0",
+      "kind": "platform",
+      "x": 8320,
+      "y": 4064,
+      "w": 3,
+      "h": 0.5,
+      "label": "OneWay",
+      "color": "#7db8ee",
+      "layerId": "play",
+      "attachedRoomId": "be8be719-ed68-5340-adaf-def92ae2eefa",
+      "blocking": {
+        "roomId": "ca431e14-bbf4-578f-a10b-330f62843341",
+        "mode": "blueprint"
+      },
+      "platformMode": "oneway"
+    },
+    {
+      "id": "d1b7c2ad-02ec-5add-a422-f8176b65d022",
+      "kind": "secret",
+      "x": 8416,
+      "y": 3904,
+      "w": 1,
+      "h": 6,
+      "label": "Треснувшая перегородка",
+      "color": "#ba8edb",
+      "layerId": "play",
+      "attachedRoomId": "be8be719-ed68-5340-adaf-def92ae2eefa",
+      "blocking": {
+        "roomId": "ca431e14-bbf4-578f-a10b-330f62843341",
+        "mode": "blueprint"
+      }
+    },
+    {
+      "id": "f9eb099e-1cc6-5a8a-a179-e27828e8f448",
+      "kind": "loot",
+      "x": 8608,
+      "y": 4064,
+      "w": 1,
+      "h": 1,
+      "label": "Тайник за треснувшей стеной",
+      "color": "#ba8edb",
+      "layerId": "actor",
+      "attachedRoomId": "be8be719-ed68-5340-adaf-def92ae2eefa",
+      "blocking": {
+        "roomId": "ca431e14-bbf4-578f-a10b-330f62843341",
+        "mode": "blueprint"
+      }
+    },
+    {
+      "id": "76995f53-30b1-5d35-a388-0a820eaba089",
+      "kind": "platform",
+      "x": 7904,
+      "y": 4544,
+      "w": 5,
+      "h": 0.5,
+      "label": "OneWay",
+      "color": "#7db8ee",
+      "layerId": "play",
+      "attachedRoomId": "be8be719-ed68-5340-adaf-def92ae2eefa",
+      "blocking": {
+        "roomId": "ca431e14-bbf4-578f-a10b-330f62843341",
+        "mode": "blueprint"
+      },
+      "platformMode": "oneway"
+    },
+    {
+      "id": "6b19f265-443d-5e0a-a0bd-1e3df17d044a",
+      "kind": "platform",
+      "x": 7936,
+      "y": 4384,
+      "w": 7,
+      "h": 0.5,
+      "label": "OneWay",
+      "color": "#7db8ee",
+      "layerId": "play",
+      "attachedRoomId": "be8be719-ed68-5340-adaf-def92ae2eefa",
+      "blocking": {
+        "roomId": "ca431e14-bbf4-578f-a10b-330f62843341",
+        "mode": "blueprint"
+      },
+      "platformMode": "oneway"
+    },
+    {
+      "id": "f0165da2-3a83-5f4e-a236-c909991a0579",
+      "kind": "platform",
+      "x": 8128,
+      "y": 4288,
+      "w": 4,
+      "h": 0.5,
+      "label": "OneWay",
+      "color": "#7db8ee",
+      "layerId": "play",
+      "attachedRoomId": "be8be719-ed68-5340-adaf-def92ae2eefa",
+      "blocking": {
+        "roomId": "ca431e14-bbf4-578f-a10b-330f62843341",
+        "mode": "blueprint"
+      },
+      "platformMode": "oneway"
+    },
+    {
+      "id": "24bee307-945e-50ac-a297-b7ed4d8da3dd",
+      "kind": "platform",
+      "x": 8192,
+      "y": 4160,
+      "w": 4,
+      "h": 0.5,
+      "label": "OneWay",
+      "color": "#7db8ee",
+      "layerId": "play",
+      "attachedRoomId": "be8be719-ed68-5340-adaf-def92ae2eefa",
+      "blocking": {
+        "roomId": "ca431e14-bbf4-578f-a10b-330f62843341",
+        "mode": "blueprint"
+      },
+      "platformMode": "oneway"
+    },
+    {
+      "id": "4e3111f1-77af-53cc-af56-91942ca7d5cf",
+      "kind": "platform",
+      "x": 7776,
+      "y": 3904,
+      "w": 4,
+      "h": 0.5,
+      "label": "OneWay",
+      "color": "#7db8ee",
+      "layerId": "play",
+      "attachedRoomId": "be8be719-ed68-5340-adaf-def92ae2eefa",
+      "blocking": {
+        "roomId": "ca431e14-bbf4-578f-a10b-330f62843341",
+        "mode": "blueprint"
+      },
+      "platformMode": "oneway"
+    },
+    {
+      "id": "e7121ef4-67ac-5166-a83c-02e405c24db5",
+      "kind": "platform",
+      "x": 7776,
+      "y": 3808,
+      "w": 4,
+      "h": 0.5,
+      "label": "OneWay",
+      "color": "#7db8ee",
+      "layerId": "play",
+      "attachedRoomId": "be8be719-ed68-5340-adaf-def92ae2eefa",
+      "blocking": {
+        "roomId": "ca431e14-bbf4-578f-a10b-330f62843341",
+        "mode": "blueprint"
+      },
+      "platformMode": "oneway"
+    },
+    {
+      "id": "4b509dae-cf0a-5831-ae0f-f990ca768340",
+      "kind": "platform",
+      "x": 7936,
+      "y": 3648,
+      "w": 4,
+      "h": 0.5,
+      "label": "OneWay",
+      "color": "#7db8ee",
+      "layerId": "play",
+      "attachedRoomId": "be8be719-ed68-5340-adaf-def92ae2eefa",
+      "blocking": {
+        "roomId": "ca431e14-bbf4-578f-a10b-330f62843341",
+        "mode": "blueprint"
+      },
+      "platformMode": "oneway"
+    },
+    {
+      "id": "21b487e7-2c40-59c4-a99a-1a4eccb13770",
+      "kind": "platform",
+      "x": 7936,
+      "y": 3552,
+      "w": 4,
+      "h": 0.5,
+      "label": "OneWay",
+      "color": "#7db8ee",
+      "layerId": "play",
+      "attachedRoomId": "be8be719-ed68-5340-adaf-def92ae2eefa",
+      "blocking": {
+        "roomId": "ca431e14-bbf4-578f-a10b-330f62843341",
+        "mode": "blueprint"
+      },
+      "platformMode": "oneway"
+    },
+    {
+      "id": "40150053-99d1-58ef-a438-50450211c127",
+      "kind": "platform",
+      "x": 7328,
+      "y": 3392,
+      "w": 3,
+      "h": 0.5,
+      "label": "OneWay",
+      "color": "#7db8ee",
+      "layerId": "play",
+      "attachedRoomId": "be8be719-ed68-5340-adaf-def92ae2eefa",
+      "blocking": {
+        "roomId": "ca431e14-bbf4-578f-a10b-330f62843341",
+        "mode": "blueprint"
+      },
+      "platformMode": "oneway"
+    },
+    {
+      "id": "f8d905f5-a971-5fc9-a898-8bd4003dc77a",
+      "kind": "enemy",
+      "x": 8064,
+      "y": 4576,
+      "w": 1,
+      "h": 1,
+      "label": "Дозорный",
+      "color": "#de7884",
+      "layerId": "actor",
+      "attachedRoomId": "be8be719-ed68-5340-adaf-def92ae2eefa",
+      "blocking": {
+        "roomId": "ca431e14-bbf4-578f-a10b-330f62843341",
+        "mode": "blueprint"
+      },
+      "enemyType": "normal"
+    },
+    {
+      "id": "c6ddd94e-8cef-5b61-ae70-7edd15b2139a",
+      "kind": "enemy",
+      "x": 8288,
+      "y": 4576,
+      "w": 1,
+      "h": 1,
+      "label": "Страж",
+      "color": "#de7884",
+      "layerId": "actor",
+      "attachedRoomId": "be8be719-ed68-5340-adaf-def92ae2eefa",
+      "blocking": {
+        "roomId": "ca431e14-bbf4-578f-a10b-330f62843341",
+        "mode": "blueprint"
+      },
+      "enemyType": "heavy"
+    },
+    {
+      "id": "38abd7f6-1f90-5249-a907-1d7b6e9b802a",
+      "kind": "checkpoint",
+      "x": 8512,
+      "y": 4576,
+      "w": 3,
+      "h": 1,
+      "label": "Тихий пост",
+      "color": "#8dc5a6",
+      "layerId": "actor",
+      "attachedRoomId": "be8be719-ed68-5340-adaf-def92ae2eefa",
+      "blocking": {
+        "roomId": "ca431e14-bbf4-578f-a10b-330f62843341",
+        "mode": "blueprint"
+      }
+    },
+    {
+      "id": "7bd27c5d-20b6-55ff-a154-d45756ff60f5",
+      "kind": "goal",
+      "x": 8608,
+      "y": 4544,
+      "w": 2,
+      "h": 2,
+      "label": "Сигнальный пост",
+      "color": "#e3c27c",
+      "layerId": "actor",
+      "attachedRoomId": "be8be719-ed68-5340-adaf-def92ae2eefa",
+      "blocking": {
+        "roomId": "ca431e14-bbf4-578f-a10b-330f62843341",
+        "mode": "blueprint"
+      }
+    },
+    {
+      "id": "45f60c22-1ea9-5cb7-a721-c0528aa5dd66",
+      "kind": "note",
+      "x": 6080,
+      "y": 2912,
+      "w": 25,
+      "h": 2,
+      "label": "04  РАЗЛОМ ДВУХ ПУТЕЙ",
+      "color": "#b2b5c0",
+      "layerId": "design",
+      "attachedRoomId": "be8be719-ed68-5340-adaf-def92ae2eefa",
+      "blocking": {
+        "roomId": "ca431e14-bbf4-578f-a10b-330f62843341",
+        "mode": "none"
+      },
+      "noteFontSize": 22
+    },
+    {
+      "id": "ab8d15c5-9902-5a6d-ad97-7c9cd86de8c1",
+      "kind": "note",
+      "x": 6848,
+      "y": 3104,
+      "w": 20,
+      "h": 2,
+      "label": "Развилка: балконы или разлом",
+      "color": "#b2b5c0",
+      "layerId": "design",
+      "attachedRoomId": "be8be719-ed68-5340-adaf-def92ae2eefa",
+      "blocking": {
+        "roomId": "ca431e14-bbf4-578f-a10b-330f62843341",
+        "mode": "none"
+      },
+      "noteFontSize": 22
+    },
+    {
+      "id": "b8c51b5b-03f7-53b8-a096-8a8085d72b90",
+      "kind": "note",
+      "x": 7872,
+      "y": 3456,
+      "w": 16,
+      "h": 3,
+      "label": "Внешний спуск\nШирокие посадки",
+      "color": "#b2b5c0",
+      "layerId": "design",
+      "attachedRoomId": "be8be719-ed68-5340-adaf-def92ae2eefa",
+      "blocking": {
+        "roomId": "ca431e14-bbf4-578f-a10b-330f62843341",
+        "mode": "none"
+      },
+      "noteFontSize": 22
+    },
+    {
+      "id": "f1f9bd83-57cc-5665-a4a6-32f4d9e464f1",
+      "kind": "note",
+      "x": 6912,
+      "y": 4288,
+      "w": 16,
+      "h": 3,
+      "label": "Короткий путь\nСундук за риск",
+      "color": "#b2b5c0",
+      "layerId": "design",
+      "attachedRoomId": "be8be719-ed68-5340-adaf-def92ae2eefa",
+      "blocking": {
+        "roomId": "ca431e14-bbf4-578f-a10b-330f62843341",
+        "mode": "none"
+      },
+      "noteFontSize": 22
+    },
+    {
+      "id": "433e900e-494c-5652-ace9-696dbdfbdc3d",
+      "kind": "note",
+      "x": 6080,
+      "y": 3648,
+      "w": 14,
+      "h": 3,
+      "label": "Падение здесь\nопасно",
+      "color": "#b2b5c0",
+      "layerId": "design",
+      "attachedRoomId": "be8be719-ed68-5340-adaf-def92ae2eefa",
+      "blocking": {
+        "roomId": "ca431e14-bbf4-578f-a10b-330f62843341",
+        "mode": "none"
+      },
+      "noteFontSize": 22
+    },
+    {
+      "id": "ee35a4d2-9bfc-5e36-a025-0070205e4e25",
+      "kind": "transition",
+      "x": 416,
+      "y": 896,
+      "w": 2,
+      "h": 2,
+      "label": "Вход Q",
+      "color": "#8dc5a6",
+      "layerId": "actor",
+      "attachedRoomId": "31945281-12bd-5942-a405-2f0ad069dc6d",
+      "blocking": {
+        "roomId": "b2620eac-f65e-56d0-aa50-c1c2d62b43b5",
+        "mode": "none"
+      },
+      "transition": {
+        "endpointId": "b54f888e-24f9-5fee-ae23-e4dd979e43e3",
+        "kind": "entrance"
+      }
+    },
+    {
+      "id": "053a9e9a-d8db-56b7-a1bd-88464209ce2b",
+      "kind": "platform",
+      "x": 4032,
+      "y": 3104,
+      "w": 40,
+      "h": 1,
+      "label": "Опора",
+      "color": "#648d89",
+      "layerId": "solid",
+      "attachedRoomId": "617d3cb9-38c0-5c08-afd7-fc9f59eb075c",
+      "blocking": {
+        "roomId": "1b691717-1d6a-5428-a9d8-bb405a1f4440",
+        "mode": "solid"
+      },
+      "platformMode": "normal"
+    },
+    {
+      "id": "22a4b0ed-bb7b-55c4-a997-37c8410d7920",
+      "kind": "platform",
+      "x": 5056,
+      "y": 2944,
+      "w": 8,
+      "h": 5,
+      "label": "Опора",
+      "color": "#648d89",
+      "layerId": "solid",
+      "attachedRoomId": "617d3cb9-38c0-5c08-afd7-fc9f59eb075c",
+      "blocking": {
+        "roomId": "1b691717-1d6a-5428-a9d8-bb405a1f4440",
+        "mode": "solid"
+      },
+      "platformMode": "normal"
+    },
+    {
+      "id": "b3679cd3-bcf6-505e-a677-10b328299a93",
+      "kind": "platform",
+      "x": 4800,
+      "y": 2912,
+      "w": 5,
+      "h": 6,
+      "label": "Опора",
+      "color": "#648d89",
+      "layerId": "solid",
+      "attachedRoomId": "617d3cb9-38c0-5c08-afd7-fc9f59eb075c",
+      "blocking": {
+        "roomId": "1b691717-1d6a-5428-a9d8-bb405a1f4440",
+        "mode": "solid"
+      },
+      "platformMode": "normal"
+    },
+    {
+      "id": "ce3cdfc1-5473-5077-a446-08d1e46fab8a",
+      "kind": "platform",
+      "x": 4544,
+      "y": 2848,
+      "w": 5,
+      "h": 0.5,
+      "label": "OneWay",
+      "color": "#7db8ee",
+      "layerId": "play",
+      "attachedRoomId": "617d3cb9-38c0-5c08-afd7-fc9f59eb075c",
+      "blocking": {
+        "roomId": "1b691717-1d6a-5428-a9d8-bb405a1f4440",
+        "mode": "blueprint"
+      },
+      "platformMode": "oneway"
+    },
+    {
+      "id": "59446d2b-c6c1-5db5-a825-6cb8a9d3ccd2",
+      "kind": "platform",
+      "x": 4288,
+      "y": 2880,
+      "w": 5,
+      "h": 7,
+      "label": "Опора",
+      "color": "#648d89",
+      "layerId": "solid",
+      "attachedRoomId": "617d3cb9-38c0-5c08-afd7-fc9f59eb075c",
+      "blocking": {
+        "roomId": "1b691717-1d6a-5428-a9d8-bb405a1f4440",
+        "mode": "solid"
+      },
+      "platformMode": "normal"
+    },
+    {
+      "id": "0fd374c8-d777-5fba-a823-fba08bba9149",
+      "kind": "hazard",
+      "x": 4448,
+      "y": 3072,
+      "w": 11,
+      "h": 1,
+      "label": "Шипы",
+      "color": "#ec866c",
+      "layerId": "play",
+      "attachedRoomId": "617d3cb9-38c0-5c08-afd7-fc9f59eb075c",
+      "blocking": {
+        "roomId": "1b691717-1d6a-5428-a9d8-bb405a1f4440",
+        "mode": "blueprint"
+      },
+      "hazardDirection": "up"
+    },
+    {
+      "id": "7218ad39-1693-53aa-a4f1-effb63bafb3e",
+      "kind": "platform",
+      "x": 4128,
+      "y": 3008,
+      "w": 5,
+      "h": 0.5,
+      "label": "OneWay",
+      "color": "#7db8ee",
+      "layerId": "play",
+      "attachedRoomId": "617d3cb9-38c0-5c08-afd7-fc9f59eb075c",
+      "blocking": {
+        "roomId": "1b691717-1d6a-5428-a9d8-bb405a1f4440",
+        "mode": "blueprint"
+      },
+      "platformMode": "oneway"
+    },
+    {
+      "id": "972c5466-0a4e-53c9-a2c0-6c0744b6a974",
+      "kind": "platform",
+      "x": 4128,
+      "y": 2912,
+      "w": 5,
+      "h": 0.5,
+      "label": "OneWay",
+      "color": "#7db8ee",
+      "layerId": "play",
+      "attachedRoomId": "617d3cb9-38c0-5c08-afd7-fc9f59eb075c",
+      "blocking": {
+        "roomId": "1b691717-1d6a-5428-a9d8-bb405a1f4440",
+        "mode": "blueprint"
+      },
+      "platformMode": "oneway"
+    },
+    {
+      "id": "37fee4d1-86c8-55f8-a417-cc877298fa0f",
+      "kind": "platform",
+      "x": 4960,
+      "y": 3008,
+      "w": 3,
+      "h": 0.5,
+      "label": "OneWay",
+      "color": "#7db8ee",
+      "layerId": "play",
+      "attachedRoomId": "617d3cb9-38c0-5c08-afd7-fc9f59eb075c",
+      "blocking": {
+        "roomId": "1b691717-1d6a-5428-a9d8-bb405a1f4440",
+        "mode": "blueprint"
+      },
+      "platformMode": "oneway"
+    },
+    {
+      "id": "77f00c25-bac5-5c27-a7b4-3eafc14c122b",
+      "kind": "platform",
+      "x": 4128,
+      "y": 2784,
+      "w": 4,
+      "h": 0.5,
+      "label": "OneWay",
+      "color": "#7db8ee",
+      "layerId": "play",
+      "attachedRoomId": "617d3cb9-38c0-5c08-afd7-fc9f59eb075c",
+      "blocking": {
+        "roomId": "1b691717-1d6a-5428-a9d8-bb405a1f4440",
+        "mode": "blueprint"
+      },
+      "platformMode": "oneway"
+    },
+    {
+      "id": "ad0c316e-f493-5904-a16d-bfa081795565",
+      "kind": "platform",
+      "x": 4288,
+      "y": 2688,
+      "w": 5,
+      "h": 0.5,
+      "label": "OneWay",
+      "color": "#7db8ee",
+      "layerId": "play",
+      "attachedRoomId": "617d3cb9-38c0-5c08-afd7-fc9f59eb075c",
+      "blocking": {
+        "roomId": "1b691717-1d6a-5428-a9d8-bb405a1f4440",
+        "mode": "blueprint"
+      },
+      "platformMode": "oneway"
+    },
+    {
+      "id": "285f212b-f18b-5ab8-a34c-2ced4858be57",
+      "kind": "platform",
+      "x": 4128,
+      "y": 2592,
+      "w": 5,
+      "h": 0.5,
+      "label": "OneWay",
+      "color": "#7db8ee",
+      "layerId": "play",
+      "attachedRoomId": "617d3cb9-38c0-5c08-afd7-fc9f59eb075c",
+      "blocking": {
+        "roomId": "1b691717-1d6a-5428-a9d8-bb405a1f4440",
+        "mode": "blueprint"
+      },
+      "platformMode": "oneway"
+    },
+    {
+      "id": "ccaa3dd3-06bf-5c6f-a7b9-7908f6072402",
+      "kind": "platform",
+      "x": 4352,
+      "y": 2528,
+      "w": 5,
+      "h": 0.5,
+      "label": "OneWay",
+      "color": "#7db8ee",
+      "layerId": "play",
+      "attachedRoomId": "617d3cb9-38c0-5c08-afd7-fc9f59eb075c",
+      "blocking": {
+        "roomId": "1b691717-1d6a-5428-a9d8-bb405a1f4440",
+        "mode": "blueprint"
+      },
+      "platformMode": "oneway"
+    },
+    {
+      "id": "43fc7490-af80-580c-a53e-085d78af0efa",
+      "kind": "platform",
+      "x": 4576,
+      "y": 2496,
+      "w": 7,
+      "h": 2,
+      "label": "Опора",
+      "color": "#648d89",
+      "layerId": "solid",
+      "attachedRoomId": "617d3cb9-38c0-5c08-afd7-fc9f59eb075c",
+      "blocking": {
+        "roomId": "1b691717-1d6a-5428-a9d8-bb405a1f4440",
+        "mode": "solid"
+      },
+      "platformMode": "normal"
+    },
+    {
+      "id": "6b24a6c0-e87f-53e8-ae24-b3507ad33e09",
+      "kind": "platform",
+      "x": 4832,
+      "y": 2752,
+      "w": 5,
+      "h": 0.5,
+      "label": "OneWay",
+      "color": "#7db8ee",
+      "layerId": "play",
+      "attachedRoomId": "617d3cb9-38c0-5c08-afd7-fc9f59eb075c",
+      "blocking": {
+        "roomId": "1b691717-1d6a-5428-a9d8-bb405a1f4440",
+        "mode": "blueprint"
+      },
+      "platformMode": "oneway"
+    },
+    {
+      "id": "a639a568-b666-5751-ae5b-92c1b14f370c",
+      "kind": "platform",
+      "x": 5024,
+      "y": 2848,
+      "w": 5,
+      "h": 0.5,
+      "label": "OneWay",
+      "color": "#7db8ee",
+      "layerId": "play",
+      "attachedRoomId": "617d3cb9-38c0-5c08-afd7-fc9f59eb075c",
+      "blocking": {
+        "roomId": "1b691717-1d6a-5428-a9d8-bb405a1f4440",
+        "mode": "blueprint"
+      },
+      "platformMode": "oneway"
+    },
+    {
+      "id": "a471d3ea-3ae6-59a3-ad5c-d494c0d08c70",
+      "kind": "platform",
+      "x": 4928,
+      "y": 2112,
+      "w": 2,
+      "h": 12,
+      "label": "Опора",
+      "color": "#648d89",
+      "layerId": "solid",
+      "attachedRoomId": "617d3cb9-38c0-5c08-afd7-fc9f59eb075c",
+      "blocking": {
+        "roomId": "1b691717-1d6a-5428-a9d8-bb405a1f4440",
+        "mode": "solid"
+      },
+      "platformMode": "normal"
+    },
+    {
+      "id": "2745288d-3685-52e3-a798-e03dd3b85c62",
+      "kind": "secret",
+      "x": 4928,
+      "y": 2496,
+      "w": 2,
+      "h": 4,
+      "label": "Треснувшая перегородка",
+      "color": "#ba8edb",
+      "layerId": "play",
+      "attachedRoomId": "617d3cb9-38c0-5c08-afd7-fc9f59eb075c",
+      "blocking": {
+        "roomId": "1b691717-1d6a-5428-a9d8-bb405a1f4440",
+        "mode": "blueprint"
+      }
+    },
+    {
+      "id": "9580866c-e3b9-594a-ade8-e336344aa389",
+      "kind": "platform",
+      "x": 4928,
+      "y": 2624,
+      "w": 12,
+      "h": 2,
+      "label": "Ниша за второй стеной",
+      "color": "#648d89",
+      "layerId": "solid",
+      "attachedRoomId": "617d3cb9-38c0-5c08-afd7-fc9f59eb075c",
+      "blocking": {
+        "roomId": "1b691717-1d6a-5428-a9d8-bb405a1f4440",
+        "mode": "solid"
+      },
+      "platformMode": "normal"
+    },
+    {
+      "id": "4e65c6b3-4e4c-5010-a2f6-935002b4ad60",
+      "kind": "enemy",
+      "x": 4672,
+      "y": 2464,
+      "w": 1,
+      "h": 1,
+      "label": "Дозорный",
+      "color": "#de7884",
+      "layerId": "actor",
+      "attachedRoomId": "617d3cb9-38c0-5c08-afd7-fc9f59eb075c",
+      "blocking": {
+        "roomId": "1b691717-1d6a-5428-a9d8-bb405a1f4440",
+        "mode": "blueprint"
+      },
+      "enemyType": "normal"
+    },
+    {
+      "id": "89f28721-757f-5de1-abda-1ac4b370e56d",
+      "kind": "loot",
+      "x": 4768,
+      "y": 2464,
+      "w": 1,
+      "h": 1,
+      "label": "Сундук с сердечником фильтра",
+      "color": "#ba8edb",
+      "layerId": "actor",
+      "attachedRoomId": "617d3cb9-38c0-5c08-afd7-fc9f59eb075c",
+      "blocking": {
+        "roomId": "1b691717-1d6a-5428-a9d8-bb405a1f4440",
+        "mode": "blueprint"
+      }
+    },
+    {
+      "id": "e900f90e-6a18-527e-a31f-e22cfe0f5137",
+      "kind": "loot",
+      "x": 5152,
+      "y": 2592,
+      "w": 1,
+      "h": 1,
+      "label": "Тайник за второй стеной",
+      "color": "#ba8edb",
+      "layerId": "actor",
+      "attachedRoomId": "617d3cb9-38c0-5c08-afd7-fc9f59eb075c",
+      "blocking": {
+        "roomId": "1b691717-1d6a-5428-a9d8-bb405a1f4440",
+        "mode": "blueprint"
+      }
+    },
+    {
+      "id": "24e769c1-32d4-583c-aae6-d9899314af97",
+      "kind": "note",
+      "x": 4160,
+      "y": 2272,
+      "w": 21,
+      "h": 2,
+      "label": "05  СЛЕПОЙ ФИЛЬТР",
+      "color": "#b2b5c0",
+      "layerId": "design",
+      "attachedRoomId": "617d3cb9-38c0-5c08-afd7-fc9f59eb075c",
+      "blocking": {
+        "roomId": "1b691717-1d6a-5428-a9d8-bb405a1f4440",
+        "mode": "none"
+      },
+      "noteFontSize": 22
+    },
+    {
+      "id": "c66941e0-fe37-5d65-ae00-be29853be85a",
+      "kind": "note",
+      "x": 5024,
+      "y": 2304,
+      "w": 8,
+      "h": 2,
+      "label": "Тайник",
+      "color": "#b2b5c0",
+      "layerId": "design",
+      "attachedRoomId": "617d3cb9-38c0-5c08-afd7-fc9f59eb075c",
+      "blocking": {
+        "roomId": "1b691717-1d6a-5428-a9d8-bb405a1f4440",
+        "mode": "none"
+      },
+      "noteFontSize": 22
+    }
+  ],
+  "paths": [
+    {
+      "id": "6956cec9-cfa0-5f2e-aef7-5fc8d12c45ca",
+      "kind": "arrow",
+      "color": "#e3c27c",
+      "layerId": "design",
+      "from": {
+        "x": 640,
+        "y": 864
+      },
+      "to": {
+        "x": 992,
+        "y": 832
+      }
+    },
+    {
+      "id": "bc807d8f-bbdf-5fb1-af2f-ab1eabc367c3",
+      "kind": "arrow",
+      "color": "#e3c27c",
+      "layerId": "design",
+      "from": {
+        "x": 992,
+        "y": 832
+      },
+      "to": {
+        "x": 1568,
+        "y": 832
+      }
+    },
+    {
+      "id": "f6d8737d-e8a6-5dcd-a140-f0bbd0832e8e",
+      "kind": "arrow",
+      "color": "#e3c27c",
+      "layerId": "design",
+      "from": {
+        "x": 1568,
+        "y": 832
+      },
+      "to": {
+        "x": 1920,
+        "y": 864
+      }
+    },
+    {
+      "id": "64d081f2-188b-5c0f-ac17-c870b8be5e57",
+      "kind": "arrow",
+      "color": "#e3c27c",
+      "layerId": "design",
+      "from": {
+        "x": 1920,
+        "y": 864
+      },
+      "to": {
+        "x": 2432,
+        "y": 864
+      }
+    },
+    {
+      "id": "2af97aa0-3347-5701-ad02-0fd4fec94ae6",
+      "kind": "arrow",
+      "color": "#75c4bb",
+      "layerId": "design",
+      "from": {
+        "x": 576,
+        "y": 832
+      },
+      "to": {
+        "x": 768,
+        "y": 640
+      }
+    },
+    {
+      "id": "375d0f9d-fd15-5f0a-ab9b-18f604751290",
+      "kind": "arrow",
+      "color": "#75c4bb",
+      "layerId": "design",
+      "from": {
+        "x": 768,
+        "y": 640
+      },
+      "to": {
+        "x": 928,
+        "y": 352
+      }
+    },
+    {
+      "id": "0810eb97-c8a4-505f-a2e5-2df38f3dbf68",
+      "kind": "arrow",
+      "color": "#75c4bb",
+      "layerId": "design",
+      "from": {
+        "x": 928,
+        "y": 352
+      },
+      "to": {
+        "x": 1440,
+        "y": 320
+      }
+    },
+    {
+      "id": "e84d617d-2f94-500b-a663-50fe44919654",
+      "kind": "arrow",
+      "color": "#75c4bb",
+      "layerId": "design",
+      "from": {
+        "x": 1440,
+        "y": 320
+      },
+      "to": {
+        "x": 1824,
+        "y": 416
+      }
+    },
+    {
+      "id": "64915c7f-b392-54d8-aa0a-9fb1e110fc27",
+      "kind": "arrow",
+      "color": "#75c4bb",
+      "layerId": "design",
+      "from": {
+        "x": 1824,
+        "y": 416
+      },
+      "to": {
+        "x": 2112,
+        "y": 640
+      }
+    },
+    {
+      "id": "5d69072a-b397-5b2f-aa49-90d7bf97d8c3",
+      "kind": "arrow",
+      "color": "#75c4bb",
+      "layerId": "design",
+      "from": {
+        "x": 2112,
+        "y": 640
+      },
+      "to": {
+        "x": 2400,
+        "y": 864
+      }
+    },
+    {
+      "id": "dd64869e-c044-5880-a2be-d769fd473111",
+      "kind": "arrow",
+      "color": "#ba8edb",
+      "layerId": "design",
+      "from": {
+        "x": 480,
+        "y": 864
+      },
+      "to": {
+        "x": 256,
+        "y": 864
+      }
+    },
+    {
+      "id": "4a57f521-98bf-50e2-ac58-1fcce7341c5f",
+      "kind": "arrow",
+      "color": "#ba8edb",
+      "layerId": "design",
+      "from": {
+        "x": 256,
+        "y": 864
+      },
+      "to": {
+        "x": 128,
+        "y": 864
+      }
+    },
+    {
+      "id": "337c69da-b421-506d-aa8a-90f8e3fd7021",
+      "kind": "arrow",
+      "color": "#e3c27c",
+      "layerId": "design",
+      "from": {
+        "x": 3168,
+        "y": 768
+      },
+      "to": {
+        "x": 3616,
+        "y": 768
+      }
+    },
+    {
+      "id": "da15f40b-c373-5d3a-a021-8508d1106563",
+      "kind": "arrow",
+      "color": "#e3c27c",
+      "layerId": "design",
+      "from": {
+        "x": 3616,
+        "y": 768
+      },
+      "to": {
+        "x": 3872,
+        "y": 768
+      }
+    },
+    {
+      "id": "2d33bc53-993c-5c30-a2fc-3eb9a1fd3e99",
+      "kind": "arrow",
+      "color": "#e3c27c",
+      "layerId": "design",
+      "from": {
+        "x": 3872,
+        "y": 768
+      },
+      "to": {
+        "x": 4160,
+        "y": 768
+      }
+    },
+    {
+      "id": "884bb94e-1833-53a6-a738-1e6cca928c27",
+      "kind": "arrow",
+      "color": "#e3c27c",
+      "layerId": "design",
+      "from": {
+        "x": 4160,
+        "y": 768
+      },
+      "to": {
+        "x": 4576,
+        "y": 768
+      }
+    },
+    {
+      "id": "074ab7f6-eb49-56a9-a0d2-843df537de09",
+      "kind": "arrow",
+      "color": "#e3c27c",
+      "layerId": "design",
+      "from": {
+        "x": 4576,
+        "y": 768
+      },
+      "to": {
+        "x": 4896,
+        "y": 768
+      }
+    },
+    {
+      "id": "a16a997b-aee8-5bd5-afa8-43b7adf87fd5",
+      "kind": "arrow",
+      "color": "#e3c27c",
+      "layerId": "design",
+      "from": {
+        "x": 4896,
+        "y": 768
+      },
+      "to": {
+        "x": 5344,
+        "y": 768
+      }
+    },
+    {
+      "id": "51fe763c-f8a7-536a-a861-b499cc6790d6",
+      "kind": "arrow",
+      "color": "#ba8edb",
+      "layerId": "design",
+      "from": {
+        "x": 3392,
+        "y": 768
+      },
+      "to": {
+        "x": 3616,
+        "y": 608
+      }
+    },
+    {
+      "id": "b7461a11-4538-55bf-a7db-82dc13d0c140",
+      "kind": "arrow",
+      "color": "#ba8edb",
+      "layerId": "design",
+      "from": {
+        "x": 3616,
+        "y": 608
+      },
+      "to": {
+        "x": 3936,
+        "y": 384
+      }
+    },
+    {
+      "id": "1ca5dbe1-4f55-53f3-a29c-f4e781c04c9a",
+      "kind": "arrow",
+      "color": "#ba8edb",
+      "layerId": "design",
+      "from": {
+        "x": 3936,
+        "y": 384
+      },
+      "to": {
+        "x": 4288,
+        "y": 384
+      }
+    },
+    {
+      "id": "34e238f7-21a4-55e5-aa49-40924ab73074",
+      "kind": "arrow",
+      "color": "#ba8edb",
+      "layerId": "design",
+      "from": {
+        "x": 4288,
+        "y": 384
+      },
+      "to": {
+        "x": 4608,
+        "y": 384
+      }
+    },
+    {
+      "id": "39720d2e-165e-5322-a99b-0eac4adc9c00",
+      "kind": "arrow",
+      "color": "#ba8edb",
+      "layerId": "design",
+      "from": {
+        "x": 3360,
+        "y": 1056
+      },
+      "to": {
+        "x": 3360,
+        "y": 1280
+      }
+    },
+    {
+      "id": "8a6f047b-d23b-5998-a1d5-b58ee64c1562",
+      "kind": "arrow",
+      "color": "#ba8edb",
+      "layerId": "design",
+      "from": {
+        "x": 3360,
+        "y": 1280
+      },
+      "to": {
+        "x": 3104,
+        "y": 1280
+      }
+    },
+    {
+      "id": "05a1b820-5565-5d46-a522-ed196ccd151c",
+      "kind": "arrow",
+      "color": "#e3c27c",
+      "layerId": "design",
+      "from": {
+        "x": 6144,
+        "y": 2016
+      },
+      "to": {
+        "x": 6592,
+        "y": 2016
+      }
+    },
+    {
+      "id": "19321e7c-000c-5579-adec-c8ec46258143",
+      "kind": "arrow",
+      "color": "#e3c27c",
+      "layerId": "design",
+      "from": {
+        "x": 6592,
+        "y": 2016
+      },
+      "to": {
+        "x": 6784,
+        "y": 2016
+      }
+    },
+    {
+      "id": "69cef241-b69e-5d26-aa19-bc6b0d3e292b",
+      "kind": "arrow",
+      "color": "#e3c27c",
+      "layerId": "design",
+      "from": {
+        "x": 6784,
+        "y": 2016
+      },
+      "to": {
+        "x": 6784,
+        "y": 224
+      }
+    },
+    {
+      "id": "71f3a1f6-6ed5-5372-a28a-197788097914",
+      "kind": "arrow",
+      "color": "#e3c27c",
+      "layerId": "design",
+      "from": {
+        "x": 6784,
+        "y": 224
+      },
+      "to": {
+        "x": 7392,
+        "y": 224
+      }
+    },
+    {
+      "id": "6f3168c3-9b29-531c-a08f-d736165b1a66",
+      "kind": "arrow",
+      "color": "#ba8edb",
+      "layerId": "design",
+      "from": {
+        "x": 6912,
+        "y": 1504
+      },
+      "to": {
+        "x": 7040,
+        "y": 1504
+      }
+    },
+    {
+      "id": "9f110ce6-7e40-569e-a935-b584fa45d030",
+      "kind": "arrow",
+      "color": "#ba8edb",
+      "layerId": "design",
+      "from": {
+        "x": 7040,
+        "y": 1504
+      },
+      "to": {
+        "x": 7264,
+        "y": 1440
+      }
+    },
+    {
+      "id": "dae681d1-019a-5ed4-a8fe-f7f60a26800b",
+      "kind": "arrow",
+      "color": "#ba8edb",
+      "layerId": "design",
+      "from": {
+        "x": 7264,
+        "y": 1440
+      },
+      "to": {
+        "x": 7456,
+        "y": 1440
+      }
+    },
+    {
+      "id": "abe915ce-927d-502f-aa76-088cc315067a",
+      "kind": "arrow",
+      "color": "#ba8edb",
+      "layerId": "design",
+      "from": {
+        "x": 6656,
+        "y": 1056
+      },
+      "to": {
+        "x": 6432,
+        "y": 1056
+      }
+    },
+    {
+      "id": "e2f89475-e314-57ee-ac42-9acf2cab422e",
+      "kind": "arrow",
+      "color": "#ba8edb",
+      "layerId": "design",
+      "from": {
+        "x": 6432,
+        "y": 1056
+      },
+      "to": {
+        "x": 6144,
+        "y": 1056
+      }
+    },
+    {
+      "id": "2dea1838-6932-541d-aff1-d135ef8d3ae5",
+      "kind": "arrow",
+      "color": "#ba8edb",
+      "layerId": "design",
+      "from": {
+        "x": 6720,
+        "y": 704
+      },
+      "to": {
+        "x": 6624,
+        "y": 672
+      }
+    },
+    {
+      "id": "c9e48aca-c8ef-50e5-aec9-921e0ae26386",
+      "kind": "arrow",
+      "color": "#ba8edb",
+      "layerId": "design",
+      "from": {
+        "x": 6624,
+        "y": 672
+      },
+      "to": {
+        "x": 6464,
+        "y": 608
+      }
+    },
+    {
+      "id": "10a8a100-279f-5aff-a6ea-90562c0b1355",
+      "kind": "arrow",
+      "color": "#ba8edb",
+      "layerId": "design",
+      "from": {
+        "x": 6464,
+        "y": 608
+      },
+      "to": {
+        "x": 6144,
+        "y": 608
+      }
+    },
+    {
+      "id": "e369f162-34b0-5e0a-a6ae-c9c4e72f8611",
+      "kind": "arrow",
+      "color": "#75c4bb",
+      "layerId": "design",
+      "from": {
+        "x": 6624,
+        "y": 1088
+      },
+      "to": {
+        "x": 6816,
+        "y": 1088
+      }
+    },
+    {
+      "id": "7872db94-c6d6-55df-a42a-5f4f201cf714",
+      "kind": "arrow",
+      "color": "#75c4bb",
+      "layerId": "design",
+      "from": {
+        "x": 6816,
+        "y": 1088
+      },
+      "to": {
+        "x": 6816,
+        "y": 1952
+      }
+    },
+    {
+      "id": "c69d80d2-8c23-57c8-ab7a-8248d3616fd4",
+      "kind": "arrow",
+      "color": "#e3c27c",
+      "layerId": "design",
+      "from": {
+        "x": 6208,
+        "y": 3104
+      },
+      "to": {
+        "x": 6720,
+        "y": 3136
+      }
+    },
+    {
+      "id": "b9b776de-d8fd-50e3-a249-9a85768dd7ca",
+      "kind": "arrow",
+      "color": "#e3c27c",
+      "layerId": "design",
+      "from": {
+        "x": 6720,
+        "y": 3136
+      },
+      "to": {
+        "x": 7104,
+        "y": 3200
+      }
+    },
+    {
+      "id": "21342079-1242-501e-ac82-4d7b396dd27f",
+      "kind": "arrow",
+      "color": "#e3c27c",
+      "layerId": "design",
+      "from": {
+        "x": 7104,
+        "y": 3200
+      },
+      "to": {
+        "x": 7584,
+        "y": 3392
+      }
+    },
+    {
+      "id": "4bf93ffd-50ff-5f66-a404-c441a6798cf5",
+      "kind": "arrow",
+      "color": "#e3c27c",
+      "layerId": "design",
+      "from": {
+        "x": 7584,
+        "y": 3392
+      },
+      "to": {
+        "x": 8096,
+        "y": 3648
+      }
+    },
+    {
+      "id": "fea64dcf-795a-5465-a826-beb427afaa8f",
+      "kind": "arrow",
+      "color": "#e3c27c",
+      "layerId": "design",
+      "from": {
+        "x": 8096,
+        "y": 3648
+      },
+      "to": {
+        "x": 8032,
+        "y": 3904
+      }
+    },
+    {
+      "id": "59703764-4449-5a45-a9a4-c9031f091f87",
+      "kind": "arrow",
+      "color": "#e3c27c",
+      "layerId": "design",
+      "from": {
+        "x": 8032,
+        "y": 3904
+      },
+      "to": {
+        "x": 7840,
+        "y": 4160
+      }
+    },
+    {
+      "id": "151b9a75-b663-53b5-ae1c-8b42210e88b1",
+      "kind": "arrow",
+      "color": "#e3c27c",
+      "layerId": "design",
+      "from": {
+        "x": 7840,
+        "y": 4160
+      },
+      "to": {
+        "x": 7744,
+        "y": 4384
+      }
+    },
+    {
+      "id": "4338697f-eb53-54bc-a91c-ef49bd315054",
+      "kind": "arrow",
+      "color": "#e3c27c",
+      "layerId": "design",
+      "from": {
+        "x": 7744,
+        "y": 4384
+      },
+      "to": {
+        "x": 8032,
+        "y": 4512
+      }
+    },
+    {
+      "id": "6a4ca637-4350-5f83-a8f0-ce2af017586b",
+      "kind": "arrow",
+      "color": "#e3c27c",
+      "layerId": "design",
+      "from": {
+        "x": 8032,
+        "y": 4512
+      },
+      "to": {
+        "x": 8608,
+        "y": 4512
+      }
+    },
+    {
+      "id": "f87d33a6-6d72-5288-ae6a-023145e1ead4",
+      "kind": "arrow",
+      "color": "#ba8edb",
+      "layerId": "design",
+      "from": {
+        "x": 7136,
+        "y": 3424
+      },
+      "to": {
+        "x": 7040,
+        "y": 3648
+      }
+    },
+    {
+      "id": "e97efbfe-08e9-59e2-af26-e1ea3d886066",
+      "kind": "arrow",
+      "color": "#ba8edb",
+      "layerId": "design",
+      "from": {
+        "x": 7040,
+        "y": 3648
+      },
+      "to": {
+        "x": 7264,
+        "y": 3840
+      }
+    },
+    {
+      "id": "2db9d5ad-6769-5223-a180-f20cefe662cb",
+      "kind": "arrow",
+      "color": "#ba8edb",
+      "layerId": "design",
+      "from": {
+        "x": 7264,
+        "y": 3840
+      },
+      "to": {
+        "x": 7168,
+        "y": 4064
+      }
+    },
+    {
+      "id": "9c9a4130-20cf-5b32-a84e-44e1b3e2440d",
+      "kind": "arrow",
+      "color": "#ba8edb",
+      "layerId": "design",
+      "from": {
+        "x": 7168,
+        "y": 4064
+      },
+      "to": {
+        "x": 7520,
+        "y": 4256
+      }
+    },
+    {
+      "id": "416947da-1a24-5475-a56c-f5660699506b",
+      "kind": "arrow",
+      "color": "#ba8edb",
+      "layerId": "design",
+      "from": {
+        "x": 7520,
+        "y": 4256
+      },
+      "to": {
+        "x": 7744,
+        "y": 4384
+      }
+    },
+    {
+      "id": "8aa95056-b976-5f77-a902-23c9815b38ab",
+      "kind": "arrow",
+      "color": "#ba8edb",
+      "layerId": "design",
+      "from": {
+        "x": 8192,
+        "y": 3936
+      },
+      "to": {
+        "x": 8576,
+        "y": 4000
+      }
+    },
+    {
+      "id": "6ab4880e-3f75-504a-a9fa-002997d233a3",
+      "kind": "arrow",
+      "color": "#75c4bb",
+      "layerId": "design",
+      "from": {
+        "x": 8480,
+        "y": 4512
+      },
+      "to": {
+        "x": 7968,
+        "y": 4512
+      }
+    },
+    {
+      "id": "6a2fc9c9-043e-56e4-a587-b8381614cfd6",
+      "kind": "arrow",
+      "color": "#75c4bb",
+      "layerId": "design",
+      "from": {
+        "x": 7968,
+        "y": 4512
+      },
+      "to": {
+        "x": 7840,
+        "y": 4416
+      }
+    },
+    {
+      "id": "b0b464dd-0fa7-5c7b-ada5-6afd37f2ab1e",
+      "kind": "arrow",
+      "color": "#75c4bb",
+      "layerId": "design",
+      "from": {
+        "x": 7840,
+        "y": 4416
+      },
+      "to": {
+        "x": 8096,
+        "y": 4320
+      }
+    },
+    {
+      "id": "423e950b-2d5d-54cb-a1aa-c79d89776a31",
+      "kind": "arrow",
+      "color": "#75c4bb",
+      "layerId": "design",
+      "from": {
+        "x": 8096,
+        "y": 4320
+      },
+      "to": {
+        "x": 8192,
+        "y": 4224
+      }
+    },
+    {
+      "id": "d4a41176-8d8c-5102-a6ad-f635d024df1e",
+      "kind": "arrow",
+      "color": "#75c4bb",
+      "layerId": "design",
+      "from": {
+        "x": 8192,
+        "y": 4224
+      },
+      "to": {
+        "x": 8256,
+        "y": 4096
+      }
+    },
+    {
+      "id": "8be71876-03e1-55af-a3bc-bf097fdf7b14",
+      "kind": "arrow",
+      "color": "#75c4bb",
+      "layerId": "design",
+      "from": {
+        "x": 8256,
+        "y": 4096
+      },
+      "to": {
+        "x": 8352,
+        "y": 4000
+      }
+    },
+    {
+      "id": "dad98553-96f5-5454-af48-5c84734ef717",
+      "kind": "arrow",
+      "color": "#75c4bb",
+      "layerId": "design",
+      "from": {
+        "x": 8352,
+        "y": 4000
+      },
+      "to": {
+        "x": 7840,
+        "y": 3936
+      }
+    },
+    {
+      "id": "3410daee-eeac-57ba-a6c0-a239f1d848ef",
+      "kind": "arrow",
+      "color": "#75c4bb",
+      "layerId": "design",
+      "from": {
+        "x": 7840,
+        "y": 3936
+      },
+      "to": {
+        "x": 7840,
+        "y": 3840
+      }
+    },
+    {
+      "id": "273c21b3-06f8-56f2-aacf-a7f837f36809",
+      "kind": "arrow",
+      "color": "#75c4bb",
+      "layerId": "design",
+      "from": {
+        "x": 7840,
+        "y": 3840
+      },
+      "to": {
+        "x": 7840,
+        "y": 3744
+      }
+    },
+    {
+      "id": "201ad6f3-cb52-569f-ad62-90231abe15d5",
+      "kind": "arrow",
+      "color": "#75c4bb",
+      "layerId": "design",
+      "from": {
+        "x": 7840,
+        "y": 3744
+      },
+      "to": {
+        "x": 8000,
+        "y": 3680
+      }
+    },
+    {
+      "id": "e543a1d4-0d41-5364-a11a-9ee2edee6002",
+      "kind": "arrow",
+      "color": "#75c4bb",
+      "layerId": "design",
+      "from": {
+        "x": 8000,
+        "y": 3680
+      },
+      "to": {
+        "x": 8000,
+        "y": 3584
+      }
+    },
+    {
+      "id": "625611f0-1bc9-5482-a540-655282bae2d1",
+      "kind": "arrow",
+      "color": "#75c4bb",
+      "layerId": "design",
+      "from": {
+        "x": 8000,
+        "y": 3584
+      },
+      "to": {
+        "x": 8000,
+        "y": 3488
+      }
+    },
+    {
+      "id": "6f5ed54a-54b9-519f-ab1a-2e2df6a54d6a",
+      "kind": "arrow",
+      "color": "#75c4bb",
+      "layerId": "design",
+      "from": {
+        "x": 8000,
+        "y": 3488
+      },
+      "to": {
+        "x": 7744,
+        "y": 3424
+      }
+    },
+    {
+      "id": "4709694a-60aa-5461-a11e-b5e04e664436",
+      "kind": "arrow",
+      "color": "#75c4bb",
+      "layerId": "design",
+      "from": {
+        "x": 7744,
+        "y": 3424
+      },
+      "to": {
+        "x": 7360,
+        "y": 3328
+      }
+    },
+    {
+      "id": "5ce71efd-316d-55c2-a813-efd21ce29a59",
+      "kind": "arrow",
+      "color": "#75c4bb",
+      "layerId": "design",
+      "from": {
+        "x": 7360,
+        "y": 3328
+      },
+      "to": {
+        "x": 7136,
+        "y": 3232
+      }
+    },
+    {
+      "id": "32cfc3cf-b536-53e0-aef4-7b3478756091",
+      "kind": "arrow",
+      "color": "#75c4bb",
+      "layerId": "design",
+      "from": {
+        "x": 7136,
+        "y": 3232
+      },
+      "to": {
+        "x": 6720,
+        "y": 3168
+      }
+    },
+    {
+      "id": "db83efaa-f979-58f6-a1c2-f33ee710f14e",
+      "kind": "arrow",
+      "color": "#75c4bb",
+      "layerId": "design",
+      "from": {
+        "x": 6720,
+        "y": 3168
+      },
+      "to": {
+        "x": 6304,
+        "y": 3136
+      }
+    },
+    {
+      "id": "8056c8e9-8823-57a5-a788-654704188e65",
+      "kind": "arrow",
+      "color": "#ba8edb",
+      "layerId": "design",
+      "from": {
+        "x": 5184,
+        "y": 2816
+      },
+      "to": {
+        "x": 4832,
+        "y": 2784
+      }
+    },
+    {
+      "id": "2d7b91a0-9fc0-569d-a5f0-37626dba9542",
+      "kind": "arrow",
+      "color": "#ba8edb",
+      "layerId": "design",
+      "from": {
+        "x": 4832,
+        "y": 2784
+      },
+      "to": {
+        "x": 4384,
+        "y": 2752
+      }
+    },
+    {
+      "id": "d76b40bb-190c-5cc0-aa39-a5ce03537020",
+      "kind": "arrow",
+      "color": "#ba8edb",
+      "layerId": "design",
+      "from": {
+        "x": 4192,
+        "y": 2752
+      },
+      "to": {
+        "x": 4224,
+        "y": 2560
+      }
+    },
+    {
+      "id": "b3d46a92-37d4-5d92-a2cf-1203123e8262",
+      "kind": "arrow",
+      "color": "#ba8edb",
+      "layerId": "design",
+      "from": {
+        "x": 4224,
+        "y": 2560
+      },
+      "to": {
+        "x": 4608,
+        "y": 2400
+      }
+    },
+    {
+      "id": "e848d122-d1ce-55a2-a26d-a9de50e745cf",
+      "kind": "arrow",
+      "color": "#75c4bb",
+      "layerId": "design",
+      "from": {
+        "x": 4704,
+        "y": 2624
+      },
+      "to": {
+        "x": 4864,
+        "y": 2656
+      }
+    },
+    {
+      "id": "4671b8ce-b145-5af2-a2b8-b856bb454792",
+      "kind": "arrow",
+      "color": "#75c4bb",
+      "layerId": "design",
+      "from": {
+        "x": 4864,
+        "y": 2656
+      },
+      "to": {
+        "x": 5184,
+        "y": 2816
+      }
+    }
+  ],
+  "world": {
+    "id": "41777ab3-a98e-5f6e-a336-73e7b6971221",
+    "regions": [
+      {
+        "id": "8ed11816-ac71-522b-a5d3-074578ef18ff",
+        "name": "Ржавый водосброс",
+        "description": "Один регион с разными маршрутами: развилка вокруг машины, горизонтальные паромы, центральный подъёмник, разветвлённый спуск и секретный фильтр. Враги, сундуки и тайники привязаны к конкретным площадкам.",
+        "color": "#628d90",
+        "graphPosition": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    ],
+    "rooms": [
+      {
+        "id": "b2620eac-f65e-56d0-aa50-c1c2d62b43b5",
+        "name": "01 · Грузовой двор",
+        "description": "Горизонтальная развилка вокруг грузовой машины. Нижний путь короткий, но занят парой врагов; верхняя ветка требует подъёма по платформам, выводит к одному стражу и сундуку и снова соединяется с нижней у выхода. За треснувшей стеной позади точки старта спрятан отдельный склад. Справа — свободная площадка для последней встречи. Здесь нет обязательного обхода всех ярусов.",
+        "regionId": "8ed11816-ac71-522b-a5d3-074578ef18ff",
+        "graphPosition": {
+          "x": 0,
+          "y": 0
+        },
+        "roomType": "Normal",
+        "status": "Blockout",
+        "designSizeCm": {
+          "x": 8000,
+          "z": 3800
+        },
+        "tags": [],
+        "environmentTags": [],
+        "shapeItemId": "31945281-12bd-5942-a405-2f0ad069dc6d",
+        "blockingOrigin": {
+          "x": 0,
+          "y": 1216
+        },
+        "entrances": [
+          {
+            "id": "b54f888e-24f9-5fee-ae23-e4dd979e43e3",
+            "name": "Вход Q",
+            "preservePlayerDepth": true,
+            "overrideFacing": false,
+            "faceRight": true,
+            "maximumPlacementAdjustmentCm": 50
+          }
+        ],
+        "exits": [
+          {
+            "id": "9f74c49e-27a4-50d9-a5b0-fc6f7994762a",
+            "name": "К резервуару",
+            "preservePlayerDepth": true,
+            "overrideFacing": false,
+            "faceRight": false,
+            "maximumPlacementAdjustmentCm": 50,
+            "connection": {
+              "enabled": true,
+              "targetRoomId": "337aed96-ca8b-5206-a9e2-e752603b01d4",
+              "targetEntranceId": "ee6ed99b-22b8-56db-aa0d-fb2d35515918",
+              "type": "Passage",
+              "requiredTags": [],
+              "blockedTags": [],
+              "requiredAbilities": [],
+              "fadeDuration": 0.5
+            },
+            "graphStyle": {
+              "color": "#e3c27c",
+              "lineStyle": "solid"
+            }
+          }
+        ]
+      },
+      {
+        "id": "337aed96-ca8b-5206-a9e2-e752603b01d4",
+        "name": "02 · Резервуар паромов",
+        "description": "Две горизонтальные переправы на движущихся платформах через широкие провалы. Между ними большой сервисный остров: безопасное место высадки, затем враг. Второй причал занят тяжёлым стражем и сундуком. Дополнительная верхняя ветка ведёт к закрытому тайнику; сервисная лестница под первым причалом открывает секретный переход и обеспечивает возвращение. Геометрия пути и габариты платформ заданы; движение и скорость — задача игрового Blueprint.",
+        "regionId": "8ed11816-ac71-522b-a5d3-074578ef18ff",
+        "graphPosition": {
+          "x": 440,
+          "y": 0
+        },
+        "roomType": "Normal",
+        "status": "Blockout",
+        "designSizeCm": {
+          "x": 7800,
+          "z": 5000
+        },
+        "tags": [],
+        "environmentTags": [],
+        "shapeItemId": "af8ceae1-fc0a-56a3-aebb-589c28d3629b",
+        "blockingOrigin": {
+          "x": 3008,
+          "y": 1600
+        },
+        "entrances": [
+          {
+            "id": "ee6ed99b-22b8-56db-aa0d-fb2d35515918",
+            "name": "Из грузового двора",
+            "preservePlayerDepth": true,
+            "overrideFacing": false,
+            "faceRight": true,
+            "maximumPlacementAdjustmentCm": 50
+          }
+        ],
+        "exits": [
+          {
+            "id": "39633656-6c1d-5de3-a795-47558577e2ea",
+            "name": "К подъёмнику",
+            "preservePlayerDepth": true,
+            "overrideFacing": false,
+            "faceRight": false,
+            "maximumPlacementAdjustmentCm": 50,
+            "connection": {
+              "enabled": true,
+              "targetRoomId": "86084915-5b65-5ae9-abe0-92093ee8a46a",
+              "targetEntranceId": "2b7d0de5-2847-526c-a4a5-e124e45f9b43",
+              "type": "Passage",
+              "requiredTags": [],
+              "blockedTags": [],
+              "requiredAbilities": [],
+              "fadeDuration": 0.5
+            },
+            "graphStyle": {
+              "color": "#e3c27c",
+              "lineStyle": "solid"
+            }
+          },
+          {
+            "id": "905db2e0-9e29-5a35-acaa-3e5a708dc6e9",
+            "name": "Подпричальный фильтр",
+            "preservePlayerDepth": true,
+            "overrideFacing": false,
+            "faceRight": true,
+            "maximumPlacementAdjustmentCm": 50,
+            "connection": {
+              "enabled": true,
+              "targetRoomId": "1b691717-1d6a-5428-a9d8-bb405a1f4440",
+              "targetEntranceId": "7c5929b5-09e1-5084-a94c-c9bd16f95012",
+              "type": "Passage",
+              "requiredTags": [],
+              "blockedTags": [],
+              "requiredAbilities": [],
+              "fadeDuration": 0.5
+            },
+            "graphStyle": {
+              "color": "#ba8edb",
+              "lineStyle": "dashed"
+            }
+          }
+        ]
+      },
+      {
+        "id": "86084915-5b65-5ae9-abe0-92093ee8a46a",
+        "name": "03 · Подъёмник сердечника",
+        "description": "Одна центральная вертикальная ось движения — подъёмник. Основной путь не заставляет бегать от стены к стене. На разной высоте доступны необязательные остановки: мастерская со стражем, тихий пост с закрытым сундуком, верхняя галерея с наградой. На каждой остановке можно снова сесть на тот же подъёмник. Выход на правом верхнем балконе; обратный путь через лифт.",
+        "regionId": "8ed11816-ac71-522b-a5d3-074578ef18ff",
+        "graphPosition": {
+          "x": 880,
+          "y": 0
+        },
+        "roomType": "Normal",
+        "status": "Blockout",
+        "designSizeCm": {
+          "x": 4800,
+          "z": 7400
+        },
+        "tags": [],
+        "environmentTags": [],
+        "shapeItemId": "ddd25ce6-2c48-586b-a49f-dccba439c949",
+        "blockingOrigin": {
+          "x": 6016,
+          "y": 2368
+        },
+        "entrances": [
+          {
+            "id": "2b7d0de5-2847-526c-a4a5-e124e45f9b43",
+            "name": "Из резервуара",
+            "preservePlayerDepth": true,
+            "overrideFacing": false,
+            "faceRight": true,
+            "maximumPlacementAdjustmentCm": 50
+          }
+        ],
+        "exits": [
+          {
+            "id": "94d02461-0317-5f03-a8ba-b539aa86121d",
+            "name": "К разлому",
+            "preservePlayerDepth": true,
+            "overrideFacing": false,
+            "faceRight": false,
+            "maximumPlacementAdjustmentCm": 50,
+            "connection": {
+              "enabled": true,
+              "targetRoomId": "ca431e14-bbf4-578f-a10b-330f62843341",
+              "targetEntranceId": "93731b98-d2e8-5b49-a86c-bd5f40e9d352",
+              "type": "Passage",
+              "requiredTags": [],
+              "blockedTags": [],
+              "requiredAbilities": [],
+              "fadeDuration": 0.5
+            },
+            "graphStyle": {
+              "color": "#e3c27c",
+              "lineStyle": "solid"
+            }
+          }
+        ]
+      },
+      {
+        "id": "ca431e14-bbf4-578f-a10b-330f62843341",
+        "name": "04 · Разлом двух путей",
+        "description": "Высокая обзорная площадка открывает выбор: широкий наружный спуск по балконам или короткая внутренняя секция с шипами и дополнительным сундуком. Оба пути сходятся перед нижней боевой площадкой. В правом кармане скрыта отдельная награда. Возврат идёт по OneWay у краёв наружных балконов. Прямое падение под входом ведёт на шипы. Движение в основном вниз и вправо, без трёх длинных обратных горизонтальных коридоров.",
+        "regionId": "8ed11816-ac71-522b-a5d3-074578ef18ff",
+        "graphPosition": {
+          "x": 880,
+          "y": 450
+        },
+        "roomType": "Normal",
+        "status": "Blockout",
+        "designSizeCm": {
+          "x": 8400,
+          "z": 5800
+        },
+        "tags": [],
+        "environmentTags": [],
+        "shapeItemId": "be8be719-ed68-5340-adaf-def92ae2eefa",
+        "blockingOrigin": {
+          "x": 6016,
+          "y": 4736
+        },
+        "entrances": [
+          {
+            "id": "93731b98-d2e8-5b49-a86c-bd5f40e9d352",
+            "name": "От подъёмника",
+            "preservePlayerDepth": true,
+            "overrideFacing": false,
+            "faceRight": true,
+            "maximumPlacementAdjustmentCm": 50
+          }
+        ],
+        "exits": []
+      },
+      {
+        "id": "1b691717-1d6a-5428-a9d8-bb405a1f4440",
+        "name": "05 · Слепой фильтр",
+        "description": "Необязательная комната за секретной стеной резервуара. Нижние островки ведут влево, OneWay поднимают к сундуку. Вторая перегородка скрывает правую нишу. Возврат через промежуточные платформы к тому же входу; дополнительная боевая встреча на центральной площадке.",
+        "regionId": "8ed11816-ac71-522b-a5d3-074578ef18ff",
+        "graphPosition": {
+          "x": 440,
+          "y": 450
+        },
+        "roomType": "Secret",
+        "status": "Blockout",
+        "designSizeCm": {
+          "x": 4000,
+          "z": 3200
+        },
+        "tags": [],
+        "environmentTags": [],
+        "shapeItemId": "617d3cb9-38c0-5c08-afd7-fc9f59eb075c",
+        "blockingOrigin": {
+          "x": 4032,
+          "y": 3136
+        },
+        "entrances": [
+          {
+            "id": "7c5929b5-09e1-5084-a94c-c9bd16f95012",
+            "name": "Из подпричального кармана",
+            "preservePlayerDepth": true,
+            "overrideFacing": false,
+            "faceRight": false,
+            "maximumPlacementAdjustmentCm": 50
+          }
+        ],
+        "exits": []
+      }
+    ],
+    "start": {
+      "roomId": "b2620eac-f65e-56d0-aa50-c1c2d62b43b5",
+      "entranceId": "b54f888e-24f9-5fee-ae23-e4dd979e43e3"
+    },
+    "startGraphPosition": {
+      "x": -300,
+      "y": 30
+    },
+    "settings": {
+      "assetFolder": "/Game/Worlds",
+      "transitionTimeout": 45,
+      "useRoomGraphForPlayerMap": true
+    }
+  },
+  "blocking": {
+    "version": 1,
+    "enabled": false,
+    "centimetersPerCell": 100,
+    "depthCm": 200,
+    "wallThicknessCm": 20
+  }
+}

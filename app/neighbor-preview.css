@@ -1,0 +1,21 @@
+.neighbor-preview {
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: visible;
+  pointer-events: none;
+  user-select: none;
+  z-index: 4;
+}
+.neighbor-preview * { pointer-events: none; }
+.neighbor-window { fill: #99bfd009; stroke: #8fb8ce65; stroke-width: 2; stroke-dasharray: 10 8; }
+.neighbor-geometry { opacity: .35; }
+.neighbor-item polygon { fill-opacity: .24; stroke-width: 2; }
+.neighbor-room polygon { fill-opacity: .05; stroke-width: 3; }
+.neighbor-platform polygon { fill-opacity: .65; }
+.neighbor-hazard polygon { fill-opacity: .8; stroke-dasharray: 4 3; }
+.neighbor-secret polygon { stroke-dasharray: 7 5; }
+.neighbor-item text { font-family: sans-serif; font-weight: 700; }
+.neighbor-name, .neighbor-warning { font-family: sans-serif; font-size: 18px; fill: #a9c3d5; paint-order: stroke; stroke: #141b24; stroke-width: 5px; stroke-linejoin: round; }
+.neighbor-warning { font-size: 15px; fill: #d6ae7b; }
+.neighbor-tether { fill: none; stroke: #8fb8ce70; stroke-width: 2; stroke-dasharray: 6 7; }

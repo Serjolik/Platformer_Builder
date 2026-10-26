@@ -1,0 +1,23 @@
+.project-navigation { display: flex; align-items: center; gap: 5px; min-width: 0; flex: 1 1 auto; color: #c6d5e0; font-size: 12px; }
+.project-navigation button { font: inherit; cursor: pointer; color: inherit; }
+.project-navigation-world { color: #e0eaf1; padding: 7px 2px; flex-shrink: 0; }
+.project-navigation-crumb { border: 0; background: transparent; padding: 7px 5px; border-radius: 5px; white-space: nowrap; }
+.project-navigation-crumb:hover { background: #ffffff0b; color: #f4f8fb; }
+.project-navigation-region { min-width: 0; max-width: 170px; overflow: hidden; text-overflow: ellipsis; }
+.project-navigation-separator { color: #677d90; flex-shrink: 0; user-select: none; }
+.project-navigation-common { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+.project-navigation-picker { position: relative; min-width: 0; max-width: 280px; }
+.project-navigation-trigger { display: flex; gap: 9px; align-items: center; min-width: 0; max-width: 100%; border: 1px solid transparent; background: transparent; border-radius: 5px; padding: 7px 8px; }
+.project-navigation-trigger:hover, .project-navigation-trigger.is-open { border-color: #41566a; background: #263746; color: #f1f6fa; }
+.project-navigation-room-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+.project-navigation button:focus-visible { outline: 2px solid #75b4e1; outline-offset: 2px; }
+.project-navigation-menu { position: absolute; z-index: 1600; top: calc(100% + 7px); left: 0; width: min(360px, 75vw); max-height: min(65dvh, 560px); overflow-y: auto; padding: 7px; border: 1px solid #41566a; border-radius: 8px; background: #1b2833; box-shadow: 0 12px 32px #0009; }
+.project-navigation-group + .project-navigation-group { border-top: 1px solid #33424f; margin-top: 6px; padding-top: 6px; }
+.project-navigation-group-title { color: #8da8bb; padding: 6px 8px; font-size: 10px; line-height: 1.4; overflow-wrap: anywhere; }
+.project-navigation-menu button { display: flex; align-items: flex-start; width: 100%; text-align: left; gap: 8px; border: 0; background: transparent; border-radius: 5px; padding: 9px 8px; line-height: 1.4; }
+.project-navigation-menu button:hover, .project-navigation-menu button:focus-visible { background: #31485b; color: #eef6fc; }
+.project-navigation-menu button > span:last-child { overflow-wrap: anywhere; }
+.project-navigation-room-icon { color: #84b9d5; flex-shrink: 0; }
+.project-navigation-empty { color: #a7b9c6; line-height: 1.5; margin: 6px; }
+@media (max-width: 1100px) { .project-navigation { gap: 2px; } .project-navigation-region { max-width: 110px; } .project-navigation-picker { max-width: 220px; } }
+@media (max-width: 760px) { .project-navigation { font-size: 11px; } .project-navigation-region { max-width: 75px; } .project-navigation-picker { max-width: 140px; } .project-navigation-trigger { gap: 5px; padding: 7px 5px; } .project-navigation-menu { position: fixed; top: 56px; left: 12px; width: min(360px, calc(100vw - 24px)); } }

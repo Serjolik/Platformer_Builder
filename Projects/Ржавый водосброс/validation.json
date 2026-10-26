@@ -1,0 +1,231 @@
+{
+  "ok": true,
+  "errors": [],
+  "warnings": [
+    {
+      "severity": "warning",
+      "scope": "blocking",
+      "message": "«01 · Грузовой двор»: стороны «Дверь» и «Проход» целиком останутся открытыми. Для дверного актора нужен отдельный объект «Дверь» в режиме Blueprint.",
+      "itemId": "31945281-12bd-5942-a405-2f0ad069dc6d",
+      "roomId": "b2620eac-f65e-56d0-aa50-c1c2d62b43b5"
+    },
+    {
+      "severity": "warning",
+      "scope": "blocking",
+      "message": "«02 · Резервуар паромов»: стороны «Дверь» и «Проход» целиком останутся открытыми. Для дверного актора нужен отдельный объект «Дверь» в режиме Blueprint.",
+      "itemId": "af8ceae1-fc0a-56a3-aebb-589c28d3629b",
+      "roomId": "337aed96-ca8b-5206-a9e2-e752603b01d4"
+    },
+    {
+      "severity": "warning",
+      "scope": "blocking",
+      "message": "«03 · Подъёмник сердечника»: стороны «Дверь» и «Проход» целиком останутся открытыми. Для дверного актора нужен отдельный объект «Дверь» в режиме Blueprint.",
+      "itemId": "ddd25ce6-2c48-586b-a49f-dccba439c949",
+      "roomId": "86084915-5b65-5ae9-abe0-92093ee8a46a"
+    },
+    {
+      "severity": "warning",
+      "scope": "blocking",
+      "message": "«04 · Разлом двух путей»: стороны «Дверь» и «Проход» целиком останутся открытыми. Для дверного актора нужен отдельный объект «Дверь» в режиме Blueprint.",
+      "itemId": "be8be719-ed68-5340-adaf-def92ae2eefa",
+      "roomId": "ca431e14-bbf4-578f-a10b-330f62843341"
+    },
+    {
+      "severity": "warning",
+      "scope": "blocking",
+      "message": "«05 · Слепой фильтр»: стороны «Дверь» и «Проход» целиком останутся открытыми. Для дверного актора нужен отдельный объект «Дверь» в режиме Blueprint.",
+      "itemId": "617d3cb9-38c0-5c08-afd7-fc9f59eb075c",
+      "roomId": "1b691717-1d6a-5428-a9d8-bb405a1f4440"
+    },
+    {
+      "severity": "warning",
+      "scope": "blocking",
+      "message": "Платформы OneWay: 45. Режим сохранён как замысел; импорт размещает Blueprint типа platform. Проход снизу, коллизия и размеры должны быть настроены в выбранном Blueprint. Подтип платформы автоматически не переносится."
+    },
+    {
+      "severity": "warning",
+      "scope": "blocking",
+      "message": "Движущиеся платформы: 3. Blueprint размещается у нижнего центра рамки пути. Размеры платформы, крайние точки A/B и положение на пути сохранены в JSON как замысел, но не применяются к Blueprint; движение и габариты нужно настроить в Unreal."
+    },
+    {
+      "severity": "warning",
+      "scope": "blocking",
+      "message": "Размещение Blueprint: 98 объектов. Классы по типам выбираются в Unreal; якорь — нижний центр габаритов. Размер и логика берутся из Blueprint: параметры ключей, урона и других механик из рисунка не передаются."
+    },
+    {
+      "severity": "warning",
+      "scope": "blocking",
+      "message": "Без физического импорта: 17 объектов без назначенного режима и 0 линий/стрелок. Они сохраняются в JSON."
+    }
+  ],
+  "stats": {
+    "name": "Ржавый водосброс · один регион",
+    "version": 2,
+    "grid": 32,
+    "regions": 1,
+    "rooms": 5,
+    "items": 167,
+    "paths": 0,
+    "railPaths": 0,
+    "layers": [
+      {
+        "id": "shell",
+        "name": "01 · Контуры",
+        "visible": true,
+        "locked": false,
+        "itemCount": 5
+      },
+      {
+        "id": "solid",
+        "name": "02 · Массивы и опоры",
+        "visible": true,
+        "locked": false,
+        "itemCount": 47
+      },
+      {
+        "id": "play",
+        "name": "03 · Платформинг и опасности",
+        "visible": true,
+        "locked": false,
+        "itemCount": 66
+      },
+      {
+        "id": "actor",
+        "name": "04 · Встречи и награды",
+        "visible": true,
+        "locked": false,
+        "itemCount": 33
+      },
+      {
+        "id": "design",
+        "name": "05 · Маршруты и пояснения",
+        "visible": true,
+        "locked": false,
+        "itemCount": 16
+      }
+    ],
+    "kinds": {
+      "room": 5,
+      "platform": 92,
+      "hazard": 11,
+      "enemy": 13,
+      "loot": 13,
+      "checkpoint": 5,
+      "secret": 6,
+      "note": 16,
+      "moving": 3,
+      "ladder": 1,
+      "goal": 1,
+      "transition": 1
+    },
+    "entrances": 5,
+    "exits": 4,
+    "enabledConnections": 4,
+    "gatedConnections": 0,
+    "hasStart": true,
+    "reachableRoomsIgnoringGates": 5,
+    "explicitOwnerships": 167,
+    "blockingModes": {
+      "outline": 5,
+      "solid": 47,
+      "blueprint": 98,
+      "none": 17
+    },
+    "boundMarkers": 1,
+    "boundSides": 8,
+    "roomDetails": [
+      {
+        "id": "b2620eac-f65e-56d0-aa50-c1c2d62b43b5",
+        "name": "01 · Грузовой двор",
+        "type": "Normal",
+        "status": "Blockout",
+        "shapeItemId": "31945281-12bd-5942-a405-2f0ad069dc6d",
+        "sizeCells": {
+          "x": 80,
+          "y": 38
+        },
+        "vertices": 12,
+        "doorSides": 1,
+        "ownedItems": 32,
+        "entrances": 1,
+        "exits": 1,
+        "enabledExits": 1,
+        "reachableIgnoringGates": true
+      },
+      {
+        "id": "337aed96-ca8b-5206-a9e2-e752603b01d4",
+        "name": "02 · Резервуар паромов",
+        "type": "Normal",
+        "status": "Blockout",
+        "shapeItemId": "af8ceae1-fc0a-56a3-aebb-589c28d3629b",
+        "sizeCells": {
+          "x": 78,
+          "y": 50
+        },
+        "vertices": 14,
+        "doorSides": 3,
+        "ownedItems": 31,
+        "entrances": 1,
+        "exits": 2,
+        "enabledExits": 2,
+        "reachableIgnoringGates": true
+      },
+      {
+        "id": "86084915-5b65-5ae9-abe0-92093ee8a46a",
+        "name": "03 · Подъёмник сердечника",
+        "type": "Normal",
+        "status": "Blockout",
+        "shapeItemId": "ddd25ce6-2c48-586b-a49f-dccba439c949",
+        "sizeCells": {
+          "x": 48,
+          "y": 74
+        },
+        "vertices": 8,
+        "doorSides": 2,
+        "ownedItems": 28,
+        "entrances": 1,
+        "exits": 1,
+        "enabledExits": 1,
+        "reachableIgnoringGates": true
+      },
+      {
+        "id": "ca431e14-bbf4-578f-a10b-330f62843341",
+        "name": "04 · Разлом двух путей",
+        "type": "Normal",
+        "status": "Blockout",
+        "shapeItemId": "be8be719-ed68-5340-adaf-def92ae2eefa",
+        "sizeCells": {
+          "x": 84,
+          "y": 58
+        },
+        "vertices": 8,
+        "doorSides": 1,
+        "ownedItems": 51,
+        "entrances": 1,
+        "exits": 0,
+        "enabledExits": 0,
+        "reachableIgnoringGates": true
+      },
+      {
+        "id": "1b691717-1d6a-5428-a9d8-bb405a1f4440",
+        "name": "05 · Слепой фильтр",
+        "type": "Secret",
+        "status": "Blockout",
+        "shapeItemId": "617d3cb9-38c0-5c08-afd7-fc9f59eb075c",
+        "sizeCells": {
+          "x": 40,
+          "y": 32
+        },
+        "vertices": 10,
+        "doorSides": 1,
+        "ownedItems": 25,
+        "entrances": 1,
+        "exits": 0,
+        "enabledExits": 0,
+        "reachableIgnoringGates": true
+      }
+    ],
+    "preparedGeometry": 52,
+    "preparedEntities": 98
+  }
+}

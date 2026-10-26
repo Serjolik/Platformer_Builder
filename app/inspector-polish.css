@@ -1,0 +1,20 @@
+.world-inspector.world-inspector { padding: 16px 14px 24px; }
+.world-inspector.world-inspector h2 { font-size: 17px; margin-bottom: 10px; }
+.world-inspector.world-inspector h3 { font-size: 12px; letter-spacing: .025em; margin-bottom: 9px; }
+.world-inspector.world-inspector p, .world-inspector.world-inspector .world-inspector-hint { font-size: 12px; line-height: 1.5; }
+.world-inspector.world-inspector label, .world-inspector.world-inspector legend, .world-inspector.world-inspector .world-inspector-field { font-size: 12px; color: #b1c4d4; }
+.world-inspector.world-inspector .world-inspector-field { margin: 9px 0; gap: 5px; }
+.world-inspector.world-inspector input:not([type="checkbox"]):not([type="color"]), .world-inspector.world-inspector select, .world-inspector.world-inspector textarea { font-size: 13px; padding: 8px; }
+.world-inspector.world-inspector button { font-size: 12px; line-height: 1.4; padding: 8px 10px; }
+.world-inspector.world-inspector .world-inspector-section { margin-top: 14px; padding-top: 12px; }
+.world-inspector.world-inspector .world-inspector-section > button { margin: 5px 0; overflow-wrap: anywhere; }
+.world-inspector.world-inspector .world-inspector-primary { width: 100%; margin: 5px 0 2px; text-align: center; background: #304e60; border-color: #52798e; color: #e0f1f8; }
+.world-inspector.world-inspector details { margin-top: 10px; padding: 10px; }
+.world-inspector.world-inspector summary { font-size: 12px; line-height: 1.5; color: #b2c9db; }
+.world-inspector.world-inspector .world-inspector-advanced[open] > summary { margin-bottom: 10px; }
+.world-inspector.world-inspector .world-inspector-advanced > .world-inspector-section:first-of-type { border-top: 0; margin-top: 0; padding-top: 0; }
+.world-inspector.world-inspector .world-inspector-advanced > .blocking-panel { margin: 10px 0 0; padding: 0; background: none; border: 0; }
+.world-inspector.world-inspector .world-inspector-id { font-size: 11px; }
+.world-inspector.world-inspector .world-inspector-error { font-size: 12px; color: #f0beb1; }
+.world-inspector.world-inspector .world-inspector-warning { color: #dec58f; background: #2f2b22; border-left: 2px solid #a7854d; padding: 8px; border-radius: 3px; }
+.world-inspector.world-inspector .world-inspector-danger { margin-top: 12px; width: 100%; }

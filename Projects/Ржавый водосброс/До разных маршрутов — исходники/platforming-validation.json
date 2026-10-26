@@ -1,0 +1,1283 @@
+{
+  "sourceItemCount": 217,
+  "sourceSha256": "efea62ea7fd9f9ec849f26b8493f29eaa6ca5d3c8542bf08eae79e0ce92e7b90",
+  "scope": "Current full-project static validation and exact swept-body clearance of the revised right descent. Previous geometry probes retained with their own source hash; no final full traversal simulation claimed.",
+  "fullStatic": {
+    "ok": true,
+    "options": {
+      "playerWidth": 1,
+      "playerHeight": 2,
+      "maxJumpHeight": 3.2,
+      "maxFlatDistance": 7,
+      "sampleSpacing": 0.5,
+      "trajectoryStep": 0.12,
+      "portalLandingCells": 4,
+      "abilities": [],
+      "simulate": false,
+      "independentRoomEntries": true,
+      "horizontalSpeed": 3.5
+    },
+    "officialValidation": {
+      "ok": true,
+      "errors": 0,
+      "warnings": 8
+    },
+    "errors": [],
+    "warnings": [
+      {
+        "scope": "secret-portal",
+        "message": "Portal is intentionally obstructed while its secret wall remains closed.",
+        "roomId": "337aed96-ca8b-5206-a9e2-e752603b01d4",
+        "roomName": "02 · Трёхъярусный серпантин",
+        "endpointId": "905db2e0-9e29-5a35-acaa-3e5a708dc6e9",
+        "endpointName": "Треснувший фильтр",
+        "kind": "exit",
+        "closedSecretWalls": [
+          "ec2676ab-396b-58d1-a1c6-4ccf0e7a93fa"
+        ]
+      }
+    ],
+    "portalChecks": [
+      {
+        "roomId": "b2620eac-f65e-56d0-aa50-c1c2d62b43b5",
+        "roomName": "01 · Разбитый перегрузочный зал",
+        "endpointId": "9f74c49e-27a4-50d9-a5b0-fc6f7994762a",
+        "endpointName": "В серпантин",
+        "kind": "exit",
+        "landing": {
+          "left": 60,
+          "right": 64,
+          "top": 6,
+          "bottom": 10
+        },
+        "anchor": {
+          "x": 62,
+          "feet": 10
+        },
+        "floor": true,
+        "clear": true,
+        "blockedBy": [],
+        "closedSecretWalls": []
+      },
+      {
+        "roomId": "b2620eac-f65e-56d0-aa50-c1c2d62b43b5",
+        "roomName": "01 · Разбитый перегрузочный зал",
+        "endpointId": "b54f888e-24f9-5fee-ae23-e4dd979e43e3",
+        "endpointName": "Вход Q",
+        "kind": "entrance",
+        "markerId": "ee35a4d2-9bfc-5e36-a025-0070205e4e25",
+        "anchor": {
+          "x": 2,
+          "feet": 36
+        }
+      },
+      {
+        "roomId": "337aed96-ca8b-5206-a9e2-e752603b01d4",
+        "roomName": "02 · Трёхъярусный серпантин",
+        "endpointId": "39633656-6c1d-5de3-a795-47558577e2ea",
+        "endpointName": "В шахту перекрытий",
+        "kind": "exit",
+        "landing": {
+          "left": 168,
+          "right": 172,
+          "top": 10,
+          "bottom": 14
+        },
+        "anchor": {
+          "x": 170,
+          "feet": 14
+        },
+        "floor": true,
+        "clear": true,
+        "blockedBy": [],
+        "closedSecretWalls": []
+      },
+      {
+        "roomId": "337aed96-ca8b-5206-a9e2-e752603b01d4",
+        "roomName": "02 · Трёхъярусный серпантин",
+        "endpointId": "ee6ed99b-22b8-56db-aa0d-fb2d35515918",
+        "endpointName": "Из перегрузочного зала",
+        "kind": "entrance",
+        "landing": {
+          "left": 76,
+          "right": 80,
+          "top": 38,
+          "bottom": 42
+        },
+        "anchor": {
+          "x": 78,
+          "feet": 42
+        },
+        "floor": true,
+        "clear": true,
+        "blockedBy": [],
+        "closedSecretWalls": []
+      },
+      {
+        "roomId": "337aed96-ca8b-5206-a9e2-e752603b01d4",
+        "roomName": "02 · Трёхъярусный серпантин",
+        "endpointId": "905db2e0-9e29-5a35-acaa-3e5a708dc6e9",
+        "endpointName": "Треснувший фильтр",
+        "kind": "exit",
+        "landing": {
+          "left": 76,
+          "right": 80,
+          "top": 26,
+          "bottom": 30
+        },
+        "anchor": {
+          "x": 78,
+          "feet": 30
+        },
+        "floor": true,
+        "clear": true,
+        "blockedBy": [],
+        "closedSecretWalls": [
+          "ec2676ab-396b-58d1-a1c6-4ccf0e7a93fa"
+        ]
+      },
+      {
+        "roomId": "86084915-5b65-5ae9-abe0-92093ee8a46a",
+        "roomName": "03 · Шахта перекрытий",
+        "endpointId": "2b7d0de5-2847-526c-a4a5-e124e45f9b43",
+        "endpointName": "Из серпантина",
+        "kind": "entrance",
+        "landing": {
+          "left": 188,
+          "right": 192,
+          "top": 60,
+          "bottom": 64
+        },
+        "anchor": {
+          "x": 190,
+          "feet": 64
+        },
+        "floor": true,
+        "clear": true,
+        "blockedBy": [],
+        "closedSecretWalls": []
+      },
+      {
+        "roomId": "86084915-5b65-5ae9-abe0-92093ee8a46a",
+        "roomName": "03 · Шахта перекрытий",
+        "endpointId": "94d02461-0317-5f03-a8ba-b539aa86121d",
+        "endpointName": "К ломаному сбросу",
+        "kind": "exit",
+        "landing": {
+          "left": 188,
+          "right": 192,
+          "top": 8,
+          "bottom": 12
+        },
+        "anchor": {
+          "x": 190,
+          "feet": 12
+        },
+        "floor": true,
+        "clear": true,
+        "blockedBy": [],
+        "closedSecretWalls": []
+      },
+      {
+        "roomId": "ca431e14-bbf4-578f-a10b-330f62843341",
+        "roomName": "04 · Ломаный сброс",
+        "endpointId": "93731b98-d2e8-5b49-a86c-bd5f40e9d352",
+        "endpointName": "С вершины шахты",
+        "kind": "entrance",
+        "landing": {
+          "left": 188,
+          "right": 192,
+          "top": 92,
+          "bottom": 96
+        },
+        "anchor": {
+          "x": 190,
+          "feet": 96
+        },
+        "floor": true,
+        "clear": true,
+        "blockedBy": [],
+        "closedSecretWalls": []
+      },
+      {
+        "roomId": "1b691717-1d6a-5428-a9d8-bb405a1f4440",
+        "roomName": "05 · Слепой фильтр",
+        "endpointId": "7c5929b5-09e1-5084-a94c-c9bd16f95012",
+        "endpointName": "За треснувшим фильтром",
+        "kind": "entrance",
+        "landing": {
+          "left": 160,
+          "right": 164,
+          "top": 86,
+          "bottom": 90
+        },
+        "anchor": {
+          "x": 162,
+          "feet": 90
+        },
+        "floor": true,
+        "clear": true,
+        "blockedBy": [],
+        "closedSecretWalls": []
+      }
+    ],
+    "simulations": [],
+    "roomEntryChecks": [],
+    "limitations": [
+      "Provisional authoring metrics, not measured game movement or a runtime physics test.",
+      "Sampled standing centers and ballistic arcs may miss valid edge jumps or special traversal; unconfirmed reachability is a review item.",
+      "Assumes a controllable shorter jump as well as the maximum-height jump, with a fixed horizontal speed cap; actual input/air-control rules are unknown.",
+      "Hazards use their full rectangular bounds. OneWay passes upward and catches downward. Secret-wall opening is a separate optional scenario.",
+      "No dash motion, wall grab, double jump, ladders, moving platforms, crumble timing, combat, or reward acquisition is simulated.",
+      "Tag-gated transitions are excluded. Abilities only permit graph links; they do not alter the jump trajectory."
+    ]
+  },
+  "finalDescentClearance": {
+    "roomId": "ca431e14-bbf4-578f-a10b-330f62843341",
+    "roomName": "04 · Ломаный сброс",
+    "units": "room-local cells",
+    "player": {
+      "width": 1,
+      "height": 2
+    },
+    "centerX": 87.5,
+    "feetStart": 25,
+    "feetEnd": 31,
+    "sweptBody": {
+      "left": 87,
+      "right": 88,
+      "top": 23,
+      "bottom": 31
+    },
+    "positiveAreaIntersections": [],
+    "clear": true,
+    "neighboringGeometry": [
+      {
+        "id": "a60d06d7-f815-5710-a8f6-4323acde25c7",
+        "label": "Опора",
+        "kind": "platform",
+        "platformMode": "normal",
+        "bounds": {
+          "left": 74,
+          "right": 86,
+          "top": 24,
+          "bottom": 26
+        }
+      },
+      {
+        "id": "8b6ac2e3-7187-595f-a3ca-14380a92afeb",
+        "label": "Опора",
+        "kind": "platform",
+        "platformMode": "normal",
+        "bounds": {
+          "left": 84,
+          "right": 92,
+          "top": 31,
+          "bottom": 34
+        }
+      },
+      {
+        "id": "fa762138-8c32-5f4a-ae11-da2500451d3f",
+        "label": "Шипы",
+        "kind": "hazard",
+        "bounds": {
+          "left": 84,
+          "right": 86,
+          "top": 30,
+          "bottom": 31
+        }
+      },
+      {
+        "id": "6762e30d-b2ba-5d95-a8bc-667d182122d4",
+        "label": "OneWay",
+        "kind": "platform",
+        "platformMode": "oneway",
+        "bounds": {
+          "left": 89,
+          "right": 92,
+          "top": 28,
+          "bottom": 28.5
+        }
+      },
+      {
+        "id": "cfa21bbf-884b-5c73-a8bf-49c1a6c2daf8",
+        "label": "OneWay",
+        "kind": "platform",
+        "platformMode": "oneway",
+        "bounds": {
+          "left": 88,
+          "right": 92,
+          "top": 25,
+          "bottom": 25.5
+        }
+      }
+    ],
+    "interpretation": "The vertical body lane clears both OneWay shelves, the drop-2 solid and spikes ending at x86; it touches the third ledge at feet31. Reaching and maintaining this lane requires planned horizontal deceleration/air control. This is a geometry clearance check, not a gameplay traversal proof."
+  },
+  "previousGeometryProbe": {
+    "sourceSha256": "067685c21966f38a2fd0763ab98567e434342076ad38d079fa5c76f7a738a77b",
+    "sourceItemCount": 217,
+    "changeSinceProbe": "Only return OneWay at local y25 changed from x87,w5 to x88,w4. Previous reverse reachability is historical evidence, not a newly rerun check of the final geometry.",
+    "forward": {
+      "ok": true,
+      "options": {
+        "playerWidth": 1,
+        "playerHeight": 2,
+        "maxJumpHeight": 3.2,
+        "maxFlatDistance": 7,
+        "sampleSpacing": 0.5,
+        "trajectoryStep": 0.12,
+        "portalLandingCells": 4,
+        "abilities": [],
+        "simulate": true,
+        "independentRoomEntries": false,
+        "horizontalSpeed": 3.5
+      },
+      "officialValidation": {
+        "ok": true,
+        "errors": 0,
+        "warnings": 4
+      },
+      "errors": [],
+      "warnings": [],
+      "portalChecks": [
+        {
+          "roomId": "ca431e14-bbf4-578f-a10b-330f62843341",
+          "roomName": "04 · Ломаный сброс",
+          "endpointId": "93731b98-d2e8-5b49-a86c-bd5f40e9d352",
+          "endpointName": "С вершины шахты",
+          "kind": "entrance",
+          "landing": {
+            "left": 188,
+            "right": 192,
+            "top": 92,
+            "bottom": 96
+          },
+          "anchor": {
+            "x": 190,
+            "feet": 96
+          },
+          "floor": true,
+          "clear": true,
+          "blockedBy": [],
+          "closedSecretWalls": []
+        }
+      ],
+      "simulations": [
+        {
+          "secretsOpen": false,
+          "startAnchored": true,
+          "totalStandingGroups": 48,
+          "reachedGroups": 16,
+          "testedArcs": 632,
+          "rooms": [
+            {
+              "roomId": "ca431e14-bbf4-578f-a10b-330f62843341",
+              "name": "04 · Ломаный сброс",
+              "standingGroups": 48,
+              "reachedGroups": 16,
+              "totalPlatforms": 42,
+              "reachedPlatforms": 16,
+              "unreachablePlatforms": [
+                {
+                  "id": "17027aff-1e6e-58fb-af7b-3cca8b97585c",
+                  "label": "Основание сброса",
+                  "localCells": {
+                    "x": 0,
+                    "y": 52,
+                    "w": 92
+                  },
+                  "oneWay": false,
+                  "safeStandingSamples": 9
+                },
+                {
+                  "id": "d8051312-fc77-5098-adf3-fa7108f198e0",
+                  "label": "Первый отбойник",
+                  "localCells": {
+                    "x": 0,
+                    "y": 20,
+                    "w": 74
+                  },
+                  "oneWay": false,
+                  "safeStandingSamples": 27
+                },
+                {
+                  "id": "ad0085f9-f7f1-5931-a477-0439fe087565",
+                  "label": "Второй отбойник",
+                  "localCells": {
+                    "x": 18,
+                    "y": 36,
+                    "w": 74
+                  },
+                  "oneWay": false,
+                  "safeStandingSamples": 80
+                },
+                {
+                  "id": "8b6ac2e3-7187-595f-a3ca-14380a92afeb",
+                  "label": "Опора",
+                  "localCells": {
+                    "x": 84,
+                    "y": 31,
+                    "w": 8
+                  },
+                  "oneWay": false,
+                  "safeStandingSamples": 11
+                },
+                {
+                  "id": "8344f9eb-363c-5da7-affd-98250a22b1e1",
+                  "label": "OneWay",
+                  "localCells": {
+                    "x": 10,
+                    "y": 17,
+                    "w": 4
+                  },
+                  "oneWay": true,
+                  "safeStandingSamples": 7
+                },
+                {
+                  "id": "d8d253fe-deb2-5412-a06c-b743ed0c0445",
+                  "label": "OneWay",
+                  "localCells": {
+                    "x": 79,
+                    "y": 32,
+                    "w": 4
+                  },
+                  "oneWay": true,
+                  "safeStandingSamples": 7
+                },
+                {
+                  "id": "6762e30d-b2ba-5d95-a8bc-667d182122d4",
+                  "label": "OneWay",
+                  "localCells": {
+                    "x": 89,
+                    "y": 28,
+                    "w": 3
+                  },
+                  "oneWay": true,
+                  "safeStandingSamples": 5
+                },
+                {
+                  "id": "ea6191e6-f8cd-5904-aab8-b02b475cf145",
+                  "label": "OneWay",
+                  "localCells": {
+                    "x": 71,
+                    "y": 33,
+                    "w": 6
+                  },
+                  "oneWay": true,
+                  "safeStandingSamples": 11
+                },
+                {
+                  "id": "b8b57fa8-9f3a-5196-aa23-38df77307f77",
+                  "label": "OneWay",
+                  "localCells": {
+                    "x": 64,
+                    "y": 33,
+                    "w": 5
+                  },
+                  "oneWay": true,
+                  "safeStandingSamples": 9
+                },
+                {
+                  "id": "bdbad743-1a0e-52e9-a023-81997619d06f",
+                  "label": "OneWay",
+                  "localCells": {
+                    "x": 49,
+                    "y": 33,
+                    "w": 6
+                  },
+                  "oneWay": true,
+                  "safeStandingSamples": 11
+                },
+                {
+                  "id": "4edde4f5-bac6-5323-a452-6285de4a861d",
+                  "label": "OneWay",
+                  "localCells": {
+                    "x": 42,
+                    "y": 33,
+                    "w": 5
+                  },
+                  "oneWay": true,
+                  "safeStandingSamples": 9
+                },
+                {
+                  "id": "3a1a146e-77bc-5948-a187-e2fc40da20e4",
+                  "label": "OneWay",
+                  "localCells": {
+                    "x": 24,
+                    "y": 33,
+                    "w": 6
+                  },
+                  "oneWay": true,
+                  "safeStandingSamples": 11
+                },
+                {
+                  "id": "df09f146-71c7-55b2-afd9-333587e3d2e3",
+                  "label": "Опора",
+                  "localCells": {
+                    "x": 8,
+                    "y": 38,
+                    "w": 10
+                  },
+                  "oneWay": false,
+                  "safeStandingSamples": 19
+                },
+                {
+                  "id": "b701e664-d22d-596d-a568-18928a063c86",
+                  "label": "Опора",
+                  "localCells": {
+                    "x": 0,
+                    "y": 43,
+                    "w": 9
+                  },
+                  "oneWay": false,
+                  "safeStandingSamples": 17
+                },
+                {
+                  "id": "61a991dc-d5d0-5ffa-ae55-002c48ea2f00",
+                  "label": "Опора",
+                  "localCells": {
+                    "x": 9,
+                    "y": 47,
+                    "w": 9
+                  },
+                  "oneWay": false,
+                  "safeStandingSamples": 17
+                },
+                {
+                  "id": "f239097e-ee09-515c-aea4-1e5742ab66e8",
+                  "label": "OneWay",
+                  "localCells": {
+                    "x": 11,
+                    "y": 44,
+                    "w": 5
+                  },
+                  "oneWay": true,
+                  "safeStandingSamples": 9
+                },
+                {
+                  "id": "6b75687d-8849-59fa-aac6-f36bd1c67c49",
+                  "label": "OneWay",
+                  "localCells": {
+                    "x": 2,
+                    "y": 40,
+                    "w": 5
+                  },
+                  "oneWay": true,
+                  "safeStandingSamples": 9
+                },
+                {
+                  "id": "cd02b48a-262e-5d68-af7b-96c8ca4837ab",
+                  "label": "OneWay",
+                  "localCells": {
+                    "x": 22,
+                    "y": 47,
+                    "w": 6
+                  },
+                  "oneWay": true,
+                  "safeStandingSamples": 11
+                },
+                {
+                  "id": "a2717ad1-02a8-591f-a3a2-127c928c4e17",
+                  "label": "Опора",
+                  "localCells": {
+                    "x": 32,
+                    "y": 48,
+                    "w": 6
+                  },
+                  "oneWay": false,
+                  "safeStandingSamples": 11
+                },
+                {
+                  "id": "ec26a806-cac0-5d36-ac14-b4194cc0e50c",
+                  "label": "OneWay",
+                  "localCells": {
+                    "x": 41,
+                    "y": 46,
+                    "w": 6
+                  },
+                  "oneWay": true,
+                  "safeStandingSamples": 11
+                },
+                {
+                  "id": "ac117f3e-7a14-5157-a917-fdd95ba201ff",
+                  "label": "Опора",
+                  "localCells": {
+                    "x": 50,
+                    "y": 47,
+                    "w": 7
+                  },
+                  "oneWay": false,
+                  "safeStandingSamples": 13
+                },
+                {
+                  "id": "f91cedd7-ef76-5719-a71a-8e026db7be04",
+                  "label": "OneWay",
+                  "localCells": {
+                    "x": 60,
+                    "y": 47,
+                    "w": 6
+                  },
+                  "oneWay": true,
+                  "safeStandingSamples": 11
+                },
+                {
+                  "id": "1fabf7e4-e7c0-5e1e-a669-e64c71a43ff3",
+                  "label": "Опора",
+                  "localCells": {
+                    "x": 70,
+                    "y": 49,
+                    "w": 7
+                  },
+                  "oneWay": false,
+                  "safeStandingSamples": 13
+                },
+                {
+                  "id": "5f9242b0-e94c-5ea2-acd3-956fb689f9c1",
+                  "label": "Опора",
+                  "localCells": {
+                    "x": 80,
+                    "y": 48,
+                    "w": 12
+                  },
+                  "oneWay": false,
+                  "safeStandingSamples": 23
+                },
+                {
+                  "id": "9396fa52-8ab4-52e5-a430-c4a273e7ab46",
+                  "label": "Безопасный пол под спуском",
+                  "localCells": {
+                    "x": 0,
+                    "y": 50,
+                    "w": 20
+                  },
+                  "oneWay": false,
+                  "safeStandingSamples": 20
+                },
+                {
+                  "id": "176495be-c191-5c7d-a647-b137421c7c86",
+                  "label": "OneWay",
+                  "localCells": {
+                    "x": 30,
+                    "y": 50,
+                    "w": 2
+                  },
+                  "oneWay": true,
+                  "safeStandingSamples": 3
+                }
+              ],
+              "endpoints": [
+                {
+                  "id": "93731b98-d2e8-5b49-a86c-bd5f40e9d352",
+                  "name": "С вершины шахты",
+                  "anchored": true,
+                  "reached": true
+                }
+              ],
+              "targets": [
+                {
+                  "id": "9a8ae4b4-85bd-5d6c-adf9-5302029d1563",
+                  "kind": "checkpoint",
+                  "name": "Тихий пост",
+                  "anchored": true,
+                  "reached": false
+                },
+                {
+                  "id": "7bd27c5d-20b6-55ff-a154-d45756ff60f5",
+                  "kind": "goal",
+                  "name": "Сигнальный пост",
+                  "anchored": true,
+                  "reached": false
+                },
+                {
+                  "id": "4aa44036-fa3b-5ae8-a979-17b13531bcdc",
+                  "kind": "loot",
+                  "name": "Награда на разорванном мосту",
+                  "anchored": true,
+                  "reached": true
+                },
+                {
+                  "id": "74e10327-6b9c-5afe-a2e9-7f80ebc3193a",
+                  "kind": "loot",
+                  "name": "Награда за обратный путь",
+                  "anchored": true,
+                  "reached": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "secretsOpen": true,
+          "startAnchored": true,
+          "totalStandingGroups": 48,
+          "reachedGroups": 16,
+          "testedArcs": 632,
+          "rooms": [
+            {
+              "roomId": "ca431e14-bbf4-578f-a10b-330f62843341",
+              "name": "04 · Ломаный сброс",
+              "standingGroups": 48,
+              "reachedGroups": 16,
+              "totalPlatforms": 42,
+              "reachedPlatforms": 16,
+              "unreachablePlatforms": [
+                {
+                  "id": "17027aff-1e6e-58fb-af7b-3cca8b97585c",
+                  "label": "Основание сброса",
+                  "localCells": {
+                    "x": 0,
+                    "y": 52,
+                    "w": 92
+                  },
+                  "oneWay": false,
+                  "safeStandingSamples": 9
+                },
+                {
+                  "id": "d8051312-fc77-5098-adf3-fa7108f198e0",
+                  "label": "Первый отбойник",
+                  "localCells": {
+                    "x": 0,
+                    "y": 20,
+                    "w": 74
+                  },
+                  "oneWay": false,
+                  "safeStandingSamples": 27
+                },
+                {
+                  "id": "ad0085f9-f7f1-5931-a477-0439fe087565",
+                  "label": "Второй отбойник",
+                  "localCells": {
+                    "x": 18,
+                    "y": 36,
+                    "w": 74
+                  },
+                  "oneWay": false,
+                  "safeStandingSamples": 80
+                },
+                {
+                  "id": "8b6ac2e3-7187-595f-a3ca-14380a92afeb",
+                  "label": "Опора",
+                  "localCells": {
+                    "x": 84,
+                    "y": 31,
+                    "w": 8
+                  },
+                  "oneWay": false,
+                  "safeStandingSamples": 11
+                },
+                {
+                  "id": "8344f9eb-363c-5da7-affd-98250a22b1e1",
+                  "label": "OneWay",
+                  "localCells": {
+                    "x": 10,
+                    "y": 17,
+                    "w": 4
+                  },
+                  "oneWay": true,
+                  "safeStandingSamples": 7
+                },
+                {
+                  "id": "d8d253fe-deb2-5412-a06c-b743ed0c0445",
+                  "label": "OneWay",
+                  "localCells": {
+                    "x": 79,
+                    "y": 32,
+                    "w": 4
+                  },
+                  "oneWay": true,
+                  "safeStandingSamples": 7
+                },
+                {
+                  "id": "6762e30d-b2ba-5d95-a8bc-667d182122d4",
+                  "label": "OneWay",
+                  "localCells": {
+                    "x": 89,
+                    "y": 28,
+                    "w": 3
+                  },
+                  "oneWay": true,
+                  "safeStandingSamples": 5
+                },
+                {
+                  "id": "ea6191e6-f8cd-5904-aab8-b02b475cf145",
+                  "label": "OneWay",
+                  "localCells": {
+                    "x": 71,
+                    "y": 33,
+                    "w": 6
+                  },
+                  "oneWay": true,
+                  "safeStandingSamples": 11
+                },
+                {
+                  "id": "b8b57fa8-9f3a-5196-aa23-38df77307f77",
+                  "label": "OneWay",
+                  "localCells": {
+                    "x": 64,
+                    "y": 33,
+                    "w": 5
+                  },
+                  "oneWay": true,
+                  "safeStandingSamples": 9
+                },
+                {
+                  "id": "bdbad743-1a0e-52e9-a023-81997619d06f",
+                  "label": "OneWay",
+                  "localCells": {
+                    "x": 49,
+                    "y": 33,
+                    "w": 6
+                  },
+                  "oneWay": true,
+                  "safeStandingSamples": 11
+                },
+                {
+                  "id": "4edde4f5-bac6-5323-a452-6285de4a861d",
+                  "label": "OneWay",
+                  "localCells": {
+                    "x": 42,
+                    "y": 33,
+                    "w": 5
+                  },
+                  "oneWay": true,
+                  "safeStandingSamples": 9
+                },
+                {
+                  "id": "3a1a146e-77bc-5948-a187-e2fc40da20e4",
+                  "label": "OneWay",
+                  "localCells": {
+                    "x": 24,
+                    "y": 33,
+                    "w": 6
+                  },
+                  "oneWay": true,
+                  "safeStandingSamples": 11
+                },
+                {
+                  "id": "df09f146-71c7-55b2-afd9-333587e3d2e3",
+                  "label": "Опора",
+                  "localCells": {
+                    "x": 8,
+                    "y": 38,
+                    "w": 10
+                  },
+                  "oneWay": false,
+                  "safeStandingSamples": 19
+                },
+                {
+                  "id": "b701e664-d22d-596d-a568-18928a063c86",
+                  "label": "Опора",
+                  "localCells": {
+                    "x": 0,
+                    "y": 43,
+                    "w": 9
+                  },
+                  "oneWay": false,
+                  "safeStandingSamples": 17
+                },
+                {
+                  "id": "61a991dc-d5d0-5ffa-ae55-002c48ea2f00",
+                  "label": "Опора",
+                  "localCells": {
+                    "x": 9,
+                    "y": 47,
+                    "w": 9
+                  },
+                  "oneWay": false,
+                  "safeStandingSamples": 17
+                },
+                {
+                  "id": "f239097e-ee09-515c-aea4-1e5742ab66e8",
+                  "label": "OneWay",
+                  "localCells": {
+                    "x": 11,
+                    "y": 44,
+                    "w": 5
+                  },
+                  "oneWay": true,
+                  "safeStandingSamples": 9
+                },
+                {
+                  "id": "6b75687d-8849-59fa-aac6-f36bd1c67c49",
+                  "label": "OneWay",
+                  "localCells": {
+                    "x": 2,
+                    "y": 40,
+                    "w": 5
+                  },
+                  "oneWay": true,
+                  "safeStandingSamples": 9
+                },
+                {
+                  "id": "cd02b48a-262e-5d68-af7b-96c8ca4837ab",
+                  "label": "OneWay",
+                  "localCells": {
+                    "x": 22,
+                    "y": 47,
+                    "w": 6
+                  },
+                  "oneWay": true,
+                  "safeStandingSamples": 11
+                },
+                {
+                  "id": "a2717ad1-02a8-591f-a3a2-127c928c4e17",
+                  "label": "Опора",
+                  "localCells": {
+                    "x": 32,
+                    "y": 48,
+                    "w": 6
+                  },
+                  "oneWay": false,
+                  "safeStandingSamples": 11
+                },
+                {
+                  "id": "ec26a806-cac0-5d36-ac14-b4194cc0e50c",
+                  "label": "OneWay",
+                  "localCells": {
+                    "x": 41,
+                    "y": 46,
+                    "w": 6
+                  },
+                  "oneWay": true,
+                  "safeStandingSamples": 11
+                },
+                {
+                  "id": "ac117f3e-7a14-5157-a917-fdd95ba201ff",
+                  "label": "Опора",
+                  "localCells": {
+                    "x": 50,
+                    "y": 47,
+                    "w": 7
+                  },
+                  "oneWay": false,
+                  "safeStandingSamples": 13
+                },
+                {
+                  "id": "f91cedd7-ef76-5719-a71a-8e026db7be04",
+                  "label": "OneWay",
+                  "localCells": {
+                    "x": 60,
+                    "y": 47,
+                    "w": 6
+                  },
+                  "oneWay": true,
+                  "safeStandingSamples": 11
+                },
+                {
+                  "id": "1fabf7e4-e7c0-5e1e-a669-e64c71a43ff3",
+                  "label": "Опора",
+                  "localCells": {
+                    "x": 70,
+                    "y": 49,
+                    "w": 7
+                  },
+                  "oneWay": false,
+                  "safeStandingSamples": 13
+                },
+                {
+                  "id": "5f9242b0-e94c-5ea2-acd3-956fb689f9c1",
+                  "label": "Опора",
+                  "localCells": {
+                    "x": 80,
+                    "y": 48,
+                    "w": 12
+                  },
+                  "oneWay": false,
+                  "safeStandingSamples": 23
+                },
+                {
+                  "id": "9396fa52-8ab4-52e5-a430-c4a273e7ab46",
+                  "label": "Безопасный пол под спуском",
+                  "localCells": {
+                    "x": 0,
+                    "y": 50,
+                    "w": 20
+                  },
+                  "oneWay": false,
+                  "safeStandingSamples": 20
+                },
+                {
+                  "id": "176495be-c191-5c7d-a647-b137421c7c86",
+                  "label": "OneWay",
+                  "localCells": {
+                    "x": 30,
+                    "y": 50,
+                    "w": 2
+                  },
+                  "oneWay": true,
+                  "safeStandingSamples": 3
+                }
+              ],
+              "endpoints": [
+                {
+                  "id": "93731b98-d2e8-5b49-a86c-bd5f40e9d352",
+                  "name": "С вершины шахты",
+                  "anchored": true,
+                  "reached": true
+                }
+              ],
+              "targets": [
+                {
+                  "id": "9a8ae4b4-85bd-5d6c-adf9-5302029d1563",
+                  "kind": "checkpoint",
+                  "name": "Тихий пост",
+                  "anchored": true,
+                  "reached": false
+                },
+                {
+                  "id": "7bd27c5d-20b6-55ff-a154-d45756ff60f5",
+                  "kind": "goal",
+                  "name": "Сигнальный пост",
+                  "anchored": true,
+                  "reached": false
+                },
+                {
+                  "id": "4aa44036-fa3b-5ae8-a979-17b13531bcdc",
+                  "kind": "loot",
+                  "name": "Награда на разорванном мосту",
+                  "anchored": true,
+                  "reached": true
+                },
+                {
+                  "id": "74e10327-6b9c-5afe-a2e9-7f80ebc3193a",
+                  "kind": "loot",
+                  "name": "Награда за обратный путь",
+                  "anchored": true,
+                  "reached": false
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "roomEntryChecks": [],
+      "limitations": [
+        "Provisional authoring metrics, not measured game movement or a runtime physics test.",
+        "Sampled standing centers and ballistic arcs may miss valid edge jumps or special traversal; unconfirmed reachability is a review item.",
+        "Assumes a controllable shorter jump as well as the maximum-height jump, with a fixed horizontal speed cap; actual input/air-control rules are unknown.",
+        "Hazards use their full rectangular bounds. OneWay passes upward and catches downward. Secret-wall opening is a separate optional scenario.",
+        "No dash motion, wall grab, double jump, ladders, moving platforms, crumble timing, combat, or reward acquisition is simulated.",
+        "Tag-gated transitions are excluded. Abilities only permit graph links; they do not alter the jump trajectory."
+      ]
+    },
+    "reverse": {
+      "ok": true,
+      "options": {
+        "playerWidth": 1,
+        "playerHeight": 2,
+        "maxJumpHeight": 3.2,
+        "maxFlatDistance": 7,
+        "sampleSpacing": 0.5,
+        "trajectoryStep": 0.12,
+        "portalLandingCells": 4,
+        "abilities": [],
+        "simulate": true,
+        "independentRoomEntries": false,
+        "startItemId": "7bd27c5d-20b6-55ff-a154-d45756ff60f5",
+        "horizontalSpeed": 3.5
+      },
+      "officialValidation": {
+        "ok": true,
+        "errors": 0,
+        "warnings": 4
+      },
+      "errors": [],
+      "warnings": [],
+      "portalChecks": [
+        {
+          "roomId": "ca431e14-bbf4-578f-a10b-330f62843341",
+          "roomName": "04 · Ломаный сброс",
+          "endpointId": "93731b98-d2e8-5b49-a86c-bd5f40e9d352",
+          "endpointName": "С вершины шахты",
+          "kind": "entrance",
+          "landing": {
+            "left": 188,
+            "right": 192,
+            "top": 92,
+            "bottom": 96
+          },
+          "anchor": {
+            "x": 190,
+            "feet": 96
+          },
+          "floor": true,
+          "clear": true,
+          "blockedBy": [],
+          "closedSecretWalls": []
+        }
+      ],
+      "simulations": [
+        {
+          "secretsOpen": false,
+          "startAnchored": true,
+          "totalStandingGroups": 48,
+          "reachedGroups": 43,
+          "testedArcs": 1118,
+          "rooms": [
+            {
+              "roomId": "ca431e14-bbf4-578f-a10b-330f62843341",
+              "name": "04 · Ломаный сброс",
+              "standingGroups": 48,
+              "reachedGroups": 43,
+              "totalPlatforms": 42,
+              "reachedPlatforms": 40,
+              "unreachablePlatforms": [
+                {
+                  "id": "d8051312-fc77-5098-adf3-fa7108f198e0",
+                  "label": "Первый отбойник",
+                  "localCells": {
+                    "x": 0,
+                    "y": 20,
+                    "w": 74
+                  },
+                  "oneWay": false,
+                  "safeStandingSamples": 27
+                },
+                {
+                  "id": "8344f9eb-363c-5da7-affd-98250a22b1e1",
+                  "label": "OneWay",
+                  "localCells": {
+                    "x": 10,
+                    "y": 17,
+                    "w": 4
+                  },
+                  "oneWay": true,
+                  "safeStandingSamples": 7
+                }
+              ],
+              "endpoints": [
+                {
+                  "id": "93731b98-d2e8-5b49-a86c-bd5f40e9d352",
+                  "name": "С вершины шахты",
+                  "anchored": true,
+                  "reached": true
+                }
+              ],
+              "targets": [
+                {
+                  "id": "9a8ae4b4-85bd-5d6c-adf9-5302029d1563",
+                  "kind": "checkpoint",
+                  "name": "Тихий пост",
+                  "anchored": true,
+                  "reached": true
+                },
+                {
+                  "id": "7bd27c5d-20b6-55ff-a154-d45756ff60f5",
+                  "kind": "goal",
+                  "name": "Сигнальный пост",
+                  "anchored": true,
+                  "reached": true
+                },
+                {
+                  "id": "4aa44036-fa3b-5ae8-a979-17b13531bcdc",
+                  "kind": "loot",
+                  "name": "Награда на разорванном мосту",
+                  "anchored": true,
+                  "reached": true
+                },
+                {
+                  "id": "74e10327-6b9c-5afe-a2e9-7f80ebc3193a",
+                  "kind": "loot",
+                  "name": "Награда за обратный путь",
+                  "anchored": true,
+                  "reached": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "secretsOpen": true,
+          "startAnchored": true,
+          "totalStandingGroups": 48,
+          "reachedGroups": 43,
+          "testedArcs": 1118,
+          "rooms": [
+            {
+              "roomId": "ca431e14-bbf4-578f-a10b-330f62843341",
+              "name": "04 · Ломаный сброс",
+              "standingGroups": 48,
+              "reachedGroups": 43,
+              "totalPlatforms": 42,
+              "reachedPlatforms": 40,
+              "unreachablePlatforms": [
+                {
+                  "id": "d8051312-fc77-5098-adf3-fa7108f198e0",
+                  "label": "Первый отбойник",
+                  "localCells": {
+                    "x": 0,
+                    "y": 20,
+                    "w": 74
+                  },
+                  "oneWay": false,
+                  "safeStandingSamples": 27
+                },
+                {
+                  "id": "8344f9eb-363c-5da7-affd-98250a22b1e1",
+                  "label": "OneWay",
+                  "localCells": {
+                    "x": 10,
+                    "y": 17,
+                    "w": 4
+                  },
+                  "oneWay": true,
+                  "safeStandingSamples": 7
+                }
+              ],
+              "endpoints": [
+                {
+                  "id": "93731b98-d2e8-5b49-a86c-bd5f40e9d352",
+                  "name": "С вершины шахты",
+                  "anchored": true,
+                  "reached": true
+                }
+              ],
+              "targets": [
+                {
+                  "id": "9a8ae4b4-85bd-5d6c-adf9-5302029d1563",
+                  "kind": "checkpoint",
+                  "name": "Тихий пост",
+                  "anchored": true,
+                  "reached": true
+                },
+                {
+                  "id": "7bd27c5d-20b6-55ff-a154-d45756ff60f5",
+                  "kind": "goal",
+                  "name": "Сигнальный пост",
+                  "anchored": true,
+                  "reached": true
+                },
+                {
+                  "id": "4aa44036-fa3b-5ae8-a979-17b13531bcdc",
+                  "kind": "loot",
+                  "name": "Награда на разорванном мосту",
+                  "anchored": true,
+                  "reached": true
+                },
+                {
+                  "id": "74e10327-6b9c-5afe-a2e9-7f80ebc3193a",
+                  "kind": "loot",
+                  "name": "Награда за обратный путь",
+                  "anchored": true,
+                  "reached": true
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "roomEntryChecks": [],
+      "limitations": [
+        "Provisional authoring metrics, not measured game movement or a runtime physics test.",
+        "Sampled standing centers and ballistic arcs may miss valid edge jumps or special traversal; unconfirmed reachability is a review item.",
+        "Assumes a controllable shorter jump as well as the maximum-height jump, with a fixed horizontal speed cap; actual input/air-control rules are unknown.",
+        "Hazards use their full rectangular bounds. OneWay passes upward and catches downward. Secret-wall opening is a separate optional scenario.",
+        "No dash motion, wall grab, double jump, ladders, moving platforms, crumble timing, combat, or reward acquisition is simulated.",
+        "Tag-gated transitions are excluded. Abilities only permit graph links; they do not alter the jump trajectory."
+      ]
+    },
+    "interpretation": "Previous reverse probe reached entrance and all targets. Forward probe was inconclusive at the right descent; it only considers constant horizontal velocity per jump and cannot model deceleration into a vertical fall or reversal in midair."
+  },
+  "sourceUnchanged": true
+}

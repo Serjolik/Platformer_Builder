@@ -1,0 +1,40 @@
+.unreal-export-dialog { width: min(480px, calc(100vw - 32px)); max-height: calc(100dvh - 40px); margin: auto; padding: 0; border: 1px solid #405267; border-radius: 10px; color: #dbe4ed; background: #151e28; box-shadow: 0 24px 90px #0009; overflow: hidden; }
+.unreal-export-dialog[open] { display: flex; flex-direction: column; }
+.unreal-export-dialog::backdrop { background: #030810ba; backdrop-filter: blur(3px); }
+.unreal-export-dialog button { font: inherit; border: 1px solid #425166; background: #263344; border-radius: 5px; padding: 8px 11px; color: #dbe4ed; cursor: pointer; }
+.unreal-export-dialog button:focus-visible, .unreal-export-dialog select:focus-visible, .unreal-export-dialog summary:focus-visible { outline: 2px solid #8fc6e4; outline-offset: 3px; }
+.unreal-export-dialog button:disabled { opacity: .4; cursor: default; }
+.unreal-export-heading { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 18px 21px 15px; border-bottom: 1px solid #2d3b4b; }
+.unreal-export-heading > div { min-width: 0; }
+.unreal-export-heading h2 { font-size: 18px; font-weight: 600; margin: 0; }
+.unreal-export-heading p { font-size: 10px; color: #8da5ba; margin: 5px 0 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.unreal-export-dialog .unreal-export-close { padding: 2px 6px; font-size: 24px; border-color: transparent; background: transparent; color: #93a7bb; }
+.unreal-export-body { padding: 16px 21px 18px; overflow-y: auto; min-height: 0; font-size: 11px; line-height: 1.6; scrollbar-width: thin; scrollbar-color: #40566c transparent; }
+.unreal-export-field { display: grid; gap: 6px; color: #a8bed0; font-size: 10px; }
+.unreal-export-field select { width: 100%; min-width: 0; border: 1px solid #3a5063; border-radius: 5px; padding: 9px 10px; color: #e1eaf2; background: #101c27; font: inherit; font-size: 12px; cursor: pointer; }
+.unreal-export-catalog { margin: 12px 0 16px; color: #829bad; font-size: 10px; }
+.unreal-export-catalog b { color: #acc2d2; font-weight: 500; white-space: nowrap; }
+.unreal-export-selection-hint { color: #819caf; font-size: 10px; margin: 6px 0 13px; }
+.unreal-export-options { display: grid; gap: 11px; padding: 13px 0; border-top: 1px solid #2b3c4b; border-bottom: 1px solid #2b3c4b; }
+.unreal-export-options label { display: flex; align-items: center; gap: 9px; color: #c3d4e1; font-size: 12px; cursor: pointer; }
+.unreal-export-options input { width: 15px; height: 15px; margin: 0; accent-color: #d2b06e; flex-shrink: 0; }
+.unreal-export-options small { margin-left: auto; font-size: 10px; color: #8199ad; font-variant-numeric: tabular-nums; }
+.unreal-export-scope-hint { color: #819aaf; font-size: 10px; margin: 10px 0 0; }
+.unreal-export-project-info { margin-top: 15px; padding: 14px; border: 1px solid #334c48; border-radius: 6px; background: #1a2b2a; color: #b6cec6; }
+.unreal-export-project-info strong { font-size: 12px; font-weight: 500; color: #c2dfd2; }
+.unreal-export-project-info p { margin: 7px 0; font-size: 11px; }
+.unreal-export-project-info small { color: #7fa696; font-size: 10px; }
+.unreal-export-errors, .unreal-export-warnings { padding: 10px 12px; margin-top: 14px; border: 1px solid #6b5a3e; border-radius: 5px; background: #2a281f; color: #cfc2a5; font-size: 10px; }
+.unreal-export-errors { border-color: #784e58; background: #30232a; color: #e6b7ba; }
+.unreal-export-errors h3 { margin: 0 0 7px; font-size: 11px; font-weight: 600; color: #e8bdc0; }
+.unreal-export-errors ul { max-height: 160px; overflow-y: auto; }
+.unreal-export-body ul { margin: 0; padding-left: 17px; }
+.unreal-export-body li + li { margin-top: 6px; }
+.unreal-export-warnings summary { cursor: pointer; font-size: 11px; }
+.unreal-export-warnings[open] summary { margin-bottom: 9px; }
+.unreal-export-error-text { color: #f0aaaa; }
+.unreal-export-actions { display: flex; align-items: center; gap: 8px; padding: 13px 17px; border-top: 1px solid #2d3b4b; background: #121b25; font-size: 11px; }
+.unreal-export-actions > span { flex: 1; min-width: 0; font-size: 9px; color: #8098ae; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.unreal-export-actions > button { flex-shrink: 0; }
+.unreal-export-dialog .unreal-export-download { border-color: #d2b06e; background: #d2b06e; color: #18212b; font-weight: 600; }
+@media (max-width: 450px) { .unreal-export-heading, .unreal-export-body { padding-left: 15px; padding-right: 15px; } .unreal-export-actions { flex-wrap: wrap; padding: 12px 15px; } .unreal-export-actions > span { flex-basis: 100%; } .unreal-export-actions button { flex: 1; } }

@@ -1,0 +1,284 @@
+{
+  "ok": true,
+  "officialValidation": {
+    "ok": true,
+    "errors": 0,
+    "warnings": 10
+  },
+  "errors": [],
+  "warnings": [],
+  "reachability": {
+    "noAbilities": [
+      {
+        "id": "e370ef8b-48bf-5eb3-a95b-acfb3679f698",
+        "name": "01 · Перрон тишины"
+      },
+      {
+        "id": "c630d396-052a-54af-a4e9-3bd5a35ee356",
+        "name": "02 · Галерея конвейеров"
+      },
+      {
+        "id": "5189b174-0834-5068-a2f3-98dea0547cf9",
+        "name": "04 · Затопленный водосбор"
+      },
+      {
+        "id": "15127335-5c76-5b44-a249-cecbac975a52",
+        "name": "05 · Башня противовесов"
+      },
+      {
+        "id": "14a5a8dc-2fb7-5077-a0d0-49384bc08946",
+        "name": "06 · Цех резонанса"
+      },
+      {
+        "id": "fc26e686-a7c1-55e2-a1af-aadfdb21ed89",
+        "name": "07 · Пост наблюдателя"
+      },
+      {
+        "id": "77465e03-33ca-5ecc-a1e6-0e32a1cc3e6d",
+        "name": "08 · Сердце резонатора"
+      }
+    ],
+    "dash": [
+      {
+        "id": "e370ef8b-48bf-5eb3-a95b-acfb3679f698",
+        "name": "01 · Перрон тишины"
+      },
+      {
+        "id": "c630d396-052a-54af-a4e9-3bd5a35ee356",
+        "name": "02 · Галерея конвейеров"
+      },
+      {
+        "id": "a5691222-6417-5147-a745-411952166285",
+        "name": "03 · Архив эха"
+      },
+      {
+        "id": "5189b174-0834-5068-a2f3-98dea0547cf9",
+        "name": "04 · Затопленный водосбор"
+      },
+      {
+        "id": "15127335-5c76-5b44-a249-cecbac975a52",
+        "name": "05 · Башня противовесов"
+      },
+      {
+        "id": "14a5a8dc-2fb7-5077-a0d0-49384bc08946",
+        "name": "06 · Цех резонанса"
+      },
+      {
+        "id": "fc26e686-a7c1-55e2-a1af-aadfdb21ed89",
+        "name": "07 · Пост наблюдателя"
+      },
+      {
+        "id": "77465e03-33ca-5ecc-a1e6-0e32a1cc3e6d",
+        "name": "08 · Сердце резонатора"
+      }
+    ],
+    "addedByDash": [
+      {
+        "id": "a5691222-6417-5147-a745-411952166285",
+        "name": "03 · Архив эха"
+      }
+    ]
+  },
+  "portals": [
+    {
+      "roomName": "01 · Перрон тишины",
+      "endpointName": "Верхний возврат",
+      "endpointId": "598208a1-8529-5a3b-a89b-39102240ad5b",
+      "sideIndex": 6,
+      "openingHeightCells": 3,
+      "landingCells": 3,
+      "floorSupported": true,
+      "clearHeadroom": true,
+      "obstructions": []
+    },
+    {
+      "roomName": "01 · Перрон тишины",
+      "endpointName": "В галерею",
+      "endpointId": "e7c04e3d-44c7-5a9c-a735-8ea7afc5879f",
+      "sideIndex": 8,
+      "openingHeightCells": 3,
+      "landingCells": 3,
+      "floorSupported": true,
+      "clearHeadroom": true,
+      "obstructions": []
+    },
+    {
+      "roomName": "02 · Галерея конвейеров",
+      "endpointName": "Архив · рывок",
+      "endpointId": "afad3fcb-f6c8-5d56-ab31-6876bc7afcb2",
+      "sideIndex": 6,
+      "openingHeightCells": 3,
+      "landingCells": 3,
+      "floorSupported": true,
+      "clearHeadroom": true,
+      "obstructions": []
+    },
+    {
+      "roomName": "02 · Галерея конвейеров",
+      "endpointName": "К водосбору",
+      "endpointId": "7c60da14-ebf3-59a4-a01c-54444ca4aff3",
+      "sideIndex": 8,
+      "openingHeightCells": 3,
+      "landingCells": 3,
+      "floorSupported": true,
+      "clearHeadroom": true,
+      "obstructions": []
+    },
+    {
+      "roomName": "02 · Галерея конвейеров",
+      "endpointName": "С перрона",
+      "endpointId": "f56888aa-7d20-5148-a88d-5acf696fba7c",
+      "sideIndex": 12,
+      "openingHeightCells": 3,
+      "landingCells": 3,
+      "floorSupported": true,
+      "clearHeadroom": true,
+      "obstructions": []
+    },
+    {
+      "roomName": "02 · Галерея конвейеров",
+      "endpointName": "Балкон перрона",
+      "endpointId": "fbcd61c3-fb27-5f98-a34f-de658396b217",
+      "sideIndex": 14,
+      "openingHeightCells": 3,
+      "landingCells": 3,
+      "floorSupported": true,
+      "clearHeadroom": true,
+      "obstructions": []
+    },
+    {
+      "roomName": "03 · Архив эха",
+      "endpointName": "Из галереи",
+      "endpointId": "a9f59f86-e74e-513f-a678-5dc869b6b619",
+      "sideIndex": 8,
+      "openingHeightCells": 3,
+      "landingCells": 3,
+      "floorSupported": true,
+      "clearHeadroom": true,
+      "obstructions": []
+    },
+    {
+      "roomName": "04 · Затопленный водосбор",
+      "endpointName": "Верхний мост башни",
+      "endpointId": "fd07702c-55fd-5fec-a485-70396e67d65e",
+      "sideIndex": 6,
+      "openingHeightCells": 3,
+      "landingCells": 3,
+      "floorSupported": true,
+      "clearHeadroom": true,
+      "obstructions": []
+    },
+    {
+      "roomName": "04 · Затопленный водосбор",
+      "endpointName": "К основанию башни",
+      "endpointId": "b1f04082-82d4-51ec-a090-80e0bfc6f97b",
+      "sideIndex": 8,
+      "openingHeightCells": 3,
+      "landingCells": 3,
+      "floorSupported": true,
+      "clearHeadroom": true,
+      "obstructions": []
+    },
+    {
+      "roomName": "04 · Затопленный водосбор",
+      "endpointName": "Из галереи",
+      "endpointId": "0b31b2f5-7302-53d0-a693-3ff4bd021cad",
+      "sideIndex": 12,
+      "openingHeightCells": 3,
+      "landingCells": 3,
+      "floorSupported": true,
+      "clearHeadroom": true,
+      "obstructions": []
+    },
+    {
+      "roomName": "05 · Башня противовесов",
+      "endpointName": "К цеху резонанса",
+      "endpointId": "fb51b2b2-94fd-54e3-aa48-b884f9652ab5",
+      "sideIndex": 2,
+      "openingHeightCells": 3,
+      "landingCells": 3,
+      "floorSupported": true,
+      "clearHeadroom": true,
+      "obstructions": []
+    },
+    {
+      "roomName": "05 · Башня противовесов",
+      "endpointName": "Из нижнего водосбора",
+      "endpointId": "e5922caf-729f-598c-a8b1-621a9ee0f916",
+      "sideIndex": 10,
+      "openingHeightCells": 3,
+      "landingCells": 3,
+      "floorSupported": true,
+      "clearHeadroom": true,
+      "obstructions": []
+    },
+    {
+      "roomName": "05 · Башня противовесов",
+      "endpointName": "Верхний мост водосбора",
+      "endpointId": "446408d8-f864-580a-a737-29d5470977fc",
+      "sideIndex": 16,
+      "openingHeightCells": 3,
+      "landingCells": 3,
+      "floorSupported": true,
+      "clearHeadroom": true,
+      "obstructions": []
+    },
+    {
+      "roomName": "06 · Цех резонанса",
+      "endpointName": "К посту наблюдателя",
+      "endpointId": "f1460f3f-8712-585b-aeec-17a778daceaa",
+      "sideIndex": 6,
+      "openingHeightCells": 3,
+      "landingCells": 3,
+      "floorSupported": true,
+      "clearHeadroom": true,
+      "obstructions": []
+    },
+    {
+      "roomName": "06 · Цех резонанса",
+      "endpointName": "Из башни",
+      "endpointId": "ec4263ed-7950-57e3-aa6e-a632308b9e2d",
+      "sideIndex": 10,
+      "openingHeightCells": 3,
+      "landingCells": 3,
+      "floorSupported": true,
+      "clearHeadroom": true,
+      "obstructions": []
+    },
+    {
+      "roomName": "07 · Пост наблюдателя",
+      "endpointName": "К сердцу резонатора",
+      "endpointId": "529a3a4d-12d8-571a-ab14-b2613fa8196c",
+      "sideIndex": 6,
+      "openingHeightCells": 3,
+      "landingCells": 3,
+      "floorSupported": true,
+      "clearHeadroom": true,
+      "obstructions": []
+    },
+    {
+      "roomName": "07 · Пост наблюдателя",
+      "endpointName": "Из цеха",
+      "endpointId": "7cf3ea3e-f5cb-5579-a869-cd9cb51be3f8",
+      "sideIndex": 10,
+      "openingHeightCells": 3,
+      "landingCells": 3,
+      "floorSupported": true,
+      "clearHeadroom": true,
+      "obstructions": []
+    },
+    {
+      "roomName": "08 · Сердце резонатора",
+      "endpointName": "С поста наблюдателя",
+      "endpointId": "9f0e2781-7e2c-5353-aa88-585504a70a7e",
+      "sideIndex": 8,
+      "openingHeightCells": 3,
+      "landingCells": 3,
+      "floorSupported": true,
+      "clearHeadroom": true,
+      "obstructions": []
+    }
+  ],
+  "ladderIntersections": [],
+  "checkedLadders": 19
+}

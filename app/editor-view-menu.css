@@ -1,0 +1,18 @@
+.editor-view-menu { position: relative; flex-shrink: 0; font-size: 12px; }
+.editor-view-menu button { font: inherit; cursor: pointer; }
+.editor-view-menu > .editor-view-trigger { display: flex; align-items: center; gap: 8px; border: 1px solid #405366; border-radius: 5px; padding: 7px 10px; color: #c9dbe8; background: #243442; }
+.editor-view-menu > .editor-view-trigger:hover, .editor-view-menu > .editor-view-trigger.is-open { color: #f1f7fb; background: #30485c; border-color: #59748b; }
+.editor-view-menu button:focus-visible { outline: 2px solid #75b4e1; outline-offset: 2px; }
+.editor-view-popup { position: absolute; z-index: 1600; right: 0; top: calc(100% + 7px); width: min(300px, calc(100vw - 24px)); max-height: min(70dvh, 560px); overflow-y: auto; border: 1px solid #41566a; border-radius: 8px; padding: 7px; background: #1b2833; box-shadow: 0 12px 32px #0009; }
+.editor-view-popup > button { display: flex; align-items: flex-start; gap: 10px; width: 100%; border: 0; border-radius: 5px; padding: 9px 8px; background: transparent; color: #d4e2ec; text-align: left; line-height: 1.4; }
+.editor-view-popup > button:hover:not(:disabled), .editor-view-popup > button:focus-visible { background: #30475a; }
+.editor-view-popup > button:disabled { cursor: default; opacity: .46; }
+.editor-view-check { display: inline-flex; justify-content: center; align-items: center; width: 16px; height: 16px; border: 1px solid #647e92; border-radius: 3px; margin-top: 1px; flex: 0 0 16px; font-size: 12px; line-height: 1; }
+.editor-view-check.is-checked { background: #66a6cc; border-color: #91c4e3; color: #102634; font-weight: 700; }
+.editor-view-copy { display: grid; gap: 3px; min-width: 0; }
+.editor-view-copy > span { overflow-wrap: anywhere; }
+.editor-view-copy small { color: #91a9ba; font-size: 10px; line-height: 1.5; }
+.editor-view-divider { height: 1px; margin: 6px 2px; background: #33424f; }
+.editor-view-action-mark { color: #91bbd6; text-align: center; width: 18px; flex: 0 0 18px; }
+.editor-view-empty { margin: 6px; color: #a7b9c6; line-height: 1.5; }
+@media (max-width: 760px) { .editor-view-menu { font-size: 11px; } .editor-view-menu > .editor-view-trigger { padding: 7px 8px; } }

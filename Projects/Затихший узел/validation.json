@@ -1,0 +1,289 @@
+{
+  "ok": true,
+  "errors": [],
+  "warnings": [
+    {
+      "severity": "warning",
+      "scope": "blocking",
+      "message": "«01 · Перрон тишины»: стороны «Дверь» и «Проход» целиком останутся открытыми. Для дверного актора нужен отдельный объект «Дверь» в режиме Blueprint.",
+      "itemId": "3578694a-026c-5939-a711-1fa76fb71fc2",
+      "roomId": "e370ef8b-48bf-5eb3-a95b-acfb3679f698"
+    },
+    {
+      "severity": "warning",
+      "scope": "blocking",
+      "message": "«02 · Галерея конвейеров»: стороны «Дверь» и «Проход» целиком останутся открытыми. Для дверного актора нужен отдельный объект «Дверь» в режиме Blueprint.",
+      "itemId": "759503de-e669-5045-af5b-5ac9ea4eaca2",
+      "roomId": "c630d396-052a-54af-a4e9-3bd5a35ee356"
+    },
+    {
+      "severity": "warning",
+      "scope": "blocking",
+      "message": "«03 · Архив эха»: стороны «Дверь» и «Проход» целиком останутся открытыми. Для дверного актора нужен отдельный объект «Дверь» в режиме Blueprint.",
+      "itemId": "e9868bda-0c94-59a8-a2c7-2ea8231919c3",
+      "roomId": "a5691222-6417-5147-a745-411952166285"
+    },
+    {
+      "severity": "warning",
+      "scope": "blocking",
+      "message": "«04 · Затопленный водосбор»: стороны «Дверь» и «Проход» целиком останутся открытыми. Для дверного актора нужен отдельный объект «Дверь» в режиме Blueprint.",
+      "itemId": "a39e360e-bed4-50e3-a4fa-fdd66b0e26b7",
+      "roomId": "5189b174-0834-5068-a2f3-98dea0547cf9"
+    },
+    {
+      "severity": "warning",
+      "scope": "blocking",
+      "message": "«05 · Башня противовесов»: стороны «Дверь» и «Проход» целиком останутся открытыми. Для дверного актора нужен отдельный объект «Дверь» в режиме Blueprint.",
+      "itemId": "775a0b05-831b-5ef5-a374-90317aec509e",
+      "roomId": "15127335-5c76-5b44-a249-cecbac975a52"
+    },
+    {
+      "severity": "warning",
+      "scope": "blocking",
+      "message": "«06 · Цех резонанса»: стороны «Дверь» и «Проход» целиком останутся открытыми. Для дверного актора нужен отдельный объект «Дверь» в режиме Blueprint.",
+      "itemId": "27c7eeee-b3d3-5398-ac02-4aca710dfc55",
+      "roomId": "14a5a8dc-2fb7-5077-a0d0-49384bc08946"
+    },
+    {
+      "severity": "warning",
+      "scope": "blocking",
+      "message": "«07 · Пост наблюдателя»: стороны «Дверь» и «Проход» целиком останутся открытыми. Для дверного актора нужен отдельный объект «Дверь» в режиме Blueprint.",
+      "itemId": "805168ee-b47c-5548-a067-c14eb31e5321",
+      "roomId": "fc26e686-a7c1-55e2-a1af-aadfdb21ed89"
+    },
+    {
+      "severity": "warning",
+      "scope": "blocking",
+      "message": "«08 · Сердце резонатора»: стороны «Дверь» и «Проход» целиком останутся открытыми. Для дверного актора нужен отдельный объект «Дверь» в режиме Blueprint.",
+      "itemId": "3388f647-14c9-5cd5-af8b-0f73d469811e",
+      "roomId": "77465e03-33ca-5ecc-a1e6-0e32a1cc3e6d"
+    },
+    {
+      "severity": "warning",
+      "scope": "blocking",
+      "message": "Размещение Blueprint: 48 объектов. Классы по типам выбираются в Unreal; якорь — нижний центр габаритов. Размер и логика берутся из Blueprint: параметры ключей, урона и других механик из рисунка не передаются."
+    },
+    {
+      "severity": "warning",
+      "scope": "blocking",
+      "message": "Без физического импорта: 19 объектов без назначенного режима и 50 линий/стрелок. Они сохраняются в JSON."
+    }
+  ],
+  "stats": {
+    "name": "Затихший узел · блокинг v1",
+    "version": 2,
+    "grid": 32,
+    "regions": 3,
+    "rooms": 8,
+    "items": 124,
+    "paths": 50,
+    "railPaths": 0,
+    "layers": [
+      {
+        "id": "layer-shells",
+        "name": "01 · Контуры",
+        "visible": true,
+        "locked": false,
+        "itemCount": 8
+      },
+      {
+        "id": "layer-gameplay",
+        "name": "02 · Геометрия",
+        "visible": true,
+        "locked": false,
+        "itemCount": 49
+      },
+      {
+        "id": "layer-actors",
+        "name": "03 · Сущности",
+        "visible": true,
+        "locked": false,
+        "itemCount": 49
+      },
+      {
+        "id": "layer-design",
+        "name": "04 · Маршруты и заметки",
+        "visible": true,
+        "locked": false,
+        "itemCount": 18
+      }
+    ],
+    "kinds": {
+      "room": 8,
+      "platform": 49,
+      "ladder": 19,
+      "checkpoint": 4,
+      "npc": 3,
+      "transition": 1,
+      "note": 18,
+      "enemy": 13,
+      "loot": 6,
+      "liquid": 1,
+      "boss": 1,
+      "goal": 1
+    },
+    "entrances": 10,
+    "exits": 9,
+    "enabledConnections": 9,
+    "gatedConnections": 1,
+    "hasStart": true,
+    "reachableRoomsIgnoringGates": 8,
+    "explicitOwnerships": 124,
+    "blockingModes": {
+      "outline": 8,
+      "solid": 49,
+      "blueprint": 48,
+      "none": 19
+    },
+    "boundMarkers": 1,
+    "boundSides": 18,
+    "roomDetails": [
+      {
+        "id": "e370ef8b-48bf-5eb3-a95b-acfb3679f698",
+        "name": "01 · Перрон тишины",
+        "type": "Save",
+        "status": "Blockout",
+        "shapeItemId": "3578694a-026c-5939-a711-1fa76fb71fc2",
+        "sizeCells": {
+          "x": 48,
+          "y": 20
+        },
+        "vertices": 12,
+        "doorSides": 2,
+        "ownedItems": 9,
+        "entrances": 2,
+        "exits": 1,
+        "enabledExits": 1,
+        "reachableIgnoringGates": true
+      },
+      {
+        "id": "c630d396-052a-54af-a4e9-3bd5a35ee356",
+        "name": "02 · Галерея конвейеров",
+        "type": "Combat",
+        "status": "Blockout",
+        "shapeItemId": "759503de-e669-5045-af5b-5ac9ea4eaca2",
+        "sizeCells": {
+          "x": 76,
+          "y": 24
+        },
+        "vertices": 16,
+        "doorSides": 4,
+        "ownedItems": 21,
+        "entrances": 1,
+        "exits": 3,
+        "enabledExits": 3,
+        "reachableIgnoringGates": true
+      },
+      {
+        "id": "a5691222-6417-5147-a745-411952166285",
+        "name": "03 · Архив эха",
+        "type": "Secret",
+        "status": "Blockout",
+        "shapeItemId": "e9868bda-0c94-59a8-a2c7-2ea8231919c3",
+        "sizeCells": {
+          "x": 38,
+          "y": 24
+        },
+        "vertices": 10,
+        "doorSides": 1,
+        "ownedItems": 13,
+        "entrances": 1,
+        "exits": 0,
+        "enabledExits": 0,
+        "reachableIgnoringGates": true
+      },
+      {
+        "id": "5189b174-0834-5068-a2f3-98dea0547cf9",
+        "name": "04 · Затопленный водосбор",
+        "type": "Normal",
+        "status": "Blockout",
+        "shapeItemId": "a39e360e-bed4-50e3-a4fa-fdd66b0e26b7",
+        "sizeCells": {
+          "x": 78,
+          "y": 32
+        },
+        "vertices": 14,
+        "doorSides": 3,
+        "ownedItems": 25,
+        "entrances": 2,
+        "exits": 1,
+        "enabledExits": 1,
+        "reachableIgnoringGates": true
+      },
+      {
+        "id": "15127335-5c76-5b44-a249-cecbac975a52",
+        "name": "05 · Башня противовесов",
+        "type": "Normal",
+        "status": "Blockout",
+        "shapeItemId": "775a0b05-831b-5ef5-a374-90317aec509e",
+        "sizeCells": {
+          "x": 42,
+          "y": 60
+        },
+        "vertices": 18,
+        "doorSides": 3,
+        "ownedItems": 22,
+        "entrances": 1,
+        "exits": 2,
+        "enabledExits": 2,
+        "reachableIgnoringGates": true
+      },
+      {
+        "id": "14a5a8dc-2fb7-5077-a0d0-49384bc08946",
+        "name": "06 · Цех резонанса",
+        "type": "Combat",
+        "status": "Blockout",
+        "shapeItemId": "27c7eeee-b3d3-5398-ac02-4aca710dfc55",
+        "sizeCells": {
+          "x": 82,
+          "y": 28
+        },
+        "vertices": 12,
+        "doorSides": 2,
+        "ownedItems": 19,
+        "entrances": 1,
+        "exits": 1,
+        "enabledExits": 1,
+        "reachableIgnoringGates": true
+      },
+      {
+        "id": "fc26e686-a7c1-55e2-a1af-aadfdb21ed89",
+        "name": "07 · Пост наблюдателя",
+        "type": "Save",
+        "status": "Blockout",
+        "shapeItemId": "805168ee-b47c-5548-a067-c14eb31e5321",
+        "sizeCells": {
+          "x": 32,
+          "y": 16
+        },
+        "vertices": 12,
+        "doorSides": 2,
+        "ownedItems": 5,
+        "entrances": 1,
+        "exits": 1,
+        "enabledExits": 1,
+        "reachableIgnoringGates": true
+      },
+      {
+        "id": "77465e03-33ca-5ecc-a1e6-0e32a1cc3e6d",
+        "name": "08 · Сердце резонатора",
+        "type": "Boss",
+        "status": "Blockout",
+        "shapeItemId": "3388f647-14c9-5cd5-af8b-0f73d469811e",
+        "sizeCells": {
+          "x": 52,
+          "y": 22
+        },
+        "vertices": 10,
+        "doorSides": 1,
+        "ownedItems": 10,
+        "entrances": 1,
+        "exits": 0,
+        "enabledExits": 0,
+        "reachableIgnoringGates": true
+      }
+    ],
+    "preparedGeometry": 57,
+    "preparedEntities": 48
+  }
+}

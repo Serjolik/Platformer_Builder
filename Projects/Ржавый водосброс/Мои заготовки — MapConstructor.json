@@ -1,0 +1,47 @@
+{
+  "format": "mapconstructor-object-library",
+  "version": 1,
+  "templates": [
+    {
+      "id": "100743e3-e72f-4d86-8989-3683620f797b",
+      "name": "Подъём OneWay · три ступени",
+      "width": 448,
+      "height": 208,
+      "items": [
+        {
+          "kind": "platform",
+          "label": "OneWay",
+          "color": "#7db8ee",
+          "x": 0,
+          "y": 192,
+          "w": 4,
+          "h": 0.5,
+          "platformMode": "oneway",
+          "blockingMode": "blueprint"
+        },
+        {
+          "kind": "platform",
+          "label": "OneWay",
+          "color": "#7db8ee",
+          "x": 128,
+          "y": 96,
+          "w": 4,
+          "h": 0.5,
+          "platformMode": "oneway",
+          "blockingMode": "blueprint"
+        },
+        {
+          "kind": "platform",
+          "label": "OneWay",
+          "color": "#7db8ee",
+          "x": 320,
+          "y": 0,
+          "w": 4,
+          "h": 0.5,
+          "platformMode": "oneway",
+          "blockingMode": "blueprint"
+        }
+      ]
+    }
+  ]
+}

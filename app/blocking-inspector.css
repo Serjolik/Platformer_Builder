@@ -1,0 +1,37 @@
+.blocking-panel { margin: 15px 0; padding: 13px 11px; border: 1px solid #3a4d58; border-radius: 5px; background: #16242c; color: #d0e2e8; }
+.blocking-panel h3 { margin: 0 0 11px; font-size: 11px; color: #bad0dc; font-weight: 600; line-height: 1.4; }
+.blocking-panel h3:not(:first-child) { margin-top: 18px; }
+.blocking-panel .blocking-field { display: flex; flex-direction: column; gap: 6px; margin: 10px 0; color: #9bb2c1; font-size: 10px; line-height: 1.45; }
+.blocking-panel input:not([type="checkbox"]), .blocking-panel select { min-width: 0; width: 100%; padding: 8px; border: 1px solid #3a5262; border-radius: 4px; background: #0e1a24; color: #d8e7ef; font: inherit; font-size: 11px; }
+.blocking-panel .blocking-check { display: flex; align-items: center; gap: 8px; color: #c5d9e4; font-size: 11px; margin: 8px 0; }
+.blocking-panel .blocking-check input { width: 14px; height: 14px; padding: 0; accent-color: #d2b06e; }
+.blocking-panel .blocking-hint, .blocking-panel .blocking-warning, .blocking-panel .blocking-dimensions { font-size: 10px; line-height: 1.65; margin: 9px 0; color: #8fa8b7; overflow-wrap: anywhere; }
+.blocking-panel .blocking-warning { color: #dfc48d; }
+.blocking-panel .blocking-dimensions { color: #bad3de; }
+.blocking-row { display: flex; align-items: flex-start; gap: 8px; }
+.blocking-row > * { flex: 1; min-width: 0; }
+.blocking-actions { display: flex; flex-direction: column; gap: 6px; margin: 10px 0; }
+.blocking-panel button { font-size: 10px; line-height: 1.5; white-space: normal; text-align: left; padding: 8px 9px; border: 1px solid #405869; border-radius: 4px; background: #253b49; color: #d4e4ed; }
+.blocking-panel button:disabled { opacity: .45; cursor: default; }
+.blocking-panel .blocking-prepare { width: 100%; background: #354632; border-color: #6a7d50; color: #d6e3c5; }
+.blocking-settings-fold { margin: 12px 0; border: 1px solid #354550; border-radius: 4px; padding: 10px; }
+.blocking-settings-fold > summary { cursor: pointer; color: #a8c0cf; font-size: 10px; line-height: 1.5; }
+.blocking-settings-fold > .blocking-panel { margin: 10px 0 0; padding: 0; border: 0; background: transparent; }
+.blocking-origin-marker { position: absolute; z-index: 5; pointer-events: none; color: #f4d28c; font-size: 21px; line-height: 1; transform: translate(-50%, -50%); filter: drop-shadow(0 1px 2px #000); }
+.blocking-origin-marker small { position: absolute; top: 22px; left: 12px; width: max-content; padding: 3px 5px; border-radius: 3px; background: #172029d9; color: #d9c18e; font-size: 9px; line-height: 1.4; }
+.inspector .blocking-empty { padding: 15px 14px; overflow-y: auto; min-height: 0; flex: 1; }
+.inspector .blocking-empty > p { color: #8fa4b6; font-size: 10px; line-height: 1.7; }
+.inspector-body > .blocking-hint, .inspector-body > .blocking-warning { font-size: 10px; line-height: 1.65; margin: 10px 0; color: #91a9b8; }
+.inspector-body > .blocking-warning { color: #dfc48d; }
+.blocking-panel { padding: 12px; margin: 12px 0; }
+.blocking-panel h3 { font-size: 13px; margin-bottom: 9px; }
+.blocking-panel .blocking-field { font-size: 12px; margin: 8px 0; color: #b2c4d0; }
+.blocking-panel input:not([type="checkbox"]), .blocking-panel select { font-size: 13px; min-height: 34px; }
+.blocking-panel .blocking-hint, .blocking-panel .blocking-warning, .blocking-panel .blocking-dimensions { font-size: 12px; line-height: 1.55; }
+.blocking-panel button { font-size: 12px; }
+.blocking-panel .blocking-warning { padding: 8px 9px; border-left: 2px solid #b79151; background: #2f2b22; border-radius: 3px; }
+.blocking-panel .blocking-help { margin: 10px 0 0; border-top: 1px solid #304856; padding-top: 9px; }
+.blocking-panel .blocking-help > summary { color: #acc4d2; cursor: pointer; font-size: 12px; line-height: 1.45; font-weight: 500; }
+.blocking-panel .blocking-help[open] > summary { margin-bottom: 8px; }
+.blocking-settings-fold > summary { font-size: 12px; }
+.inspector .blocking-empty > p, .inspector-body > .blocking-hint, .inspector-body > .blocking-warning { font-size: 12px; }

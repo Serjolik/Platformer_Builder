@@ -1,0 +1,19 @@
+.world-app { width: 100vw; height: 100dvh; display: grid; grid-template-rows: 58px minmax(0, 1fr); background: var(--bg); }
+.project-topbar { height: 58px; flex: 0 0 58px; min-width: 0; gap: 12px; }
+.project-topbar .brand { min-width: auto; flex-shrink: 0; }
+.project-topbar .map-name { min-width: 100px; max-width: 280px; width: 20vw; }
+.room-navigation { display: flex; align-items: center; gap: 10px; min-width: 0; color: #b7c9d8; font-size: 12px; }
+.room-navigation button { flex-shrink: 0; padding: 7px 10px; border: 1px solid #405063; background: #23313f; border-radius: 5px; cursor: pointer; color: #d1e2ef; }
+.room-navigation > span { max-width: 180px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.room-navigation .world-home { color: #c1d4e3; font-size: 13px; }
+.room-canvas-context { display: flex; align-items: center; gap: 10px; padding: 11px 14px; border-bottom: 1px solid #2b3b49; background: #19232d; min-height: 58px; }
+.room-canvas-context > div { flex: 1; min-width: 0; }
+.room-canvas-context b { display: block; font-size: 11px; color: #c3d8e7; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.room-canvas-context span { display: block; font-size: 10px; line-height: 1.5; margin-top: 4px; color: #819daf; }
+.room-canvas-context button { flex-shrink: 0; max-width: 150px; padding: 7px 9px; border: 1px solid #435668; border-radius: 4px; background: #263a49; color: #c6dbe9; font-size: 10px; line-height: 1.5; cursor: pointer; }
+.project-notice { position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%); z-index: 30; max-width: min(760px, 85vw); display: flex; align-items: center; gap: 16px; padding: 12px 16px; border: 1px solid #486382; background: #1a2b3c; color: #d9e9f8; border-radius: 8px; box-shadow: 0 8px 30px #0008; font-size: 12px; line-height: 1.5; }
+.project-notice-error { border-color: #a56b49; background: #38271e; color: #ffe2c3; }
+.project-notice button { border: 0; padding: 3px 6px; background: transparent; cursor: pointer; color: inherit; font-size: 20px; }
+.project-loading { display: grid; place-items: center; flex: 1; color: #92a1b2; }
+@media (max-width: 1180px) { .project-topbar { gap: 8px; padding: 0 10px; } .project-topbar .brand > span:not(.brand-mark) { display: none; } .project-topbar .map-name { max-width: 210px; } .project-topbar .save-state { display: none; } }
+@media (max-width: 760px) { .project-topbar .map-name { width: 100px; min-width: 60px; } .project-topbar .top-actions { gap: 3px; } .project-topbar .top-actions button { padding: 7px; } .room-navigation > span { max-width: 80px; } .room-canvas-context { flex-wrap: wrap; } }

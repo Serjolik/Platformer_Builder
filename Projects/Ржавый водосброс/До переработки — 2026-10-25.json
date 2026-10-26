@@ -1,0 +1,4033 @@
+{
+  "version": 2,
+  "name": "Затихший узел · блокинг v1",
+  "grid": 32,
+  "layers": [
+    {
+      "id": "layer-shells",
+      "name": "01 · Контуры",
+      "visible": true,
+      "locked": false
+    },
+    {
+      "id": "layer-gameplay",
+      "name": "02 · Геометрия",
+      "visible": true,
+      "locked": false
+    },
+    {
+      "id": "layer-actors",
+      "name": "03 · Сущности",
+      "visible": true,
+      "locked": false
+    },
+    {
+      "id": "layer-design",
+      "name": "04 · Маршруты и заметки",
+      "visible": true,
+      "locked": false
+    }
+  ],
+  "inactiveLayerOpacity": 0.9,
+  "items": [
+    {
+      "id": "3578694a-026c-5939-a711-1fa76fb71fc2",
+      "kind": "room",
+      "label": "01 · Перрон тишины",
+      "color": "#83a1ad",
+      "x": 0,
+      "y": 0,
+      "w": 48,
+      "h": 20,
+      "polygonPoints": [
+        {
+          "x": 0,
+          "y": 128
+        },
+        {
+          "x": 256,
+          "y": 128
+        },
+        {
+          "x": 256,
+          "y": 0
+        },
+        {
+          "x": 1056,
+          "y": 0
+        },
+        {
+          "x": 1056,
+          "y": 128
+        },
+        {
+          "x": 1536,
+          "y": 128
+        },
+        {
+          "x": 1536,
+          "y": 224
+        },
+        {
+          "x": 1536,
+          "y": 320
+        },
+        {
+          "x": 1536,
+          "y": 480
+        },
+        {
+          "x": 1536,
+          "y": 576
+        },
+        {
+          "x": 1536,
+          "y": 640
+        },
+        {
+          "x": 0,
+          "y": 640
+        }
+      ],
+      "sideTypes": [
+        "straight",
+        "straight",
+        "straight",
+        "straight",
+        "straight",
+        "straight",
+        "door",
+        "straight",
+        "door",
+        "straight",
+        "straight",
+        "straight"
+      ],
+      "sideTransitions": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "endpointId": "598208a1-8529-5a3b-a89b-39102240ad5b",
+          "kind": "entrance"
+        },
+        null,
+        {
+          "endpointId": "e7c04e3d-44c7-5a9c-a735-8ea7afc5879f",
+          "kind": "exit"
+        },
+        null,
+        null,
+        null
+      ],
+      "layerId": "layer-shells",
+      "blocking": {
+        "roomId": "e370ef8b-48bf-5eb3-a95b-acfb3679f698",
+        "mode": "outline"
+      }
+    },
+    {
+      "id": "759503de-e669-5045-af5b-5ac9ea4eaca2",
+      "kind": "room",
+      "label": "02 · Галерея конвейеров",
+      "color": "#83a1ad",
+      "x": 1920,
+      "y": 0,
+      "w": 76,
+      "h": 24,
+      "polygonPoints": [
+        {
+          "x": 0,
+          "y": 160
+        },
+        {
+          "x": 768,
+          "y": 160
+        },
+        {
+          "x": 768,
+          "y": 0
+        },
+        {
+          "x": 1664,
+          "y": 0
+        },
+        {
+          "x": 1664,
+          "y": 160
+        },
+        {
+          "x": 2432,
+          "y": 160
+        },
+        {
+          "x": 2432,
+          "y": 288
+        },
+        {
+          "x": 2432,
+          "y": 384
+        },
+        {
+          "x": 2432,
+          "y": 608
+        },
+        {
+          "x": 2432,
+          "y": 704
+        },
+        {
+          "x": 2432,
+          "y": 768
+        },
+        {
+          "x": 0,
+          "y": 768
+        },
+        {
+          "x": 0,
+          "y": 704
+        },
+        {
+          "x": 0,
+          "y": 608
+        },
+        {
+          "x": 0,
+          "y": 320
+        },
+        {
+          "x": 0,
+          "y": 224
+        }
+      ],
+      "sideTypes": [
+        "straight",
+        "straight",
+        "straight",
+        "straight",
+        "straight",
+        "straight",
+        "door",
+        "straight",
+        "door",
+        "straight",
+        "straight",
+        "straight",
+        "door",
+        "straight",
+        "door",
+        "straight"
+      ],
+      "sideTransitions": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "endpointId": "afad3fcb-f6c8-5d56-ab31-6876bc7afcb2",
+          "kind": "exit"
+        },
+        null,
+        {
+          "endpointId": "7c60da14-ebf3-59a4-a01c-54444ca4aff3",
+          "kind": "exit"
+        },
+        null,
+        null,
+        null,
+        {
+          "endpointId": "f56888aa-7d20-5148-a88d-5acf696fba7c",
+          "kind": "entrance"
+        },
+        null,
+        {
+          "endpointId": "fbcd61c3-fb27-5f98-a34f-de658396b217",
+          "kind": "exit"
+        },
+        null
+      ],
+      "layerId": "layer-shells",
+      "blocking": {
+        "roomId": "c630d396-052a-54af-a4e9-3bd5a35ee356",
+        "mode": "outline"
+      }
+    },
+    {
+      "id": "e9868bda-0c94-59a8-a2c7-2ea8231919c3",
+      "kind": "room",
+      "label": "03 · Архив эха",
+      "color": "#83a1ad",
+      "x": 4736,
+      "y": 0,
+      "w": 38,
+      "h": 24,
+      "polygonPoints": [
+        {
+          "x": 0,
+          "y": 192
+        },
+        {
+          "x": 256,
+          "y": 192
+        },
+        {
+          "x": 256,
+          "y": 0
+        },
+        {
+          "x": 960,
+          "y": 0
+        },
+        {
+          "x": 960,
+          "y": 192
+        },
+        {
+          "x": 1216,
+          "y": 192
+        },
+        {
+          "x": 1216,
+          "y": 768
+        },
+        {
+          "x": 0,
+          "y": 768
+        },
+        {
+          "x": 0,
+          "y": 640
+        },
+        {
+          "x": 0,
+          "y": 544
+        }
+      ],
+      "sideTypes": [
+        "straight",
+        "straight",
+        "straight",
+        "straight",
+        "straight",
+        "straight",
+        "straight",
+        "straight",
+        "door",
+        "straight"
+      ],
+      "sideTransitions": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "endpointId": "a9f59f86-e74e-513f-a678-5dc869b6b619",
+          "kind": "entrance"
+        },
+        null
+      ],
+      "layerId": "layer-shells",
+      "blocking": {
+        "roomId": "a5691222-6417-5147-a745-411952166285",
+        "mode": "outline"
+      }
+    },
+    {
+      "id": "a39e360e-bed4-50e3-a4fa-fdd66b0e26b7",
+      "kind": "room",
+      "label": "04 · Затопленный водосбор",
+      "color": "#83a1ad",
+      "x": 1920,
+      "y": 1600,
+      "w": 78,
+      "h": 32,
+      "polygonPoints": [
+        {
+          "x": 0,
+          "y": 192
+        },
+        {
+          "x": 384,
+          "y": 192
+        },
+        {
+          "x": 384,
+          "y": 0
+        },
+        {
+          "x": 1792,
+          "y": 0
+        },
+        {
+          "x": 1792,
+          "y": 192
+        },
+        {
+          "x": 2496,
+          "y": 192
+        },
+        {
+          "x": 2496,
+          "y": 288
+        },
+        {
+          "x": 2496,
+          "y": 384
+        },
+        {
+          "x": 2496,
+          "y": 672
+        },
+        {
+          "x": 2496,
+          "y": 768
+        },
+        {
+          "x": 2496,
+          "y": 1024
+        },
+        {
+          "x": 0,
+          "y": 1024
+        },
+        {
+          "x": 0,
+          "y": 768
+        },
+        {
+          "x": 0,
+          "y": 672
+        }
+      ],
+      "sideTypes": [
+        "straight",
+        "straight",
+        "straight",
+        "straight",
+        "straight",
+        "straight",
+        "door",
+        "straight",
+        "door",
+        "straight",
+        "straight",
+        "straight",
+        "door",
+        "straight"
+      ],
+      "sideTransitions": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "endpointId": "fd07702c-55fd-5fec-a485-70396e67d65e",
+          "kind": "entrance"
+        },
+        null,
+        {
+          "endpointId": "b1f04082-82d4-51ec-a090-80e0bfc6f97b",
+          "kind": "exit"
+        },
+        null,
+        null,
+        null,
+        {
+          "endpointId": "0b31b2f5-7302-53d0-a693-3ff4bd021cad",
+          "kind": "entrance"
+        },
+        null
+      ],
+      "layerId": "layer-shells",
+      "blocking": {
+        "roomId": "5189b174-0834-5068-a2f3-98dea0547cf9",
+        "mode": "outline"
+      }
+    },
+    {
+      "id": "775a0b05-831b-5ef5-a374-90317aec509e",
+      "kind": "room",
+      "label": "05 · Башня противовесов",
+      "color": "#83a1ad",
+      "x": 4736,
+      "y": 1280,
+      "w": 42,
+      "h": 60,
+      "polygonPoints": [
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 1344,
+          "y": 0
+        },
+        {
+          "x": 1344,
+          "y": 224
+        },
+        {
+          "x": 1344,
+          "y": 320
+        },
+        {
+          "x": 1344,
+          "y": 640
+        },
+        {
+          "x": 1088,
+          "y": 640
+        },
+        {
+          "x": 1088,
+          "y": 1216
+        },
+        {
+          "x": 1344,
+          "y": 1216
+        },
+        {
+          "x": 1344,
+          "y": 1920
+        },
+        {
+          "x": 0,
+          "y": 1920
+        },
+        {
+          "x": 0,
+          "y": 1856
+        },
+        {
+          "x": 0,
+          "y": 1760
+        },
+        {
+          "x": 0,
+          "y": 1216
+        },
+        {
+          "x": 256,
+          "y": 1216
+        },
+        {
+          "x": 256,
+          "y": 640
+        },
+        {
+          "x": 0,
+          "y": 640
+        },
+        {
+          "x": 0,
+          "y": 512
+        },
+        {
+          "x": 0,
+          "y": 416
+        }
+      ],
+      "sideTypes": [
+        "straight",
+        "straight",
+        "door",
+        "straight",
+        "straight",
+        "straight",
+        "straight",
+        "straight",
+        "straight",
+        "straight",
+        "door",
+        "straight",
+        "straight",
+        "straight",
+        "straight",
+        "straight",
+        "door",
+        "straight"
+      ],
+      "sideTransitions": [
+        null,
+        null,
+        {
+          "endpointId": "fb51b2b2-94fd-54e3-aa48-b884f9652ab5",
+          "kind": "exit"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "endpointId": "e5922caf-729f-598c-a8b1-621a9ee0f916",
+          "kind": "entrance"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "endpointId": "446408d8-f864-580a-a737-29d5470977fc",
+          "kind": "exit"
+        },
+        null
+      ],
+      "layerId": "layer-shells",
+      "blocking": {
+        "roomId": "15127335-5c76-5b44-a249-cecbac975a52",
+        "mode": "outline"
+      }
+    },
+    {
+      "id": "27c7eeee-b3d3-5398-ac02-4aca710dfc55",
+      "kind": "room",
+      "label": "06 · Цех резонанса",
+      "color": "#83a1ad",
+      "x": 1920,
+      "y": 3680,
+      "w": 82,
+      "h": 28,
+      "polygonPoints": [
+        {
+          "x": 0,
+          "y": 192
+        },
+        {
+          "x": 576,
+          "y": 192
+        },
+        {
+          "x": 832,
+          "y": 0
+        },
+        {
+          "x": 1824,
+          "y": 0
+        },
+        {
+          "x": 2080,
+          "y": 192
+        },
+        {
+          "x": 2624,
+          "y": 192
+        },
+        {
+          "x": 2624,
+          "y": 736
+        },
+        {
+          "x": 2624,
+          "y": 832
+        },
+        {
+          "x": 2624,
+          "y": 896
+        },
+        {
+          "x": 0,
+          "y": 896
+        },
+        {
+          "x": 0,
+          "y": 832
+        },
+        {
+          "x": 0,
+          "y": 736
+        }
+      ],
+      "sideTypes": [
+        "straight",
+        "straight",
+        "straight",
+        "straight",
+        "straight",
+        "straight",
+        "door",
+        "straight",
+        "straight",
+        "straight",
+        "door",
+        "straight"
+      ],
+      "sideTransitions": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "endpointId": "f1460f3f-8712-585b-aeec-17a778daceaa",
+          "kind": "exit"
+        },
+        null,
+        null,
+        null,
+        {
+          "endpointId": "ec4263ed-7950-57e3-aa6e-a632308b9e2d",
+          "kind": "entrance"
+        },
+        null
+      ],
+      "layerId": "layer-shells",
+      "blocking": {
+        "roomId": "14a5a8dc-2fb7-5077-a0d0-49384bc08946",
+        "mode": "outline"
+      }
+    },
+    {
+      "id": "805168ee-b47c-5548-a067-c14eb31e5321",
+      "kind": "room",
+      "label": "07 · Пост наблюдателя",
+      "color": "#83a1ad",
+      "x": 4928,
+      "y": 3680,
+      "w": 32,
+      "h": 16,
+      "polygonPoints": [
+        {
+          "x": 0,
+          "y": 128
+        },
+        {
+          "x": 256,
+          "y": 128
+        },
+        {
+          "x": 256,
+          "y": 0
+        },
+        {
+          "x": 800,
+          "y": 0
+        },
+        {
+          "x": 800,
+          "y": 128
+        },
+        {
+          "x": 1024,
+          "y": 128
+        },
+        {
+          "x": 1024,
+          "y": 352
+        },
+        {
+          "x": 1024,
+          "y": 448
+        },
+        {
+          "x": 1024,
+          "y": 512
+        },
+        {
+          "x": 0,
+          "y": 512
+        },
+        {
+          "x": 0,
+          "y": 448
+        },
+        {
+          "x": 0,
+          "y": 352
+        }
+      ],
+      "sideTypes": [
+        "straight",
+        "straight",
+        "straight",
+        "straight",
+        "straight",
+        "straight",
+        "door",
+        "straight",
+        "straight",
+        "straight",
+        "door",
+        "straight"
+      ],
+      "sideTransitions": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "endpointId": "529a3a4d-12d8-571a-ab14-b2613fa8196c",
+          "kind": "exit"
+        },
+        null,
+        null,
+        null,
+        {
+          "endpointId": "7cf3ea3e-f5cb-5579-a869-cd9cb51be3f8",
+          "kind": "entrance"
+        },
+        null
+      ],
+      "layerId": "layer-shells",
+      "blocking": {
+        "roomId": "fc26e686-a7c1-55e2-a1af-aadfdb21ed89",
+        "mode": "outline"
+      }
+    },
+    {
+      "id": "3388f647-14c9-5cd5-af8b-0f73d469811e",
+      "kind": "room",
+      "label": "08 · Сердце резонатора",
+      "color": "#83a1ad",
+      "x": 6336,
+      "y": 3680,
+      "w": 52,
+      "h": 22,
+      "polygonPoints": [
+        {
+          "x": 0,
+          "y": 192
+        },
+        {
+          "x": 256,
+          "y": 192
+        },
+        {
+          "x": 448,
+          "y": 0
+        },
+        {
+          "x": 1280,
+          "y": 0
+        },
+        {
+          "x": 1472,
+          "y": 192
+        },
+        {
+          "x": 1664,
+          "y": 192
+        },
+        {
+          "x": 1664,
+          "y": 704
+        },
+        {
+          "x": 0,
+          "y": 704
+        },
+        {
+          "x": 0,
+          "y": 640
+        },
+        {
+          "x": 0,
+          "y": 544
+        }
+      ],
+      "sideTypes": [
+        "straight",
+        "straight",
+        "straight",
+        "straight",
+        "straight",
+        "straight",
+        "straight",
+        "straight",
+        "door",
+        "straight"
+      ],
+      "sideTransitions": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "endpointId": "9f0e2781-7e2c-5353-aa88-585504a70a7e",
+          "kind": "entrance"
+        },
+        null
+      ],
+      "layerId": "layer-shells",
+      "blocking": {
+        "roomId": "77465e03-33ca-5ecc-a1e6-0e32a1cc3e6d",
+        "mode": "outline"
+      }
+    },
+    {
+      "id": "0a7ee2f3-75e7-5366-a1ee-6e9322b4459e",
+      "kind": "platform",
+      "label": "Ровный перрон",
+      "color": "#569e91",
+      "x": 0,
+      "y": 576,
+      "w": 48,
+      "h": 2,
+      "layerId": "layer-gameplay",
+      "blocking": {
+        "roomId": "e370ef8b-48bf-5eb3-a95b-acfb3679f698",
+        "mode": "solid"
+      },
+      "attachedRoomId": "3578694a-026c-5939-a711-1fa76fb71fc2"
+    },
+    {
+      "id": "eb456fac-0f14-5e7a-a80d-78836d7062e8",
+      "kind": "platform",
+      "label": "Балкон возврата",
+      "color": "#569e91",
+      "x": 960,
+      "y": 320,
+      "w": 18,
+      "h": 1,
+      "layerId": "layer-gameplay",
+      "blocking": {
+        "roomId": "e370ef8b-48bf-5eb3-a95b-acfb3679f698",
+        "mode": "solid"
+      },
+      "attachedRoomId": "3578694a-026c-5939-a711-1fa76fb71fc2"
+    },
+    {
+      "id": "4f0ba021-b6bb-561e-a5ee-4c391d2f575d",
+      "kind": "ladder",
+      "label": "Лестница",
+      "color": "#a1b4c7",
+      "x": 896,
+      "y": 288,
+      "w": 1,
+      "h": 9,
+      "layerId": "layer-actors",
+      "blocking": {
+        "roomId": "e370ef8b-48bf-5eb3-a95b-acfb3679f698",
+        "mode": "blueprint"
+      },
+      "attachedRoomId": "3578694a-026c-5939-a711-1fa76fb71fc2"
+    },
+    {
+      "id": "1c245c31-1852-5dde-acf6-24f25491a9d3",
+      "kind": "checkpoint",
+      "label": "Скамья · стартовый хаб",
+      "color": "#77c8ad",
+      "x": 352,
+      "y": 544,
+      "w": 3,
+      "h": 1,
+      "layerId": "layer-actors",
+      "blocking": {
+        "roomId": "e370ef8b-48bf-5eb3-a95b-acfb3679f698",
+        "mode": "blueprint"
+      },
+      "attachedRoomId": "3578694a-026c-5939-a711-1fa76fb71fc2"
+    },
+    {
+      "id": "4c42e1a5-a02a-5974-a9e2-03c492c41167",
+      "kind": "npc",
+      "label": "Смотритель депо",
+      "color": "#a1b4c7",
+      "x": 640,
+      "y": 512,
+      "w": 1,
+      "h": 2,
+      "layerId": "layer-actors",
+      "blocking": {
+        "roomId": "e370ef8b-48bf-5eb3-a95b-acfb3679f698",
+        "mode": "blueprint"
+      },
+      "attachedRoomId": "3578694a-026c-5939-a711-1fa76fb71fc2",
+      "npcRole": "npc"
+    },
+    {
+      "id": "2759d77f-d6f0-5feb-ae8d-77c0f05702b9",
+      "kind": "transition",
+      "label": "Пробуждение Q",
+      "color": "#80ceb0",
+      "x": 128,
+      "y": 512,
+      "w": 2,
+      "h": 2,
+      "layerId": "layer-actors",
+      "blocking": {
+        "roomId": "e370ef8b-48bf-5eb3-a95b-acfb3679f698",
+        "mode": "none"
+      },
+      "attachedRoomId": "3578694a-026c-5939-a711-1fa76fb71fc2",
+      "transition": {
+        "endpointId": "9206ae72-9640-592b-a665-3b725da1327c",
+        "kind": "entrance"
+      }
+    },
+    {
+      "id": "e04033bf-57ce-5535-a527-4da8639bf8a2",
+      "kind": "note",
+      "label": "ПЕРРОН ТИШИНЫ\nОтдых · ориентир · возвращение",
+      "color": "#91c9b8",
+      "x": 320,
+      "y": 64,
+      "w": 23,
+      "h": 3,
+      "layerId": "layer-design",
+      "blocking": {
+        "roomId": "e370ef8b-48bf-5eb3-a95b-acfb3679f698",
+        "mode": "none"
+      },
+      "attachedRoomId": "3578694a-026c-5939-a711-1fa76fb71fc2",
+      "noteFontSize": 24
+    },
+    {
+      "id": "cdcdf2ad-8871-59c6-a0df-495ecd27cce2",
+      "kind": "note",
+      "label": "Верхняя петля\nвозвращение из галереи",
+      "color": "#75c5be",
+      "x": 992,
+      "y": 160,
+      "w": 15,
+      "h": 3,
+      "layerId": "layer-design",
+      "blocking": {
+        "roomId": "e370ef8b-48bf-5eb3-a95b-acfb3679f698",
+        "mode": "none"
+      },
+      "attachedRoomId": "3578694a-026c-5939-a711-1fa76fb71fc2",
+      "noteFontSize": 24
+    },
+    {
+      "id": "135b9e8a-4cd9-5dcc-a7ce-e6f3c45480f9",
+      "kind": "platform",
+      "label": "Опора",
+      "color": "#569e91",
+      "x": 1920,
+      "y": 704,
+      "w": 22,
+      "h": 2,
+      "layerId": "layer-gameplay",
+      "blocking": {
+        "roomId": "c630d396-052a-54af-a4e9-3bd5a35ee356",
+        "mode": "solid"
+      },
+      "attachedRoomId": "759503de-e669-5045-af5b-5ac9ea4eaca2"
+    },
+    {
+      "id": "6eb38b0b-2e4c-5bc2-a8e7-576c85353f3b",
+      "kind": "platform",
+      "label": "Опора",
+      "color": "#569e91",
+      "x": 2624,
+      "y": 672,
+      "w": 3,
+      "h": 3,
+      "layerId": "layer-gameplay",
+      "blocking": {
+        "roomId": "c630d396-052a-54af-a4e9-3bd5a35ee356",
+        "mode": "solid"
+      },
+      "attachedRoomId": "759503de-e669-5045-af5b-5ac9ea4eaca2"
+    },
+    {
+      "id": "a4e4d645-69bf-558f-a99f-09cca53e34ea",
+      "kind": "platform",
+      "label": "Опора",
+      "color": "#569e91",
+      "x": 2720,
+      "y": 640,
+      "w": 22,
+      "h": 4,
+      "layerId": "layer-gameplay",
+      "blocking": {
+        "roomId": "c630d396-052a-54af-a4e9-3bd5a35ee356",
+        "mode": "solid"
+      },
+      "attachedRoomId": "759503de-e669-5045-af5b-5ac9ea4eaca2"
+    },
+    {
+      "id": "a152c5ef-3ad8-5b2f-a283-b2077f018eec",
+      "kind": "platform",
+      "label": "Опора",
+      "color": "#569e91",
+      "x": 3424,
+      "y": 672,
+      "w": 3,
+      "h": 3,
+      "layerId": "layer-gameplay",
+      "blocking": {
+        "roomId": "c630d396-052a-54af-a4e9-3bd5a35ee356",
+        "mode": "solid"
+      },
+      "attachedRoomId": "759503de-e669-5045-af5b-5ac9ea4eaca2"
+    },
+    {
+      "id": "48f5f797-c1a7-5a16-a4ea-91030202415b",
+      "kind": "platform",
+      "label": "Опора",
+      "color": "#569e91",
+      "x": 3520,
+      "y": 704,
+      "w": 26,
+      "h": 2,
+      "layerId": "layer-gameplay",
+      "blocking": {
+        "roomId": "c630d396-052a-54af-a4e9-3bd5a35ee356",
+        "mode": "solid"
+      },
+      "attachedRoomId": "759503de-e669-5045-af5b-5ac9ea4eaca2"
+    },
+    {
+      "id": "e9fc7ce7-1ade-5a9e-a7be-23a6817cdca7",
+      "kind": "platform",
+      "label": "Опора",
+      "color": "#569e91",
+      "x": 1920,
+      "y": 320,
+      "w": 7,
+      "h": 1,
+      "layerId": "layer-gameplay",
+      "blocking": {
+        "roomId": "c630d396-052a-54af-a4e9-3bd5a35ee356",
+        "mode": "solid"
+      },
+      "attachedRoomId": "759503de-e669-5045-af5b-5ac9ea4eaca2"
+    },
+    {
+      "id": "22313d32-1ffd-5fd3-a4e5-312012fea45a",
+      "kind": "platform",
+      "label": "Опора",
+      "color": "#569e91",
+      "x": 2208,
+      "y": 384,
+      "w": 14,
+      "h": 1,
+      "layerId": "layer-gameplay",
+      "blocking": {
+        "roomId": "c630d396-052a-54af-a4e9-3bd5a35ee356",
+        "mode": "solid"
+      },
+      "attachedRoomId": "759503de-e669-5045-af5b-5ac9ea4eaca2"
+    },
+    {
+      "id": "11827272-ce93-57e8-ad7c-9390ed987048",
+      "kind": "platform",
+      "label": "Опора",
+      "color": "#569e91",
+      "x": 2752,
+      "y": 320,
+      "w": 17,
+      "h": 1,
+      "layerId": "layer-gameplay",
+      "blocking": {
+        "roomId": "c630d396-052a-54af-a4e9-3bd5a35ee356",
+        "mode": "solid"
+      },
+      "attachedRoomId": "759503de-e669-5045-af5b-5ac9ea4eaca2"
+    },
+    {
+      "id": "deacbb70-fa56-5de1-abec-09316bd45018",
+      "kind": "platform",
+      "label": "Опора",
+      "color": "#569e91",
+      "x": 3392,
+      "y": 384,
+      "w": 20,
+      "h": 1,
+      "layerId": "layer-gameplay",
+      "blocking": {
+        "roomId": "c630d396-052a-54af-a4e9-3bd5a35ee356",
+        "mode": "solid"
+      },
+      "attachedRoomId": "759503de-e669-5045-af5b-5ac9ea4eaca2"
+    },
+    {
+      "id": "927dd6a1-46af-5b09-ae8b-4f9479249966",
+      "kind": "platform",
+      "label": "Опора",
+      "color": "#569e91",
+      "x": 4128,
+      "y": 384,
+      "w": 7,
+      "h": 1,
+      "layerId": "layer-gameplay",
+      "blocking": {
+        "roomId": "c630d396-052a-54af-a4e9-3bd5a35ee356",
+        "mode": "solid"
+      },
+      "attachedRoomId": "759503de-e669-5045-af5b-5ac9ea4eaca2"
+    },
+    {
+      "id": "8e30e5f3-158c-5fd5-a5d5-7bf3e8d7418f",
+      "kind": "ladder",
+      "label": "Лестница",
+      "color": "#a1b4c7",
+      "x": 2144,
+      "y": 288,
+      "w": 1,
+      "h": 13,
+      "layerId": "layer-actors",
+      "blocking": {
+        "roomId": "c630d396-052a-54af-a4e9-3bd5a35ee356",
+        "mode": "blueprint"
+      },
+      "attachedRoomId": "759503de-e669-5045-af5b-5ac9ea4eaca2"
+    },
+    {
+      "id": "d3e1c600-f3e2-5735-ae7c-9899da61fc55",
+      "kind": "ladder",
+      "label": "Лестница",
+      "color": "#a1b4c7",
+      "x": 4064,
+      "y": 352,
+      "w": 1,
+      "h": 11,
+      "layerId": "layer-actors",
+      "blocking": {
+        "roomId": "c630d396-052a-54af-a4e9-3bd5a35ee356",
+        "mode": "blueprint"
+      },
+      "attachedRoomId": "759503de-e669-5045-af5b-5ac9ea4eaca2"
+    },
+    {
+      "id": "9dc44e49-1e96-5e3a-ad0f-9726dbff585d",
+      "kind": "enemy",
+      "label": "Обычный противник",
+      "color": "#d76e7a",
+      "x": 2400,
+      "y": 672,
+      "w": 1,
+      "h": 1,
+      "layerId": "layer-actors",
+      "blocking": {
+        "roomId": "c630d396-052a-54af-a4e9-3bd5a35ee356",
+        "mode": "blueprint"
+      },
+      "attachedRoomId": "759503de-e669-5045-af5b-5ac9ea4eaca2",
+      "enemyType": "normal"
+    },
+    {
+      "id": "0b7dc2e1-dc26-503b-a6ca-026b47a8ce4e",
+      "kind": "enemy",
+      "label": "Обычный противник",
+      "color": "#d76e7a",
+      "x": 3040,
+      "y": 608,
+      "w": 1,
+      "h": 1,
+      "layerId": "layer-actors",
+      "blocking": {
+        "roomId": "c630d396-052a-54af-a4e9-3bd5a35ee356",
+        "mode": "blueprint"
+      },
+      "attachedRoomId": "759503de-e669-5045-af5b-5ac9ea4eaca2",
+      "enemyType": "normal"
+    },
+    {
+      "id": "0d6fbe58-32c6-5e5a-a823-9bf950b4c511",
+      "kind": "enemy",
+      "label": "Обычный противник",
+      "color": "#d76e7a",
+      "x": 3744,
+      "y": 672,
+      "w": 1,
+      "h": 1,
+      "layerId": "layer-actors",
+      "blocking": {
+        "roomId": "c630d396-052a-54af-a4e9-3bd5a35ee356",
+        "mode": "blueprint"
+      },
+      "attachedRoomId": "759503de-e669-5045-af5b-5ac9ea4eaca2",
+      "enemyType": "normal"
+    },
+    {
+      "id": "9532e2bf-8835-5a44-a212-764d4db4b643",
+      "kind": "enemy",
+      "label": "Обычный противник",
+      "color": "#d76e7a",
+      "x": 3968,
+      "y": 672,
+      "w": 1,
+      "h": 1,
+      "layerId": "layer-actors",
+      "blocking": {
+        "roomId": "c630d396-052a-54af-a4e9-3bd5a35ee356",
+        "mode": "blueprint"
+      },
+      "attachedRoomId": "759503de-e669-5045-af5b-5ac9ea4eaca2",
+      "enemyType": "normal"
+    },
+    {
+      "id": "9249bc19-427e-5dba-af9d-f0026b5557f9",
+      "kind": "loot",
+      "label": "Награда за исследование",
+      "color": "#bd8cda",
+      "x": 3072,
+      "y": 288,
+      "w": 1,
+      "h": 1,
+      "layerId": "layer-actors",
+      "blocking": {
+        "roomId": "c630d396-052a-54af-a4e9-3bd5a35ee356",
+        "mode": "blueprint"
+      },
+      "attachedRoomId": "759503de-e669-5045-af5b-5ac9ea4eaca2"
+    },
+    {
+      "id": "db06a412-072f-59c4-a478-cc6ea496d4f2",
+      "kind": "note",
+      "label": "ГАЛЕРЕЯ КОНВЕЙЕРОВ\nТри пролёта · два уровня",
+      "color": "#e7c278",
+      "x": 2752,
+      "y": 64,
+      "w": 24,
+      "h": 3,
+      "layerId": "layer-design",
+      "blocking": {
+        "roomId": "c630d396-052a-54af-a4e9-3bd5a35ee356",
+        "mode": "none"
+      },
+      "attachedRoomId": "759503de-e669-5045-af5b-5ac9ea4eaca2",
+      "noteFontSize": 24
+    },
+    {
+      "id": "8f2cf7df-9088-51a1-a48d-51aaccacbeb3",
+      "kind": "note",
+      "label": "Один враг → пауза → пара",
+      "color": "#a1b4c7",
+      "x": 1952,
+      "y": 160,
+      "w": 20,
+      "h": 3,
+      "layerId": "layer-design",
+      "blocking": {
+        "roomId": "c630d396-052a-54af-a4e9-3bd5a35ee356",
+        "mode": "none"
+      },
+      "attachedRoomId": "759503de-e669-5045-af5b-5ac9ea4eaca2",
+      "noteFontSize": 24
+    },
+    {
+      "id": "71282104-fa18-57e9-a8e4-230db37b9a38",
+      "kind": "note",
+      "label": "Архив виден заранее\nветка после рывка",
+      "color": "#bd8cda",
+      "x": 3488,
+      "y": 192,
+      "w": 24,
+      "h": 3,
+      "layerId": "layer-design",
+      "blocking": {
+        "roomId": "c630d396-052a-54af-a4e9-3bd5a35ee356",
+        "mode": "none"
+      },
+      "attachedRoomId": "759503de-e669-5045-af5b-5ac9ea4eaca2",
+      "noteFontSize": 24
+    },
+    {
+      "id": "2a3d2e2b-b898-5eed-a698-f620a56b03ef",
+      "kind": "platform",
+      "label": "Опора",
+      "color": "#569e91",
+      "x": 4736,
+      "y": 704,
+      "w": 38,
+      "h": 2,
+      "layerId": "layer-gameplay",
+      "blocking": {
+        "roomId": "a5691222-6417-5147-a745-411952166285",
+        "mode": "solid"
+      },
+      "attachedRoomId": "e9868bda-0c94-59a8-a2c7-2ea8231919c3"
+    },
+    {
+      "id": "d30722e8-9a76-55e8-aa28-a1c850db1b33",
+      "kind": "platform",
+      "label": "Опора",
+      "color": "#569e91",
+      "x": 4736,
+      "y": 640,
+      "w": 10,
+      "h": 2,
+      "layerId": "layer-gameplay",
+      "blocking": {
+        "roomId": "a5691222-6417-5147-a745-411952166285",
+        "mode": "solid"
+      },
+      "attachedRoomId": "e9868bda-0c94-59a8-a2c7-2ea8231919c3"
+    },
+    {
+      "id": "faf24001-b19b-5aa4-adbb-87b2c4142725",
+      "kind": "platform",
+      "label": "Опора",
+      "color": "#569e91",
+      "x": 5056,
+      "y": 576,
+      "w": 4,
+      "h": 4,
+      "layerId": "layer-gameplay",
+      "blocking": {
+        "roomId": "a5691222-6417-5147-a745-411952166285",
+        "mode": "solid"
+      },
+      "attachedRoomId": "e9868bda-0c94-59a8-a2c7-2ea8231919c3"
+    },
+    {
+      "id": "c01d5f16-4e58-53a8-ac18-956c2f837f00",
+      "kind": "platform",
+      "label": "Опора",
+      "color": "#569e91",
+      "x": 5184,
+      "y": 512,
+      "w": 9,
+      "h": 6,
+      "layerId": "layer-gameplay",
+      "blocking": {
+        "roomId": "a5691222-6417-5147-a745-411952166285",
+        "mode": "solid"
+      },
+      "attachedRoomId": "e9868bda-0c94-59a8-a2c7-2ea8231919c3"
+    },
+    {
+      "id": "13315324-9b83-5848-afee-02fffa9586ba",
+      "kind": "platform",
+      "label": "Опора",
+      "color": "#569e91",
+      "x": 5472,
+      "y": 576,
+      "w": 4,
+      "h": 4,
+      "layerId": "layer-gameplay",
+      "blocking": {
+        "roomId": "a5691222-6417-5147-a745-411952166285",
+        "mode": "solid"
+      },
+      "attachedRoomId": "e9868bda-0c94-59a8-a2c7-2ea8231919c3"
+    },
+    {
+      "id": "b818c368-c433-54c0-acd4-9b407178b280",
+      "kind": "platform",
+      "label": "Опора",
+      "color": "#569e91",
+      "x": 5600,
+      "y": 640,
+      "w": 11,
+      "h": 2,
+      "layerId": "layer-gameplay",
+      "blocking": {
+        "roomId": "a5691222-6417-5147-a745-411952166285",
+        "mode": "solid"
+      },
+      "attachedRoomId": "e9868bda-0c94-59a8-a2c7-2ea8231919c3"
+    },
+    {
+      "id": "a3c652f2-1213-504a-a1b0-2685df361218",
+      "kind": "platform",
+      "label": "Опора",
+      "color": "#569e91",
+      "x": 5216,
+      "y": 256,
+      "w": 9,
+      "h": 1,
+      "layerId": "layer-gameplay",
+      "blocking": {
+        "roomId": "a5691222-6417-5147-a745-411952166285",
+        "mode": "solid"
+      },
+      "attachedRoomId": "e9868bda-0c94-59a8-a2c7-2ea8231919c3"
+    },
+    {
+      "id": "ae310dd3-8e9f-55cd-abaf-a1aad4592b76",
+      "kind": "ladder",
+      "label": "Лестница",
+      "color": "#a1b4c7",
+      "x": 5536,
+      "y": 224,
+      "w": 1,
+      "h": 11,
+      "layerId": "layer-actors",
+      "blocking": {
+        "roomId": "a5691222-6417-5147-a745-411952166285",
+        "mode": "blueprint"
+      },
+      "attachedRoomId": "e9868bda-0c94-59a8-a2c7-2ea8231919c3"
+    },
+    {
+      "id": "62405c40-136d-5c33-a475-7feefe776acd",
+      "kind": "npc",
+      "label": "Свидетель · история узла",
+      "color": "#a1b4c7",
+      "x": 5312,
+      "y": 448,
+      "w": 1,
+      "h": 2,
+      "layerId": "layer-actors",
+      "blocking": {
+        "roomId": "a5691222-6417-5147-a745-411952166285",
+        "mode": "blueprint"
+      },
+      "attachedRoomId": "e9868bda-0c94-59a8-a2c7-2ea8231919c3",
+      "npcRole": "npc"
+    },
+    {
+      "id": "2da92b5f-6dc4-5a0d-a9da-4cc3167ca2ae",
+      "kind": "loot",
+      "label": "Память узла · редкий лут",
+      "color": "#bd8cda",
+      "x": 5344,
+      "y": 224,
+      "w": 1,
+      "h": 1,
+      "layerId": "layer-actors",
+      "blocking": {
+        "roomId": "a5691222-6417-5147-a745-411952166285",
+        "mode": "blueprint"
+      },
+      "attachedRoomId": "e9868bda-0c94-59a8-a2c7-2ea8231919c3"
+    },
+    {
+      "id": "c2508980-223f-560c-ab75-870b4d9ad3cc",
+      "kind": "note",
+      "label": "АРХИВ ЭХА\nНеобязательная награда",
+      "color": "#bd8cda",
+      "x": 5024,
+      "y": 64,
+      "w": 21,
+      "h": 3,
+      "layerId": "layer-design",
+      "blocking": {
+        "roomId": "a5691222-6417-5147-a745-411952166285",
+        "mode": "none"
+      },
+      "attachedRoomId": "e9868bda-0c94-59a8-a2c7-2ea8231919c3",
+      "noteFontSize": 24
+    },
+    {
+      "id": "08f1771a-d192-5222-aab2-8e170807e89d",
+      "kind": "note",
+      "label": "Тихая\nистория",
+      "color": "#a1b4c7",
+      "x": 4832,
+      "y": 320,
+      "w": 10,
+      "h": 3,
+      "layerId": "layer-design",
+      "blocking": {
+        "roomId": "a5691222-6417-5147-a745-411952166285",
+        "mode": "none"
+      },
+      "attachedRoomId": "e9868bda-0c94-59a8-a2c7-2ea8231919c3",
+      "noteFontSize": 24
+    },
+    {
+      "id": "06ccb10c-20b4-578f-ac99-344e73261c9f",
+      "kind": "platform",
+      "label": "Дно резервуара",
+      "color": "#569e91",
+      "x": 1920,
+      "y": 2592,
+      "w": 78,
+      "h": 1,
+      "layerId": "layer-gameplay",
+      "blocking": {
+        "roomId": "5189b174-0834-5068-a2f3-98dea0547cf9",
+        "mode": "solid"
+      },
+      "attachedRoomId": "a39e360e-bed4-50e3-a4fa-fdd66b0e26b7"
+    },
+    {
+      "id": "a8c2045d-3289-53cc-a7c2-7bc24882b4a9",
+      "kind": "platform",
+      "label": "Сухой вход",
+      "color": "#569e91",
+      "x": 1920,
+      "y": 2368,
+      "w": 16,
+      "h": 7,
+      "layerId": "layer-gameplay",
+      "blocking": {
+        "roomId": "5189b174-0834-5068-a2f3-98dea0547cf9",
+        "mode": "solid"
+      },
+      "attachedRoomId": "a39e360e-bed4-50e3-a4fa-fdd66b0e26b7"
+    },
+    {
+      "id": "992c21dd-5776-5077-a9aa-ef01fbdffcf6",
+      "kind": "platform",
+      "label": "Пост обслуживания",
+      "color": "#569e91",
+      "x": 3904,
+      "y": 2368,
+      "w": 16,
+      "h": 7,
+      "layerId": "layer-gameplay",
+      "blocking": {
+        "roomId": "5189b174-0834-5068-a2f3-98dea0547cf9",
+        "mode": "solid"
+      },
+      "attachedRoomId": "a39e360e-bed4-50e3-a4fa-fdd66b0e26b7"
+    },
+    {
+      "id": "144e413d-4ab4-5e26-a0a5-528325248b29",
+      "kind": "platform",
+      "label": "Опора",
+      "color": "#569e91",
+      "x": 2432,
+      "y": 2176,
+      "w": 10,
+      "h": 1,
+      "layerId": "layer-gameplay",
+      "blocking": {
+        "roomId": "5189b174-0834-5068-a2f3-98dea0547cf9",
+        "mode": "solid"
+      },
+      "attachedRoomId": "a39e360e-bed4-50e3-a4fa-fdd66b0e26b7"
+    },
+    {
+      "id": "9bc9c8af-29ac-5d21-af75-6fe62fc9e78a",
+      "kind": "platform",
+      "label": "Опора",
+      "color": "#569e91",
+      "x": 2816,
+      "y": 2144,
+      "w": 10,
+      "h": 1,
+      "layerId": "layer-gameplay",
+      "blocking": {
+        "roomId": "5189b174-0834-5068-a2f3-98dea0547cf9",
+        "mode": "solid"
+      },
+      "attachedRoomId": "a39e360e-bed4-50e3-a4fa-fdd66b0e26b7"
+    },
+    {
+      "id": "e00a194e-8e51-5057-a913-9326fc054215",
+      "kind": "platform",
+      "label": "Опора",
+      "color": "#569e91",
+      "x": 3200,
+      "y": 2176,
+      "w": 10,
+      "h": 1,
+      "layerId": "layer-gameplay",
+      "blocking": {
+        "roomId": "5189b174-0834-5068-a2f3-98dea0547cf9",
+        "mode": "solid"
+      },
+      "attachedRoomId": "a39e360e-bed4-50e3-a4fa-fdd66b0e26b7"
+    },
+    {
+      "id": "04ccc661-bf8c-5f56-a1ec-632be1d5ff57",
+      "kind": "platform",
+      "label": "Опора",
+      "color": "#569e91",
+      "x": 3584,
+      "y": 2144,
+      "w": 8,
+      "h": 1,
+      "layerId": "layer-gameplay",
+      "blocking": {
+        "roomId": "5189b174-0834-5068-a2f3-98dea0547cf9",
+        "mode": "solid"
+      },
+      "attachedRoomId": "a39e360e-bed4-50e3-a4fa-fdd66b0e26b7"
+    },
+    {
+      "id": "bf535289-b3de-55c1-ac16-665cb60e8eab",
+      "kind": "ladder",
+      "label": "Лестница",
+      "color": "#a1b4c7",
+      "x": 2368,
+      "y": 2144,
+      "w": 1,
+      "h": 7,
+      "layerId": "layer-actors",
+      "blocking": {
+        "roomId": "5189b174-0834-5068-a2f3-98dea0547cf9",
+        "mode": "blueprint"
+      },
+      "attachedRoomId": "a39e360e-bed4-50e3-a4fa-fdd66b0e26b7"
+    },
+    {
+      "id": "a9ab3553-7d88-5361-a89a-45177c85a187",
+      "kind": "ladder",
+      "label": "Лестница",
+      "color": "#a1b4c7",
+      "x": 3936,
+      "y": 2112,
+      "w": 1,
+      "h": 8,
+      "layerId": "layer-actors",
+      "blocking": {
+        "roomId": "5189b174-0834-5068-a2f3-98dea0547cf9",
+        "mode": "blueprint"
+      },
+      "attachedRoomId": "a39e360e-bed4-50e3-a4fa-fdd66b0e26b7"
+    },
+    {
+      "id": "3bcb3c35-9e42-54c3-a47b-8a7ea2815d18",
+      "kind": "platform",
+      "label": "Страховочная площадка",
+      "color": "#569e91",
+      "x": 2528,
+      "y": 2368,
+      "w": 14,
+      "h": 1,
+      "layerId": "layer-gameplay",
+      "blocking": {
+        "roomId": "5189b174-0834-5068-a2f3-98dea0547cf9",
+        "mode": "solid"
+      },
+      "attachedRoomId": "a39e360e-bed4-50e3-a4fa-fdd66b0e26b7"
+    },
+    {
+      "id": "618dda56-21cc-5439-aee1-a6e3b232580a",
+      "kind": "platform",
+      "label": "Страховочная площадка",
+      "color": "#569e91",
+      "x": 2976,
+      "y": 2368,
+      "w": 12,
+      "h": 1,
+      "layerId": "layer-gameplay",
+      "blocking": {
+        "roomId": "5189b174-0834-5068-a2f3-98dea0547cf9",
+        "mode": "solid"
+      },
+      "attachedRoomId": "a39e360e-bed4-50e3-a4fa-fdd66b0e26b7"
+    },
+    {
+      "id": "e28d1084-f17a-55fb-a9d1-439b1e7b8165",
+      "kind": "platform",
+      "label": "Нижняя награда",
+      "color": "#569e91",
+      "x": 3360,
+      "y": 2368,
+      "w": 17,
+      "h": 1,
+      "layerId": "layer-gameplay",
+      "blocking": {
+        "roomId": "5189b174-0834-5068-a2f3-98dea0547cf9",
+        "mode": "solid"
+      },
+      "attachedRoomId": "a39e360e-bed4-50e3-a4fa-fdd66b0e26b7"
+    },
+    {
+      "id": "0d20cd75-eb68-574a-af9b-56e36965be59",
+      "kind": "ladder",
+      "label": "Лестница",
+      "color": "#a1b4c7",
+      "x": 2752,
+      "y": 2112,
+      "w": 1,
+      "h": 8,
+      "layerId": "layer-actors",
+      "blocking": {
+        "roomId": "5189b174-0834-5068-a2f3-98dea0547cf9",
+        "mode": "blueprint"
+      },
+      "attachedRoomId": "a39e360e-bed4-50e3-a4fa-fdd66b0e26b7"
+    },
+    {
+      "id": "196a8964-25f4-5fa5-a40d-f14be15d6bf7",
+      "kind": "ladder",
+      "label": "Лестница",
+      "color": "#a1b4c7",
+      "x": 3520,
+      "y": 2112,
+      "w": 1,
+      "h": 8,
+      "layerId": "layer-actors",
+      "blocking": {
+        "roomId": "5189b174-0834-5068-a2f3-98dea0547cf9",
+        "mode": "blueprint"
+      },
+      "attachedRoomId": "a39e360e-bed4-50e3-a4fa-fdd66b0e26b7"
+    },
+    {
+      "id": "5be5050c-8757-5559-a6b0-e9cfbd80d831",
+      "kind": "ladder",
+      "label": "Лестница",
+      "color": "#a1b4c7",
+      "x": 2496,
+      "y": 2336,
+      "w": 1,
+      "h": 8,
+      "layerId": "layer-actors",
+      "blocking": {
+        "roomId": "5189b174-0834-5068-a2f3-98dea0547cf9",
+        "mode": "blueprint"
+      },
+      "attachedRoomId": "a39e360e-bed4-50e3-a4fa-fdd66b0e26b7"
+    },
+    {
+      "id": "c463e9e9-f77c-5ef0-a5bd-70448ccc2b1b",
+      "kind": "platform",
+      "label": "Верхний мост",
+      "color": "#569e91",
+      "x": 3904,
+      "y": 1984,
+      "w": 16,
+      "h": 1,
+      "layerId": "layer-gameplay",
+      "blocking": {
+        "roomId": "5189b174-0834-5068-a2f3-98dea0547cf9",
+        "mode": "solid"
+      },
+      "attachedRoomId": "a39e360e-bed4-50e3-a4fa-fdd66b0e26b7"
+    },
+    {
+      "id": "0b8230aa-bc3d-5479-ac1e-7404fcd2498b",
+      "kind": "ladder",
+      "label": "Лестница",
+      "color": "#a1b4c7",
+      "x": 3872,
+      "y": 1952,
+      "w": 1,
+      "h": 13,
+      "layerId": "layer-actors",
+      "blocking": {
+        "roomId": "5189b174-0834-5068-a2f3-98dea0547cf9",
+        "mode": "blueprint"
+      },
+      "attachedRoomId": "a39e360e-bed4-50e3-a4fa-fdd66b0e26b7"
+    },
+    {
+      "id": "df9ef011-bf66-50ff-a97a-68b7b8bf829f",
+      "kind": "liquid",
+      "label": "Технический резервуар",
+      "color": "#548bb2",
+      "x": 2528,
+      "y": 2496,
+      "w": 40,
+      "h": 3,
+      "layerId": "layer-actors",
+      "blocking": {
+        "roomId": "5189b174-0834-5068-a2f3-98dea0547cf9",
+        "mode": "blueprint"
+      },
+      "attachedRoomId": "a39e360e-bed4-50e3-a4fa-fdd66b0e26b7",
+      "sideTypes": [
+        "waves",
+        "straight",
+        "straight",
+        "straight"
+      ]
+    },
+    {
+      "id": "3ac26ada-b4be-5480-a267-728fe158f771",
+      "kind": "enemy",
+      "label": "Обычный противник",
+      "color": "#d76e7a",
+      "x": 3008,
+      "y": 2112,
+      "w": 1,
+      "h": 1,
+      "layerId": "layer-actors",
+      "blocking": {
+        "roomId": "5189b174-0834-5068-a2f3-98dea0547cf9",
+        "mode": "blueprint"
+      },
+      "attachedRoomId": "a39e360e-bed4-50e3-a4fa-fdd66b0e26b7",
+      "enemyType": "normal"
+    },
+    {
+      "id": "c2ae8548-6bf3-52d6-a9ed-9f537910e927",
+      "kind": "enemy",
+      "label": "Обычный противник",
+      "color": "#d76e7a",
+      "x": 3712,
+      "y": 2112,
+      "w": 1,
+      "h": 1,
+      "layerId": "layer-actors",
+      "blocking": {
+        "roomId": "5189b174-0834-5068-a2f3-98dea0547cf9",
+        "mode": "blueprint"
+      },
+      "attachedRoomId": "a39e360e-bed4-50e3-a4fa-fdd66b0e26b7",
+      "enemyType": "normal"
+    },
+    {
+      "id": "cf626d59-6637-5fea-af96-392b3f591a7f",
+      "kind": "loot",
+      "label": "Модуль рывка · проектная награда",
+      "color": "#bd8cda",
+      "x": 3392,
+      "y": 2336,
+      "w": 1,
+      "h": 1,
+      "layerId": "layer-actors",
+      "blocking": {
+        "roomId": "5189b174-0834-5068-a2f3-98dea0547cf9",
+        "mode": "blueprint"
+      },
+      "attachedRoomId": "a39e360e-bed4-50e3-a4fa-fdd66b0e26b7"
+    },
+    {
+      "id": "2f180318-ebd8-5c5e-aa4c-78d5fbb69b69",
+      "kind": "checkpoint",
+      "label": "Скамья · пост водосбора",
+      "color": "#77c8ad",
+      "x": 4128,
+      "y": 2336,
+      "w": 3,
+      "h": 1,
+      "layerId": "layer-actors",
+      "blocking": {
+        "roomId": "5189b174-0834-5068-a2f3-98dea0547cf9",
+        "mode": "blueprint"
+      },
+      "attachedRoomId": "a39e360e-bed4-50e3-a4fa-fdd66b0e26b7"
+    },
+    {
+      "id": "0f5dd942-0f19-574a-acd7-c152d9de505a",
+      "kind": "note",
+      "label": "ЗАТОПЛЕННЫЙ ВОДОСБОР\nСухой путь сверху · награда снизу",
+      "color": "#e7c278",
+      "x": 2400,
+      "y": 1664,
+      "w": 37,
+      "h": 3,
+      "layerId": "layer-design",
+      "blocking": {
+        "roomId": "5189b174-0834-5068-a2f3-98dea0547cf9",
+        "mode": "none"
+      },
+      "attachedRoomId": "a39e360e-bed4-50e3-a4fa-fdd66b0e26b7",
+      "noteFontSize": 24
+    },
+    {
+      "id": "26043abc-8423-5f9e-a781-89deb4193204",
+      "kind": "note",
+      "label": "Место выдачи Dash\nнужна игровая реализация",
+      "color": "#bd8cda",
+      "x": 2912,
+      "y": 2432,
+      "w": 22,
+      "h": 3,
+      "layerId": "layer-design",
+      "blocking": {
+        "roomId": "5189b174-0834-5068-a2f3-98dea0547cf9",
+        "mode": "none"
+      },
+      "attachedRoomId": "a39e360e-bed4-50e3-a4fa-fdd66b0e26b7",
+      "noteFontSize": 24
+    },
+    {
+      "id": "52fbdf07-86ee-54ef-a845-ca28b89b2d4f",
+      "kind": "platform",
+      "label": "Опора",
+      "color": "#569e91",
+      "x": 4736,
+      "y": 3136,
+      "w": 42,
+      "h": 2,
+      "layerId": "layer-gameplay",
+      "blocking": {
+        "roomId": "15127335-5c76-5b44-a249-cecbac975a52",
+        "mode": "solid"
+      },
+      "attachedRoomId": "775a0b05-831b-5ef5-a374-90317aec509e"
+    },
+    {
+      "id": "bc37ecde-d9b2-535b-a9ff-f0f245d5a156",
+      "kind": "platform",
+      "label": "Опора",
+      "color": "#569e91",
+      "x": 4864,
+      "y": 2816,
+      "w": 26,
+      "h": 1,
+      "layerId": "layer-gameplay",
+      "blocking": {
+        "roomId": "15127335-5c76-5b44-a249-cecbac975a52",
+        "mode": "solid"
+      },
+      "attachedRoomId": "775a0b05-831b-5ef5-a374-90317aec509e"
+    },
+    {
+      "id": "277ad891-99e7-57ac-af0e-36b2674491a3",
+      "kind": "platform",
+      "label": "Опора",
+      "color": "#569e91",
+      "x": 5056,
+      "y": 2496,
+      "w": 22,
+      "h": 1,
+      "layerId": "layer-gameplay",
+      "blocking": {
+        "roomId": "15127335-5c76-5b44-a249-cecbac975a52",
+        "mode": "solid"
+      },
+      "attachedRoomId": "775a0b05-831b-5ef5-a374-90317aec509e"
+    },
+    {
+      "id": "5df834a2-fa92-5445-ae40-c312fd4e098b",
+      "kind": "platform",
+      "label": "Опора",
+      "color": "#569e91",
+      "x": 5024,
+      "y": 2176,
+      "w": 15,
+      "h": 1,
+      "layerId": "layer-gameplay",
+      "blocking": {
+        "roomId": "15127335-5c76-5b44-a249-cecbac975a52",
+        "mode": "solid"
+      },
+      "attachedRoomId": "775a0b05-831b-5ef5-a374-90317aec509e"
+    },
+    {
+      "id": "4eb23f80-7319-593c-a342-3eedca109927",
+      "kind": "platform",
+      "label": "Опора",
+      "color": "#569e91",
+      "x": 5120,
+      "y": 1856,
+      "w": 26,
+      "h": 1,
+      "layerId": "layer-gameplay",
+      "blocking": {
+        "roomId": "15127335-5c76-5b44-a249-cecbac975a52",
+        "mode": "solid"
+      },
+      "attachedRoomId": "775a0b05-831b-5ef5-a374-90317aec509e"
+    },
+    {
+      "id": "e2f82e18-0c71-5476-ae3c-a1e7a3b01917",
+      "kind": "platform",
+      "label": "Верхний мост водосбора",
+      "color": "#569e91",
+      "x": 4736,
+      "y": 1792,
+      "w": 9,
+      "h": 2,
+      "layerId": "layer-gameplay",
+      "blocking": {
+        "roomId": "15127335-5c76-5b44-a249-cecbac975a52",
+        "mode": "solid"
+      },
+      "attachedRoomId": "775a0b05-831b-5ef5-a374-90317aec509e"
+    },
+    {
+      "id": "06800276-4932-5566-af30-9fa785581f1a",
+      "kind": "platform",
+      "label": "Подход к верхнему мосту",
+      "color": "#569e91",
+      "x": 5120,
+      "y": 1792,
+      "w": 5,
+      "h": 2,
+      "layerId": "layer-gameplay",
+      "blocking": {
+        "roomId": "15127335-5c76-5b44-a249-cecbac975a52",
+        "mode": "solid"
+      },
+      "attachedRoomId": "775a0b05-831b-5ef5-a374-90317aec509e"
+    },
+    {
+      "id": "42ec0895-a96a-5e37-a47a-8cd4623f5f1e",
+      "kind": "platform",
+      "label": "Опора",
+      "color": "#569e91",
+      "x": 5312,
+      "y": 1600,
+      "w": 24,
+      "h": 1,
+      "layerId": "layer-gameplay",
+      "blocking": {
+        "roomId": "15127335-5c76-5b44-a249-cecbac975a52",
+        "mode": "solid"
+      },
+      "attachedRoomId": "775a0b05-831b-5ef5-a374-90317aec509e"
+    },
+    {
+      "id": "6eb10fc8-7ba4-5f70-aae6-53c8d19dcba4",
+      "kind": "ladder",
+      "label": "Лестница",
+      "color": "#a1b4c7",
+      "x": 5728,
+      "y": 2784,
+      "w": 1,
+      "h": 11,
+      "layerId": "layer-actors",
+      "blocking": {
+        "roomId": "15127335-5c76-5b44-a249-cecbac975a52",
+        "mode": "blueprint"
+      },
+      "attachedRoomId": "775a0b05-831b-5ef5-a374-90317aec509e"
+    },
+    {
+      "id": "c97f9cd5-23ca-52b0-aeef-66acb842c750",
+      "kind": "ladder",
+      "label": "Лестница",
+      "color": "#a1b4c7",
+      "x": 5024,
+      "y": 2464,
+      "w": 1,
+      "h": 11,
+      "layerId": "layer-actors",
+      "blocking": {
+        "roomId": "15127335-5c76-5b44-a249-cecbac975a52",
+        "mode": "blueprint"
+      },
+      "attachedRoomId": "775a0b05-831b-5ef5-a374-90317aec509e"
+    },
+    {
+      "id": "451ae85c-b815-5685-a184-ea41833212c0",
+      "kind": "ladder",
+      "label": "Лестница",
+      "color": "#a1b4c7",
+      "x": 5536,
+      "y": 2144,
+      "w": 1,
+      "h": 11,
+      "layerId": "layer-actors",
+      "blocking": {
+        "roomId": "15127335-5c76-5b44-a249-cecbac975a52",
+        "mode": "blueprint"
+      },
+      "attachedRoomId": "775a0b05-831b-5ef5-a374-90317aec509e"
+    },
+    {
+      "id": "e3fa260a-6523-5806-abc0-5a2868693017",
+      "kind": "ladder",
+      "label": "Лестница",
+      "color": "#a1b4c7",
+      "x": 5056,
+      "y": 1760,
+      "w": 1,
+      "h": 13,
+      "layerId": "layer-actors",
+      "blocking": {
+        "roomId": "15127335-5c76-5b44-a249-cecbac975a52",
+        "mode": "blueprint"
+      },
+      "attachedRoomId": "775a0b05-831b-5ef5-a374-90317aec509e"
+    },
+    {
+      "id": "5fed2d3a-4624-58b1-a43d-5ceafd2d16e7",
+      "kind": "ladder",
+      "label": "Лестница",
+      "color": "#a1b4c7",
+      "x": 5280,
+      "y": 1568,
+      "w": 1,
+      "h": 9,
+      "layerId": "layer-actors",
+      "blocking": {
+        "roomId": "15127335-5c76-5b44-a249-cecbac975a52",
+        "mode": "blueprint"
+      },
+      "attachedRoomId": "775a0b05-831b-5ef5-a374-90317aec509e"
+    },
+    {
+      "id": "0574d162-0812-5ccd-a715-3ff9128a5514",
+      "kind": "enemy",
+      "label": "Обычный противник",
+      "color": "#d76e7a",
+      "x": 5376,
+      "y": 2784,
+      "w": 1,
+      "h": 1,
+      "layerId": "layer-actors",
+      "blocking": {
+        "roomId": "15127335-5c76-5b44-a249-cecbac975a52",
+        "mode": "blueprint"
+      },
+      "attachedRoomId": "775a0b05-831b-5ef5-a374-90317aec509e",
+      "enemyType": "normal"
+    },
+    {
+      "id": "005dfc86-208a-5d2d-a15a-d2f59123317a",
+      "kind": "enemy",
+      "label": "Обычный противник",
+      "color": "#d76e7a",
+      "x": 5568,
+      "y": 2464,
+      "w": 1,
+      "h": 1,
+      "layerId": "layer-actors",
+      "blocking": {
+        "roomId": "15127335-5c76-5b44-a249-cecbac975a52",
+        "mode": "blueprint"
+      },
+      "attachedRoomId": "775a0b05-831b-5ef5-a374-90317aec509e",
+      "enemyType": "normal"
+    },
+    {
+      "id": "00e6e0fb-cc1c-533d-a1aa-30fdbc73e69d",
+      "kind": "enemy",
+      "label": "Обычный противник",
+      "color": "#d76e7a",
+      "x": 5312,
+      "y": 2144,
+      "w": 1,
+      "h": 1,
+      "layerId": "layer-actors",
+      "blocking": {
+        "roomId": "15127335-5c76-5b44-a249-cecbac975a52",
+        "mode": "blueprint"
+      },
+      "attachedRoomId": "775a0b05-831b-5ef5-a374-90317aec509e",
+      "enemyType": "normal"
+    },
+    {
+      "id": "df9c9900-76dd-5c11-a443-15b83bc3f8b9",
+      "kind": "loot",
+      "label": "Награда за осмотр башни",
+      "color": "#bd8cda",
+      "x": 4896,
+      "y": 1760,
+      "w": 1,
+      "h": 1,
+      "layerId": "layer-actors",
+      "blocking": {
+        "roomId": "15127335-5c76-5b44-a249-cecbac975a52",
+        "mode": "blueprint"
+      },
+      "attachedRoomId": "775a0b05-831b-5ef5-a374-90317aec509e"
+    },
+    {
+      "id": "c03b98a6-4ca1-525f-a773-b6f73641b9fa",
+      "kind": "checkpoint",
+      "label": "Скамья · верхняя площадка",
+      "color": "#77c8ad",
+      "x": 5728,
+      "y": 1824,
+      "w": 3,
+      "h": 1,
+      "layerId": "layer-actors",
+      "blocking": {
+        "roomId": "15127335-5c76-5b44-a249-cecbac975a52",
+        "mode": "blueprint"
+      },
+      "attachedRoomId": "775a0b05-831b-5ef5-a374-90317aec509e"
+    },
+    {
+      "id": "0fc2da4d-cd41-541b-a6f9-7c1328f5dba9",
+      "kind": "note",
+      "label": "БАШНЯ ПРОТИВОВЕСОВ\nПодъём · передышка · верхняя петля",
+      "color": "#e7c278",
+      "x": 4896,
+      "y": 1344,
+      "w": 31,
+      "h": 3,
+      "layerId": "layer-design",
+      "blocking": {
+        "roomId": "15127335-5c76-5b44-a249-cecbac975a52",
+        "mode": "none"
+      },
+      "attachedRoomId": "775a0b05-831b-5ef5-a374-90317aec509e",
+      "noteFontSize": 24
+    },
+    {
+      "id": "65beb02f-3307-59cf-acda-40a7cf5bb3f2",
+      "kind": "note",
+      "label": "Шахта с площадками\nпадение не обнуляет подъём",
+      "color": "#a1b4c7",
+      "x": 5120,
+      "y": 1952,
+      "w": 20,
+      "h": 3,
+      "layerId": "layer-design",
+      "blocking": {
+        "roomId": "15127335-5c76-5b44-a249-cecbac975a52",
+        "mode": "none"
+      },
+      "attachedRoomId": "775a0b05-831b-5ef5-a374-90317aec509e",
+      "noteFontSize": 24
+    },
+    {
+      "id": "d8022aaf-ec76-5326-aa61-55ff9f984dc4",
+      "kind": "note",
+      "label": "Видно следующую\nбезопасную опору",
+      "color": "#a1b4c7",
+      "x": 4864,
+      "y": 2912,
+      "w": 23,
+      "h": 3,
+      "layerId": "layer-design",
+      "blocking": {
+        "roomId": "15127335-5c76-5b44-a249-cecbac975a52",
+        "mode": "none"
+      },
+      "attachedRoomId": "775a0b05-831b-5ef5-a374-90317aec509e",
+      "noteFontSize": 24
+    },
+    {
+      "id": "06788e2d-7851-544d-a2b8-3500e966f361",
+      "kind": "platform",
+      "label": "Основание цеха",
+      "color": "#569e91",
+      "x": 1920,
+      "y": 4512,
+      "w": 82,
+      "h": 2,
+      "layerId": "layer-gameplay",
+      "blocking": {
+        "roomId": "14a5a8dc-2fb7-5077-a0d0-49384bc08946",
+        "mode": "solid"
+      },
+      "attachedRoomId": "27c7eeee-b3d3-5398-ac02-4aca710dfc55"
+    },
+    {
+      "id": "e6c6d7cd-237e-5f8f-ae4c-fcb6300e27d2",
+      "kind": "platform",
+      "label": "Опора",
+      "color": "#569e91",
+      "x": 2560,
+      "y": 4448,
+      "w": 4,
+      "h": 2,
+      "layerId": "layer-gameplay",
+      "blocking": {
+        "roomId": "14a5a8dc-2fb7-5077-a0d0-49384bc08946",
+        "mode": "solid"
+      },
+      "attachedRoomId": "27c7eeee-b3d3-5398-ac02-4aca710dfc55"
+    },
+    {
+      "id": "377fdb4b-716f-5de6-ab41-43822a71fcca",
+      "kind": "platform",
+      "label": "Опора",
+      "color": "#569e91",
+      "x": 2688,
+      "y": 4384,
+      "w": 4,
+      "h": 4,
+      "layerId": "layer-gameplay",
+      "blocking": {
+        "roomId": "14a5a8dc-2fb7-5077-a0d0-49384bc08946",
+        "mode": "solid"
+      },
+      "attachedRoomId": "27c7eeee-b3d3-5398-ac02-4aca710dfc55"
+    },
+    {
+      "id": "39cc2407-ab57-52f3-a98e-fca21dc80676",
+      "kind": "platform",
+      "label": "Помост тяжёлого противника",
+      "color": "#569e91",
+      "x": 2816,
+      "y": 4320,
+      "w": 18,
+      "h": 6,
+      "layerId": "layer-gameplay",
+      "blocking": {
+        "roomId": "14a5a8dc-2fb7-5077-a0d0-49384bc08946",
+        "mode": "solid"
+      },
+      "attachedRoomId": "27c7eeee-b3d3-5398-ac02-4aca710dfc55"
+    },
+    {
+      "id": "96989f7e-79ba-5b35-a034-17ffc33bd1b5",
+      "kind": "platform",
+      "label": "Опора",
+      "color": "#569e91",
+      "x": 3392,
+      "y": 4384,
+      "w": 4,
+      "h": 4,
+      "layerId": "layer-gameplay",
+      "blocking": {
+        "roomId": "14a5a8dc-2fb7-5077-a0d0-49384bc08946",
+        "mode": "solid"
+      },
+      "attachedRoomId": "27c7eeee-b3d3-5398-ac02-4aca710dfc55"
+    },
+    {
+      "id": "3ced1d52-7707-54cd-a993-6fc028a5d2eb",
+      "kind": "platform",
+      "label": "Опора",
+      "color": "#569e91",
+      "x": 3520,
+      "y": 4448,
+      "w": 4,
+      "h": 2,
+      "layerId": "layer-gameplay",
+      "blocking": {
+        "roomId": "14a5a8dc-2fb7-5077-a0d0-49384bc08946",
+        "mode": "solid"
+      },
+      "attachedRoomId": "27c7eeee-b3d3-5398-ac02-4aca710dfc55"
+    },
+    {
+      "id": "d7840a56-0f4f-5cec-a812-f24cbf34e52f",
+      "kind": "platform",
+      "label": "Верхний обход",
+      "color": "#569e91",
+      "x": 2752,
+      "y": 4064,
+      "w": 26,
+      "h": 1,
+      "layerId": "layer-gameplay",
+      "blocking": {
+        "roomId": "14a5a8dc-2fb7-5077-a0d0-49384bc08946",
+        "mode": "solid"
+      },
+      "attachedRoomId": "27c7eeee-b3d3-5398-ac02-4aca710dfc55"
+    },
+    {
+      "id": "9270f019-f3b3-5a70-a0ad-865f857fb4d0",
+      "kind": "ladder",
+      "label": "Лестница",
+      "color": "#a1b4c7",
+      "x": 2688,
+      "y": 4032,
+      "w": 1,
+      "h": 11,
+      "layerId": "layer-actors",
+      "blocking": {
+        "roomId": "14a5a8dc-2fb7-5077-a0d0-49384bc08946",
+        "mode": "blueprint"
+      },
+      "attachedRoomId": "27c7eeee-b3d3-5398-ac02-4aca710dfc55"
+    },
+    {
+      "id": "4daaf915-59c1-58d6-a135-2835da0bd085",
+      "kind": "ladder",
+      "label": "Лестница",
+      "color": "#a1b4c7",
+      "x": 3616,
+      "y": 4032,
+      "w": 1,
+      "h": 13,
+      "layerId": "layer-actors",
+      "blocking": {
+        "roomId": "14a5a8dc-2fb7-5077-a0d0-49384bc08946",
+        "mode": "blueprint"
+      },
+      "attachedRoomId": "27c7eeee-b3d3-5398-ac02-4aca710dfc55"
+    },
+    {
+      "id": "1aefda6d-401a-5951-aed9-a9580095042a",
+      "kind": "enemy",
+      "label": "Обычный противник",
+      "color": "#d76e7a",
+      "x": 2336,
+      "y": 4480,
+      "w": 1,
+      "h": 1,
+      "layerId": "layer-actors",
+      "blocking": {
+        "roomId": "14a5a8dc-2fb7-5077-a0d0-49384bc08946",
+        "mode": "blueprint"
+      },
+      "attachedRoomId": "27c7eeee-b3d3-5398-ac02-4aca710dfc55",
+      "enemyType": "normal"
+    },
+    {
+      "id": "4385c1d6-a541-524f-ad4d-27f45e99bfdb",
+      "kind": "enemy",
+      "label": "Тяжёлый противник",
+      "color": "#d76e7a",
+      "x": 3040,
+      "y": 4288,
+      "w": 1,
+      "h": 1,
+      "layerId": "layer-actors",
+      "blocking": {
+        "roomId": "14a5a8dc-2fb7-5077-a0d0-49384bc08946",
+        "mode": "blueprint"
+      },
+      "attachedRoomId": "27c7eeee-b3d3-5398-ac02-4aca710dfc55",
+      "enemyType": "heavy"
+    },
+    {
+      "id": "d0fa18e5-abba-5ba2-aef7-d2df39186ba0",
+      "kind": "enemy",
+      "label": "Обычный противник",
+      "color": "#d76e7a",
+      "x": 3936,
+      "y": 4480,
+      "w": 1,
+      "h": 1,
+      "layerId": "layer-actors",
+      "blocking": {
+        "roomId": "14a5a8dc-2fb7-5077-a0d0-49384bc08946",
+        "mode": "blueprint"
+      },
+      "attachedRoomId": "27c7eeee-b3d3-5398-ac02-4aca710dfc55",
+      "enemyType": "normal"
+    },
+    {
+      "id": "5a0bd67d-e6ee-5ae1-aae7-cf9e1fe0320b",
+      "kind": "enemy",
+      "label": "Обычный противник",
+      "color": "#d76e7a",
+      "x": 4192,
+      "y": 4480,
+      "w": 1,
+      "h": 1,
+      "layerId": "layer-actors",
+      "blocking": {
+        "roomId": "14a5a8dc-2fb7-5077-a0d0-49384bc08946",
+        "mode": "blueprint"
+      },
+      "attachedRoomId": "27c7eeee-b3d3-5398-ac02-4aca710dfc55",
+      "enemyType": "normal"
+    },
+    {
+      "id": "46374318-06ad-57e9-ab11-bd73d2d19a0c",
+      "kind": "loot",
+      "label": "Награда за бой на помосте",
+      "color": "#bd8cda",
+      "x": 3072,
+      "y": 4288,
+      "w": 1,
+      "h": 1,
+      "layerId": "layer-actors",
+      "blocking": {
+        "roomId": "14a5a8dc-2fb7-5077-a0d0-49384bc08946",
+        "mode": "blueprint"
+      },
+      "attachedRoomId": "27c7eeee-b3d3-5398-ac02-4aca710dfc55"
+    },
+    {
+      "id": "06ea0a1e-a731-51d6-a09b-834373a3f253",
+      "kind": "loot",
+      "label": "Лут верхнего обхода",
+      "color": "#bd8cda",
+      "x": 3360,
+      "y": 4032,
+      "w": 1,
+      "h": 1,
+      "layerId": "layer-actors",
+      "blocking": {
+        "roomId": "14a5a8dc-2fb7-5077-a0d0-49384bc08946",
+        "mode": "blueprint"
+      },
+      "attachedRoomId": "27c7eeee-b3d3-5398-ac02-4aca710dfc55"
+    },
+    {
+      "id": "c859f254-2f30-5b54-a8df-f2461f0b0381",
+      "kind": "note",
+      "label": "ЦЕХ РЕЗОНАНСА\nПрямой бой или верхний обход",
+      "color": "#e7c278",
+      "x": 2816,
+      "y": 3744,
+      "w": 29,
+      "h": 3,
+      "layerId": "layer-design",
+      "blocking": {
+        "roomId": "14a5a8dc-2fb7-5077-a0d0-49384bc08946",
+        "mode": "none"
+      },
+      "attachedRoomId": "27c7eeee-b3d3-5398-ac02-4aca710dfc55",
+      "noteFontSize": 24
+    },
+    {
+      "id": "dc469d26-1997-5042-ade5-91696c85ba21",
+      "kind": "note",
+      "label": "Знакомый враг\nна ровной площадке",
+      "color": "#a1b4c7",
+      "x": 1984,
+      "y": 3968,
+      "w": 19,
+      "h": 3,
+      "layerId": "layer-design",
+      "blocking": {
+        "roomId": "14a5a8dc-2fb7-5077-a0d0-49384bc08946",
+        "mode": "none"
+      },
+      "attachedRoomId": "27c7eeee-b3d3-5398-ac02-4aca710dfc55",
+      "noteFontSize": 24
+    },
+    {
+      "id": "3de0aabd-e2de-58b6-a4d7-efdf0f1faeae",
+      "kind": "note",
+      "label": "Последняя пара\nзатем безопасный выход",
+      "color": "#a1b4c7",
+      "x": 3744,
+      "y": 3936,
+      "w": 22,
+      "h": 3,
+      "layerId": "layer-design",
+      "blocking": {
+        "roomId": "14a5a8dc-2fb7-5077-a0d0-49384bc08946",
+        "mode": "none"
+      },
+      "attachedRoomId": "27c7eeee-b3d3-5398-ac02-4aca710dfc55",
+      "noteFontSize": 24
+    },
+    {
+      "id": "c53ec3f2-0165-5d6e-a4b2-3a260e4ff56f",
+      "kind": "platform",
+      "label": "Опора",
+      "color": "#569e91",
+      "x": 4928,
+      "y": 4128,
+      "w": 32,
+      "h": 2,
+      "layerId": "layer-gameplay",
+      "blocking": {
+        "roomId": "fc26e686-a7c1-55e2-a1af-aadfdb21ed89",
+        "mode": "solid"
+      },
+      "attachedRoomId": "805168ee-b47c-5548-a067-c14eb31e5321"
+    },
+    {
+      "id": "e9c6e0ed-35bf-56fb-a0f8-8c4f7c8f0d31",
+      "kind": "checkpoint",
+      "label": "Скамья · перед ареной",
+      "color": "#77c8ad",
+      "x": 5184,
+      "y": 4096,
+      "w": 3,
+      "h": 1,
+      "layerId": "layer-actors",
+      "blocking": {
+        "roomId": "fc26e686-a7c1-55e2-a1af-aadfdb21ed89",
+        "mode": "blueprint"
+      },
+      "attachedRoomId": "805168ee-b47c-5548-a067-c14eb31e5321"
+    },
+    {
+      "id": "ab5049cd-914c-561d-a89f-73fd49662642",
+      "kind": "npc",
+      "label": "Наблюдатель",
+      "color": "#a1b4c7",
+      "x": 5472,
+      "y": 4064,
+      "w": 1,
+      "h": 2,
+      "layerId": "layer-actors",
+      "blocking": {
+        "roomId": "fc26e686-a7c1-55e2-a1af-aadfdb21ed89",
+        "mode": "blueprint"
+      },
+      "attachedRoomId": "805168ee-b47c-5548-a067-c14eb31e5321",
+      "npcRole": "npc"
+    },
+    {
+      "id": "f073f0a7-9866-53e0-ac55-70528e528a71",
+      "kind": "note",
+      "label": "ПОСТ НАБЛЮДАТЕЛЯ\nОтдохнуть перед ареной",
+      "color": "#91c9b8",
+      "x": 5184,
+      "y": 3744,
+      "w": 17,
+      "h": 3,
+      "layerId": "layer-design",
+      "blocking": {
+        "roomId": "fc26e686-a7c1-55e2-a1af-aadfdb21ed89",
+        "mode": "none"
+      },
+      "attachedRoomId": "805168ee-b47c-5548-a067-c14eb31e5321",
+      "noteFontSize": 24
+    },
+    {
+      "id": "5560cccc-8f7b-5b07-ac6a-4325c727a776",
+      "kind": "platform",
+      "label": "Арена без ям",
+      "color": "#569e91",
+      "x": 6336,
+      "y": 4320,
+      "w": 52,
+      "h": 2,
+      "layerId": "layer-gameplay",
+      "blocking": {
+        "roomId": "77465e03-33ca-5ecc-a1e6-0e32a1cc3e6d",
+        "mode": "solid"
+      },
+      "attachedRoomId": "3388f647-14c9-5cd5-af8b-0f73d469811e"
+    },
+    {
+      "id": "f0710121-940a-5201-a507-6b37e7397d23",
+      "kind": "platform",
+      "label": "Левая полка",
+      "color": "#569e91",
+      "x": 6496,
+      "y": 4064,
+      "w": 6,
+      "h": 1,
+      "layerId": "layer-gameplay",
+      "blocking": {
+        "roomId": "77465e03-33ca-5ecc-a1e6-0e32a1cc3e6d",
+        "mode": "solid"
+      },
+      "attachedRoomId": "3388f647-14c9-5cd5-af8b-0f73d469811e"
+    },
+    {
+      "id": "78b9cc3a-ea6a-55f9-adbe-58bde3e9dad0",
+      "kind": "platform",
+      "label": "Правая полка",
+      "color": "#569e91",
+      "x": 7648,
+      "y": 4064,
+      "w": 6,
+      "h": 1,
+      "layerId": "layer-gameplay",
+      "blocking": {
+        "roomId": "77465e03-33ca-5ecc-a1e6-0e32a1cc3e6d",
+        "mode": "solid"
+      },
+      "attachedRoomId": "3388f647-14c9-5cd5-af8b-0f73d469811e"
+    },
+    {
+      "id": "45b20f7d-f7ef-542e-a116-a380982c6873",
+      "kind": "ladder",
+      "label": "Лестница",
+      "color": "#a1b4c7",
+      "x": 6432,
+      "y": 4032,
+      "w": 1,
+      "h": 9,
+      "layerId": "layer-actors",
+      "blocking": {
+        "roomId": "77465e03-33ca-5ecc-a1e6-0e32a1cc3e6d",
+        "mode": "blueprint"
+      },
+      "attachedRoomId": "3388f647-14c9-5cd5-af8b-0f73d469811e"
+    },
+    {
+      "id": "54d0a20b-8198-564b-ac1b-4c8063a10d8a",
+      "kind": "ladder",
+      "label": "Лестница",
+      "color": "#a1b4c7",
+      "x": 7872,
+      "y": 4032,
+      "w": 1,
+      "h": 9,
+      "layerId": "layer-actors",
+      "blocking": {
+        "roomId": "77465e03-33ca-5ecc-a1e6-0e32a1cc3e6d",
+        "mode": "blueprint"
+      },
+      "attachedRoomId": "3388f647-14c9-5cd5-af8b-0f73d469811e"
+    },
+    {
+      "id": "291cafb1-589b-5054-ac1d-aa6f16194c65",
+      "kind": "boss",
+      "label": "СМОТРИТЕЛЬ РЕЗОНАТОРА",
+      "color": "#d76e7a",
+      "x": 7328,
+      "y": 4192,
+      "w": 4,
+      "h": 4,
+      "layerId": "layer-actors",
+      "blocking": {
+        "roomId": "77465e03-33ca-5ecc-a1e6-0e32a1cc3e6d",
+        "mode": "blueprint"
+      },
+      "attachedRoomId": "3388f647-14c9-5cd5-af8b-0f73d469811e"
+    },
+    {
+      "id": "39a6da6d-816e-512e-a057-e729959bdd73",
+      "kind": "goal",
+      "label": "Финальный сигнал",
+      "color": "#e7c278",
+      "x": 7840,
+      "y": 4256,
+      "w": 2,
+      "h": 2,
+      "layerId": "layer-actors",
+      "blocking": {
+        "roomId": "77465e03-33ca-5ecc-a1e6-0e32a1cc3e6d",
+        "mode": "blueprint"
+      },
+      "attachedRoomId": "3388f647-14c9-5cd5-af8b-0f73d469811e"
+    },
+    {
+      "id": "12165a4e-022a-5f6b-afa6-fce1218d18ba",
+      "kind": "note",
+      "label": "СЕРДЦЕ РЕЗОНАТОРА\nШирокая арена · свободный центр",
+      "color": "#df8166",
+      "x": 6816,
+      "y": 3744,
+      "w": 24,
+      "h": 3,
+      "layerId": "layer-design",
+      "blocking": {
+        "roomId": "77465e03-33ca-5ecc-a1e6-0e32a1cc3e6d",
+        "mode": "none"
+      },
+      "attachedRoomId": "3388f647-14c9-5cd5-af8b-0f73d469811e",
+      "noteFontSize": 24
+    },
+    {
+      "id": "ed9da699-c399-50b2-a14c-bd79ee4ae796",
+      "kind": "note",
+      "label": "36 клеток для боя\nвход вне контакта с боссом",
+      "color": "#a1b4c7",
+      "x": 6752,
+      "y": 3904,
+      "w": 20,
+      "h": 3,
+      "layerId": "layer-design",
+      "blocking": {
+        "roomId": "77465e03-33ca-5ecc-a1e6-0e32a1cc3e6d",
+        "mode": "none"
+      },
+      "attachedRoomId": "3388f647-14c9-5cd5-af8b-0f73d469811e",
+      "noteFontSize": 24
+    }
+  ],
+  "paths": [
+    {
+      "id": "870ca650-3457-544e-ae35-e7ec8909b75c",
+      "kind": "arrow",
+      "layerId": "layer-design",
+      "color": "#e7c278",
+      "from": {
+        "x": 224,
+        "y": 480
+      },
+      "to": {
+        "x": 704,
+        "y": 480
+      }
+    },
+    {
+      "id": "2b42922d-e098-5199-a844-eeb9ab08ec4d",
+      "kind": "arrow",
+      "layerId": "layer-design",
+      "color": "#e7c278",
+      "from": {
+        "x": 704,
+        "y": 480
+      },
+      "to": {
+        "x": 1376,
+        "y": 480
+      }
+    },
+    {
+      "id": "65170fee-6f87-5994-aa3a-939010bd2401",
+      "kind": "arrow",
+      "layerId": "layer-design",
+      "color": "#75c5be",
+      "from": {
+        "x": 1376,
+        "y": 256
+      },
+      "to": {
+        "x": 992,
+        "y": 256
+      }
+    },
+    {
+      "id": "206f62aa-e4b4-5b7a-a614-1afed7234bc0",
+      "kind": "arrow",
+      "layerId": "layer-design",
+      "color": "#e7c278",
+      "from": {
+        "x": 2016,
+        "y": 576
+      },
+      "to": {
+        "x": 2560,
+        "y": 576
+      }
+    },
+    {
+      "id": "001f3d9b-7d14-5d53-a230-1395f4f1ae07",
+      "kind": "arrow",
+      "layerId": "layer-design",
+      "color": "#e7c278",
+      "from": {
+        "x": 2560,
+        "y": 576
+      },
+      "to": {
+        "x": 2848,
+        "y": 512
+      }
+    },
+    {
+      "id": "61ab55b0-f57b-55b9-ab00-5393673f4304",
+      "kind": "arrow",
+      "layerId": "layer-design",
+      "color": "#e7c278",
+      "from": {
+        "x": 2848,
+        "y": 512
+      },
+      "to": {
+        "x": 3296,
+        "y": 512
+      }
+    },
+    {
+      "id": "56ce23bd-aee6-5821-a268-4762ff7bc200",
+      "kind": "arrow",
+      "layerId": "layer-design",
+      "color": "#e7c278",
+      "from": {
+        "x": 3296,
+        "y": 512
+      },
+      "to": {
+        "x": 3648,
+        "y": 576
+      }
+    },
+    {
+      "id": "d13fac33-807a-508f-a56f-828f6568dbd4",
+      "kind": "arrow",
+      "layerId": "layer-design",
+      "color": "#e7c278",
+      "from": {
+        "x": 3648,
+        "y": 576
+      },
+      "to": {
+        "x": 4224,
+        "y": 576
+      }
+    },
+    {
+      "id": "c8509d4c-eb23-5264-a998-8fa2f9f9441c",
+      "kind": "arrow",
+      "layerId": "layer-design",
+      "color": "#75c5be",
+      "from": {
+        "x": 3936,
+        "y": 288
+      },
+      "to": {
+        "x": 3456,
+        "y": 288
+      }
+    },
+    {
+      "id": "773ba4fd-e272-587b-a848-091e6f7a103c",
+      "kind": "arrow",
+      "layerId": "layer-design",
+      "color": "#75c5be",
+      "from": {
+        "x": 3456,
+        "y": 288
+      },
+      "to": {
+        "x": 3168,
+        "y": 224
+      }
+    },
+    {
+      "id": "390e8af5-1395-5f05-a350-ce3a88a6c374",
+      "kind": "arrow",
+      "layerId": "layer-design",
+      "color": "#75c5be",
+      "from": {
+        "x": 3168,
+        "y": 224
+      },
+      "to": {
+        "x": 2816,
+        "y": 224
+      }
+    },
+    {
+      "id": "6452b0a8-176f-5f1a-a3e0-fafdbba1c033",
+      "kind": "arrow",
+      "layerId": "layer-design",
+      "color": "#75c5be",
+      "from": {
+        "x": 2816,
+        "y": 224
+      },
+      "to": {
+        "x": 2560,
+        "y": 288
+      }
+    },
+    {
+      "id": "04f0f55c-e2a1-51e2-a830-67f98df965ca",
+      "kind": "arrow",
+      "layerId": "layer-design",
+      "color": "#75c5be",
+      "from": {
+        "x": 2560,
+        "y": 288
+      },
+      "to": {
+        "x": 2272,
+        "y": 288
+      }
+    },
+    {
+      "id": "abccb315-3169-544d-a78d-2a064bd35edc",
+      "kind": "arrow",
+      "layerId": "layer-design",
+      "color": "#75c5be",
+      "from": {
+        "x": 2272,
+        "y": 288
+      },
+      "to": {
+        "x": 2048,
+        "y": 224
+      }
+    },
+    {
+      "id": "b759bc28-9a49-5255-aea0-297889fbea46",
+      "kind": "arrow",
+      "layerId": "layer-design",
+      "color": "#bd8cda",
+      "from": {
+        "x": 4832,
+        "y": 544
+      },
+      "to": {
+        "x": 5088,
+        "y": 480
+      }
+    },
+    {
+      "id": "b9c49283-7b5b-5441-a419-5d3ad2ee4c5e",
+      "kind": "arrow",
+      "layerId": "layer-design",
+      "color": "#bd8cda",
+      "from": {
+        "x": 5088,
+        "y": 480
+      },
+      "to": {
+        "x": 5312,
+        "y": 416
+      }
+    },
+    {
+      "id": "5faaccd2-8adc-5965-a2f8-dec7d1bb3204",
+      "kind": "arrow",
+      "layerId": "layer-design",
+      "color": "#e7c278",
+      "from": {
+        "x": 2016,
+        "y": 2272
+      },
+      "to": {
+        "x": 2304,
+        "y": 2272
+      }
+    },
+    {
+      "id": "f1aad6e9-0c20-5488-a4dc-7fcb6e9b800c",
+      "kind": "arrow",
+      "layerId": "layer-design",
+      "color": "#e7c278",
+      "from": {
+        "x": 2304,
+        "y": 2272
+      },
+      "to": {
+        "x": 2496,
+        "y": 2080
+      }
+    },
+    {
+      "id": "4cd1a46d-4d1b-5f2a-a99a-6e4f833cd297",
+      "kind": "arrow",
+      "layerId": "layer-design",
+      "color": "#e7c278",
+      "from": {
+        "x": 2496,
+        "y": 2080
+      },
+      "to": {
+        "x": 2976,
+        "y": 2048
+      }
+    },
+    {
+      "id": "9f2ae5cc-37d4-537f-ab95-eda6b7624f70",
+      "kind": "arrow",
+      "layerId": "layer-design",
+      "color": "#e7c278",
+      "from": {
+        "x": 2976,
+        "y": 2048
+      },
+      "to": {
+        "x": 3360,
+        "y": 2080
+      }
+    },
+    {
+      "id": "c11f16d1-7179-516c-a61a-ec94cc082f09",
+      "kind": "arrow",
+      "layerId": "layer-design",
+      "color": "#e7c278",
+      "from": {
+        "x": 3360,
+        "y": 2080
+      },
+      "to": {
+        "x": 3712,
+        "y": 2048
+      }
+    },
+    {
+      "id": "d0b96091-dda7-58ae-aecc-de80d8090d83",
+      "kind": "arrow",
+      "layerId": "layer-design",
+      "color": "#e7c278",
+      "from": {
+        "x": 3712,
+        "y": 2048
+      },
+      "to": {
+        "x": 4064,
+        "y": 2240
+      }
+    },
+    {
+      "id": "b8b83bea-808d-59ec-aeea-5922cf7f77f5",
+      "kind": "arrow",
+      "layerId": "layer-design",
+      "color": "#e7c278",
+      "from": {
+        "x": 4064,
+        "y": 2240
+      },
+      "to": {
+        "x": 4288,
+        "y": 2272
+      }
+    },
+    {
+      "id": "b8707a70-7376-543d-a7d7-40525cfb1cea",
+      "kind": "arrow",
+      "layerId": "layer-design",
+      "color": "#bd8cda",
+      "from": {
+        "x": 2752,
+        "y": 2272
+      },
+      "to": {
+        "x": 3104,
+        "y": 2272
+      }
+    },
+    {
+      "id": "dc9d3911-23dd-56f4-afe9-73d18bebbe15",
+      "kind": "arrow",
+      "layerId": "layer-design",
+      "color": "#bd8cda",
+      "from": {
+        "x": 3104,
+        "y": 2272
+      },
+      "to": {
+        "x": 3488,
+        "y": 2272
+      }
+    },
+    {
+      "id": "a8d80be7-c7dc-5cf3-ad3d-0eedd3676e04",
+      "kind": "arrow",
+      "layerId": "layer-design",
+      "color": "#75c5be",
+      "from": {
+        "x": 4288,
+        "y": 1888
+      },
+      "to": {
+        "x": 4000,
+        "y": 1888
+      }
+    },
+    {
+      "id": "f19d1340-5dce-5465-a16d-625ffbfb135c",
+      "kind": "arrow",
+      "layerId": "layer-design",
+      "color": "#e7c278",
+      "from": {
+        "x": 4832,
+        "y": 3040
+      },
+      "to": {
+        "x": 5632,
+        "y": 3040
+      }
+    },
+    {
+      "id": "f31c7794-ab45-55fb-a740-e7fd64977ec7",
+      "kind": "arrow",
+      "layerId": "layer-design",
+      "color": "#e7c278",
+      "from": {
+        "x": 5632,
+        "y": 3040
+      },
+      "to": {
+        "x": 5664,
+        "y": 2720
+      }
+    },
+    {
+      "id": "eb9a3470-77f5-5f3c-aea9-cca95800df1b",
+      "kind": "arrow",
+      "layerId": "layer-design",
+      "color": "#e7c278",
+      "from": {
+        "x": 5664,
+        "y": 2720
+      },
+      "to": {
+        "x": 5088,
+        "y": 2720
+      }
+    },
+    {
+      "id": "1bda28bc-4012-5484-a272-6d462dea2e75",
+      "kind": "arrow",
+      "layerId": "layer-design",
+      "color": "#e7c278",
+      "from": {
+        "x": 5088,
+        "y": 2720
+      },
+      "to": {
+        "x": 5088,
+        "y": 2400
+      }
+    },
+    {
+      "id": "0429f1bd-6c9e-5d40-a115-4b32512fff28",
+      "kind": "arrow",
+      "layerId": "layer-design",
+      "color": "#e7c278",
+      "from": {
+        "x": 5088,
+        "y": 2400
+      },
+      "to": {
+        "x": 5600,
+        "y": 2400
+      }
+    },
+    {
+      "id": "26184429-f64b-51c6-a1f3-acd866c4910e",
+      "kind": "arrow",
+      "layerId": "layer-design",
+      "color": "#e7c278",
+      "from": {
+        "x": 5600,
+        "y": 2400
+      },
+      "to": {
+        "x": 5600,
+        "y": 2080
+      }
+    },
+    {
+      "id": "2ff7833b-c4b6-536a-acc1-1a8098deceec",
+      "kind": "arrow",
+      "layerId": "layer-design",
+      "color": "#e7c278",
+      "from": {
+        "x": 5600,
+        "y": 2080
+      },
+      "to": {
+        "x": 5152,
+        "y": 2080
+      }
+    },
+    {
+      "id": "48287f5f-4937-5bbc-a0cc-93e5ba3f5dfa",
+      "kind": "arrow",
+      "layerId": "layer-design",
+      "color": "#e7c278",
+      "from": {
+        "x": 5152,
+        "y": 2080
+      },
+      "to": {
+        "x": 5152,
+        "y": 1760
+      }
+    },
+    {
+      "id": "fcb35db7-0138-50a3-a7d0-d8ac6936f145",
+      "kind": "arrow",
+      "layerId": "layer-design",
+      "color": "#e7c278",
+      "from": {
+        "x": 5152,
+        "y": 1760
+      },
+      "to": {
+        "x": 5344,
+        "y": 1504
+      }
+    },
+    {
+      "id": "83fb0412-0aed-5e53-a375-1301a2fcf4cc",
+      "kind": "arrow",
+      "layerId": "layer-design",
+      "color": "#e7c278",
+      "from": {
+        "x": 5344,
+        "y": 1504
+      },
+      "to": {
+        "x": 5952,
+        "y": 1504
+      }
+    },
+    {
+      "id": "97d5d134-8f34-52ab-ac80-050e08ce12b0",
+      "kind": "arrow",
+      "layerId": "layer-design",
+      "color": "#75c5be",
+      "from": {
+        "x": 5120,
+        "y": 1696
+      },
+      "to": {
+        "x": 4832,
+        "y": 1696
+      }
+    },
+    {
+      "id": "e504b777-acea-57b5-ae1e-d9c3cbfde7b6",
+      "kind": "arrow",
+      "layerId": "layer-design",
+      "color": "#e7c278",
+      "from": {
+        "x": 2016,
+        "y": 4416
+      },
+      "to": {
+        "x": 2464,
+        "y": 4416
+      }
+    },
+    {
+      "id": "e143a959-b135-5e67-a8fd-9e85f68209fe",
+      "kind": "arrow",
+      "layerId": "layer-design",
+      "color": "#e7c278",
+      "from": {
+        "x": 2464,
+        "y": 4416
+      },
+      "to": {
+        "x": 2720,
+        "y": 4256
+      }
+    },
+    {
+      "id": "087309d6-08f8-5955-a6dd-2edd2ceb5dc1",
+      "kind": "arrow",
+      "layerId": "layer-design",
+      "color": "#e7c278",
+      "from": {
+        "x": 2720,
+        "y": 4256
+      },
+      "to": {
+        "x": 3008,
+        "y": 4224
+      }
+    },
+    {
+      "id": "3a61a82c-950c-5725-a632-2ce2b2f287a9",
+      "kind": "arrow",
+      "layerId": "layer-design",
+      "color": "#e7c278",
+      "from": {
+        "x": 3008,
+        "y": 4224
+      },
+      "to": {
+        "x": 3296,
+        "y": 4224
+      }
+    },
+    {
+      "id": "be869660-a0f8-5931-a0b9-c7a698ee9bb9",
+      "kind": "arrow",
+      "layerId": "layer-design",
+      "color": "#e7c278",
+      "from": {
+        "x": 3296,
+        "y": 4224
+      },
+      "to": {
+        "x": 3552,
+        "y": 4352
+      }
+    },
+    {
+      "id": "8b3cf41d-da98-54e4-aec1-dba5aec22ece",
+      "kind": "arrow",
+      "layerId": "layer-design",
+      "color": "#e7c278",
+      "from": {
+        "x": 3552,
+        "y": 4352
+      },
+      "to": {
+        "x": 3840,
+        "y": 4416
+      }
+    },
+    {
+      "id": "b145d772-f7b2-55c6-a1e1-b3069a2a6595",
+      "kind": "arrow",
+      "layerId": "layer-design",
+      "color": "#e7c278",
+      "from": {
+        "x": 3840,
+        "y": 4416
+      },
+      "to": {
+        "x": 4384,
+        "y": 4416
+      }
+    },
+    {
+      "id": "ee3f25fc-8746-5e32-a479-289a9361e368",
+      "kind": "arrow",
+      "layerId": "layer-design",
+      "color": "#bd8cda",
+      "from": {
+        "x": 2816,
+        "y": 3968
+      },
+      "to": {
+        "x": 3168,
+        "y": 3968
+      }
+    },
+    {
+      "id": "dedfcb69-b36f-58c4-ab74-745dcb558e86",
+      "kind": "arrow",
+      "layerId": "layer-design",
+      "color": "#bd8cda",
+      "from": {
+        "x": 3168,
+        "y": 3968
+      },
+      "to": {
+        "x": 3488,
+        "y": 3968
+      }
+    },
+    {
+      "id": "578fccfc-3595-5f96-a542-7b00074790ba",
+      "kind": "arrow",
+      "layerId": "layer-design",
+      "color": "#e7c278",
+      "from": {
+        "x": 5024,
+        "y": 4032
+      },
+      "to": {
+        "x": 5376,
+        "y": 4032
+      }
+    },
+    {
+      "id": "2a4fc2c9-b38e-5393-a6b1-a984e43fc546",
+      "kind": "arrow",
+      "layerId": "layer-design",
+      "color": "#e7c278",
+      "from": {
+        "x": 5376,
+        "y": 4032
+      },
+      "to": {
+        "x": 5824,
+        "y": 4032
+      }
+    },
+    {
+      "id": "7a06f590-23b3-5f19-acf5-1768dc4a2a72",
+      "kind": "arrow",
+      "layerId": "layer-design",
+      "color": "#e7c278",
+      "from": {
+        "x": 6432,
+        "y": 4224
+      },
+      "to": {
+        "x": 6720,
+        "y": 4224
+      }
+    },
+    {
+      "id": "db38f7b1-5c05-563b-a93c-7cfe4e68e6f0",
+      "kind": "arrow",
+      "layerId": "layer-design",
+      "color": "#e7c278",
+      "from": {
+        "x": 6720,
+        "y": 4224
+      },
+      "to": {
+        "x": 7072,
+        "y": 4224
+      }
+    }
+  ],
+  "world": {
+    "id": "c356465f-68a4-583b-aa13-6412695e1bc9",
+    "regions": [
+      {
+        "id": "ceea25d9-565f-50a1-a411-6fc8631ef5ef",
+        "name": "I · Релейное депо",
+        "description": "Ориентирование, спокойный узел, выбор пути через галерею и необязательный архив.",
+        "color": "#577d85",
+        "graphPosition": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "id": "fd9f20f1-ef4f-5a8d-ad78-d57cb965364b",
+        "name": "II · Водосбор",
+        "description": "Сухие мостки над резервуаром и башня с чередующимися площадками. Промежуточный отдых и верхняя петля возвращения.",
+        "color": "#487a9a",
+        "graphPosition": {
+          "x": 420,
+          "y": 470
+        }
+      },
+      {
+        "id": "fa093e73-513a-56f6-adcc-ccde9b06c8d8",
+        "name": "III · Резонатор",
+        "description": "Выбор между боем на полу и верхним обходом; тихая подготовка перед просторной ареной.",
+        "color": "#967256",
+        "graphPosition": {
+          "x": 420,
+          "y": 940
+        }
+      }
+    ],
+    "rooms": [
+      {
+        "id": "e370ef8b-48bf-5eb3-a95b-acfb3679f698",
+        "name": "01 · Перрон тишины",
+        "description": "Спокойный хаб и ориентир. Слева место появления Q и первая скамья, в центре смотритель депо, справа основной выход в галерею. Верхний балкон ведёт к отдельному возвратному пути. Никаких врагов у старта. Основной пол непрерывен; на балкон ведёт лестница. Размеры — исходная гипотеза, не проверенные метрики движения.",
+        "regionId": "ceea25d9-565f-50a1-a411-6fc8631ef5ef",
+        "graphPosition": {
+          "x": 0,
+          "y": 0
+        },
+        "roomType": "Save",
+        "status": "Blockout",
+        "designSizeCm": {
+          "x": 4800,
+          "z": 2000
+        },
+        "tags": [],
+        "environmentTags": [],
+        "shapeItemId": "3578694a-026c-5939-a711-1fa76fb71fc2",
+        "blockingOrigin": {
+          "x": 0,
+          "y": 640
+        },
+        "entrances": [
+          {
+            "id": "9206ae72-9640-592b-a665-3b725da1327c",
+            "name": "Пробуждение Q",
+            "preservePlayerDepth": true,
+            "overrideFacing": false,
+            "faceRight": true,
+            "maximumPlacementAdjustmentCm": 50
+          },
+          {
+            "id": "598208a1-8529-5a3b-a89b-39102240ad5b",
+            "name": "Верхний возврат",
+            "preservePlayerDepth": true,
+            "overrideFacing": false,
+            "faceRight": false,
+            "maximumPlacementAdjustmentCm": 50
+          }
+        ],
+        "exits": [
+          {
+            "id": "e7c04e3d-44c7-5a9c-a735-8ea7afc5879f",
+            "name": "В галерею",
+            "preservePlayerDepth": true,
+            "overrideFacing": false,
+            "faceRight": false,
+            "maximumPlacementAdjustmentCm": 50,
+            "connection": {
+              "enabled": true,
+              "targetRoomId": "c630d396-052a-54af-a4e9-3bd5a35ee356",
+              "targetEntranceId": "f56888aa-7d20-5148-a88d-5acf696fba7c",
+              "type": "Passage",
+              "requiredTags": [],
+              "blockedTags": [],
+              "requiredAbilities": [],
+              "fadeDuration": 0.5
+            },
+            "graphStyle": {
+              "color": "#e7c278",
+              "lineStyle": "solid"
+            }
+          }
+        ]
+      },
+      {
+        "id": "c630d396-052a-54af-a4e9-3bd5a35ee356",
+        "name": "02 · Галерея конвейеров",
+        "description": "Три последовательных пролёта: один враг на ровном полу; приподнятая площадка осмотра со следующим противником; пара противников в широком последнем пролёте. Основной путь идёт по полу с невысокими ступенями. Верхние мостки — необязательный обход, награда за исследование и отдельный возврат на перрон. Архив за рывком виден заранее. У входов свободные площадки.",
+        "regionId": "ceea25d9-565f-50a1-a411-6fc8631ef5ef",
+        "graphPosition": {
+          "x": 420,
+          "y": 0
+        },
+        "roomType": "Combat",
+        "status": "Blockout",
+        "designSizeCm": {
+          "x": 7600,
+          "z": 2400
+        },
+        "tags": [],
+        "environmentTags": [],
+        "shapeItemId": "759503de-e669-5045-af5b-5ac9ea4eaca2",
+        "blockingOrigin": {
+          "x": 1920,
+          "y": 768
+        },
+        "entrances": [
+          {
+            "id": "f56888aa-7d20-5148-a88d-5acf696fba7c",
+            "name": "С перрона",
+            "preservePlayerDepth": true,
+            "overrideFacing": false,
+            "faceRight": true,
+            "maximumPlacementAdjustmentCm": 50
+          }
+        ],
+        "exits": [
+          {
+            "id": "fbcd61c3-fb27-5f98-a34f-de658396b217",
+            "name": "Балкон перрона",
+            "preservePlayerDepth": true,
+            "overrideFacing": false,
+            "faceRight": true,
+            "maximumPlacementAdjustmentCm": 50,
+            "connection": {
+              "enabled": true,
+              "targetRoomId": "e370ef8b-48bf-5eb3-a95b-acfb3679f698",
+              "targetEntranceId": "598208a1-8529-5a3b-a89b-39102240ad5b",
+              "type": "Passage",
+              "requiredTags": [],
+              "blockedTags": [],
+              "requiredAbilities": [],
+              "fadeDuration": 0.5
+            },
+            "graphStyle": {
+              "color": "#75c5be",
+              "lineStyle": "dashed"
+            }
+          },
+          {
+            "id": "7c60da14-ebf3-59a4-a01c-54444ca4aff3",
+            "name": "К водосбору",
+            "preservePlayerDepth": true,
+            "overrideFacing": false,
+            "faceRight": false,
+            "maximumPlacementAdjustmentCm": 50,
+            "connection": {
+              "enabled": true,
+              "targetRoomId": "5189b174-0834-5068-a2f3-98dea0547cf9",
+              "targetEntranceId": "0b31b2f5-7302-53d0-a693-3ff4bd021cad",
+              "type": "Passage",
+              "requiredTags": [],
+              "blockedTags": [],
+              "requiredAbilities": [],
+              "fadeDuration": 0.5
+            },
+            "graphStyle": {
+              "color": "#e7c278",
+              "lineStyle": "solid"
+            }
+          },
+          {
+            "id": "afad3fcb-f6c8-5d56-ab31-6876bc7afcb2",
+            "name": "Архив · рывок",
+            "preservePlayerDepth": true,
+            "overrideFacing": false,
+            "faceRight": false,
+            "maximumPlacementAdjustmentCm": 50,
+            "connection": {
+              "enabled": true,
+              "targetRoomId": "a5691222-6417-5147-a745-411952166285",
+              "targetEntranceId": "a9f59f86-e74e-513f-a678-5dc869b6b619",
+              "type": "Door",
+              "requiredTags": [],
+              "blockedTags": [],
+              "requiredAbilities": [
+                "Dash"
+              ],
+              "fadeDuration": 0.5
+            },
+            "graphStyle": {
+              "color": "#bd8cda",
+              "lineStyle": "dashed"
+            }
+          }
+        ]
+      },
+      {
+        "id": "a5691222-6417-5147-a745-411952166285",
+        "name": "03 · Архив эха",
+        "description": "Необязательная награда за возвращение с рывком. Тихая комната памяти: центральный NPC и верхняя ниша с лутом, к которой есть лестница. Не нужна для завершения основного маршрута. Условие Dash действительно записано на переходе; выдача способности в водосборе пока только дизайнерская пометка.",
+        "regionId": "ceea25d9-565f-50a1-a411-6fc8631ef5ef",
+        "graphPosition": {
+          "x": 840,
+          "y": 0
+        },
+        "roomType": "Secret",
+        "status": "Blockout",
+        "designSizeCm": {
+          "x": 3800,
+          "z": 2400
+        },
+        "tags": [],
+        "environmentTags": [],
+        "shapeItemId": "e9868bda-0c94-59a8-a2c7-2ea8231919c3",
+        "blockingOrigin": {
+          "x": 4736,
+          "y": 768
+        },
+        "entrances": [
+          {
+            "id": "a9f59f86-e74e-513f-a678-5dc869b6b619",
+            "name": "Из галереи",
+            "preservePlayerDepth": true,
+            "overrideFacing": false,
+            "faceRight": true,
+            "maximumPlacementAdjustmentCm": 50
+          }
+        ],
+        "exits": []
+      },
+      {
+        "id": "5189b174-0834-5068-a2f3-98dea0547cf9",
+        "name": "04 · Затопленный водосбор",
+        "description": "Сначала безопасный обзор резервуара, затем сухой путь по широким мосткам. Под ними находятся страховочные площадки и лестницы возвращения, а не обязательная смерть при ошибке. Нижняя ветка содержит проектную награду «модуль рывка»; выдача способности не реализована конструктором. Справа сухой пост со скамьёй. Верхний путь связывается с отдельной площадкой башни и образует петлю.",
+        "regionId": "fd9f20f1-ef4f-5a8d-ad78-d57cb965364b",
+        "graphPosition": {
+          "x": 420,
+          "y": 470
+        },
+        "roomType": "Normal",
+        "status": "Blockout",
+        "designSizeCm": {
+          "x": 7800,
+          "z": 3200
+        },
+        "tags": [],
+        "environmentTags": [],
+        "shapeItemId": "a39e360e-bed4-50e3-a4fa-fdd66b0e26b7",
+        "blockingOrigin": {
+          "x": 1920,
+          "y": 2624
+        },
+        "entrances": [
+          {
+            "id": "0b31b2f5-7302-53d0-a693-3ff4bd021cad",
+            "name": "Из галереи",
+            "preservePlayerDepth": true,
+            "overrideFacing": false,
+            "faceRight": true,
+            "maximumPlacementAdjustmentCm": 50
+          },
+          {
+            "id": "fd07702c-55fd-5fec-a485-70396e67d65e",
+            "name": "Верхний мост башни",
+            "preservePlayerDepth": true,
+            "overrideFacing": false,
+            "faceRight": false,
+            "maximumPlacementAdjustmentCm": 50
+          }
+        ],
+        "exits": [
+          {
+            "id": "b1f04082-82d4-51ec-a090-80e0bfc6f97b",
+            "name": "К основанию башни",
+            "preservePlayerDepth": true,
+            "overrideFacing": false,
+            "faceRight": false,
+            "maximumPlacementAdjustmentCm": 50,
+            "connection": {
+              "enabled": true,
+              "targetRoomId": "15127335-5c76-5b44-a249-cecbac975a52",
+              "targetEntranceId": "e5922caf-729f-598c-a8b1-621a9ee0f916",
+              "type": "Passage",
+              "requiredTags": [],
+              "blockedTags": [],
+              "requiredAbilities": [],
+              "fadeDuration": 0.5
+            },
+            "graphStyle": {
+              "color": "#e7c278",
+              "lineStyle": "solid"
+            }
+          }
+        ]
+      },
+      {
+        "id": "15127335-5c76-5b44-a249-cecbac975a52",
+        "name": "05 · Башня противовесов",
+        "description": "Высокий зал с узкой средней шахтой и пятью чередующимися площадками. Основной подъём идёт по существующим лестницам; каждый выход с лестницы имеет место для осмотра. Враги размещены на широких площадках, вдали от их верхних точек. На верхней трети — отдых и проход обратно на верх водосбора. Никакой обязательной механики нового лифта нет.",
+        "regionId": "fd9f20f1-ef4f-5a8d-ad78-d57cb965364b",
+        "graphPosition": {
+          "x": 840,
+          "y": 470
+        },
+        "roomType": "Normal",
+        "status": "Blockout",
+        "designSizeCm": {
+          "x": 4200,
+          "z": 6000
+        },
+        "tags": [],
+        "environmentTags": [],
+        "shapeItemId": "775a0b05-831b-5ef5-a374-90317aec509e",
+        "blockingOrigin": {
+          "x": 4736,
+          "y": 3200
+        },
+        "entrances": [
+          {
+            "id": "e5922caf-729f-598c-a8b1-621a9ee0f916",
+            "name": "Из нижнего водосбора",
+            "preservePlayerDepth": true,
+            "overrideFacing": false,
+            "faceRight": true,
+            "maximumPlacementAdjustmentCm": 50
+          }
+        ],
+        "exits": [
+          {
+            "id": "446408d8-f864-580a-a737-29d5470977fc",
+            "name": "Верхний мост водосбора",
+            "preservePlayerDepth": true,
+            "overrideFacing": false,
+            "faceRight": true,
+            "maximumPlacementAdjustmentCm": 50,
+            "connection": {
+              "enabled": true,
+              "targetRoomId": "5189b174-0834-5068-a2f3-98dea0547cf9",
+              "targetEntranceId": "fd07702c-55fd-5fec-a485-70396e67d65e",
+              "type": "Passage",
+              "requiredTags": [],
+              "blockedTags": [],
+              "requiredAbilities": [],
+              "fadeDuration": 0.5
+            },
+            "graphStyle": {
+              "color": "#75c5be",
+              "lineStyle": "dashed"
+            }
+          },
+          {
+            "id": "fb51b2b2-94fd-54e3-aa48-b884f9652ab5",
+            "name": "К цеху резонанса",
+            "preservePlayerDepth": true,
+            "overrideFacing": false,
+            "faceRight": false,
+            "maximumPlacementAdjustmentCm": 50,
+            "connection": {
+              "enabled": true,
+              "targetRoomId": "14a5a8dc-2fb7-5077-a0d0-49384bc08946",
+              "targetEntranceId": "ec4263ed-7950-57e3-aa6e-a632308b9e2d",
+              "type": "Passage",
+              "requiredTags": [],
+              "blockedTags": [],
+              "requiredAbilities": [],
+              "fadeDuration": 0.5
+            },
+            "graphStyle": {
+              "color": "#e7c278",
+              "lineStyle": "solid"
+            }
+          }
+        ]
+      },
+      {
+        "id": "14a5a8dc-2fb7-5077-a0d0-49384bc08946",
+        "name": "06 · Цех резонанса",
+        "description": "Три двора вокруг центральной машины. Знакомый враг встречается отдельно; тяжёлый противник стоит на широком помосте с двумя путями отступления; пара обычных завершает участок. В центре можно выбрать прямой бой или необязательный верхний обход. После боя — спокойный выход к посту.",
+        "regionId": "fa093e73-513a-56f6-adcc-ccde9b06c8d8",
+        "graphPosition": {
+          "x": 420,
+          "y": 940
+        },
+        "roomType": "Combat",
+        "status": "Blockout",
+        "designSizeCm": {
+          "x": 8200,
+          "z": 2800
+        },
+        "tags": [],
+        "environmentTags": [],
+        "shapeItemId": "27c7eeee-b3d3-5398-ac02-4aca710dfc55",
+        "blockingOrigin": {
+          "x": 1920,
+          "y": 4576
+        },
+        "entrances": [
+          {
+            "id": "ec4263ed-7950-57e3-aa6e-a632308b9e2d",
+            "name": "Из башни",
+            "preservePlayerDepth": true,
+            "overrideFacing": false,
+            "faceRight": true,
+            "maximumPlacementAdjustmentCm": 50
+          }
+        ],
+        "exits": [
+          {
+            "id": "f1460f3f-8712-585b-aeec-17a778daceaa",
+            "name": "К посту наблюдателя",
+            "preservePlayerDepth": true,
+            "overrideFacing": false,
+            "faceRight": false,
+            "maximumPlacementAdjustmentCm": 50,
+            "connection": {
+              "enabled": true,
+              "targetRoomId": "fc26e686-a7c1-55e2-a1af-aadfdb21ed89",
+              "targetEntranceId": "7cf3ea3e-f5cb-5579-a869-cd9cb51be3f8",
+              "type": "Passage",
+              "requiredTags": [],
+              "blockedTags": [],
+              "requiredAbilities": [],
+              "fadeDuration": 0.5
+            },
+            "graphStyle": {
+              "color": "#e7c278",
+              "lineStyle": "solid"
+            }
+          }
+        ]
+      },
+      {
+        "id": "fc26e686-a7c1-55e2-a1af-aadfdb21ed89",
+        "name": "07 · Пост наблюдателя",
+        "description": "Короткая безопасная пауза перед боссом. Скамья, NPC и видимый выход к арене. Прямой ровный маршрут без противников и платформинга обеспечивает короткое повторное возвращение к боссу.",
+        "regionId": "fa093e73-513a-56f6-adcc-ccde9b06c8d8",
+        "graphPosition": {
+          "x": 840,
+          "y": 940
+        },
+        "roomType": "Save",
+        "status": "Blockout",
+        "designSizeCm": {
+          "x": 3200,
+          "z": 1600
+        },
+        "tags": [],
+        "environmentTags": [],
+        "shapeItemId": "805168ee-b47c-5548-a067-c14eb31e5321",
+        "blockingOrigin": {
+          "x": 4928,
+          "y": 4192
+        },
+        "entrances": [
+          {
+            "id": "7cf3ea3e-f5cb-5579-a869-cd9cb51be3f8",
+            "name": "Из цеха",
+            "preservePlayerDepth": true,
+            "overrideFacing": false,
+            "faceRight": true,
+            "maximumPlacementAdjustmentCm": 50
+          }
+        ],
+        "exits": [
+          {
+            "id": "529a3a4d-12d8-571a-ab14-b2613fa8196c",
+            "name": "К сердцу резонатора",
+            "preservePlayerDepth": true,
+            "overrideFacing": false,
+            "faceRight": false,
+            "maximumPlacementAdjustmentCm": 50,
+            "connection": {
+              "enabled": true,
+              "targetRoomId": "77465e03-33ca-5ecc-a1e6-0e32a1cc3e6d",
+              "targetEntranceId": "9f0e2781-7e2c-5353-aa88-585504a70a7e",
+              "type": "Door",
+              "requiredTags": [],
+              "blockedTags": [],
+              "requiredAbilities": [],
+              "fadeDuration": 0.5
+            },
+            "graphStyle": {
+              "color": "#e7c278",
+              "lineStyle": "solid"
+            }
+          }
+        ]
+      },
+      {
+        "id": "77465e03-33ca-5ecc-a1e6-0e32a1cc3e6d",
+        "name": "08 · Сердце резонатора",
+        "description": "Широкая арена без ям и контакта с врагом сразу после входа. Основная боевая полоса 36 клеток, края оставлены для отступления. Две боковые полки дают варианты позиции; центр свободен. Босс и финальный сигнал обозначены маркерами. Запирание арены, награда за победу и поведение босса пока не симулируются.",
+        "regionId": "fa093e73-513a-56f6-adcc-ccde9b06c8d8",
+        "graphPosition": {
+          "x": 1260,
+          "y": 940
+        },
+        "roomType": "Boss",
+        "status": "Blockout",
+        "designSizeCm": {
+          "x": 5200,
+          "z": 2200
+        },
+        "tags": [],
+        "environmentTags": [],
+        "shapeItemId": "3388f647-14c9-5cd5-af8b-0f73d469811e",
+        "blockingOrigin": {
+          "x": 6336,
+          "y": 4384
+        },
+        "entrances": [
+          {
+            "id": "9f0e2781-7e2c-5353-aa88-585504a70a7e",
+            "name": "С поста наблюдателя",
+            "preservePlayerDepth": true,
+            "overrideFacing": false,
+            "faceRight": true,
+            "maximumPlacementAdjustmentCm": 50
+          }
+        ],
+        "exits": []
+      }
+    ],
+    "start": {
+      "roomId": "e370ef8b-48bf-5eb3-a95b-acfb3679f698",
+      "entranceId": "9206ae72-9640-592b-a665-3b725da1327c"
+    },
+    "startGraphPosition": {
+      "x": -290,
+      "y": 30
+    },
+    "settings": {
+      "assetFolder": "/Game/Worlds",
+      "transitionTimeout": 45,
+      "useRoomGraphForPlayerMap": true
+    }
+  },
+  "blocking": {
+    "version": 1,
+    "enabled": false,
+    "centimetersPerCell": 100,
+    "depthCm": 200,
+    "wallThicknessCm": 20
+  }
+}
