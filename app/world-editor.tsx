@@ -225,7 +225,7 @@ export default function WorldEditor({ world, onChange, shapes, onOpenBlockout, o
   };
   const beginPan = (event: PointerEvent<HTMLDivElement>) => {
     if (wireGesture.current) return;
-    if (event.button !== 1 && (event.button !== 0 || event.target !== event.currentTarget)) return;
+    if (event.button !== 2 && event.button !== 1 && (event.button !== 0 || event.target !== event.currentTarget)) return;
     event.preventDefault();
     gesture.current = { kind: "pan", from: { x: event.clientX, y: event.clientY }, origin: pan, moved: false };
     event.currentTarget.setPointerCapture(event.pointerId);
@@ -273,12 +273,12 @@ export default function WorldEditor({ world, onChange, shapes, onOpenBlockout, o
     const current = gesture.current;
     if (!current) return;
     const delta = { x: event.clientX - current.from.x, y: event.clientY - current.from.y };
-    if (Math.hypot(delta.x, delta.y) < 3 && !current.moved) return;
-    current.moved = true;
     if (current.kind === "pan") {
       setPan({ x: current.origin.x + delta.x, y: current.origin.y + delta.y });
       return;
     }
+    if (Math.hypot(delta.x, delta.y) < 3 && !current.moved) return;
+    current.moved = true;
     const next: Draft = { kind: current.kind, id: current.id, position: {
       x: Math.round((current.origin.x + delta.x / zoom) / 16) * 16,
       y: Math.round((current.origin.y + delta.y / zoom) / 16) * 16,
@@ -492,6 +492,7 @@ export default function WorldEditor({ world, onChange, shapes, onOpenBlockout, o
         <button className={`we-validation-toggle ${errorCount ? "has-errors" : issues.length ? "has-warnings" : "is-valid"}`} onClick={() => setShowIssues(value => !value)} aria-expanded={showIssues}>{errorCount ? `● Ошибки: ${errorCount}` : issues.length ? `○ Проверка: ${issues.length}` : "✓ Связи в порядке"}</button>
       </div>
       <div className={`we-viewport ${activeLink ? "is-connecting" : ""} ${wire ? "is-wiring" : ""}`} ref={viewport} onWheel={wheel} onPointerDown={beginPan} onPointerMove={move}
+        onContextMenu={event => event.preventDefault()}
         onPointerUp={event => { if (wireGesture.current) finishWire(event); else finishDrag(); }}
         onPointerCancel={event => { if (wireGesture.current) finishWire(event, true); else finishDrag(true); }}
         onLostPointerCapture={event => { if (wireGesture.current?.pointerId === event.pointerId) cancelConnection(); else if (gesture.current) finishDrag(true); }}
@@ -580,7 +581,7 @@ export default function WorldEditor({ world, onChange, shapes, onOpenBlockout, o
         <div className="we-zoom"><button onClick={() => changeZoom(zoom / 1.2)} aria-label="Уменьшить масштаб">−</button><button onClick={() => changeZoom(1)} aria-label="Масштаб 100 процентов">{Math.round(zoom * 100)}%</button><button onClick={() => changeZoom(zoom * 1.2)} aria-label="Увеличить масштаб">+</button></div>
       </div>
       {notice && <div className="we-notice" role="alert"><span>{notice}</span><button onClick={() => setNotice("")} aria-label="Закрыть сообщение">×</button></div>}
-      <div className={`we-statusbar ${activeLink ? "is-connecting" : ""}`}><span>{activeLink ? blockedWireTarget ? "Этот вход занят. Выберите свободный вход или отпустите на комнате для создания нового." : activeLink.kind === "start" ? "Перетащите к входу или комнате. Старт может использовать вход с обычным проходом." : "Перетащите к входу или комнате; можно выбрать вход щелчком. Прежняя связь сохранится до подключения." : "Выход → вход или комната — протянуть связь · Колесо — масштаб · Двойной щелчок — открыть комнату"}</span>{activeLink && <button onClick={() => { cancelConnection(); setNotice(""); }}>Отмена <kbd>Esc</kbd></button>}</div>
+      <div className={`we-statusbar ${activeLink ? "is-connecting" : ""}`}><span>{activeLink ? blockedWireTarget ? "Этот вход занят. Выберите свободный вход или отпустите на комнате для создания нового." : activeLink.kind === "start" ? "Перетащите к входу или комнате. Старт может использовать вход с обычным проходом." : "Перетащите к входу или комнате; можно выбрать вход щелчком. Прежняя связь сохранится до подключения." : "ПКМ — перемещение · Колесо — масштаб · Двойной щелчок — открыть комнату · Выход → вход — связь"}</span>{activeLink && <button onClick={() => { cancelConnection(); setNotice(""); }}>Отмена <kbd>Esc</kbd></button>}</div>
       {showIssues && <div className="we-issues" aria-label="Проверка мира"><div className="we-issues-heading"><b>Проверка структуры мира</b><button onClick={() => setShowIssues(false)} aria-label="Закрыть проверку">×</button></div><p>Связность проверяется по включённым проходам, без учёта получения способностей и выполнения условий.</p>{issues.length ? <ul>{issues.map((issue, index) => <li key={index}><button className={`we-issue-${issue.severity}`} onClick={() => showIssue(issue)}><span>{issue.severity === "error" ? "!" : "○"}</span>{issue.message}</button></li>)}</ul> : <div className="we-no-issues">✓ Все комнаты связаны, ссылки корректны.</div>}</div>}
     </section>
     <PanelResizeHandle panels={panels} side="right" label="Свойства" />
